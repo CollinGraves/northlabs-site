@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-secondary: #12151c;
+            --bg-tertiary: #1a1e28;
+            --bg-card: #141820;
+            --text-primary: #f0f2f5;
+            --text-secondary: #8b919e;
+            --text-muted: #5c6370;
+            --accent-emerald: #10b981;
+            --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+            --accent-gold: #f59e0b;
+            --accent-gold-dim: rgba(245, 158, 11, 0.12);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .serif {
+            font-family: 'Instrument Serif', Georgia, serif;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mark svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero h1 .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        /* Section styling */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-emerald);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .section-title .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Mission section */
+        .mission-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 6rem 3rem;
+        }
+
+        .mission-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
+        .mission-statement {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.75rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text-primary);
+            border-left: 3px solid var(--accent-emerald);
+            padding-left: 2rem;
+        }
+
+        .mission-detail p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .mission-detail p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Belief section */
+        .belief-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .belief-card {
+            padding: 2.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .belief-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .belief-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-emerald) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .belief-card:hover::before {
+            opacity: 1;
+        }
+
+        .belief-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--accent-emerald);
+            margin-bottom: 1rem;
+        }
+
+        .belief-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .belief-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Founder section */
+        .founder-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 6rem 3rem;
+        }
+
+        .founder-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
+        .founder-card {
+            position: sticky;
+            top: 120px;
+        }
+
+        .founder-avatar {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-card) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 50%);
+            opacity: 0.5;
+        }
+
+        .founder-initials {
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .founder-role {
+            font-size: 1rem;
+            color: var(--accent-emerald);
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .founder-tag {
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .manifesto {
+            padding-top: 0.5rem;
+        }
+
+        .manifesto p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-size: 1.0625rem;
+        }
+
+        .manifesto p:last-child {
+            margin-bottom: 0;
+        }
+
+        .manifesto strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .manifesto-quote {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .manifesto-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-emerald) 0%, transparent 100%);
+            margin: 3rem 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-emerald);
+            color: #000;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #0ea472;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .footer-brand .logo-mark {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-brand .logo-mark svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-card {
+                position: static;
+                max-width: 300px;
+            }
+
+            .belief-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .mission-section,
+            .founder-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            North Labs
+        </a>
+        <div class="nav-links">
+            <a href="/tradesmith">Tradesmith</a>
+            <a href="/about" class="active">About</a>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>We build <span class="serif">intelligence infrastructure</span> for industries that build everything else.</h1>
+        <p class="hero-sub">North Labs creates embedded AI systems that help industrial companies own their intelligence—not rent it from software vendors.</p>
+    </header>
+
+    <section class="mission-section">
+        <div class="mission-inner">
+            <span class="section-label">Our Mission</span>
+            <h2 class="section-title">Making AI a <span class="serif">competitive moat</span>, not a commodity</h2>
+            
+            <div class="mission-grid reveal">
+                <div class="mission-statement">
+                    "Every construction company, manufacturer, and industrial operator should be able to build proprietary AI capabilities—not depend on SaaS vendors who own the intelligence they create."
+                </div>
+                <div class="mission-detail">
+                    <p>The current model is broken. Industrial companies generate enormous amounts of operational data, but the tools they use capture all the value. Your bid history, vendor performance, project outcomes—it all flows into systems that give you dashboards but keep the intelligence.</p>
+                    <p>We believe companies should own their AI infrastructure the same way they own their equipment. Not as a subscription. As an asset that appreciates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">What We Believe</span>
+        <h2 class="section-title">Principles that guide <span class="serif">everything</span> we build</h2>
+        
+        <div class="belief-grid reveal">
+            <div class="belief-card">
+                <div class="belief-number">01</div>
+                <h3>Intelligence should be owned, not rented</h3>
+                <p>When you use most SaaS tools, your data trains their models. Your operational insights become their product advantage. We think that's backwards. The intelligence your operations generate should compound for you.</p>
+            </div>
+            <div class="belief-card">
+                <div class="belief-number">02</div>
+                <h3>Embedded beats bolted-on</h3>
+                <p>Dashboards don't change behavior. Tools people have to remember to check don't get checked. Real intelligence shows up where decisions happen—in email, in meetings, in the systems you already use.</p>
+            </div>
+            <div class="belief-card">
+                <div class="belief-number">03</div>
+                <h3>Partnerships over transactions</h3>
+                <p>Per-seat pricing and feature gates are designed to extract value, not create it. We align our success with yours. When you grow, we grow. When you save money, that's real money—not a line item we're trying to maximize.</p>
+            </div>
+            <div class="belief-card">
+                <div class="belief-number">04</div>
+                <h3>Domain expertise is non-negotiable</h3>
+                <p>AI without industry knowledge is just statistics. We build for industries we understand deeply—where we know the workflows, the pain points, the relationships, and the economics.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="founder-section">
+        <div class="founder-inner">
+            <span class="section-label">Founder</span>
+            <h2 class="section-title">Built by someone who <span class="serif">grew up in the trade</span></h2>
+            
+            <div class="founder-content reveal">
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <span class="founder-initials">CG</span>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Collin Graves</h3>
+                        <div class="founder-role">CEO & Founder</div>
+                        <div class="founder-tags">
+                            <span class="founder-tag">Veteran</span>
+                            <span class="founder-tag">Electrician's Son</span>
+                            <span class="founder-tag">Builder</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="manifesto">
+                    <p><strong>I started pulling wire when I was fourteen.</strong></p>
+                    
+                    <p>My dad was an electrician. Summers and weekends, I was on job sites—crawling through attics in Phoenix heat, running conduit, learning that the work gets done right or it gets done twice. There's no shortcut when you're the one who has to live with the result.</p>
+                    
+                    <p>That's where I learned what construction actually is. Not the sanitized version you see in software demos. The real thing—where a missed spec costs someone their margin, where the right sub makes or breaks a project, where relationships matter more than contracts because you'll see these people on the next job and the one after that.</p>
+                    
+                    <div class="manifesto-divider"></div>
+                    
+                    <p><strong>Then I joined the military.</strong></p>
+                    
+                    <p>The military teaches you something civilians rarely learn: how to build systems that work when everything is going wrong. How to make decisions with incomplete information. How to trust your team and how to earn that trust back. How to plan for the mission you have, not the one you wish you had.</p>
+                    
+                    <p>It also teaches you that the people doing the work are the ones who know what's broken. The best officers listen more than they talk. The best plans are simple enough to survive contact with reality.</p>
+                    
+                    <div class="manifesto-quote">
+                        "I've watched this industry get sold tools built by people who've never set foot on a job site. That era is ending."
+                    </div>
+                    
+                    <p><strong>Now I'm building what I wish existed.</strong></p>
+                    
+                    <p>The construction industry runs on relationships and hard-earned knowledge. But that knowledge disappears—into spreadsheets, into emails, into the heads of people who eventually move on. The software that exists today doesn't solve this. It just creates new places for information to get lost.</p>
+                    
+                    <p>I started North Labs because the people who build our physical world deserve better than dashboards and data extraction. They deserve AI that works the way they work—embedded in their operations, owned by them, getting smarter with every project.</p>
+                    
+                    <p>This isn't a Silicon Valley bet on construction tech. This is someone who grew up in the trade, served his country, and came back to build something that actually helps the people doing the work.</p>
+                    
+                    <p><strong>That's what North Labs is. That's what we're building.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Let's build <span class="serif">together</span></h2>
+        <p>Whether you're a contractor looking to transform your operations or just want to talk shop—I'd like to hear from you.</p>
+        <div class="cta-buttons">
+            <a href="/tradesmith" class="btn-primary">Explore Tradesmith</a>
+            <a href="mailto:collin@northlabs.io" class="btn-secondary">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            North Labs
+        </div>
+        <div class="footer-links">
+            <a href="/tradesmith">Tradesmith</a>
+            <a href="/about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2025 North Labs. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Labs | Intelligence Infrastructure for Industrials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-secondary: #12151c;
+            --bg-tertiary: #1a1e28;
+            --bg-card: #141820;
+            --text-primary: #f0f2f5;
+            --text-secondary: #8b919e;
+            --text-muted: #5c6370;
+            --accent-emerald: #10b981;
+            --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+            --accent-gold: #f59e0b;
+            --accent-gold-dim: rgba(245, 158, 11, 0.12);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .serif {
+            font-family: 'Instrument Serif', Georgia, serif;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mark svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent-emerald);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .hero h1 .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-emerald);
+            color: #000;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #0ea472;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Sectors bar */
+        .sectors-bar {
+            padding: 4rem 3rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .sectors-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sectors-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .sector-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .sector-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .sector-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-emerald-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sector-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-emerald);
+        }
+
+        .sector-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.125rem;
+        }
+
+        .sector-item p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Section styling */
+        section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-emerald);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .section-title .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Thesis section */
+        .thesis-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 8rem 3rem;
+        }
+
+        .thesis-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
+        .thesis-statement {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--text-primary);
+            position: sticky;
+            top: 120px;
+        }
+
+        .thesis-points {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .thesis-point {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .thesis-point:hover {
+            border-color: var(--border-hover);
+        }
+
+        .thesis-point h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .thesis-point h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+        }
+
+        .thesis-point p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1.5rem;
+        }
+
+        /* Product section */
+        .product-section {
+            position: relative;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 4rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
+            opacity: 0.6;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-emerald-dim);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--accent-emerald);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .product-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+        }
+
+        .product-content h3 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .product-content > p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .product-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+        }
+
+        .product-feature::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: var(--accent-emerald-dim);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .product-feature::after {
+            content: '✓';
+            position: absolute;
+            margin-left: 6px;
+            font-size: 0.75rem;
+            color: var(--accent-emerald);
+        }
+
+        .product-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+        }
+
+        .product-stat {
+            text-align: center;
+        }
+
+        .product-stat-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Approach section */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .approach-card {
+            padding: 2.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .approach-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .approach-number {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--bg-tertiary);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .approach-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 8rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section h2 .serif {
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .footer-brand .logo-mark {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-brand .logo-mark svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sectors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .thesis-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thesis-statement {
+                position: static;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .sectors-bar,
+            .thesis-section,
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .sectors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 2rem;
+            }
+
+            .product-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-ctas,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            North Labs
+        </a>
+        <div class="nav-links">
+            <a href="/tradesmith">Tradesmith</a>
+            <a href="/about">About</a>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-label">Intelligence Infrastructure for Industrials</div>
+        <h1>The industries that build our world deserve <span class="serif">AI that works like they do.</span></h1>
+        <p class="hero-sub">North Labs creates embedded intelligence systems for construction, manufacturing, and industrial operations. We help companies own their AI—not rent it from software vendors.</p>
+        <div class="hero-ctas">
+            <a href="/tradesmith" class="btn-primary">Explore Tradesmith</a>
+            <a href="/about" class="btn-secondary">Our Story</a>
+        </div>
+    </header>
+
+    <div class="sectors-bar">
+        <div class="sectors-inner">
+            <div class="sectors-label">Built for the industries that build everything else</div>
+            <div class="sectors-grid">
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 20h20"/>
+                            <path d="M5 20V8l7-5 7 5v12"/>
+                            <path d="M9 20v-6h6v6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Construction</h3>
+                        <p>GCs & Subcontractors</p>
+                    </div>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 20h20"/>
+                            <path d="M6 20V4"/>
+                            <path d="M6 12h12"/>
+                            <path d="M6 4h12v8"/>
+                            <path d="M18 20v-8"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Heavy Civil</h3>
+                        <p>Infrastructure & Public Works</p>
+                    </div>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2"/>
+                            <path d="M12 7V4"/>
+                            <path d="M8 7V5"/>
+                            <path d="M16 7V5"/>
+                            <path d="M6 12h4"/>
+                            <path d="M14 12h4"/>
+                            <path d="M6 16h4"/>
+                            <path d="M14 16h4"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Manufacturing</h3>
+                        <p>Industrial Operations</p>
+                    </div>
+                </div>
+                <div class="sector-item">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v4"/>
+                            <path d="M12 19v4"/>
+                            <path d="M4.22 4.22l2.83 2.83"/>
+                            <path d="M16.95 16.95l2.83 2.83"/>
+                            <path d="M1 12h4"/>
+                            <path d="M19 12h4"/>
+                            <path d="M4.22 19.78l2.83-2.83"/>
+                            <path d="M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Other Industrials</h3>
+                        <p>Energy, Logistics & More</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="thesis-section">
+        <div class="thesis-inner">
+            <span class="section-label">Our Thesis</span>
+            <h2 class="section-title">Industrial companies should <span class="serif">own</span> their intelligence</h2>
+            
+            <div class="thesis-grid reveal">
+                <div class="thesis-statement">
+                    "The current model is broken. Your operational data, supplier performance, production history—it all flows into software that gives you dashboards but keeps the intelligence."
+                </div>
+                <div class="thesis-points">
+                    <div class="thesis-point">
+                        <h3>Your data is your most valuable asset</h3>
+                        <p>Every job you run, every supplier you evaluate, every outcome you track generates operational intelligence. But today's tools capture that value for themselves—your insights train their models, improve their products, and get sold back to your competitors.</p>
+                    </div>
+                    <div class="thesis-point">
+                        <h3>AI should be infrastructure, not subscription</h3>
+                        <p>You own your equipment. You own your trucks. You should own your AI. We build intelligence systems that become assets on your balance sheet—compounding value over time, not monthly fees that disappear when you stop paying.</p>
+                    </div>
+                    <div class="thesis-point">
+                        <h3>Embedded beats bolted-on</h3>
+                        <p>Dashboards don't change behavior. Tools people have to remember to check don't get checked. Real intelligence shows up where decisions happen—in your email, your meetings, your existing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <span class="section-label">Flagship Product</span>
+        <h2 class="section-title">Intelligence infrastructure, <span class="serif">live in production</span></h2>
+        
+        <div class="product-card reveal">
+            <div class="product-grid">
+                <div class="product-content">
+                    <div class="product-badge">Now Onboarding Partners</div>
+                    <h3>Tradesmith</h3>
+                    <p>Construction operations intelligence for general contractors and subcontractors. Embedded bid analysis, vendor scoring, and financial intelligence that becomes smarter with every project.</p>
+                    <div class="product-features">
+                        <div class="product-feature">AI-powered bid parsing and scope analysis</div>
+                        <div class="product-feature">Vendor performance tracking across projects</div>
+                        <div class="product-feature">WIP financial intelligence and forecasting</div>
+                        <div class="product-feature">Private intelligence that stays yours</div>
+                    </div>
+                    <a href="/tradesmith" class="btn-primary">Learn More About Tradesmith</a>
+                </div>
+                <div class="product-stats">
+                    <div class="product-stat">
+                        <div class="product-stat-value">15%</div>
+                        <div class="product-stat-label">Subcontractor cost savings</div>
+                    </div>
+                    <div class="product-stat">
+                        <div class="product-stat-value">60</div>
+                        <div class="product-stat-label">Days to measurable ROI</div>
+                    </div>
+                    <div class="product-stat">
+                        <div class="product-stat-value">30×</div>
+                        <div class="product-stat-label">Return on investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">Our Approach</span>
+        <h2 class="section-title">How we build <span class="serif">differently</span></h2>
+        
+        <div class="approach-grid reveal">
+            <div class="approach-card">
+                <div class="approach-number">01</div>
+                <h3>Partner, don't sell</h3>
+                <p>We don't do demos and disappear. We embed with your team, learn your operations, and build intelligence that actually fits how you work. Our success is tied to yours.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-number">02</div>
+                <h3>Domain expertise first</h3>
+                <p>We build for industries we understand from the inside. Our founder grew up pulling wire on job sites. We know the workflows, the relationships, and the economics.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-number">03</div>
+                <h3>Your intelligence, forever</h3>
+                <p>The AI we build for you stays with you. Private models that learn from your data, improve with your projects, and never get shared with competitors or used to train public systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-inner">
+            <h2>Ready to own your <span class="serif">intelligence?</span></h2>
+            <p>Whether you're a contractor ready to transform your operations or an industrial operator exploring what AI can do—we'd like to hear from you.</p>
+            <div class="cta-buttons">
+                <a href="/tradesmith" class="btn-primary">Explore Tradesmith</a>
+                <a href="mailto:hello@northlabs.io" class="btn-secondary">Start a Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <div class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            North Labs
+        </div>
+        <div class="footer-links">
+            <a href="/tradesmith">Tradesmith</a>
+            <a href="/about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2025 North Labs. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
