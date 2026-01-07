@@ -20,6 +20,8 @@
             --accent-emerald-dim: rgba(16, 185, 129, 0.15);
             --accent-gold: #f59e0b;
             --accent-gold-dim: rgba(245, 158, 11, 0.12);
+            --accent-blue: #3b82f6;
+            --accent-blue-dim: rgba(59, 130, 246, 0.15);
             --border-subtle: rgba(255, 255, 255, 0.06);
             --border-hover: rgba(255, 255, 255, 0.12);
         }
@@ -403,6 +405,266 @@
             line-height: 1.6;
         }
 
+        /* Platform Capabilities Section */
+        .platform-section {
+            background: var(--bg-primary);
+            max-width: none;
+            padding: 8rem 3rem;
+        }
+
+        .platform-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .platform-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .platform-intro-content {
+            max-width: 500px;
+        }
+
+        .positioning-statement {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-emerald);
+        }
+
+        .positioning-statement p {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .module-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .module-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent-emerald-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .module-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent-emerald);
+        }
+
+        .module-icon.blue {
+            background: var(--accent-blue-dim);
+        }
+
+        .module-icon.blue svg {
+            stroke: var(--accent-blue);
+        }
+
+        .module-icon.gold {
+            background: var(--accent-gold-dim);
+        }
+
+        .module-icon.gold svg {
+            stroke: var(--accent-gold);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 100px;
+        }
+
+        .status-badge.live {
+            background: var(--accent-emerald-dim);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-badge.live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-badge.building {
+            background: var(--accent-gold-dim);
+            color: var(--accent-gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status-badge.planned {
+            background: var(--accent-blue-dim);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .module-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .module-card > p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .module-card.featured .feature-tag {
+            background: var(--bg-secondary);
+        }
+
+        /* Timeline Section */
+        .roadmap-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 8rem 3rem;
+        }
+
+        .roadmap-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 2rem;
+            margin-top: 4rem;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-quarter {
+            flex: 0 0 280px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .timeline-quarter.current {
+            border-color: var(--accent-emerald);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+
+        .quarter-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-quarter.current .quarter-label {
+            color: var(--accent-emerald);
+        }
+
+        .quarter-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .quarter-items {
+            list-style: none;
+        }
+
+        .quarter-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .quarter-items li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-quarter.current .quarter-items li::before {
+            animation: pulse 2s infinite;
+        }
+
         /* Solution section */
         .solution-grid {
             display: grid;
@@ -521,6 +783,80 @@
 
         .capability-list span {
             color: var(--text-secondary);
+        }
+
+        /* Personas Section */
+        .personas-section {
+            background: var(--bg-primary);
+            max-width: none;
+            padding: 8rem 3rem;
+        }
+
+        .personas-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .persona-card {
+            padding: 2.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-emerald) 0%, transparent 100%);
+        }
+
+        .persona-role {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-emerald);
+            margin-bottom: 0.75rem;
+        }
+
+        .persona-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .persona-benefits {
+            list-style: none;
+        }
+
+        .persona-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .persona-benefits li::before {
+            content: '→';
+            color: var(--accent-emerald);
+            flex-shrink: 0;
         }
 
         /* Difference section */
@@ -678,6 +1014,95 @@
             font-size: 1rem;
             color: var(--text-secondary);
             max-width: 200px;
+        }
+
+        /* Vision section */
+        .vision-section {
+            background: var(--bg-primary);
+            max-width: none;
+            padding: 8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vision-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .vision-card {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+
+        .vision-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .vision-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .vision-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .moat-callout {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--accent-emerald-dim) 0%, transparent 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .moat-callout h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.75rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .moat-callout p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
         /* Partnership section */
@@ -929,13 +1354,24 @@
         @media (max-width: 1024px) {
             .solution-grid,
             .case-study-grid,
-            .partnership-grid {
+            .partnership-grid,
+            .platform-intro {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
 
-            .difference-grid {
+            .difference-grid,
+            .personas-grid,
+            .vision-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-card.featured {
+                grid-column: span 1;
             }
 
             .proof-bar-inner {
@@ -944,6 +1380,14 @@
 
             .proof-divider {
                 display: none;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+
+            .timeline-quarter {
+                flex: none;
             }
         }
 
@@ -962,7 +1406,11 @@
 
             .problem-section,
             .difference-section,
-            .partnership-section {
+            .partnership-section,
+            .platform-section,
+            .roadmap-section,
+            .personas-section,
+            .vision-section {
                 padding: 5rem 1.5rem;
             }
 
@@ -1006,7 +1454,7 @@
         <p class="hero-sub">Tradesmith is the construction operations intelligence layer that transforms how contractors bid, build, and grow. Not a tool you log into. Infrastructure you operate on.</p>
         <div class="hero-ctas">
             <a href="#contact" class="btn-primary">Become a Founding Partner</a>
-            <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+            <a href="#platform" class="btn-secondary">Explore the Platform</a>
         </div>
     </header>
 
@@ -1018,13 +1466,13 @@
             </div>
             <div class="proof-divider"></div>
             <div class="proof-stat">
-                <div class="proof-stat-value">60</div>
-                <div class="proof-stat-label">Days to measurable ROI</div>
+                <div class="proof-stat-value">30+</div>
+                <div class="proof-stat-label">Hours saved per project</div>
             </div>
             <div class="proof-divider"></div>
             <div class="proof-stat">
-                <div class="proof-stat-value">30×</div>
-                <div class="proof-stat-label">Return on partnership investment</div>
+                <div class="proof-stat-value">60</div>
+                <div class="proof-stat-label">Days to measurable ROI</div>
             </div>
         </div>
     </div>
@@ -1033,7 +1481,7 @@
         <div class="problem-inner">
             <span class="section-label">The Problem</span>
             <h2 class="section-title">Your bid data is your most <span class="serif">valuable asset</span>. Today, it's trapped.</h2>
-            <p class="section-desc">Every bid you run, every vendor you evaluate, every scope gap you catch — it all disappears into spreadsheets and email threads. No memory. No compounding advantage. No intelligence.</p>
+            <p class="section-desc">Project managers spend 40+ hours per project manually reviewing bids. Mistakes cost $50K-$500K in change orders. And when your best PM leaves, their vendor knowledge leaves with them.</p>
             
             <div class="problem-grid reveal">
                 <div class="problem-card">
@@ -1072,6 +1520,262 @@
         </div>
     </section>
 
+    <section class="platform-section" id="platform">
+        <div class="platform-inner">
+            <div class="platform-intro reveal">
+                <div class="platform-intro-content">
+                    <span class="section-label">Platform Capabilities</span>
+                    <h2 class="section-title">The complete construction <span class="serif">intelligence platform</span></h2>
+                    <p class="section-desc">Ten integrated modules that transform how you evaluate, select, and manage subcontractors—from first bid to final close-out.</p>
+                </div>
+                <div class="positioning-statement">
+                    <p>"Procore is a system of record. Tradesmith is the system of intelligence."</p>
+                </div>
+            </div>
+            
+            <div class="modules-grid reveal">
+                <!-- Bid Intelligence - Featured -->
+                <div class="module-card featured">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <path d="M12 18v-6"/>
+                                <path d="M9 15l3 3 3-3"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge live">Live</span>
+                    </div>
+                    <h3>Bid Intelligence</h3>
+                    <p>Upload bids in any format. AI reads, normalizes, and analyzes every bid in minutes—not days. Catches scope gaps before they become change orders.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Document Understanding</span>
+                        <span class="feature-tag">Intelligent Normalization</span>
+                        <span class="feature-tag">Coverage Scoring</span>
+                        <span class="feature-tag">Trade Comparison</span>
+                        <span class="feature-tag">Price Spread Analysis</span>
+                        <span class="feature-tag">Outlier Detection</span>
+                    </div>
+                </div>
+
+                <!-- Project Configuration -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge live">Live</span>
+                    </div>
+                    <h3>Project Configuration & Compliance</h3>
+                    <p>Configure project requirements once—prevailing wage, Section 3, LIHTC, HUD compliance—and every bid is automatically checked.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">ITB Requirements</span>
+                        <span class="feature-tag">Compliance Checking</span>
+                        <span class="feature-tag">Report Integration</span>
+                    </div>
+                </div>
+
+                <!-- Deep Analysis -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge building">Building</span>
+                    </div>
+                    <h3>Deep Analysis (AI-Powered)</h3>
+                    <p>Line-by-line scope gap identification, hidden risk detection, negotiation leverage points, and AI-generated clarification questions.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Risk Detection</span>
+                        <span class="feature-tag">Contract Analysis</span>
+                        <span class="feature-tag">Negotiation Points</span>
+                    </div>
+                </div>
+
+                <!-- Missed Items Detection -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge building">Building</span>
+                    </div>
+                    <h3>Missed Items Detection</h3>
+                    <p>AI-powered detection of the 25+ items that always get missed—fire caulk, ISO valves, elevator pit waterproofing. With confidence scoring.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Common Gaps Database</span>
+                        <span class="feature-tag">Confidence Scoring</span>
+                        <span class="feature-tag">Review Checklist</span>
+                    </div>
+                </div>
+
+                <!-- Vendor Intelligence -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge planned">Q2 2026</span>
+                    </div>
+                    <h3>Vendor Intelligence</h3>
+                    <p>Institutional memory for subcontractor performance, automatically built from every project. Scorecards, trends, and recommendations.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Vendor Scorecards</span>
+                        <span class="feature-tag">Bid History Analysis</span>
+                        <span class="feature-tag">Recommendation Engine</span>
+                    </div>
+                </div>
+
+                <!-- Schedule & Scope Intelligence -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge planned">Q2-Q3 2026</span>
+                    </div>
+                    <h3>Schedule & Scope Intelligence</h3>
+                    <p>AI monitors your project pulse—surfaces risks before they become problems. Schedule risk analysis and scope change tracking.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Risk Analysis</span>
+                        <span class="feature-tag">Scope Tracking</span>
+                        <span class="feature-tag">Procurement Intel</span>
+                    </div>
+                </div>
+
+                <!-- WIP & Cost Intelligence -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge planned">Q3 2026</span>
+                    </div>
+                    <h3>WIP & Cost Intelligence</h3>
+                    <p>Real-time cost intelligence connecting bids to actuals. Bid-to-actual tracking, cost forecasting, and automated WIP reports.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Variance Analysis</span>
+                        <span class="feature-tag">Cost Forecasting</span>
+                        <span class="feature-tag">WIP Automation</span>
+                    </div>
+                </div>
+
+                <!-- Integrations Hub -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge planned">Q2-Q4 2026</span>
+                    </div>
+                    <h3>Integrations Hub</h3>
+                    <p>Tradesmith as the intelligence layer connecting your entire tech stack—Procore, Sage, Viewpoint, Bluebeam, and more.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">ERP Sync</span>
+                        <span class="feature-tag">PM Integration</span>
+                        <span class="feature-tag">API Access</span>
+                    </div>
+                </div>
+
+                <!-- AI Co-Pilot -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge planned">Q4 2026</span>
+                    </div>
+                    <h3>AI Co-Pilot</h3>
+                    <p>Natural language interface to all your project intelligence. Ask anything, get instant answers, generate reports on demand.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Ask Anything</span>
+                        <span class="feature-tag">Proactive Suggestions</span>
+                        <span class="feature-tag">Report Generation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap-section">
+        <div class="roadmap-inner">
+            <span class="section-label">Roadmap</span>
+            <h2 class="section-title">Building the future of <span class="serif">construction intelligence</span></h2>
+            <p class="section-desc">Founding partners get every capability as it launches. Here's what's coming.</p>
+            
+            <div class="timeline reveal">
+                <div class="timeline-quarter current">
+                    <div class="quarter-label">Now</div>
+                    <div class="quarter-title">Live in Production</div>
+                    <ul class="quarter-items">
+                        <li>Bid Intelligence with AI parsing</li>
+                        <li>Trade comparison & analysis</li>
+                        <li>Project configuration</li>
+                        <li>Compliance checking</li>
+                    </ul>
+                </div>
+                <div class="timeline-quarter">
+                    <div class="quarter-label">Q1 2026</div>
+                    <div class="quarter-title">Deep Analysis</div>
+                    <ul class="quarter-items">
+                        <li>AI-powered risk detection</li>
+                        <li>Missed items detection</li>
+                        <li>Negotiation recommendations</li>
+                        <li>Clarification workflows</li>
+                    </ul>
+                </div>
+                <div class="timeline-quarter">
+                    <div class="quarter-label">Q2 2026</div>
+                    <div class="quarter-title">Vendor & Schedule</div>
+                    <ul class="quarter-items">
+                        <li>Vendor scorecards & history</li>
+                        <li>Schedule risk analysis</li>
+                        <li>Scope change tracking</li>
+                        <li>Initial integrations</li>
+                    </ul>
+                </div>
+                <div class="timeline-quarter">
+                    <div class="quarter-label">Q3-Q4 2026</div>
+                    <div class="quarter-title">Full Platform</div>
+                    <ul class="quarter-items">
+                        <li>WIP & cost intelligence</li>
+                        <li>Complete integrations hub</li>
+                        <li>Collaboration workflows</li>
+                        <li>AI Co-Pilot launch</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="how-it-works">
         <span class="section-label">The Solution</span>
         <h2 class="section-title">Intelligence that <span class="serif">compounds</span> with every project</h2>
@@ -1103,13 +1807,48 @@
             </div>
             <div class="solution-content">
                 <h3>Works with your stack. Not instead of it.</h3>
-                <p>Keep using Procore, Sage, Viewpoint—whatever works for your team. We don't replace your tools. We connect to them, read your data, and deliver intelligence where your people already work. No new software to learn. No change management. Just smarter outputs. And it's not generic AI—Tradesmith learns your operation, your vendors, your bid patterns, your risk tolerances, and gets sharper the more you use it.</p>
-                <ul class="capability-list">
-                    <li><strong>Bid Intelligence</strong> <span>— AI-powered parsing, scope analysis, and automated follow-ups</span></li>
-                    <li><strong>Vendor Scoring</strong> <span>— Performance tracking across bids, awards, and project outcomes</span></li>
-                    <li><strong>Scope & Schedule</strong> <span>— Track changes, risks, and milestone drift in real-time</span></li>
-                    <li><strong>WIP Intelligence</strong> <span>— Job costing accuracy, billing health, cash flow forecasting</span></li>
-                </ul>
+                <p>Keep using Procore, Sage, Viewpoint—whatever works for your team. We don't replace your tools. We connect to them, read your data, and deliver intelligence where your people already work. No new software to learn. No change management. Just smarter outputs.</p>
+                <p>And it's not generic AI—Tradesmith learns your operation, your vendors, your bid patterns, your risk tolerances, and gets sharper the more you use it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="personas-section">
+        <div class="personas-inner">
+            <span class="section-label">Who It's For</span>
+            <h2 class="section-title">Built for every role in <span class="serif">your operation</span></h2>
+            
+            <div class="personas-grid reveal">
+                <div class="persona-card">
+                    <div class="persona-role">Project Managers</div>
+                    <h3>Win back 30+ hours per project</h3>
+                    <ul class="persona-benefits">
+                        <li>AI-powered bid review in minutes, not days</li>
+                        <li>Catch scope gaps before they become change orders</li>
+                        <li>Never miss a deadline with automated compliance checks</li>
+                        <li>Make better decisions with data, not gut feel</li>
+                    </ul>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-role">Executives</div>
+                    <h3>Institutional knowledge that stays</h3>
+                    <ul class="persona-benefits">
+                        <li>Vendor accountability with data-driven scorecards</li>
+                        <li>Portfolio visibility across all projects and teams</li>
+                        <li>Risk reduction through early warning systems</li>
+                        <li>Knowledge that doesn't walk out the door</li>
+                    </ul>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-role">Finance</div>
+                    <h3>Accuracy you can trust</h3>
+                    <ul class="persona-benefits">
+                        <li>Accurate WIP reports with less manual effort</li>
+                        <li>Cost predictability through bid-to-actual tracking</li>
+                        <li>Audit-ready documentation generated automatically</li>
+                        <li>Cash flow confidence from better forecasting</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -1170,6 +1909,36 @@
                         <div class="stat-label">Days to measurable impact</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="vision-inner">
+            <span class="section-label">The Vision</span>
+            <h2 class="section-title">Where we're <span class="serif">going</span></h2>
+            
+            <div class="vision-grid reveal">
+                <div class="vision-card">
+                    <div class="vision-label">Today</div>
+                    <h3>Faster bid review</h3>
+                    <p>Tradesmith helps you review bids faster and catch scope gaps that would become costly change orders.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-label">Tomorrow</div>
+                    <h3>Complete intelligence layer</h3>
+                    <p>The intelligence layer for your entire construction operation—connecting preconstruction to close-out.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-label">The Moat</div>
+                    <h3>Compounding advantage</h3>
+                    <p>Every bid you analyze, every vendor you rate, every project you close makes Tradesmith smarter—for you.</p>
+                </div>
+            </div>
+            
+            <div class="moat-callout reveal">
+                <h3>"This isn't software. It's compounding construction intelligence."</h3>
+                <p>Every bid analyzed makes the platform smarter. Every vendor rated improves the recommendations. Every project closed builds institutional knowledge that stays with your company forever.</p>
             </div>
         </div>
     </section>
@@ -1241,7 +2010,7 @@
     <section class="final-cta" id="contact">
         <h2>Ready to build your<br><span class="serif">intelligence advantage?</span></h2>
         <p>Schedule a strategic conversation. No demo theater. Just a direct discussion about whether Tradesmith is right for your operation.</p>
-        <a href="mailto:partners@tradesmith.io" class="btn-primary">Schedule a Conversation</a>
+        <a href="mailto:collin@northlabs.io" class="btn-primary">Schedule a Conversation</a>
     </section>
 
     <footer>
