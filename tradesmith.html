@@ -156,6 +156,17 @@
             border-color: var(--border-hover);
         }
 
+        .mobile-cta {
+            display: none;
+            padding: 0.5rem 1rem;
+            background: var(--accent-emerald);
+            color: #000;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -361,7 +372,7 @@
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -461,7 +472,7 @@
 
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
             gap: 1.5rem;
         }
 
@@ -1431,16 +1442,52 @@
         }
 
         @media (max-width: 768px) {
+            /* Prevent horizontal scroll */
+            html, body {
+                overflow-x: hidden;
+            }
+
             nav {
                 padding: 1rem 1.5rem;
             }
 
+            /* Hide nav links on mobile, show mobile CTA */
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-cta {
+                display: block;
+            }
+
             .hero {
-                padding: 7rem 1.5rem 4rem;
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            /* Hide decorative gradients that cause overflow */
+            .hero::before,
+            .solution-visual::before,
+            .case-study-card::before,
+            .vision-section::before,
+            .final-cta::before {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-sub {
+                font-size: 1.1rem;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.75rem;
             }
 
             section {
-                padding: 5rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
 
             .problem-section,
@@ -1450,11 +1497,33 @@
             .roadmap-section,
             .personas-section,
             .vision-section {
-                padding: 5rem 1.5rem;
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            /* Fix problem grid for mobile */
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Fix modules grid for mobile */
+            .modules-grid {
+                grid-template-columns: 1fr;
             }
 
             .case-study-card {
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+
+            .case-study-content .quote {
+                font-size: 1.25rem;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
             }
 
             .hero-ctas {
@@ -1465,12 +1534,97 @@
             .btn-secondary {
                 width: 100%;
                 text-align: center;
+                padding: 1rem 1.5rem;
+            }
+
+            /* Solution visual mobile */
+            .solution-visual {
+                padding: 1.5rem;
+            }
+
+            .loop-node {
+                padding: 1rem;
+            }
+
+            .loop-text {
+                font-size: 0.8125rem;
+            }
+
+            /* Final CTA section */
+            .final-cta {
+                padding: 5rem 1.5rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta p {
+                font-size: 1rem;
+            }
+
+            .final-cta .btn-primary {
+                padding: 1rem 2rem;
+                white-space: nowrap;
+            }
+
+            /* Proof bar mobile */
+            .proof-bar {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .proof-stat-value {
+                font-size: 2rem;
+            }
+
+            .proof-stat-label {
+                font-size: 0.75rem;
+            }
+
+            /* Partnership section mobile */
+            .partnership-model,
+            .founding-advantage {
+                padding: 1.5rem;
+            }
+
+            .founding-advantage .rate-lock {
+                font-size: 1.75rem;
+            }
+
+            /* Moat callout mobile */
+            .moat-callout {
+                padding: 2rem 1.5rem;
+            }
+
+            .moat-callout h3 {
+                font-size: 1.25rem;
             }
 
             footer {
                 flex-direction: column;
                 gap: 2rem;
                 text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .proof-bar-inner {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .proof-stat-value {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -1483,8 +1637,9 @@
         <div class="nav-links">
             <a href="/">North Labs</a>
             <a href="/about">About</a>
-            <a href="#contact" class="nav-cta">See It On Your Data</a>
+            <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="nav-cta">See It On Your Data</a>
         </div>
+        <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="mobile-cta">Book a Call</a>
     </nav>
 
     <header class="hero">
