@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tradesmith | Construction Operations Intelligence</title>
+    <title>Tradesmith | Construction Intelligence That Compounds</title>
+    <meta name="description" content="Tradesmith transforms how GCs evaluate bids, select subcontractors, and protect margins. AI that learns your operation, not generic software.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -22,6 +23,8 @@
             --accent-gold-dim: rgba(245, 158, 11, 0.12);
             --accent-blue: #3b82f6;
             --accent-blue-dim: rgba(59, 130, 246, 0.15);
+            --accent-red: #ef4444;
+            --accent-red-dim: rgba(239, 68, 68, 0.15);
             --border-subtle: rgba(255, 255, 255, 0.06);
             --border-hover: rgba(255, 255, 255, 0.12);
         }
@@ -219,7 +222,7 @@
         .hero-sub {
             font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 580px;
+            max-width: 620px;
             margin-bottom: 3rem;
             line-height: 1.7;
             animation: fadeInUp 0.6s ease-out 0.2s both;
@@ -379,7 +382,7 @@
         .problem-icon {
             width: 48px;
             height: 48px;
-            background: var(--accent-emerald-dim);
+            background: var(--accent-red-dim);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -390,7 +393,7 @@
         .problem-icon svg {
             width: 24px;
             height: 24px;
-            stroke: var(--accent-emerald);
+            stroke: var(--accent-red);
         }
 
         .problem-card h3 {
@@ -403,6 +406,17 @@
             font-size: 0.9375rem;
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        .problem-stat {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--accent-red-dim);
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--accent-red);
         }
 
         /* Platform Capabilities Section */
@@ -584,6 +598,31 @@
 
         .module-card.featured .feature-tag {
             background: var(--bg-secondary);
+        }
+
+        /* Example callout */
+        .example-callout {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border-left: 2px solid var(--accent-emerald);
+        }
+
+        .example-callout-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-callout p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0;
         }
 
         /* Timeline Section */
@@ -1444,44 +1483,44 @@
         <div class="nav-links">
             <a href="/">North Labs</a>
             <a href="/about">About</a>
-            <a href="#contact" class="nav-cta">Become a Partner</a>
+            <a href="#contact" class="nav-cta">See It On Your Data</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-eyebrow">Founding Partners Program — 2026</div>
-        <h1>We don't sell software.<br>We embed <span class="serif">intelligence</span><br>into your operation.</h1>
-        <p class="hero-sub">Tradesmith is the construction operations intelligence layer that transforms how contractors bid, build, and grow. Not a tool you log into. Infrastructure you operate on.</p>
+        <div class="hero-eyebrow">Founding Partners Program — Limited Availability</div>
+        <h1>From first bid to final closeout—<span class="serif">intelligence</span><br>that compounds.</h1>
+        <p class="hero-sub">Tradesmith transforms how construction firms evaluate bids, track costs, and protect margins—with AI that learns your operation, not generic software. From preconstruction through project closeout, every project makes it smarter.</p>
         <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Become a Founding Partner</a>
-            <a href="#platform" class="btn-secondary">Explore the Platform</a>
+            <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="btn-primary">See It On Your Data</a>
+            <a href="#platform" class="btn-secondary">Explore Capabilities</a>
         </div>
     </header>
 
     <div class="proof-bar">
         <div class="proof-bar-inner">
             <div class="proof-stat">
-                <div class="proof-stat-value">15%</div>
-                <div class="proof-stat-label">Subcontractor cost savings</div>
+                <div class="proof-stat-value">$127K</div>
+                <div class="proof-stat-label">Avg. savings per project in first 60 days</div>
             </div>
             <div class="proof-divider"></div>
             <div class="proof-stat">
                 <div class="proof-stat-value">30+</div>
-                <div class="proof-stat-label">Hours saved per project</div>
+                <div class="proof-stat-label">Hours saved per bid package review</div>
             </div>
             <div class="proof-divider"></div>
             <div class="proof-stat">
-                <div class="proof-stat-value">60</div>
-                <div class="proof-stat-label">Days to measurable ROI</div>
+                <div class="proof-stat-value">4</div>
+                <div class="proof-stat-label">Scope gaps caught per bid (avg)</div>
             </div>
         </div>
     </div>
 
     <section class="problem-section">
         <div class="problem-inner">
-            <span class="section-label">The Problem</span>
-            <h2 class="section-title">Your bid data is your most <span class="serif">valuable asset</span>. Today, it's trapped.</h2>
-            <p class="section-desc">Project managers spend 40+ hours per project manually reviewing bids. Mistakes cost $50K-$500K in change orders. And when your best PM leaves, their vendor knowledge leaves with them.</p>
+            <span class="section-label">The Reality</span>
+            <h2 class="section-title">These problems span your entire operation.<br>Most firms accept them as <span class="serif">inevitable.</span></h2>
+            <p class="section-desc">They're not. The scope gap that becomes a $200K change order. The margin erosion you catch too late. The vendor knowledge that walks out the door when your best PM leaves. These aren't random—they're patterns.</p>
             
             <div class="problem-grid reveal">
                 <div class="problem-card">
@@ -1492,8 +1531,20 @@
                             <line x1="9" y1="15" x2="15" y2="15"/>
                         </svg>
                     </div>
-                    <h3>Manual Bid Leveling</h3>
-                    <p>Your estimators spend hours in spreadsheets comparing bids line by line, catching scope gaps by memory and intuition rather than systematic analysis.</p>
+                    <h3>Bids That Don't Compare</h3>
+                    <p>One sub itemizes 47 line items. Another gives you 3 lump sums. A third has exclusions you won't find until page turn. Your PMs spend days just getting bids to speak the same language.</p>
+                    <span class="problem-stat">40+ hours per trade package</span>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Margin Erosion You Catch Too Late</h3>
+                    <p>By the time the WIP report shows a problem, you're already underwater. Cost overruns, overbilling corrections, change orders that weren't tracked—the warnings were there, but buried in disconnected systems.</p>
+                    <span class="problem-stat">Average 3-5% margin loss</span>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">
@@ -1502,8 +1553,9 @@
                             <path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
-                    <h3>No Historical Memory</h3>
-                    <p>That concrete sub who missed three deadlines last year? That knowledge lives in someone's head. When they leave, it leaves with them.</p>
+                    <h3>Knowledge That Walks Out the Door</h3>
+                    <p>"That concrete sub missed their last three schedules." "This plumber always excludes fire caulk." That knowledge lives in your best PM's head—until they leave, and it leaves with them.</p>
+                    <span class="problem-stat">$50K-$500K per missed gap</span>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">
@@ -1513,8 +1565,9 @@
                             <path d="M6 20v-6"/>
                         </svg>
                     </div>
-                    <h3>Disconnected Systems</h3>
-                    <p>Your ERP doesn't talk to your estimating software. Project outcomes never inform future bids. Every project starts from zero.</p>
+                    <h3>Systems That Don't Talk</h3>
+                    <p>Your ERP has cost data. Your PM tool has schedules. Your bid files live in email and shared drives. Nothing connects—so insights that should be obvious require hours of manual reconciliation.</p>
+                    <span class="problem-stat">Critical context, lost</span>
                 </div>
             </div>
         </div>
@@ -1524,12 +1577,12 @@
         <div class="platform-inner">
             <div class="platform-intro reveal">
                 <div class="platform-intro-content">
-                    <span class="section-label">Platform Capabilities</span>
-                    <h2 class="section-title">The complete construction <span class="serif">intelligence platform</span></h2>
-                    <p class="section-desc">Ten integrated modules that transform how you evaluate, select, and manage subcontractors—from first bid to final close-out.</p>
+                    <span class="section-label">The Platform</span>
+                    <h2 class="section-title">Intelligence that <span class="serif">compounds</span> with every project</h2>
+                    <p class="section-desc">Not a tool you log into occasionally. Infrastructure that makes every bid review faster, every decision more informed, every lesson captured permanently.</p>
                 </div>
                 <div class="positioning-statement">
-                    <p>"Procore is a system of record. Tradesmith is the system of intelligence."</p>
+                    <p>"Procore is your system of record. Tradesmith is your system of intelligence—the layer that actually thinks."</p>
                 </div>
             </div>
             
@@ -1548,34 +1601,61 @@
                         <span class="status-badge live">Live</span>
                     </div>
                     <h3>Bid Intelligence</h3>
-                    <p>Upload bids in any format. AI reads, normalizes, and analyzes every bid in minutes—not days. Catches scope gaps before they become change orders.</p>
+                    <p>Upload any bid—PDF, Excel, scanned document, email chain. Tradesmith reads it like your best estimator would: understanding scope, normalizing line items, catching what's missing. Bids that took days to compare now take minutes.</p>
                     <div class="module-features">
-                        <span class="feature-tag">Document Understanding</span>
-                        <span class="feature-tag">Intelligent Normalization</span>
+                        <span class="feature-tag">Any Format Parsing</span>
+                        <span class="feature-tag">Smart Normalization</span>
                         <span class="feature-tag">Coverage Scoring</span>
                         <span class="feature-tag">Trade Comparison</span>
-                        <span class="feature-tag">Price Spread Analysis</span>
                         <span class="feature-tag">Outlier Detection</span>
+                        <span class="feature-tag">Exclusion Extraction</span>
+                    </div>
+                    <div class="example-callout">
+                        <div class="example-callout-label">Real Example</div>
+                        <p>"One plumber bid $847K with full water heater scope. Another bid $612K excluding the same. Tradesmith caught it in the first pass—would've been a $230K change order."</p>
                     </div>
                 </div>
 
-                <!-- Project Configuration -->
+                <!-- Page Turn Sentinel -->
                 <div class="module-card">
                     <div class="module-header">
                         <div class="module-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
                         </div>
                         <span class="status-badge live">Live</span>
                     </div>
-                    <h3>Project Configuration & Compliance</h3>
-                    <p>Configure project requirements once—prevailing wage, Section 3, LIHTC, HUD compliance—and every bid is automatically checked.</p>
+                    <h3>Page Turn Sentinel</h3>
+                    <p>Before every page turn meeting, Tradesmith generates a prep package: risk-ranked discussion points, specific questions for each finalist, and hidden concerns surfaced from deep analysis. Walk into negotiations prepared.</p>
                     <div class="module-features">
-                        <span class="feature-tag">ITB Requirements</span>
-                        <span class="feature-tag">Compliance Checking</span>
-                        <span class="feature-tag">Report Integration</span>
+                        <span class="feature-tag">Finalist Deep Dive</span>
+                        <span class="feature-tag">Risk Ranking</span>
+                        <span class="feature-tag">Discussion Points</span>
+                        <span class="feature-tag">Clarification Questions</span>
+                    </div>
+                </div>
+
+                <!-- Report-Aware Analysis -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge live">Live</span>
+                    </div>
+                    <h3>Report-Aware Analysis</h3>
+                    <p>Upload your PCNA, asbestos survey, HAZ-MAT report—any due diligence document. Tradesmith cross-references findings against every bid, flagging where scope might be affected by existing conditions.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">PCNA Integration</span>
+                        <span class="feature-tag">Asbestos/HAZ-MAT</span>
+                        <span class="feature-tag">Auto Cross-Reference</span>
                     </div>
                 </div>
 
@@ -1587,35 +1667,56 @@
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                             </svg>
                         </div>
-                        <span class="status-badge building">Building</span>
+                        <span class="status-badge live">Live</span>
                     </div>
-                    <h3>Deep Analysis (AI-Powered)</h3>
-                    <p>Line-by-line scope gap identification, hidden risk detection, negotiation leverage points, and AI-generated clarification questions.</p>
+                    <h3>Deep Analysis (Claude-Powered)</h3>
+                    <p>For your finalists, trigger a deep dive. Line-by-line scope gap identification, hidden risk detection, contract term analysis, and AI-generated clarification questions—the analysis your senior PM would do if they had unlimited time.</p>
                     <div class="module-features">
-                        <span class="feature-tag">Risk Detection</span>
+                        <span class="feature-tag">Scope Gap Detection</span>
                         <span class="feature-tag">Contract Analysis</span>
-                        <span class="feature-tag">Negotiation Points</span>
+                        <span class="feature-tag">Risk Assessment</span>
+                        <span class="feature-tag">Question Generation</span>
                     </div>
                 </div>
 
-                <!-- Missed Items Detection -->
+                <!-- WIP Intelligence -->
                 <div class="module-card">
                     <div class="module-header">
-                        <div class="module-icon gold">
+                        <div class="module-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                                <line x1="12" y1="9" x2="12" y2="13"/>
-                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                             </svg>
                         </div>
-                        <span class="status-badge building">Building</span>
+                        <span class="status-badge live">Live</span>
                     </div>
-                    <h3>Missed Items Detection</h3>
-                    <p>AI-powered detection of the 25+ items that always get missed—fire caulk, ISO valves, elevator pit waterproofing. With confidence scoring.</p>
+                    <h3>WIP Intelligence</h3>
+                    <p>Real-time cost tracking that connects bids to actuals. See margin erosion before it becomes a problem. Track over/under billing. Get alerts when projects drift off baseline—not when it's too late.</p>
                     <div class="module-features">
-                        <span class="feature-tag">Common Gaps Database</span>
-                        <span class="feature-tag">Confidence Scoring</span>
-                        <span class="feature-tag">Review Checklist</span>
+                        <span class="feature-tag">Margin Tracking</span>
+                        <span class="feature-tag">Cost Forecasting</span>
+                        <span class="feature-tag">Over/Under Billing</span>
+                        <span class="feature-tag">Project Health</span>
+                    </div>
+                </div>
+
+                <!-- Compliance Checking -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <span class="status-badge live">Live</span>
+                    </div>
+                    <h3>Project Configuration & Compliance</h3>
+                    <p>Configure once: prevailing wage requirements, Section 3, LIHTC, HUD compliance, local requirements. Every bid is automatically checked against your project's specific needs.</p>
+                    <div class="module-features">
+                        <span class="feature-tag">Prevailing Wage</span>
+                        <span class="feature-tag">Section 3 / LIHTC</span>
+                        <span class="feature-tag">ITB Requirements</span>
                     </div>
                 </div>
 
@@ -1630,56 +1731,14 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <span class="status-badge planned">Q2 2026</span>
+                        <span class="status-badge planned">Coming Soon</span>
                     </div>
                     <h3>Vendor Intelligence</h3>
-                    <p>Institutional memory for subcontractor performance, automatically built from every project. Scorecards, trends, and recommendations.</p>
+                    <p>Institutional memory for subcontractor performance, automatically built from every project. "This electrical sub bid 15% under last time and missed schedule by 3 weeks." Knowledge that stays with your company.</p>
                     <div class="module-features">
-                        <span class="feature-tag">Vendor Scorecards</span>
-                        <span class="feature-tag">Bid History Analysis</span>
-                        <span class="feature-tag">Recommendation Engine</span>
-                    </div>
-                </div>
-
-                <!-- Schedule & Scope Intelligence -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon blue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge planned">Q2-Q3 2026</span>
-                    </div>
-                    <h3>Schedule & Scope Intelligence</h3>
-                    <p>AI monitors your project pulse—surfaces risks before they become problems. Schedule risk analysis and scope change tracking.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Risk Analysis</span>
-                        <span class="feature-tag">Scope Tracking</span>
-                        <span class="feature-tag">Procurement Intel</span>
-                    </div>
-                </div>
-
-                <!-- WIP & Cost Intelligence -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon blue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge planned">Q3 2026</span>
-                    </div>
-                    <h3>WIP & Cost Intelligence</h3>
-                    <p>Real-time cost intelligence connecting bids to actuals. Bid-to-actual tracking, cost forecasting, and automated WIP reports.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Variance Analysis</span>
-                        <span class="feature-tag">Cost Forecasting</span>
-                        <span class="feature-tag">WIP Automation</span>
+                        <span class="feature-tag">Performance History</span>
+                        <span class="feature-tag">Bid Pattern Analysis</span>
+                        <span class="feature-tag">Risk Scoring</span>
                     </div>
                 </div>
 
@@ -1692,192 +1751,103 @@
                                 <polyline points="8 6 2 12 8 18"/>
                             </svg>
                         </div>
-                        <span class="status-badge planned">Q2-Q4 2026</span>
+                        <span class="status-badge planned">Coming Soon</span>
                     </div>
-                    <h3>Integrations Hub</h3>
-                    <p>Tradesmith as the intelligence layer connecting your entire tech stack—Procore, Sage, Viewpoint, Bluebeam, and more.</p>
+                    <h3>ERP Integrations</h3>
+                    <p>Connect to Sage 300 CRE, Viewpoint, Procore, your accounting system. Tradesmith becomes the intelligence layer across your entire tech stack—not another silo.</p>
                     <div class="module-features">
-                        <span class="feature-tag">ERP Sync</span>
-                        <span class="feature-tag">PM Integration</span>
+                        <span class="feature-tag">Sage 300 CRE</span>
+                        <span class="feature-tag">Viewpoint</span>
+                        <span class="feature-tag">Procore</span>
                         <span class="feature-tag">API Access</span>
                     </div>
-                </div>
-
-                <!-- AI Co-Pilot -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon blue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge planned">Q4 2026</span>
-                    </div>
-                    <h3>AI Co-Pilot</h3>
-                    <p>Natural language interface to all your project intelligence. Ask anything, get instant answers, generate reports on demand.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Ask Anything</span>
-                        <span class="feature-tag">Proactive Suggestions</span>
-                        <span class="feature-tag">Report Generation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="roadmap-section">
-        <div class="roadmap-inner">
-            <span class="section-label">Roadmap</span>
-            <h2 class="section-title">Building the future of <span class="serif">construction intelligence</span></h2>
-            <p class="section-desc">Founding partners get every capability as it launches. Here's what's coming.</p>
-            
-            <div class="timeline reveal">
-                <div class="timeline-quarter current">
-                    <div class="quarter-label">Now</div>
-                    <div class="quarter-title">Live in Production</div>
-                    <ul class="quarter-items">
-                        <li>Bid Intelligence with AI parsing</li>
-                        <li>Trade comparison & analysis</li>
-                        <li>Project configuration</li>
-                        <li>Compliance checking</li>
-                    </ul>
-                </div>
-                <div class="timeline-quarter">
-                    <div class="quarter-label">Q1 2026</div>
-                    <div class="quarter-title">Deep Analysis</div>
-                    <ul class="quarter-items">
-                        <li>AI-powered risk detection</li>
-                        <li>Missed items detection</li>
-                        <li>Negotiation recommendations</li>
-                        <li>Clarification workflows</li>
-                    </ul>
-                </div>
-                <div class="timeline-quarter">
-                    <div class="quarter-label">Q2 2026</div>
-                    <div class="quarter-title">Vendor & Schedule</div>
-                    <ul class="quarter-items">
-                        <li>Vendor scorecards & history</li>
-                        <li>Schedule risk analysis</li>
-                        <li>Scope change tracking</li>
-                        <li>Initial integrations</li>
-                    </ul>
-                </div>
-                <div class="timeline-quarter">
-                    <div class="quarter-label">Q3-Q4 2026</div>
-                    <div class="quarter-title">Full Platform</div>
-                    <ul class="quarter-items">
-                        <li>WIP & cost intelligence</li>
-                        <li>Complete integrations hub</li>
-                        <li>Collaboration workflows</li>
-                        <li>AI Co-Pilot launch</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="how-it-works">
-        <span class="section-label">The Solution</span>
-        <h2 class="section-title">Intelligence that <span class="serif">compounds</span> with every project</h2>
-        <p class="section-desc">Tradesmith creates a connected intelligence loop across your entire operation. Every bid informs every future decision.</p>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">From upload to <span class="serif">decision</span> in minutes</h2>
+        <p class="section-desc">No manual data entry. No spreadsheet gymnastics. Just upload and let Tradesmith do what your best estimator would—in a fraction of the time.</p>
         
         <div class="solution-grid reveal">
             <div class="solution-visual">
                 <div class="intelligence-loop">
                     <div class="loop-node">
                         <div class="loop-number">1</div>
-                        <div class="loop-text">Bid intelligence sets baseline expectations</div>
+                        <div class="loop-text">Upload bids in any format (PDF, Excel, email)</div>
                     </div>
                     <div class="loop-connector"></div>
                     <div class="loop-node">
                         <div class="loop-number">2</div>
-                        <div class="loop-text">WIP actuals track performance against bid</div>
+                        <div class="loop-text">AI parses, normalizes, scores coverage</div>
                     </div>
                     <div class="loop-connector"></div>
                     <div class="loop-node">
                         <div class="loop-number">3</div>
-                        <div class="loop-text">Vendor scores aggregate historical performance</div>
+                        <div class="loop-text">Compare bids side-by-side with gaps highlighted</div>
                     </div>
                     <div class="loop-connector"></div>
                     <div class="loop-node">
                         <div class="loop-number">4</div>
-                        <div class="loop-text">Future evaluations use vendor intelligence</div>
+                        <div class="loop-text">Deep dive finalists, generate page turn prep</div>
+                    </div>
+                    <div class="loop-connector"></div>
+                    <div class="loop-node">
+                        <div class="loop-number">5</div>
+                        <div class="loop-text">Every analysis makes future reviews smarter</div>
                     </div>
                 </div>
             </div>
             <div class="solution-content">
                 <h3>Works with your stack. Not instead of it.</h3>
-                <p>Keep using Procore, Sage, Viewpoint—whatever works for your team. We don't replace your tools. We connect to them, read your data, and deliver intelligence where your people already work. No new software to learn. No change management. Just smarter outputs.</p>
-                <p>And it's not generic AI—Tradesmith learns your operation, your vendors, your bid patterns, your risk tolerances, and gets sharper the more you use it.</p>
+                <p>Keep using Procore, Sage, Viewpoint—whatever works for your team. Tradesmith doesn't replace your tools. It connects to them, reads your data, and delivers intelligence where your people already work.</p>
+                <p>And unlike generic AI tools, Tradesmith learns <strong>your</strong> operation: your vendors, your bid patterns, your risk tolerances, your margin expectations. Every project makes it sharper—for you.</p>
+                <ul class="capability-list">
+                    <li><strong>Upload anything</strong> <span>— PDFs, Excel, scans, emails. We parse it.</span></li>
+                    <li><strong>No change management</strong> <span>— Fits your workflow, not the other way around.</span></li>
+                    <li><strong>Gets smarter over time</strong> <span>— Your data trains your AI, not our other customers'.</span></li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section class="personas-section">
         <div class="personas-inner">
-            <span class="section-label">Who It's For</span>
-            <h2 class="section-title">Built for every role in <span class="serif">your operation</span></h2>
+            <span class="section-label">Built For Your Team</span>
+            <h2 class="section-title">Different roles, <span class="serif">different wins</span></h2>
             
             <div class="personas-grid reveal">
                 <div class="persona-card">
-                    <div class="persona-role">Project Managers</div>
-                    <h3>Win back 30+ hours per project</h3>
+                    <div class="persona-role">Project Managers & Estimators</div>
+                    <h3>Get your evenings back</h3>
                     <ul class="persona-benefits">
-                        <li>AI-powered bid review in minutes, not days</li>
-                        <li>Catch scope gaps before they become change orders</li>
-                        <li>Never miss a deadline with automated compliance checks</li>
-                        <li>Make better decisions with data, not gut feel</li>
+                        <li>Bid comparison that used to take 2 days now takes 20 minutes</li>
+                        <li>Scope gaps surface automatically—no more hunting through pages</li>
+                        <li>Page turn prep generated for you, not by you</li>
+                        <li>Ask questions in plain English, get answers from your data</li>
                     </ul>
                 </div>
                 <div class="persona-card">
-                    <div class="persona-role">Executives</div>
-                    <h3>Institutional knowledge that stays</h3>
+                    <div class="persona-role">Executives & Principals</div>
+                    <h3>Protect margin at scale</h3>
                     <ul class="persona-benefits">
-                        <li>Vendor accountability with data-driven scorecards</li>
-                        <li>Portfolio visibility across all projects and teams</li>
-                        <li>Risk reduction through early warning systems</li>
-                        <li>Knowledge that doesn't walk out the door</li>
+                        <li>Visibility into every bid review across the company</li>
+                        <li>Vendor performance data that doesn't leave when PMs do</li>
+                        <li>WIP health across the portfolio in real-time</li>
+                        <li>Audit trail for every decision</li>
                     </ul>
                 </div>
                 <div class="persona-card">
-                    <div class="persona-role">Finance</div>
-                    <h3>Accuracy you can trust</h3>
+                    <div class="persona-role">Finance & Accounting</div>
+                    <h3>Numbers you can trust</h3>
                     <ul class="persona-benefits">
-                        <li>Accurate WIP reports with less manual effort</li>
-                        <li>Cost predictability through bid-to-actual tracking</li>
-                        <li>Audit-ready documentation generated automatically</li>
-                        <li>Cash flow confidence from better forecasting</li>
+                        <li>WIP reports with less manual reconciliation</li>
+                        <li>Margin erosion alerts before they surprise you</li>
+                        <li>Cost forecasting that connects to actual bid data</li>
+                        <li>Over/under billing tracking across projects</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="difference-section">
-        <div class="difference-inner">
-            <span class="section-label">The Difference</span>
-            <h2 class="section-title">Not software. <span class="serif">Infrastructure.</span></h2>
-            
-            <div class="difference-grid reveal">
-                <div class="difference-card">
-                    <div class="not-this">Software vendor</div>
-                    <div class="but-this">Strategic partner</div>
-                    <p>We're not selling you a product and walking away. We're embedded in your success with dedicated support, co-developed features, and shared outcomes.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">Per-seat licensing</div>
-                    <div class="but-this">Value-aligned pricing</div>
-                    <p>Partnership investment tied to your awarded contract volume. When you succeed, we succeed. No arbitrary user limits or feature gates.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">Static feature set</div>
-                    <div class="but-this">Continuous capability</div>
-                    <p>Every advancement we make, you get. You're not buying a snapshot of software. You're investing in a partnership that compounds.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">One-size-fits-all</div>
-                    <div class="but-this">Tailored to your operation</div>
-                    <p>Generic AI gives generic answers. Tradesmith learns your vendors, your bid history, your margins—and builds intelligence that only works for you.</p>
                 </div>
             </div>
         </div>
@@ -1885,12 +1855,12 @@
 
     <section class="case-study">
         <span class="section-label">Results</span>
-        <h2 class="section-title">Proof, not promises</h2>
+        <h2 class="section-title">Real numbers, <span class="serif">real projects</span></h2>
         
         <div class="case-study-card reveal">
             <div class="case-study-grid">
                 <div class="case-study-content">
-                    <p class="quote">"15% savings in 60 days. Before we even integrated our historical data. This is what construction intelligence should be."</p>
+                    <p class="quote">"In 60 days, we caught $127K in scope gaps we would have missed. One plumbing bid alone had a $230K water heater exclusion buried on page 47. Tradesmith flagged it in the first pass."</p>
                     <div class="attribution">
                         <div class="attribution-avatar">S</div>
                         <div class="attribution-info">
@@ -1901,13 +1871,43 @@
                 </div>
                 <div class="case-study-stats">
                     <div class="stat-row">
-                        <div class="stat-value">15%</div>
-                        <div class="stat-label">Reduction in subcontractor costs</div>
+                        <div class="stat-value">$127K</div>
+                        <div class="stat-label">Protected margin in first 60 days</div>
                     </div>
                     <div class="stat-row">
-                        <div class="stat-value">60</div>
-                        <div class="stat-label">Days to measurable impact</div>
+                        <div class="stat-value">85%</div>
+                        <div class="stat-label">Reduction in bid review time</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="difference-section">
+        <div class="difference-inner">
+            <span class="section-label">The Difference</span>
+            <h2 class="section-title">Not another tool. <span class="serif">A different model.</span></h2>
+            
+            <div class="difference-grid reveal">
+                <div class="difference-card">
+                    <div class="not-this">Generic AI that treats every GC the same</div>
+                    <div class="but-this">AI that learns your operation</div>
+                    <p>Your vendors, your margin expectations, your risk tolerances. Every project trains intelligence that only works for you—not shared with competitors, not used to train generic models.</p>
+                </div>
+                <div class="difference-card">
+                    <div class="not-this">Per-seat licensing that penalizes growth</div>
+                    <div class="but-this">Partnership pricing aligned to value</div>
+                    <p>Investment tied to your awarded contract volume. When you win, we win. No arbitrary user limits, no feature gates, no "enterprise upgrade" conversations.</p>
+                </div>
+                <div class="difference-card">
+                    <div class="not-this">Software vendor with a help desk</div>
+                    <div class="but-this">Embedded partner who knows your business</div>
+                    <p>Dedicated team, not ticket queues. We're embedded in your success—co-developing features, adapting to your workflows, measured on your outcomes.</p>
+                </div>
+                <div class="difference-card">
+                    <div class="not-this">Dashboards you have to remember to check</div>
+                    <div class="but-this">Intelligence delivered where you work</div>
+                    <p>Not another login. Insights surface in email, in your existing systems, wherever decisions happen. Tradesmith meets your team where they are.</p>
                 </div>
             </div>
         </div>
@@ -1915,42 +1915,42 @@
 
     <section class="vision-section">
         <div class="vision-inner">
-            <span class="section-label">The Vision</span>
-            <h2 class="section-title">Where we're <span class="serif">going</span></h2>
+            <span class="section-label">The Moat</span>
+            <h2 class="section-title">Intelligence that <span class="serif">compounds</span></h2>
             
             <div class="vision-grid reveal">
                 <div class="vision-card">
-                    <div class="vision-label">Today</div>
-                    <h3>Faster bid review</h3>
-                    <p>Tradesmith helps you review bids faster and catch scope gaps that would become costly change orders.</p>
+                    <div class="vision-label">Every Bid</div>
+                    <h3>Trains your AI</h3>
+                    <p>Each bid you analyze makes Tradesmith smarter at catching your specific scope gaps, understanding your trade packages, recognizing your vendor patterns.</p>
                 </div>
                 <div class="vision-card">
-                    <div class="vision-label">Tomorrow</div>
-                    <h3>Complete intelligence layer</h3>
-                    <p>The intelligence layer for your entire construction operation—connecting preconstruction to close-out.</p>
+                    <div class="vision-label">Every Project</div>
+                    <h3>Builds institutional memory</h3>
+                    <p>Vendor performance, margin outcomes, what worked and what didn't—captured permanently. Knowledge that stays with your company, not with people who might leave.</p>
                 </div>
                 <div class="vision-card">
-                    <div class="vision-label">The Moat</div>
-                    <h3>Compounding advantage</h3>
-                    <p>Every bid you analyze, every vendor you rate, every project you close makes Tradesmith smarter—for you.</p>
+                    <div class="vision-label">Every Year</div>
+                    <h3>Widens your advantage</h3>
+                    <p>While competitors review bids manually and lose knowledge to turnover, you compound intelligence. The gap widens, and it doesn't close.</p>
                 </div>
             </div>
             
             <div class="moat-callout reveal">
-                <h3>"This isn't software. It's compounding construction intelligence."</h3>
-                <p>Every bid analyzed makes the platform smarter. Every vendor rated improves the recommendations. Every project closed builds institutional knowledge that stays with your company forever.</p>
+                <h3>"The best time to start building compounding intelligence was three years ago. The second best time is now."</h3>
+                <p>Every month you wait is another month of bid data that doesn't train your AI, another project's lessons that don't get captured, another edge you're not building.</p>
             </div>
         </div>
     </section>
 
     <section class="partnership-section">
         <div class="partnership-inner">
-            <span class="section-label">Partnership</span>
-            <h2 class="section-title">How the partnership <span class="serif">works</span></h2>
+            <span class="section-label">The Partnership</span>
+            <h2 class="section-title">How it <span class="serif">works</span></h2>
             
             <div class="partnership-grid reveal">
                 <div class="partnership-model">
-                    <h3>What's included</h3>
+                    <h3>What's included—everything</h3>
                     <div class="model-item">
                         <div class="model-check">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1958,7 +1958,7 @@
                             </svg>
                         </div>
                         <div class="model-item-content">
-                            <strong>Full Intelligence Infrastructure</strong>
+                            <strong>Full Platform Access</strong>
                             <span>Every capability, every integration, no feature gates</span>
                         </div>
                     </div>
@@ -1969,8 +1969,19 @@
                             </svg>
                         </div>
                         <div class="model-item-content">
-                            <strong>Embedded Partnership Team</strong>
-                            <span>Dedicated support, not a help desk ticket queue</span>
+                            <strong>Unlimited Users</strong>
+                            <span>Your whole team, not a licensing negotiation</span>
+                        </div>
+                    </div>
+                    <div class="model-item">
+                        <div class="model-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="model-item-content">
+                            <strong>Dedicated Partnership Team</strong>
+                            <span>Real support, not help desk tickets</span>
                         </div>
                     </div>
                     <div class="model-item">
@@ -1981,7 +1992,7 @@
                         </div>
                         <div class="model-item-content">
                             <strong>Continuous Development</strong>
-                            <span>Every new feature, every AI improvement, automatically</span>
+                            <span>Every new feature, automatically, as we ship</span>
                         </div>
                     </div>
                     <div class="model-item">
@@ -1991,15 +2002,15 @@
                             </svg>
                         </div>
                         <div class="model-item-content">
-                            <strong>Co-Development Input</strong>
-                            <span>Shape the roadmap based on your operational needs</span>
+                            <strong>Roadmap Influence</strong>
+                            <span>Shape what we build based on your needs</span>
                         </div>
                     </div>
                 </div>
                 <div class="founding-advantage">
                     <div class="founding-badge">Limited Availability</div>
                     <h3>Founding Partner Advantage</h3>
-                    <p>Early partners lock in rates that will be 5-10× lower than customers who wait until 2028-2030. The platform becomes more valuable over time, and pricing reflects that.</p>
+                    <p>We're taking 5 founding partners in 2026. Early partners lock in rates that will be 5-10× lower than customers who join in 2028-2030—and shape the platform's direction.</p>
                     <div class="rate-lock">Lock in 2026 rates</div>
                     <div class="rate-note">Before enterprise pricing takes effect</div>
                 </div>
@@ -2008,9 +2019,9 @@
     </section>
 
     <section class="final-cta" id="contact">
-        <h2>Ready to build your<br><span class="serif">intelligence advantage?</span></h2>
-        <p>Schedule a strategic conversation. No demo theater. Just a direct discussion about whether Tradesmith is right for your operation.</p>
-        <a href="mailto:collin@northlabs.io" class="btn-primary">Schedule a Conversation</a>
+        <h2>See it on <span class="serif">your data</span></h2>
+        <p>Not a demo with fake projects. Upload a real bid package from a real project and watch Tradesmith work. That's the only way to know if this is right for your operation.</p>
+        <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="btn-primary">Schedule a Working Session</a>
     </section>
 
     <footer>
