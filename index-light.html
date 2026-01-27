@@ -61,6 +61,14 @@
             z-index: 1000;
         }
 
+        /* Brand dot grid pattern */
+        .dot-grid-pattern {
+            --dot-size: 8px;
+            --dot-gap: 32px;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%230b73b9' rx='1'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -252,6 +260,21 @@
             background: radial-gradient(circle, var(--accent-blue-dim) 0%, transparent 70%);
             pointer-events: none;
             opacity: 0.6;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 8%;
+            left: -3%;
+            width: 200px;
+            height: 200px;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%230b73b9' rx='1'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0.15;
+            pointer-events: none;
+            mask-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, transparent 80%);
+            -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, transparent 80%);
         }
 
         .hero-label {
@@ -531,6 +554,143 @@
             color: #fff;
         }
 
+        /* Guarantees Section */
+        .guarantees-section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guarantee-card {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .guarantee-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .guarantee-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .guarantee-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-blue);
+        }
+
+        .guarantee-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .guarantee-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Capabilities Section */
+        .capabilities-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 6rem 3rem;
+        }
+
+        .capabilities-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .capability-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .capability-category-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-blue-dim);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-category-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-blue);
+        }
+
+        .capability-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .capability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .capability-item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
         /* Section styling */
         section {
             padding: 8rem 3rem;
@@ -668,6 +828,21 @@
             opacity: 0.8;
         }
 
+        .product-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 140px;
+            height: 140px;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%230b73b9' rx='1'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0.1;
+            pointer-events: none;
+            mask-image: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, transparent 70%);
+            -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, transparent 70%);
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -786,8 +961,8 @@
         /* Approach section */
         .approach-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-top: 4rem;
         }
 
@@ -848,6 +1023,21 @@
             background: radial-gradient(circle, var(--accent-blue-dim) 0%, transparent 60%);
             opacity: 0.5;
             pointer-events: none;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 160px;
+            height: 160px;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%230b73b9' rx='1'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+            opacity: 0.12;
+            pointer-events: none;
+            mask-image: linear-gradient(225deg, rgba(0,0,0,0.8) 0%, transparent 80%);
+            -webkit-mask-image: linear-gradient(225deg, rgba(0,0,0,0.8) 0%, transparent 80%);
         }
 
         .cta-inner {
@@ -956,6 +1146,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 1024px) {
             .solution-items {
                 grid-template-columns: repeat(2, 1fr);
@@ -968,6 +1164,14 @@
 
             .thesis-statement {
                 position: static;
+            }
+
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
             }
 
             .approach-grid {
@@ -994,8 +1198,17 @@
 
             .solutions-section,
             .thesis-section,
-            .cta-section {
+            .cta-section,
+            .capabilities-section {
                 padding: 4rem 1.5rem;
+            }
+
+            .guarantees-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .capability-category {
+                padding: 1.5rem;
             }
 
             .industry-header {
@@ -1480,6 +1693,46 @@
         </div>
     </div>
 
+    <section class="guarantees-section">
+        <span class="section-label">Our Guarantees</span>
+        <h2 class="section-title">Commitments we make to <span class="serif">every client</span></h2>
+
+        <div class="guarantees-grid reveal">
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Experts Only</h3>
+                <p>We don't hire junior resources. Every engagement is staffed with seasoned professionals who have delivered these solutions before.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3>Specialized Expertise</h3>
+                <p>We never learn at your expense. Our team brings deep domain knowledge from 30+ proven implementations across your industry.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Accountability to Outcomes</h3>
+                <p>We tie our work to business results. If we're not delivering measurable ROI, you have the option to end our engagement.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="thesis-section">
         <div class="thesis-inner">
             <span class="section-label">Our Thesis</span>
@@ -1543,9 +1796,84 @@
         </div>
     </section>
 
+    <div class="capabilities-section">
+        <div class="capabilities-inner">
+            <span class="section-label">Core Capabilities</span>
+            <h2 class="section-title">Technical expertise across the <span class="serif">data stack</span></h2>
+
+            <div class="capabilities-grid reveal">
+                <div class="capability-category">
+                    <div class="capability-category-header">
+                        <div class="capability-category-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h3>Data Management</h3>
+                    </div>
+                    <div class="capability-list">
+                        <div class="capability-item">Integration</div>
+                        <div class="capability-item">Governance</div>
+                        <div class="capability-item">Modeling</div>
+                        <div class="capability-item">Lifecycle Management</div>
+                        <div class="capability-item">Storage</div>
+                        <div class="capability-item">Pipelines (ETL/ELT)</div>
+                        <div class="capability-item">Catalogs</div>
+                        <div class="capability-item">Security</div>
+                        <div class="capability-item">Processing</div>
+                        <div class="capability-item">Architecture</div>
+                    </div>
+                </div>
+
+                <div class="capability-category">
+                    <div class="capability-category-header">
+                        <div class="capability-category-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10"/>
+                                <line x1="12" y1="20" x2="12" y2="4"/>
+                                <line x1="6" y1="20" x2="6" y2="14"/>
+                                <line x1="2" y1="20" x2="22" y2="20"/>
+                            </svg>
+                        </div>
+                        <h3>Business Intelligence</h3>
+                    </div>
+                    <div class="capability-list">
+                        <div class="capability-item">Dashboards</div>
+                        <div class="capability-item">Reporting</div>
+                        <div class="capability-item">Performance Indicators</div>
+                        <div class="capability-item">Forecasting</div>
+                        <div class="capability-item">Automation</div>
+                    </div>
+                </div>
+
+                <div class="capability-category">
+                    <div class="capability-category-header">
+                        <div class="capability-category-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
+                    </div>
+                    <div class="capability-list">
+                        <div class="capability-item">Natural Language Querying (NLQ)</div>
+                        <div class="capability-item">LLM Selection & Training</div>
+                        <div class="capability-item">Agent Integration</div>
+                        <div class="capability-item">Application Development</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section>
         <span class="section-label">Our Approach</span>
         <h2 class="section-title">How we build <span class="serif">differently</span></h2>
+        <p class="section-desc">A veteran-owned data solutions provider with a proven track record and commitment to your success.</p>
 
         <div class="approach-grid reveal">
             <div class="approach-card">
@@ -1555,13 +1883,18 @@
             </div>
             <div class="approach-card">
                 <div class="approach-number">02</div>
-                <h3>Domain expertise first</h3>
-                <p>We build for industries we understand from the inside. Our founder grew up pulling wire on job sites. We know the workflows, the relationships, and the economics.</p>
+                <h3>Proven expertise</h3>
+                <p>We've delivered 30+ implementations across construction, manufacturing, and industrial operations. Our veteran-led team brings military discipline and real-world domain knowledge to every engagement.</p>
             </div>
             <div class="approach-card">
                 <div class="approach-number">03</div>
-                <h3>Your intelligence, forever</h3>
-                <p>The AI we build for you stays with you. Private models that learn from your data, improve with your projects, and never get shared with competitors or used to train public systems.</p>
+                <h3>Best-in-class execution</h3>
+                <p>Outstanding project management. Expert teams with the best tools in the marketplace. No magic potions or plug-in tools—just doing things the right way, every time.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-number">04</div>
+                <h3>Measured by ROI</h3>
+                <p>We tie our work to business outcomes so you actually realize and measure return on investment. Your intelligence becomes an asset that compounds value over time.</p>
             </div>
         </div>
     </section>
