@@ -3,30 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tradesmith | Construction Intelligence That Compounds</title>
-    <meta name="description" content="Tradesmith transforms how GCs evaluate bids, select subcontractors, and protect margins. AI that learns your operation, not generic software.">
+    <title>TradeSmith | Intelligence That Compounds</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0c10;
-            --bg-secondary: #12151c;
-            --bg-tertiary: #1a1e28;
-            --bg-card: #141820;
-            --text-primary: #f0f2f5;
-            --text-secondary: #8b919e;
-            --text-muted: #5c6370;
-            --accent-emerald: #10b981;
-            --accent-emerald-dim: rgba(16, 185, 129, 0.15);
-            --accent-gold: #f59e0b;
-            --accent-gold-dim: rgba(245, 158, 11, 0.12);
-            --accent-blue: #3b82f6;
-            --accent-blue-dim: rgba(59, 130, 246, 0.15);
-            --accent-red: #ef4444;
-            --accent-red-dim: rgba(239, 68, 68, 0.15);
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(255, 255, 255, 0.12);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -45,25 +38,6 @@
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .serif {
-            font-family: 'Instrument Serif', Georgia, serif;
-        }
-
-        /* Noise texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
         }
 
         /* Navigation */
@@ -81,44 +55,26 @@
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .logo.logo-serif {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-style: italic;
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: -0.01em;
+        .logo-img {
+            height: 32px;
+            width: auto;
         }
 
-        .footer-brand.footer-serif {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-style: italic;
-            font-weight: 400;
+        .logo-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--border-subtle);
         }
 
-        .logo-mark {
-            width: 28px;
+        .solution-logo {
             height: 28px;
-            background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-mark svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
+            width: auto;
         }
 
         .nav-links {
@@ -140,115 +96,97 @@
 
         .nav-cta {
             padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            color: var(--text-primary);
+            background: var(--accent-blue);
+            color: #fff;
             font-size: 0.875rem;
             font-weight: 500;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
         }
 
         .nav-cta:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--border-hover);
-        }
-
-        .mobile-cta {
-            display: none;
-            padding: 0.5rem 1rem;
-            background: var(--accent-emerald);
-            color: #000;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            border-radius: 6px;
-            text-decoration: none;
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
         }
 
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 3rem 6rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 8rem 3rem 4rem;
             position: relative;
         }
 
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 70%);
+            bottom: 10%;
+            right: 5%;
+            width: 160px;
+            height: 160px;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 20px 20px;
+            background-repeat: repeat;
             pointer-events: none;
-            opacity: 0.6;
+            z-index: -1;
         }
 
-        .hero-eyebrow {
+        .hero-label {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--accent-gold-dim);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 100px;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-            width: fit-content;
-            animation: fadeInUp 0.6s ease-out;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .hero-eyebrow::before {
+        .hero-label::before {
             content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-gold);
-            border-radius: 50%;
+            width: 2rem;
+            height: 1px;
+            background: var(--accent-blue);
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            max-width: 900px;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
         }
 
-        .hero h1 .serif {
-            font-weight: 400;
-            font-style: italic;
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
         }
 
         .hero-sub {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
-            max-width: 620px;
-            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
             line-height: 1.7;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
         }
 
         .hero-ctas {
             display: flex;
             gap: 1rem;
-            animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
         .btn-primary {
             padding: 1rem 2rem;
-            background: var(--accent-emerald);
-            color: #000;
+            background: var(--accent-blue);
+            color: #fff;
             font-size: 0.9375rem;
             font-weight: 600;
             border: none;
@@ -256,11 +194,13 @@
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
         }
 
         .btn-primary:hover {
-            background: #0ea472;
+            background: #0a6ba6;
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
         }
 
         .btn-secondary {
@@ -281,1078 +221,326 @@
             border-color: var(--border-hover);
         }
 
-        /* Proof bar */
-        .proof-bar {
-            padding: 4rem 3rem;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .proof-bar-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .proof-stat {
-            text-align: center;
-        }
-
-        .proof-stat-value {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--accent-emerald);
-            margin-bottom: 0.25rem;
-        }
-
-        .proof-stat-label {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .proof-divider {
-            width: 1px;
-            height: 60px;
-            background: var(--border-subtle);
-        }
-
-        /* Section styling */
+        /* Sections */
         section {
-            padding: 8rem 3rem;
-            max-width: 1400px;
+            padding: 4rem 3rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent-emerald);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
-
-        .section-title .serif {
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .section-desc {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.7;
-        }
-
-        /* Problem section */
-        .problem-section {
-            background: var(--bg-secondary);
-            max-width: none;
-            padding: 8rem 3rem;
-        }
-
-        .problem-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .problem-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .problem-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .problem-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-red-dim);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .problem-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--accent-red);
-        }
-
-        .problem-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .problem-card p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .problem-stat {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.375rem 0.75rem;
-            background: var(--accent-red-dim);
-            border-radius: 4px;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--accent-red);
-        }
-
-        /* Platform Capabilities Section */
-        .platform-section {
-            background: var(--bg-primary);
-            max-width: none;
-            padding: 8rem 3rem;
-        }
-
-        .platform-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .platform-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-            margin-bottom: 4rem;
-        }
-
-        .platform-intro-content {
-            max-width: 500px;
-        }
-
-        .positioning-statement {
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-emerald);
-        }
-
-        .positioning-statement p {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
-            gap: 1.5rem;
-        }
-
-        .module-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .module-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .module-card.featured {
-            grid-column: span 2;
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
-        }
-
-        .module-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .module-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--accent-emerald-dim);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .module-icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--accent-emerald);
-        }
-
-        .module-icon.blue {
-            background: var(--accent-blue-dim);
-        }
-
-        .module-icon.blue svg {
-            stroke: var(--accent-blue);
-        }
-
-        .module-icon.gold {
-            background: var(--accent-gold-dim);
-        }
-
-        .module-icon.gold svg {
-            stroke: var(--accent-gold);
-        }
-
-        .status-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.75rem;
-            font-size: 0.6875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 100px;
-        }
-
-        .status-badge.live {
-            background: var(--accent-emerald-dim);
-            color: var(--accent-emerald);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .status-badge.live::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        .status-badge.building {
-            background: var(--accent-gold-dim);
-            color: var(--accent-gold);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .status-badge.planned {
-            background: var(--accent-blue-dim);
-            color: var(--accent-blue);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .module-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
-        }
-
-        .module-card > p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .module-features {
-            display: flex;
-            flex-wrap: wrap;
             gap: 0.5rem;
-        }
-
-        .feature-tag {
-            padding: 0.375rem 0.75rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 6px;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-
-        .module-card.featured .feature-tag {
-            background: var(--bg-secondary);
-        }
-
-        /* Example callout */
-        .example-callout {
-            margin-top: 1.5rem;
-            padding: 1rem 1.25rem;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            border-left: 2px solid var(--accent-emerald);
-        }
-
-        .example-callout-label {
             font-size: 0.6875rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-emerald);
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
             margin-bottom: 0.5rem;
         }
 
-        .example-callout p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 0;
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
         }
 
-        /* Timeline Section */
-        .roadmap-section {
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Reality Section */
+        .reality-section {
             background: var(--bg-secondary);
-            max-width: none;
-            padding: 8rem 3rem;
         }
 
-        .roadmap-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+        .reality-intro {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
         }
 
-        .timeline {
-            display: flex;
-            gap: 2rem;
-            margin-top: 4rem;
-            overflow-x: auto;
-            padding-bottom: 2rem;
+        .reality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
-        .timeline-quarter {
-            flex: 0 0 280px;
+        .reality-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 1.5rem;
         }
 
-        .timeline-quarter.current {
-            border-color: var(--accent-emerald);
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.05) 100%);
-        }
-
-        .quarter-label {
-            font-size: 0.75rem;
+        .reality-card h3 {
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-quarter.current .quarter-label {
-            color: var(--accent-emerald);
-        }
-
-        .quarter-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .quarter-items {
-            list-style: none;
-        }
-
-        .quarter-items li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
             margin-bottom: 0.75rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .quarter-items li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
-            margin-top: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .timeline-quarter.current .quarter-items li::before {
-            animation: pulse 2s infinite;
-        }
-
-        /* Solution section */
-        .solution-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
-            align-items: center;
-        }
-
-        .solution-visual {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .solution-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
-            opacity: 0.5;
-        }
-
-        .intelligence-loop {
-            position: relative;
-            z-index: 1;
-        }
-
-        .loop-node {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem 1.5rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .loop-node:hover {
-            border-color: var(--accent-emerald);
-            transform: translateX(4px);
-        }
-
-        .loop-node:last-child {
-            margin-bottom: 0;
-        }
-
-        .loop-number {
-            width: 32px;
-            height: 32px;
-            background: var(--accent-emerald-dim);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--accent-emerald);
-            flex-shrink: 0;
-        }
-
-        .loop-text {
-            font-size: 0.9375rem;
-            font-weight: 500;
-        }
-
-        .loop-connector {
-            width: 2px;
-            height: 1rem;
-            background: linear-gradient(to bottom, var(--accent-emerald) 0%, transparent 100%);
-            margin-left: 2.25rem;
-        }
-
-        .solution-content h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .solution-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .capability-list {
-            list-style: none;
-        }
-
-        .capability-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-        }
-
-        .capability-list li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
-            margin-top: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .capability-list span {
-            color: var(--text-secondary);
-        }
-
-        /* Personas Section */
-        .personas-section {
-            background: var(--bg-primary);
-            max-width: none;
-            padding: 8rem 3rem;
-        }
-
-        .personas-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .personas-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .persona-card {
-            padding: 2.5rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .persona-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-emerald) 0%, transparent 100%);
-        }
-
-        .persona-role {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent-emerald);
-            margin-bottom: 0.75rem;
-        }
-
-        .persona-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .persona-benefits {
-            list-style: none;
-        }
-
-        .persona-benefits li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .persona-benefits li::before {
-            content: '→';
-            color: var(--accent-emerald);
-            flex-shrink: 0;
-        }
-
-        /* Difference section */
-        .difference-section {
-            background: var(--bg-secondary);
-            max-width: none;
-            padding: 8rem 3rem;
-        }
-
-        .difference-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .difference-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .difference-card {
-            padding: 2.5rem;
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .difference-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-emerald) 0%, transparent 100%);
-        }
-
-        .not-this {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            text-decoration: line-through;
-        }
-
-        .but-this {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .difference-card p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Case study section */
-        .case-study {
-            position: relative;
-        }
-
-        .case-study-card {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 4rem;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-study-card::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-gold-dim) 0%, transparent 60%);
-            opacity: 0.8;
-        }
-
-        .case-study-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .case-study-content .quote {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.75rem;
-            font-style: italic;
-            line-height: 1.4;
-            margin-bottom: 2rem;
             color: var(--text-primary);
         }
 
-        .case-study-content .attribution {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .attribution-avatar {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #d97706 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: #000;
-        }
-
-        .attribution-info strong {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.125rem;
-        }
-
-        .attribution-info span {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .case-study-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .stat-row {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
-        }
-
-        .stat-value {
-            font-size: 4rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            color: var(--accent-gold);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 200px;
-        }
-
-        /* Vision section */
-        .vision-section {
-            background: var(--bg-primary);
-            max-width: none;
-            padding: 8rem 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vision-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .vision-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .vision-card {
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-        }
-
-        .vision-label {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
-        }
-
-        .vision-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .vision-card p {
+        .reality-card p {
             font-size: 0.9375rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        .moat-callout {
-            margin-top: 4rem;
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--accent-emerald-dim) 0%, transparent 100%);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 16px;
-            text-align: center;
+        /* Intelligence Section */
+        .intelligence-section {
+            background: var(--bg-primary);
         }
 
-        .moat-callout h3 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.75rem;
-            font-style: italic;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .moat-callout p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Partnership section */
-        .partnership-section {
-            background: var(--bg-secondary);
-            max-width: none;
-            padding: 8rem 3rem;
-        }
-
-        .partnership-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .partnership-grid {
+        .intelligence-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .partnership-model {
-            padding: 2.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-        }
-
-        .partnership-model h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .intelligence-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
-        .model-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .model-item:last-child {
+        .intelligence-text p:last-child {
             margin-bottom: 0;
         }
 
-        .model-check {
-            width: 24px;
-            height: 24px;
-            background: var(--accent-emerald-dim);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 0.125rem;
+        .hard-work-list {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
         }
 
-        .model-check svg {
-            width: 14px;
-            height: 14px;
-            stroke: var(--accent-emerald);
-        }
-
-        .model-item-content strong {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .model-item-content span {
+        .hard-work-list h3 {
             font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .founding-advantage {
-            padding: 2.5rem;
-            background: linear-gradient(135deg, var(--accent-gold-dim) 0%, transparent 100%);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founding-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.75rem;
-            background: var(--accent-gold);
-            color: #000;
-            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
         }
 
-        .founding-advantage h3 {
-            font-size: 1.5rem;
+        .hard-work-item {
+            margin-bottom: 1rem;
+        }
+
+        .hard-work-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .hard-work-item strong {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .hard-work-item p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Modules Section */
+        .modules-section {
+            background: var(--bg-secondary);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .module-card.featured {
+            grid-column: span 2;
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(11, 115, 185, 0.04) 0%, var(--bg-card) 100%);
+        }
+
+        .module-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .module-card.featured h3 {
+            color: var(--accent-blue);
+        }
+
+        .module-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Case Study Section */
+        .casestudy-section {
+            background: #e8eaec;
+        }
+
+        .casestudy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .casestudy-left h3,
+        .casestudy-right h3 {
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            letter-spacing: -0.01em;
+            color: var(--text-primary);
         }
 
-        .founding-advantage p {
+        .casestudy-left p {
+            font-size: 0.9375rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
         }
 
-        .founding-advantage .rate-lock {
-            font-size: 2.5rem;
+        .phase-item {
+            margin-bottom: 1rem;
+        }
+
+        .phase-item strong {
+            color: var(--accent-blue);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .mic-drop {
+            background: white;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+        }
+
+        .mic-drop h4 {
+            font-size: 0.8125rem;
             font-weight: 600;
-            color: var(--accent-gold);
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
         }
 
-        .founding-advantage .rate-note {
-            font-size: 0.875rem;
+        .mic-drop p {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Urgency Section */
+        .urgency-section {
+            background: var(--bg-primary);
+        }
+
+        .urgency-content {
+            max-width: 800px;
+        }
+
+        .urgency-content p {
+            font-size: 1.0625rem;
             color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        /* Final CTA */
-        .final-cta {
-            text-align: center;
-            padding: 10rem 3rem;
-            position: relative;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .final-cta h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta h2 .serif {
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .final-cta p {
+        .urgency-tagline {
             font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            position: relative;
-            z-index: 1;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
         }
 
-        .final-cta .btn-primary {
-            padding: 1.25rem 3rem;
-            font-size: 1rem;
-            position: relative;
-            z-index: 1;
+        .urgency-tagline .accent-text {
+            color: var(--accent-blue);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 4rem 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
         footer {
-            padding: 3rem;
-            border-top: 1px solid var(--border-subtle);
+            padding: 2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .footer-brand .logo-mark {
-            width: 24px;
-            height: 24px;
-        }
-
-        .footer-brand .logo-mark svg {
-            width: 14px;
-            height: 14px;
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
         }
 
         .footer-links {
@@ -1361,7 +549,7 @@
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.875rem;
             transition: color 0.2s ease;
@@ -1371,51 +559,9 @@
             color: var(--text-primary);
         }
 
-        .footer-copyright {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
-            .solution-grid,
-            .case-study-grid,
-            .partnership-grid,
-            .platform-intro {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .difference-grid,
-            .personas-grid,
-            .vision-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .reality-grid,
             .modules-grid {
                 grid-template-columns: 1fr;
             }
@@ -1424,804 +570,217 @@
                 grid-column: span 1;
             }
 
-            .proof-bar-inner {
-                gap: 2rem;
+            .intelligence-content,
+            .casestudy-content {
+                grid-template-columns: 1fr;
             }
 
-            .proof-divider {
-                display: none;
-            }
-
-            .timeline {
-                flex-direction: column;
-            }
-
-            .timeline-quarter {
-                flex: none;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            /* Prevent horizontal scroll */
-            html, body {
-                overflow-x: hidden;
-            }
-
             nav {
                 padding: 1rem 1.5rem;
             }
 
-            /* Hide nav links on mobile, show mobile CTA */
             .nav-links {
                 display: none;
             }
 
-            .mobile-cta {
-                display: block;
-            }
-
             .hero {
-                padding: 6rem 1.5rem 4rem;
-            }
-
-            /* Hide decorative gradients that cause overflow */
-            .hero::before,
-            .solution-visual::before,
-            .case-study-card::before,
-            .vision-section::before,
-            .final-cta::before {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero-sub {
-                font-size: 1.1rem;
-            }
-
-            .hero-eyebrow {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.75rem;
+                padding: 6rem 1.5rem 3rem;
             }
 
             section {
-                padding: 4rem 1.5rem;
-            }
-
-            .problem-section,
-            .difference-section,
-            .partnership-section,
-            .platform-section,
-            .roadmap-section,
-            .personas-section,
-            .vision-section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            /* Fix problem grid for mobile */
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-
-            /* Fix modules grid for mobile */
-            .modules-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .case-study-card {
-                padding: 1.5rem;
-            }
-
-            .case-study-content .quote {
-                font-size: 1.25rem;
-            }
-
-            .stat-value {
-                font-size: 2.5rem;
+                padding: 3rem 1.5rem;
             }
 
             .hero-ctas {
                 flex-direction: column;
             }
 
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 1.5rem;
-            }
-
-            /* Solution visual mobile */
-            .solution-visual {
-                padding: 1.5rem;
-            }
-
-            .loop-node {
-                padding: 1rem;
-            }
-
-            .loop-text {
-                font-size: 0.8125rem;
-            }
-
-            /* Final CTA section */
-            .final-cta {
-                padding: 5rem 1.5rem;
-            }
-
-            .final-cta h2 {
-                font-size: 2rem;
-            }
-
-            .final-cta p {
-                font-size: 1rem;
-            }
-
-            .final-cta .btn-primary {
-                padding: 1rem 2rem;
-                white-space: nowrap;
-            }
-
-            /* Proof bar mobile */
-            .proof-bar {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .proof-stat-value {
-                font-size: 2rem;
-            }
-
-            .proof-stat-label {
-                font-size: 0.75rem;
-            }
-
-            /* Partnership section mobile */
-            .partnership-model,
-            .founding-advantage {
-                padding: 1.5rem;
-            }
-
-            .founding-advantage .rate-lock {
-                font-size: 1.75rem;
-            }
-
-            /* Moat callout mobile */
-            .moat-callout {
-                padding: 2rem 1.5rem;
-            }
-
-            .moat-callout h3 {
-                font-size: 1.25rem;
+            .hero::after {
+                display: none;
             }
 
             footer {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
                 text-align: center;
-                padding: 2rem 1.5rem;
-            }
-
-            .footer-links {
-                gap: 1.5rem;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 380px) {
-            .hero h1 {
-                font-size: 1.875rem;
-            }
-
-            .proof-bar-inner {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .proof-stat-value {
-                font-size: 1.75rem;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="/" class="logo logo-serif">
-            Tradesmith
+        <a href="https://northlabs.io" class="logo">
+            <img src="logo-full.png" alt="North Labs" class="logo-img">
+            <div class="logo-divider"></div>
+            <img src="tradesmith-logo.png" alt="TradeSmith" class="solution-logo">
         </a>
         <div class="nav-links">
-            <a href="/">North Labs</a>
-            <a href="/about">About</a>
-            <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="nav-cta">See It On Your Data</a>
+            <a href="#platform">Platform</a>
+            <a href="#modules">Modules</a>
+            <a href="#casestudy">Case Study</a>
+            <a href="#contact" class="nav-cta">Schedule a Demo</a>
         </div>
-        <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="mobile-cta">Book a Call</a>
     </nav>
 
     <header class="hero">
-        <div class="hero-eyebrow">Founding Partners Program — Limited Availability</div>
-        <h1>From first bid to final closeout—<span class="serif">intelligence</span><br>that compounds.</h1>
-        <p class="hero-sub">Tradesmith transforms how construction firms evaluate bids, track costs, and protect margins—with AI that learns your operation, not generic software. From preconstruction through project closeout, every project makes it smarter.</p>
+        <span class="hero-label">Construction Intelligence</span>
+        <h1>Intelligence That <span class="accent-text">Compounds</span></h1>
+        <p class="hero-sub">Your data. Your vendors. Your AI Intellectual Property.</p>
         <div class="hero-ctas">
-            <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="btn-primary">See It On Your Data</a>
-            <a href="#platform" class="btn-secondary">Explore Capabilities</a>
+            <a href="#contact" class="btn-primary">See It On Your Data</a>
+            <a href="#platform" class="btn-secondary">Learn More</a>
         </div>
     </header>
 
-    <div class="proof-bar">
-        <div class="proof-bar-inner">
-            <div class="proof-stat">
-                <div class="proof-stat-value">$127K</div>
-                <div class="proof-stat-label">Avg. savings per project in first 60 days</div>
-            </div>
-            <div class="proof-divider"></div>
-            <div class="proof-stat">
-                <div class="proof-stat-value">30+</div>
-                <div class="proof-stat-label">Hours saved per bid package review</div>
-            </div>
-            <div class="proof-divider"></div>
-            <div class="proof-stat">
-                <div class="proof-stat-value">4</div>
-                <div class="proof-stat-label">Scope gaps caught per bid (avg)</div>
-            </div>
-        </div>
-    </div>
-
-    <section class="problem-section">
-        <div class="problem-inner">
+    <section class="reality-section">
+        <div class="section-inner">
             <span class="section-label">The Reality</span>
-            <h2 class="section-title">Scope gaps. Margin erosion. Intelligence that doesn't compound.<br>Most firms assume it's <span class="serif">inevitable.</span></h2>
-            <p class="section-desc">It's not. These aren't random costs of doing business—they're patterns. And patterns can be solved.</p>
+            <h2 class="section-title">Tribal Knowledge is <span class="accent-text">Not a Strategy</span></h2>
+            <p class="reality-intro">Most mid-size regional GCs are running on a dangerous "knowledge deficit."</p>
             
-            <div class="problem-grid reveal">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="9" y1="15" x2="15" y2="15"/>
-                        </svg>
-                    </div>
-                    <h3>Bids That Don't Compare</h3>
-                    <p>One sub itemizes 47 line items. Another gives you 3 lump sums. A third has exclusions you won't find until page turn. Your PMs spend days just getting bids to speak the same language.</p>
-                    <span class="problem-stat">40+ hours per trade package</span>
+            <div class="reality-grid">
+                <div class="reality-card">
+                    <h3>The Brain Drain</h3>
+                    <p>Your best insights—like which plumber consistently misses schedules or which sub hides exclusions—live in your PMs' heads. When they leave, 20 years of institutional memory walks out the door with them.</p>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Margin Erosion You Catch Too Late</h3>
-                    <p>By the time the WIP report shows a problem, you're already underwater. Cost overruns, overbilling corrections, change orders that weren't tracked—the warnings were there, but buried in disconnected systems.</p>
-                    <span class="problem-stat">Average 3-5% margin loss</span>
+                <div class="reality-card">
+                    <h3>The "Black Box" of Bids</h3>
+                    <p>You receive one bid with 47 line items and another as a lump sum. Your team spends 40+ hours per trade package just trying to get them to speak the same language.</p>
                 </div>
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3>Knowledge That Walks Out the Door</h3>
-                    <p>"That concrete sub missed their last three schedules." "This plumber always excludes fire caulk." That knowledge lives in your best PM's head—until they leave, and it leaves with them.</p>
-                    <span class="problem-stat">$50K-$500K per missed gap</span>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 20V10"/>
-                            <path d="M12 20V4"/>
-                            <path d="M6 20v-6"/>
-                        </svg>
-                    </div>
-                    <h3>Systems That Don't Talk</h3>
-                    <p>Your ERP has cost data. Your PM tool has schedules. Your bid files live in email and shared drives. Nothing connects—so insights that should be obvious require hours of manual reconciliation.</p>
-                    <span class="problem-stat">Critical context, lost</span>
+                <div class="reality-card">
+                    <h3>Margin Erosion</h3>
+                    <p>By the time the WIP report shows you're underwater, it's too late. The warnings were buried in disconnected systems (Procore, Sage, Salesforce) that don't talk to each other.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="platform-section" id="platform">
-        <div class="platform-inner">
-            <div class="platform-intro reveal">
-                <div class="platform-intro-content">
-                    <span class="section-label">The Platform</span>
-                    <h2 class="section-title">Intelligence that <span class="serif">compounds</span> with every project</h2>
-                    <p class="section-desc">Not a tool you log into occasionally. Infrastructure that makes every bid review faster, every decision more informed, every lesson captured permanently.</p>
+    <section class="intelligence-section" id="platform">
+        <div class="section-inner">
+            <span class="section-label">The Solution</span>
+            <h2 class="section-title">An Intelligence Layer to <span class="accent-text">Own</span></h2>
+            
+            <div class="intelligence-content">
+                <div class="intelligence-text">
+                    <p>Unlike generic AI tools or broad features inside your ERP, <strong>TradeSmith is your company's AI Operating System</strong>. We are the only group in the country doing this because the technology has only existed for the last 9 months.</p>
+                    <p>We don't ask your team to adopt new tooling or change their workflow. We sit on top of your existing systems, train the AI on your specific company history, and deliver intelligence where your people already work.</p>
                 </div>
-                <div class="positioning-statement">
-                    <p>"Procore is your system of record. Tradesmith is your system of intelligence—the layer that actually thinks."</p>
+                <div class="hard-work-list">
+                    <h3>The "Hard Work" We Do For You</h3>
+                    <div class="hard-work-item">
+                        <strong>Mapping Your Business Intricacies</strong>
+                        <p>We don't use "generic" construction data. We train your instance on your historical bids, your vendor patterns, and your risk tolerances.</p>
+                    </div>
+                    <div class="hard-work-item">
+                        <strong>Building Your IP</strong>
+                        <p>This isn't a subscription you rent; it's an asset you build. Every project that runs through TradeSmith makes the system smarter—specifically for your firm.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="modules-section" id="modules">
+        <div class="section-inner">
+            <span class="section-label">Capabilities</span>
+            <h2 class="section-title">The TradeSmith <span class="accent-text">Module Suite</span></h2>
             
-            <div class="modules-grid reveal">
-                <!-- Bid Intelligence - Featured -->
+            <div class="modules-grid">
                 <div class="module-card featured">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <path d="M12 18v-6"/>
-                                <path d="M9 15l3 3 3-3"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
                     <h3>Bid Intelligence</h3>
-                    <p>Upload any bid—PDF, Excel, scanned document, email chain. Tradesmith reads it like your best estimator would: understanding scope, normalizing line items, catching what's missing. Bids that took days to compare now take minutes.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Any Format Parsing</span>
-                        <span class="feature-tag">Smart Normalization</span>
-                        <span class="feature-tag">Coverage Scoring</span>
-                        <span class="feature-tag">Trade Comparison</span>
-                        <span class="feature-tag">Outlier Detection</span>
-                        <span class="feature-tag">Exclusion Extraction</span>
-                    </div>
-                    <div class="example-callout">
-                        <div class="example-callout-label">Real Example</div>
-                        <p>"One plumber bid $847K with full water heater scope. Another bid $612K excluding the same. Tradesmith caught it in the first pass—would've been a $230K change order."</p>
-                    </div>
+                    <p>Upload any PDF, Excel, or email chain. TradeSmith reads it like a senior estimator—normalizing line items, catching scope gaps, and auto-leveling bids in minutes.</p>
                 </div>
-
-                <!-- Page Turn Sentinel -->
                 <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
                     <h3>Page Turn Sentinel</h3>
-                    <p>Before every page turn meeting, Tradesmith generates a prep package: risk-ranked discussion points, specific questions for each finalist, and hidden concerns surfaced from deep analysis. Walk into negotiations prepared.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Finalist Deep Dive</span>
-                        <span class="feature-tag">Risk Ranking</span>
-                        <span class="feature-tag">Discussion Points</span>
-                        <span class="feature-tag">Clarification Questions</span>
-                    </div>
+                    <p>Generates a risk-ranked prep package for negotiation meetings. It surfaces the exact questions to ask each finalist based on deep document analysis.</p>
                 </div>
-
-                <!-- Report-Aware Analysis -->
                 <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
-                    <h3>Report-Aware Analysis</h3>
-                    <p>Upload your PCNA, asbestos survey, HAZ-MAT report—any due diligence document. Tradesmith cross-references findings against every bid, flagging where scope might be affected by existing conditions.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">PCNA Integration</span>
-                        <span class="feature-tag">Asbestos/HAZ-MAT</span>
-                        <span class="feature-tag">Auto Cross-Reference</span>
-                    </div>
-                </div>
-
-                <!-- Deep Analysis -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon gold">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
-                    <h3>Deep Analysis (Claude-Powered)</h3>
-                    <p>For your finalists, trigger a deep dive. Line-by-line scope gap identification, hidden risk detection, contract term analysis, and AI-generated clarification questions—the analysis your senior PM would do if they had unlimited time.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Scope Gap Detection</span>
-                        <span class="feature-tag">Contract Analysis</span>
-                        <span class="feature-tag">Risk Assessment</span>
-                        <span class="feature-tag">Question Generation</span>
-                    </div>
-                </div>
-
-                <!-- WIP Intelligence -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
                     <h3>WIP Intelligence</h3>
-                    <p>Real-time cost tracking that connects bids to actuals. See margin erosion before it becomes a problem. Track over/under billing. Get alerts when projects drift off baseline—not when it's too late.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Margin Tracking</span>
-                        <span class="feature-tag">Cost Forecasting</span>
-                        <span class="feature-tag">Over/Under Billing</span>
-                        <span class="feature-tag">Project Health</span>
-                    </div>
+                    <p>Connects bids to actuals in real-time. Track over/under billing and margin drift before it becomes a problem, not after.</p>
                 </div>
-
-                <!-- Compliance Checking -->
                 <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge live">Live</span>
-                    </div>
-                    <h3>Project Configuration & Compliance</h3>
-                    <p>Configure once: prevailing wage requirements, Section 3, LIHTC, HUD compliance, local requirements. Every bid is automatically checked against your project's specific needs.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Prevailing Wage</span>
-                        <span class="feature-tag">Section 3 / LIHTC</span>
-                        <span class="feature-tag">ITB Requirements</span>
-                    </div>
+                    <h3>Compliance & Finance</h3>
+                    <p>Built-in modules for Davis-Bacon, prevailing wage, Section 3, and HUD compliance. We automate the "high-calorie" work of payroll and regulatory verification.</p>
                 </div>
-
-                <!-- Vendor Intelligence -->
                 <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon blue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge planned">Coming Soon</span>
-                    </div>
                     <h3>Vendor Intelligence</h3>
-                    <p>Institutional memory for subcontractor performance, automatically built from every project. "This electrical sub bid 15% under last time and missed schedule by 3 weeks." Knowledge that stays with your company.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Performance History</span>
-                        <span class="feature-tag">Bid Pattern Analysis</span>
-                        <span class="feature-tag">Risk Scoring</span>
-                    </div>
-                </div>
-
-                <!-- Integrations Hub -->
-                <div class="module-card">
-                    <div class="module-header">
-                        <div class="module-icon blue">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
-                            </svg>
-                        </div>
-                        <span class="status-badge planned">Coming Soon</span>
-                    </div>
-                    <h3>ERP Integrations</h3>
-                    <p>Connect to Sage 300 CRE, Viewpoint, Procore, your accounting system. Tradesmith becomes the intelligence layer across your entire tech stack—not another silo.</p>
-                    <div class="module-features">
-                        <span class="feature-tag">Sage 300 CRE</span>
-                        <span class="feature-tag">Viewpoint</span>
-                        <span class="feature-tag">Procore</span>
-                        <span class="feature-tag">API Access</span>
-                    </div>
+                    <p>Automatically builds institutional memory. "This electrical sub bid 15% under last time and missed schedule by 3 weeks." The knowledge stays; the risk goes away.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works">
-        <span class="section-label">How It Works</span>
-        <h2 class="section-title">From upload to <span class="serif">decision</span> in minutes</h2>
-        <p class="section-desc">No manual data entry. No spreadsheet gymnastics. Just upload and let Tradesmith do what your best estimator would—in a fraction of the time.</p>
-        
-        <div class="solution-grid reveal">
-            <div class="solution-visual">
-                <div class="intelligence-loop">
-                    <div class="loop-node">
-                        <div class="loop-number">1</div>
-                        <div class="loop-text">Upload bids in any format (PDF, Excel, email)</div>
-                    </div>
-                    <div class="loop-connector"></div>
-                    <div class="loop-node">
-                        <div class="loop-number">2</div>
-                        <div class="loop-text">AI parses, normalizes, scores coverage</div>
-                    </div>
-                    <div class="loop-connector"></div>
-                    <div class="loop-node">
-                        <div class="loop-number">3</div>
-                        <div class="loop-text">Compare bids side-by-side with gaps highlighted</div>
-                    </div>
-                    <div class="loop-connector"></div>
-                    <div class="loop-node">
-                        <div class="loop-number">4</div>
-                        <div class="loop-text">Deep dive finalists, generate page turn prep</div>
-                    </div>
-                    <div class="loop-connector"></div>
-                    <div class="loop-node">
-                        <div class="loop-number">5</div>
-                        <div class="loop-text">Every analysis makes future reviews smarter</div>
-                    </div>
-                </div>
-            </div>
-            <div class="solution-content">
-                <h3>Works with your stack. Not instead of it.</h3>
-                <p>Keep using Procore, Sage, Viewpoint—whatever works for your team. Tradesmith doesn't replace your tools. It connects to them, reads your data, and delivers intelligence where your people already work.</p>
-                <p>And unlike generic AI tools, Tradesmith learns <strong>your</strong> operation: your vendors, your bid patterns, your risk tolerances, your margin expectations. Every project makes it sharper—for you.</p>
-                <ul class="capability-list">
-                    <li><strong>Upload anything</strong> <span>— PDFs, Excel, scans, emails. We parse it.</span></li>
-                    <li><strong>No change management</strong> <span>— Fits your workflow, not the other way around.</span></li>
-                    <li><strong>Gets smarter over time</strong> <span>— Your data trains your AI, not our other customers'.</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="personas-section">
-        <div class="personas-inner">
-            <span class="section-label">Built For Your Team</span>
-            <h2 class="section-title">Different roles, <span class="serif">different wins</span></h2>
+    <section class="casestudy-section" id="casestudy">
+        <div class="section-inner">
+            <span class="section-label">Case Study</span>
+            <h2 class="section-title">The 60-Day <span class="accent-text">Transformation</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;"><strong>The Partners:</strong> Two Arizona-based Regional GCs ($300M+ annual volume).</p>
             
-            <div class="personas-grid reveal">
-                <div class="persona-card">
-                    <div class="persona-role">Project Managers & Estimators</div>
-                    <h3>Get your evenings back</h3>
-                    <ul class="persona-benefits">
-                        <li>Bid comparison that used to take 2 days now takes 20 minutes</li>
-                        <li>Scope gaps surface automatically—no more hunting through pages</li>
-                        <li>Page turn prep generated for you, not by you</li>
-                        <li>Ask questions in plain English, get answers from your data</li>
-                    </ul>
+            <div class="casestudy-content">
+                <div class="casestudy-left">
+                    <h3>The Challenge</h3>
+                    <p>High manual overhead in bid reviews and a recurring issue with "buried" exclusions leading to six-figure change orders during the WIP phase.</p>
+                    
+                    <h3 style="margin-top: 1.5rem;">The TradeSmith Intervention</h3>
+                    <div class="phase-item">
+                        <p><strong>Phase 1:</strong> North Labs integrated TradeSmith with their Procore and Sage instances, training the AI on five years of historical bid data.</p>
+                    </div>
+                    <div class="phase-item">
+                        <p><strong>Phase 2:</strong> Deployed the Bid Intelligence module to auto-level trade packages and identify outliers.</p>
+                    </div>
                 </div>
-                <div class="persona-card">
-                    <div class="persona-role">Executives & Principals</div>
-                    <h3>Protect margin at scale</h3>
-                    <ul class="persona-benefits">
-                        <li>Visibility into every bid review across the company</li>
-                        <li>Vendor performance data that doesn't leave when PMs do</li>
-                        <li>WIP health across the portfolio in real-time</li>
-                        <li>Audit trail for every decision</li>
-                    </ul>
-                </div>
-                <div class="persona-card">
-                    <div class="persona-role">Finance & Accounting</div>
-                    <h3>Numbers you can trust</h3>
-                    <ul class="persona-benefits">
-                        <li>WIP reports with less manual reconciliation</li>
-                        <li>Margin erosion alerts before they surprise you</li>
-                        <li>Cost forecasting that connects to actual bid data</li>
-                        <li>Over/under billing tracking across projects</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="case-study">
-        <span class="section-label">Results</span>
-        <h2 class="section-title">Real numbers, <span class="serif">real projects</span></h2>
-        
-        <div class="case-study-card reveal">
-            <div class="case-study-grid">
-                <div class="case-study-content">
-                    <p class="quote">"In 60 days, we caught $127K in scope gaps we would have missed. One plumbing bid alone had a $230K water heater exclusion buried on page 47. Tradesmith flagged it in the first pass."</p>
-                    <div class="attribution">
-                        <div class="attribution-avatar">S</div>
-                        <div class="attribution-info">
-                            <strong>Scott</strong>
-                            <span>CEO, ICON National — $300M Regional GC</span>
+                <div class="casestudy-right">
+                    <h3>The Results</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">15%</div>
+                            <div class="stat-label">Average Savings on operating costs in 60 days</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$127K</div>
+                            <div class="stat-label">Protected Margin per project on average</div>
                         </div>
                     </div>
-                </div>
-                <div class="case-study-stats">
-                    <div class="stat-row">
-                        <div class="stat-value">$127K</div>
-                        <div class="stat-label">Protected margin in first 60 days</div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-value">85%</div>
-                        <div class="stat-label">Reduction in bid review time</div>
+                    <div class="mic-drop">
+                        <h4>The "Mic Drop" Moment</h4>
+                        <p>TradeSmith flagged a $230,000 water heater exclusion buried on page 47 of a plumbing bid that three senior PMs had missed. It was caught in the first 5 minutes of analysis.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="difference-section">
-        <div class="difference-inner">
-            <span class="section-label">The Difference</span>
-            <h2 class="section-title">Not another tool. <span class="serif">A different model.</span></h2>
-            
-            <div class="difference-grid reveal">
-                <div class="difference-card">
-                    <div class="not-this">Generic AI that treats every GC the same</div>
-                    <div class="but-this">AI that learns your operation</div>
-                    <p>Your vendors, your margin expectations, your risk tolerances. Every project trains intelligence that only works for you—not shared with competitors, not used to train generic models.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">Per-seat licensing that penalizes growth</div>
-                    <div class="but-this">Partnership pricing aligned to value</div>
-                    <p>Investment tied to your awarded contract volume. When you win, we win. No arbitrary user limits, no feature gates, no "enterprise upgrade" conversations.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">Software vendor with a help desk</div>
-                    <div class="but-this">Embedded partner who knows your business</div>
-                    <p>Dedicated team, not ticket queues. We're embedded in your success—co-developing features, adapting to your workflows, measured on your outcomes.</p>
-                </div>
-                <div class="difference-card">
-                    <div class="not-this">Dashboards you have to remember to check</div>
-                    <div class="but-this">Intelligence delivered where you work</div>
-                    <p>Not another login. Insights surface in email, in your existing systems, wherever decisions happen. Tradesmith meets your team where they are.</p>
-                </div>
+    <section class="urgency-section">
+        <div class="section-inner">
+            <div class="urgency-content">
+                <span class="section-label">Act Now</span>
+                <h2 class="section-title">The Best Time to Start was <span class="accent-text">3 Years Ago</span></h2>
+                <p>The second best time is now. Every month you wait is another month of bid data that isn't training your AI, and another project's lessons that aren't being captured as company IP.</p>
+                <p class="urgency-tagline">TradeSmith: <span class="accent-text">Built for GCs who build the world.</span> Powered by AI that understands the work.</p>
             </div>
         </div>
     </section>
 
-    <section class="vision-section">
-        <div class="vision-inner">
-            <span class="section-label">The Moat</span>
-            <h2 class="section-title">Intelligence that <span class="serif">compounds</span></h2>
-            
-            <div class="vision-grid reveal">
-                <div class="vision-card">
-                    <div class="vision-label">Every Bid</div>
-                    <h3>Trains your AI</h3>
-                    <p>Each bid you analyze makes Tradesmith smarter at catching your specific scope gaps, understanding your trade packages, recognizing your vendor patterns.</p>
-                </div>
-                <div class="vision-card">
-                    <div class="vision-label">Every Project</div>
-                    <h3>Builds institutional memory</h3>
-                    <p>Vendor performance, margin outcomes, what worked and what didn't—captured permanently. Knowledge that stays with your company, not with people who might leave.</p>
-                </div>
-                <div class="vision-card">
-                    <div class="vision-label">Every Year</div>
-                    <h3>Widens your advantage</h3>
-                    <p>While competitors review bids manually and lose knowledge to turnover, you compound intelligence. The gap widens, and it doesn't close.</p>
-                </div>
-            </div>
-            
-            <div class="moat-callout reveal">
-                <h3>"The best time to start building compounding intelligence was three years ago. The second best time is now."</h3>
-                <p>Every month you wait is another month of bid data that doesn't train your AI, another project's lessons that don't get captured, another edge you're not building.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="partnership-section">
-        <div class="partnership-inner">
-            <span class="section-label">The Partnership</span>
-            <h2 class="section-title">How it <span class="serif">works</span></h2>
-            
-            <div class="partnership-grid reveal">
-                <div class="partnership-model">
-                    <h3>What's included—everything</h3>
-                    <div class="model-item">
-                        <div class="model-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="model-item-content">
-                            <strong>Full Platform Access</strong>
-                            <span>Every capability, every integration, no feature gates</span>
-                        </div>
-                    </div>
-                    <div class="model-item">
-                        <div class="model-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="model-item-content">
-                            <strong>Unlimited Users</strong>
-                            <span>Your whole team, not a licensing negotiation</span>
-                        </div>
-                    </div>
-                    <div class="model-item">
-                        <div class="model-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="model-item-content">
-                            <strong>Dedicated Partnership Team</strong>
-                            <span>Real support, not help desk tickets</span>
-                        </div>
-                    </div>
-                    <div class="model-item">
-                        <div class="model-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="model-item-content">
-                            <strong>Continuous Development</strong>
-                            <span>Every new feature, automatically, as we ship</span>
-                        </div>
-                    </div>
-                    <div class="model-item">
-                        <div class="model-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="model-item-content">
-                            <strong>Roadmap Influence</strong>
-                            <span>Shape what we build based on your needs</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="founding-advantage">
-                    <div class="founding-badge">Limited Availability</div>
-                    <h3>Founding Partner Advantage</h3>
-                    <p>We're taking 5 founding partners in 2026. Early partners lock in rates that will be 5-10× lower than customers who join in 2028-2030—and shape the platform's direction.</p>
-                    <div class="rate-lock">Lock in 2026 rates</div>
-                    <div class="rate-note">Before enterprise pricing takes effect</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-cta" id="contact">
-        <h2>See it on <span class="serif">your data</span></h2>
-        <p>Not a demo with fake projects. Upload a real bid package from a real project and watch Tradesmith work. That's the only way to know if this is right for your operation.</p>
-        <a href="https://calendar.app.google/1xH8c4WWn8Djvm4M9" class="btn-primary">Schedule a Working Session</a>
+    <section class="cta-section" id="contact">
+        <h2>See it on <span class="accent-text">your data</span></h2>
+        <p>Schedule a working session to discover how TradeSmith can protect your margins and build your AI IP.</p>
+        <a href="mailto:contact@northlabs.io?subject=TradeSmith%20Demo" class="btn-primary">Schedule a Working Session →</a>
     </section>
 
     <footer>
-        <div class="footer-brand footer-serif">
-            Tradesmith by North Labs
-        </div>
+        <a href="https://northlabs.io">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
         <div class="footer-links">
-            <a href="/">North Labs</a>
-            <a href="/about">About</a>
-            <a href="#">Privacy</a>
+            <a href="https://northlabs.io">← Back to North Labs</a>
+            <a href="https://northlabs.io/#solutions">All Solutions</a>
         </div>
-        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
     </footer>
-
-    <script>
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealOnScroll = () => {
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    el.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
