@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .northlabs-logo {
+            height: 28px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .page-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            padding: 8rem 3rem 4rem;
+            max-width: none;
+        }
+
+        .featured-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .featured-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .video-placeholder {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-subtle);
+        }
+
+        .video-placeholder svg {
+            width: 64px;
+            height: 64px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .video-placeholder span {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .featured-details h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .featured-details p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .featured-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Case Studies Table Section */
+        .table-section {
+            padding: 4rem 3rem;
+            background: var(--bg-secondary);
+        }
+
+        .table-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .case-studies-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .case-studies-table thead {
+            background: var(--bg-tertiary);
+        }
+
+        .case-studies-table th {
+            text-align: left;
+            padding: 1rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .case-studies-table td {
+            padding: 1.25rem;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+
+        .case-studies-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .case-studies-table tbody tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        .solution-tag {
+            display: inline-block;
+            background: var(--accent-blue-dim);
+            color: var(--accent-blue);
+            padding: 0.25rem 0.625rem;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .blurb-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .download-link:hover {
+            opacity: 0.8;
+        }
+
+        .download-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 4rem 3rem;
+        }
+
+        .testimonials-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            font-family: 'Instrument Serif', Georgia, serif;
+            line-height: 0;
+            margin-right: 0.25rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .author-logo {
+            height: 28px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        .author-title {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: none;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .footer-veteran {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .featured-section,
+            .table-section,
+            .testimonials-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-studies-table {
+                display: block;
+            }
+
+            .case-studies-table thead {
+                display: none;
+            }
+
+            .case-studies-table tbody {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .case-studies-table tr {
+                display: flex;
+                flex-direction: column;
+                background: var(--bg-card);
+                border-radius: 10px;
+                padding: 1.25rem;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                border: 1px solid var(--border-subtle);
+            }
+
+            .case-studies-table td {
+                padding: 0.5rem 0;
+                border-bottom: none;
+            }
+
+            .case-studies-table td:first-child {
+                padding-bottom: 0.75rem;
+                border-bottom: 1px solid var(--border-subtle);
+                margin-bottom: 0.5rem;
+            }
+
+            .case-studies-table td:nth-child(2) {
+                order: -1;
+                padding-bottom: 0.5rem;
+            }
+
+            .case-studies-table td:nth-child(3)::before {
+                content: 'Industry: ';
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+            }
+
+            .case-studies-table td:last-child {
+                padding-top: 0.75rem;
+                border-top: 1px solid var(--border-subtle);
+                margin-top: 0.5rem;
+            }
+
+            footer {
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+            <div class="logo-divider"></div>
+            <span class="page-title">Case Studies</span>
+        </div>
+        <div class="nav-links">
+            <a href="https://northlabs.io#solutions">Solutions</a>
+            <a href="https://northlabs.io#about">About</a>
+            <a href="https://northlabs.io#contact" class="btn-primary">Get in Touch</a>
+        </div>
+    </nav>
+
+    <section class="featured-section">
+        <div class="featured-inner">
+            <span class="section-label">Featured Case Study</span>
+            <h1 class="featured-title">North Labs delivers a 74.5% reduction in time to analyze bids.</h1>
+            
+            <div class="featured-content">
+                <div class="video-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Video Coming Soon</span>
+                </div>
+                <div class="featured-details">
+                    <div class="featured-stat">
+                        <span class="stat-number">74.5%</span>
+                        <span class="stat-label">reduction in bid analysis time</span>
+                    </div>
+                    <h3>TradeSmith for Construction & Heavy Civil</h3>
+                    <p>When a leading construction company approached us about common data management challenges, we discovered the biggest ROI opportunity was in bid analysis. Through stakeholder interviews and world-class tooling, we built a lightweight application that transformed their operations.</p>
+                    <a href="https://tradesmith.northlabs.io" target="_blank" class="btn-primary">Learn about TradeSmith →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <div class="table-inner">
+            <span class="section-label">Our Work</span>
+            <h2 class="section-title">Case Study Library</h2>
+            
+            <table class="case-studies-table">
+                <thead>
+                    <tr>
+                        <th>Effort Title</th>
+                        <th>Solution / LOB</th>
+                        <th>Sub-Industry</th>
+                        <th>Reference / Quote</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bid Analysis Acceleration</strong></td>
+                        <td><span class="solution-tag">TradeSmith</span></td>
+                        <td>Construction & Heavy Civil</td>
+                        <td class="blurb-text">"Reduced our bid turnaround from days to hours."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enrollment Prediction Model</strong></td>
+                        <td><span class="solution-tag">Reggie</span></td>
+                        <td>Higher Education</td>
+                        <td class="blurb-text">"We now forecast enrollment with 94% accuracy."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revenue Cycle Optimization</strong></td>
+                        <td><span class="solution-tag">CareSense</span></td>
+                        <td>Healthcare / Pharmacy</td>
+                        <td class="blurb-text">"Identified $2.3M in underpayments within 60 days."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supply Chain Visibility Platform</strong></td>
+                        <td><span class="solution-tag">CargoIQ</span></td>
+                        <td>Logistics & Transportation</td>
+                        <td class="blurb-text">"Real-time tracking reduced our OTIF issues by 40%."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Production Planning Intelligence</strong></td>
+                        <td><span class="solution-tag">Industrials</span></td>
+                        <td>Manufacturing</td>
+                        <td class="blurb-text">"Scheduling efficiency improved by 35% in Q1."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Student Retention Analytics</strong></td>
+                        <td><span class="solution-tag">Reggie</span></td>
+                        <td>Higher Education</td>
+                        <td class="blurb-text">"Retention rates improved 12% year-over-year."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contract Renewal Analytics</strong></td>
+                        <td><span class="solution-tag">CareSense</span></td>
+                        <td>Healthcare / Payer</td>
+                        <td class="blurb-text">"Negotiated 8% better rates using data insights."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>WIP Visibility Dashboard</strong></td>
+                        <td><span class="solution-tag">TradeSmith</span></td>
+                        <td>Real Estate Development</td>
+                        <td class="blurb-text">"Finally have real-time visibility into all projects."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fleet Route Optimization</strong></td>
+                        <td><span class="solution-tag">CargoIQ</span></td>
+                        <td>Freight & Logistics</td>
+                        <td class="blurb-text">"Fuel costs down 18% with optimized routing."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scrap Reduction Initiative</strong></td>
+                        <td><span class="solution-tag">Industrials</span></td>
+                        <td>Automotive Manufacturing</td>
+                        <td class="blurb-text">"Reduced material waste by 22% in 6 months."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Athletics Revenue Insights</strong></td>
+                        <td><span class="solution-tag">Reggie</span></td>
+                        <td>Higher Education</td>
+                        <td class="blurb-text">"Ticket and merchandise revenue up 15%."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Denial Management Automation</strong></td>
+                        <td><span class="solution-tag">CareSense</span></td>
+                        <td>Healthcare / Provider</td>
+                        <td class="blurb-text">"Denial rate dropped from 12% to 4%."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estimation Accuracy Platform</strong></td>
+                        <td><span class="solution-tag">TradeSmith</span></td>
+                        <td>General Contracting</td>
+                        <td class="blurb-text">"Estimates now within 5% of actuals consistently."</td>
+                        <td>
+                            <a href="#" class="download-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                PDF
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="testimonials-inner">
+            <span class="section-label">What Our Clients Say</span>
+            <h2 class="section-title">Testimonials</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">North Labs transformed how we approach data. Their team delivered exactly what they promised, on time and with measurable results.</p>
+                    <div class="testimonial-author">
+                        <img src="logos/affirmedrx.png" alt="AffirmedRx" class="author-logo">
+                        <div class="author-info">
+                            <span class="author-name">VP of Operations</span>
+                            <span class="author-title">AffirmedRx</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">The ROI was evident within weeks. We finally have visibility into our data that we've been trying to achieve for years.</p>
+                    <div class="testimonial-author">
+                        <img src="logos/jmh.png" alt="JMH" class="author-logo">
+                        <div class="author-info">
+                            <span class="author-name">Director of Analytics</span>
+                            <span class="author-title">JMH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">Their specialized approach meant we weren't paying for them to learn our industry. They hit the ground running from day one.</p>
+                    <div class="testimonial-author">
+                        <img src="logos/cmg.png" alt="CMG" class="author-logo">
+                        <div class="author-info">
+                            <span class="author-name">CFO</span>
+                            <span class="author-title">CMG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://northlabs.io#solutions">Solutions</a>
+            <a href="https://northlabs.io#about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+    </footer>
+</body>
+</html>
