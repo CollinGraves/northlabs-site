@@ -453,21 +453,17 @@
         }
 
         .culture-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            display: flex;
+            align-items: stretch;
             gap: 2rem;
-            align-items: center;
-            margin-top: 0;
-        }
-
-        .culture-text {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+            margin-top: 0.5rem;
         }
 
         .culture-text p {
             margin: 0;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         /* Success Section */
@@ -680,17 +676,63 @@
         }
 
         .team-photo {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
         }
 
         .team-photo img {
-            width: 100%;
-            height: auto;
             display: block;
-            max-height: 150px;
-            object-fit: cover;
+            height: 180px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .culture-text {
+            max-width: 580px;
+            background: white;
+            padding: 1.25rem 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+        }
+
+        .culture-right {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .culture-guarantees {
+            flex: 1;
+        }
+
+        .guarantees-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .guarantees-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guarantees-list li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.375rem;
+            line-height: 1.4;
+        }
+
+        .guarantees-list li strong {
+            color: var(--text-primary);
         }
 
         /* Capabilities Section */
@@ -1640,6 +1682,9 @@
                         <span class="practice-solution">Work-in-Progress (WIP)</span>
                         <span class="practice-solution">Project Scheduling</span>
                         <span class="practice-solution">Contract Automation</span>
+                        <span class="practice-solution">Automated Credit Risk Assessment</span>
+                        <span class="practice-solution">Predictive Loan Performance Modeling</span>
+                        <span class="practice-solution">Financial Compliance Monitoring</span>
                     </div>
                     <a href="https://tradesmith.northlabs.io" class="practice-cta practice-cta-branded" target="_blank"><img src="tradesmith-logo.png" alt="TradeSmith" class="cta-logo cta-logo-tradesmith"><span>Learn More</span></a>
                 </div>
@@ -1802,26 +1847,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="guarantees-section">
-        <span class="section-label">Our Guarantees</span>
-        <h2 class="section-title">Commitments to <span class="accent-text">every client</span></h2>
-
-        <div class="guarantees-grid reveal">
-            <div class="guarantee-card">
-                <h3>Experts Only</h3>
-                <p>We don't hire junior resources. Every engagement is staffed with seasoned professionals.</p>
-            </div>
-            <div class="guarantee-card">
-                <h3>Specialized</h3>
-                <p>We never learn at your expense. Our team brings deep domain knowledge from proven implementations.</p>
-            </div>
-            <div class="guarantee-card">
-                <h3>Accountability</h3>
-                <p>We tie our work to business outcomes. If we're not delivering, you have the option to end our engagement.</p>
             </div>
         </div>
     </section>
