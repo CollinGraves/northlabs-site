@@ -461,9 +461,9 @@
 
         .culture-text p {
             margin: 0;
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* Success Section */
@@ -567,19 +567,25 @@
         .success-btn-featured {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            width: 260px;
+            height: 48px;
+            background: #6b7280;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            font-size: 0.875rem;
+            font-weight: 600;
         }
 
         .success-btn-featured:hover {
-            background: #0a6ba6;
+            background: #4b5563;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
 
         .success-btn-featured .btn-logo {
-            height: 34px;
+            height: 24px;
             width: auto;
             filter: brightness(0) invert(1);
         }
@@ -598,6 +604,37 @@
 
         .success-btn-featured:hover span::after {
             transform: translateX(3px);
+        }
+
+        .success-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            align-items: flex-start;
+        }
+
+        .success-btn-casestudies {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            width: 260px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .success-btn-casestudies:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
         }
 
         .catalog-subtitle {
@@ -746,6 +783,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-top: 1.5rem;
+            align-items: start;
         }
 
         .capability-category {
@@ -789,6 +827,12 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+        }
+
+        .capability-list-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.25rem 1rem;
         }
 
         .capability-item {
@@ -1034,12 +1078,128 @@
         }
 
         .practice-card-highlight {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(11, 115, 185, 0.04) 0%, var(--bg-card) 100%);
+            background: white;
         }
 
-        .practice-card-highlight:hover {
-            border-color: var(--accent-blue);
+        .practice-grid-4col {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-card-flagship {
+            background: white;
+        }
+
+        .practice-icon-flagship {
+            background: var(--accent-blue);
+        }
+
+        .practice-icon-flagship svg {
+            stroke: white;
+        }
+
+        .practice-badge-flagship {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .practice-title-link {
+            display: inline-block;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: white;
+            background: var(--accent-blue);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(11, 115, 185, 0.2);
+        }
+
+        .practice-title-link:hover {
+            background: #0a6ba6;
+            box-shadow: 0 3px 8px rgba(11, 115, 185, 0.3);
+        }
+
+        .practice-header-content-stacked {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .practice-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .tradesmith-subsections {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tradesmith-subsection {
+            padding: 0.75rem;
+            background: rgba(11, 115, 185, 0.04);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .tradesmith-subsection h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tradesmith-subsection .practice-solutions {
+            gap: 0.375rem;
+        }
+
+        .tradesmith-subsection .practice-solution {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .dev-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .dev-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .dev-link {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .dev-link:hover {
+            color: #0a6ba6;
+            text-decoration: underline;
+        }
+
+        .dev-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .dev-usecases {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .practice-header {
@@ -1301,6 +1461,10 @@
             .capabilities-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .practice-grid-4col {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 1024px) {
@@ -1313,6 +1477,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .capability-list-2col {
+                grid-template-columns: 1fr;
+            }
+
             .guarantees-grid {
                 grid-template-columns: 1fr;
             }
@@ -1320,6 +1488,7 @@
             .practice-grid {
                 grid-template-columns: 1fr;
             }
+
         }
 
         @media (max-width: 768px) {
@@ -1384,28 +1553,21 @@
                 </a>
                 <div class="nav-dropdown-menu">
                     <div class="nav-dropdown-content">
-                        <a href="/solutions/revenue-operations" class="nav-dropdown-item">
-                            <span>Industry-Agnostic</span>
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Industrial Data Consulting</span>
+                            <small>Advisor-Led</small>
+                        </a>
+                        <a href="https://tradesmith.northlabs.io" class="nav-dropdown-item" target="_blank">
+                            <span>TradeSmith</span>
+                            <small>Flagship Solution</small>
+                        </a>
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Industry-Agnostic Use Cases</span>
                             <small>Revenue & Profit Ops</small>
                         </a>
-                        <a href="/solutions/tradesmith" class="nav-dropdown-item">
-                            <span>Construction & Real Estate</span>
-                            <small>TradeSmith</small>
-                        </a>
-                        <a href="/solutions/manufacturing" class="nav-dropdown-item">
-                            <span>Manufacturing & Industrials</span>
-                        </a>
-                        <a href="/solutions/reggie" class="nav-dropdown-item">
-                            <span>Higher Education</span>
-                            <small>Reggie</small>
-                        </a>
-                        <a href="/solutions/cargoiq" class="nav-dropdown-item">
-                            <span>Transportation & Storage</span>
-                            <small>CargoIQ</small>
-                        </a>
-                        <a href="/solutions/care-analytics" class="nav-dropdown-item">
-                            <span>Healthcare</span>
-                            <small>CareSense</small>
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Under Development</span>
+                            <small>Healthcare, Transportation, Higher Ed</small>
                         </a>
                     </div>
                 </div>
@@ -1419,7 +1581,7 @@
 
     <header class="hero">
         <div class="hero-label">Our Mission</div>
-        <h1>Being real with our customers—bringing use cases to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
+        <h1>Being real with our customers—bringing solutions to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
         <p class="hero-sub">We don't chase every piece of work. Instead, we have select use cases that we've delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. We just deliver the right way: Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
         <div class="hero-ctas">
             <a href="#solutions" class="btn-primary">View Solutions</a>
@@ -1469,7 +1631,7 @@
             
             <div class="culture-content reveal">
                 <div class="culture-text">
-                    <p>We hire <strong>"data concierge" professionals</strong> who take pride in mastering the full journey from data sources to users. Our clients offload the complexity of data solutions with confidence—like an excellent concierge, problems get solved, hassle-free.</p>
+                    <p class="culture-statement">We hire <strong>"data concierge" professionals</strong> who take pride in mastering the full journey from data sources to users. Our customers offload the complexity of data solutions, hassle-free.</p>
                 </div>
                 <div class="team-photo">
                     <img src="team-photo.png" alt="North Labs Team">
@@ -1518,19 +1680,16 @@
                 </div>
             </div>
 
-            <a href="https://tradesmith.northlabs.io" class="success-btn success-btn-featured" target="_blank">
-                <img src="tradesmith-logo.png" alt="TradeSmith" class="btn-logo">
-                <span>Learn More</span>
-            </a>
+            <div class="success-buttons">
+                <a href="https://tradesmith.northlabs.io" class="success-btn success-btn-featured" target="_blank">
+                    <img src="tradesmith-logo.png" alt="TradeSmith" class="btn-logo">
+                    <span>Learn More</span>
+                </a>
+                <a href="https://case-studies.northlabs.io" class="success-btn-casestudies" target="_blank">
+                    View all Case Studies →
+                </a>
+            </div>
 
-            <h3 class="catalog-subtitle">Other notable case studies</h3>
-            <ul class="case-study-list">
-                <li>Manufacturing Analytics Platform for Industrial Supplier</li>
-                <li>Enrollment Intelligence System for Higher Education</li>
-                <li>Healthcare Revenue Cycle Optimization</li>
-                <li>Supply Chain Visibility for Logistics Provider</li>
-            </ul>
-            <a href="https://case-studies.northlabs.io" target="_blank" class="btn-primary catalog-btn">View all case studies →</a>
         </div>
     </section>
 
@@ -1547,10 +1706,10 @@
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
                     </div>
-                    <h3>Advisory</h3>
+                    <h3>Strategy</h3>
                 </div>
                 <div class="capability-list">
-                    <div class="capability-item">Strategy & Roadmapping</div>
+                    <div class="capability-item">Advisory & Roadmapping</div>
                     <div class="capability-item">People, Process & Tool Analysis</div>
                     <div class="capability-item">Business Logic Mapping</div>
                     <div class="capability-item">Stakeholder Interviewing</div>
@@ -1569,7 +1728,7 @@
                     </div>
                     <h3>Data Management</h3>
                 </div>
-                <div class="capability-list">
+                <div class="capability-list capability-list-2col">
                     <div class="capability-item">Integration</div>
                     <div class="capability-item">Governance</div>
                     <div class="capability-item">Modeling</div>
@@ -1613,7 +1772,7 @@
                             <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h3>Artificial Intelligence</h3>
+                    <h3>Intelligence Layer</h3>
                 </div>
                 <div class="capability-list">
                     <div class="capability-item">Natural Language Querying (NLQ)</div>
@@ -1621,7 +1780,7 @@
                     <div class="capability-item">Agent Integration</div>
                     <div class="capability-item">Application Development</div>
                     <div class="capability-item">Model Monitoring & Observability</div>
-                    <div class="capability-item">AI Literacy & Change Management</div>
+                    <div class="capability-item">Intelligence Literacy & Change Management</div>
                 </div>
             </div>
         </div>
@@ -1629,11 +1788,72 @@
 
     <section class="practice-section" id="solutions">
         <div class="practice-inner">
-            <span class="section-label">Solutions</span>
-            <h2 class="section-title">Proven solutions we've <span class="accent-text">mastered</span></h2>
+            <span class="section-label">Our Offering</span>
+            <h2 class="section-title"><span class="accent-text">Value</span> we deliver</h2>
 
-            <div class="practice-grid reveal">
+            <div class="practice-grid practice-grid-4col reveal">
+                <!-- Industrial Data Consulting -->
                 <div class="practice-card practice-card-highlight">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M12 7V4"/>
+                                <path d="M8 7V5"/>
+                                <path d="M16 7V5"/>
+                                <path d="M6 12h4"/>
+                                <path d="M14 12h4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Industrial Data Consulting</h3>
+                            <span class="practice-badge">Advisory-Led</span>
+                        </div>
+                    </div>
+                    <div class="practice-solutions">
+                        <span class="practice-solution">Plant Intelligence</span>
+                        <span class="practice-solution">Scrap Reduction</span>
+                        <span class="practice-solution">Tool Life Analysis</span>
+                        <span class="practice-solution">Demand / Inventory Forecasting</span>
+                        <span class="practice-solution">Predictive Maintenance</span>
+                        <span class="practice-solution">Asset Tracking</span>
+                        <span class="practice-solution">OTIF/OTD</span>
+                        <span class="practice-solution">Production Planning</span>
+                        <span class="practice-solution">Agriculture Operations</span>
+                        <span class="practice-solution">Unified Data Modeling</span>
+                    </div>
+                </div>
+
+                <!-- TradeSmith - Flagship Solution -->
+                <div class="practice-card practice-card-flagship">
+                    <div class="practice-header">
+                        <div class="practice-icon practice-icon-flagship">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 20h20"/>
+                                <path d="M5 20V8l7-5 7 5v12"/>
+                                <path d="M9 20v-6h6v6"/>
+                            </svg>
+                        </div>
+                        <div class="practice-header-content-stacked">
+                            <a href="https://tradesmith.northlabs.io" class="practice-title-link" target="_blank">TradeSmith →</a>
+                            <span class="practice-badge practice-badge-flagship">Flagship Solution</span>
+                        </div>
+                    </div>
+                    <p class="practice-description">An intelligence layer for construction and real estate—delivering bid analysis, estimation, WIP tracking, and more.</p>
+                    <div class="practice-solutions">
+                        <span class="practice-solution">Bid Analysis</span>
+                        <span class="practice-solution">Estimation</span>
+                        <span class="practice-solution">Work-in-Progress (WIP)</span>
+                        <span class="practice-solution">Project Scheduling</span>
+                        <span class="practice-solution">Contract Automation</span>
+                        <span class="practice-solution">Automated Credit Risk Assessment</span>
+                        <span class="practice-solution">Predictive Loan Performance Modeling</span>
+                        <span class="practice-solution">Financial Compliance Monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Industry-Agnostic Solutions -->
+                <div class="practice-card">
                     <div class="practice-header">
                         <div class="practice-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1643,7 +1863,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3>Industry-Agnostic</h3>
+                            <h3>Industry-Agnostic Use Cases</h3>
                             <span class="practice-badge">Revenue & Profit Ops</span>
                         </div>
                     </div>
@@ -1659,136 +1879,9 @@
                         <span class="practice-solution">Budget vs. Actual</span>
                         <span class="practice-solution">Customer Lifetime Value</span>
                     </div>
-                    <a href="https://revops.northlabs.io" class="practice-cta" target="_blank">Revenue & Profit Ops - Learn More →</a>
                 </div>
 
-                <div class="practice-card">
-                    <div class="practice-header">
-                        <div class="practice-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 20h20"/>
-                                <path d="M5 20V8l7-5 7 5v12"/>
-                                <path d="M9 20v-6h6v6"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3>Construction & Real Estate</h3>
-                            <span class="practice-badge">TradeSmith</span>
-                        </div>
-                    </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution">Bid Analysis</span>
-                        <span class="practice-solution">Estimation</span>
-                        <span class="practice-solution">Work-in-Progress (WIP)</span>
-                        <span class="practice-solution">Project Scheduling</span>
-                        <span class="practice-solution">Contract Automation</span>
-                        <span class="practice-solution">Automated Credit Risk Assessment</span>
-                        <span class="practice-solution">Predictive Loan Performance Modeling</span>
-                        <span class="practice-solution">Financial Compliance Monitoring</span>
-                    </div>
-                    <a href="https://tradesmith.northlabs.io" class="practice-cta practice-cta-branded" target="_blank"><img src="tradesmith-logo.png" alt="TradeSmith" class="cta-logo cta-logo-tradesmith"><span>Learn More</span></a>
-                </div>
-
-                <div class="practice-card">
-                    <div class="practice-header">
-                        <div class="practice-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2"/>
-                                <path d="M12 7V4"/>
-                                <path d="M8 7V5"/>
-                                <path d="M16 7V5"/>
-                                <path d="M6 12h4"/>
-                                <path d="M14 12h4"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3>Manufacturing & Industrials</h3>
-                        </div>
-                    </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution">Revenue Operations</span>
-                        <span class="practice-solution">Scrap Reduction</span>
-                        <span class="practice-solution">Asset Intelligence</span>
-                        <span class="practice-solution">Unified Data Modeling</span>
-                        <span class="practice-solution">Agriculture Operations</span>
-                        <span class="practice-solution">OTIF/OTD</span>
-                        <span class="practice-solution">Production Planning</span>
-                    </div>
-                    <a href="/solutions/manufacturing" class="practice-cta">Learn more about Manufacturing solutions →</a>
-                </div>
-
-                <div class="practice-card">
-                    <div class="practice-header">
-                        <div class="practice-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3>Higher Education</h3>
-                            <span class="practice-badge">Reggie</span>
-                        </div>
-                    </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution">Enrollment</span>
-                        <span class="practice-solution">Student Retention</span>
-                        <span class="practice-solution">Athletics Monetization</span>
-                        <span class="practice-solution">Grants</span>
-                        <span class="practice-solution">Deposits</span>
-                        <span class="practice-solution">Faculty & Staff</span>
-                    </div>
-                    <a href="https://reggie.northlabs.io" class="practice-cta practice-cta-branded" target="_blank"><img src="reggie-logo.png" alt="Reggie" class="cta-logo"><span>Learn More</span></a>
-                </div>
-
-                <div class="practice-card">
-                    <div class="practice-header">
-                        <div class="practice-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M1 3h15v13H1z"/>
-                                <path d="M16 8h4l3 3v5h-7V8z"/>
-                                <circle cx="5.5" cy="18.5" r="2.5"/>
-                                <circle cx="18.5" cy="18.5" r="2.5"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3>Transportation & Storage</h3>
-                            <span class="practice-badge">CargoIQ</span>
-                        </div>
-                    </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution">Downtime Reduction</span>
-                        <span class="practice-solution">Route Optimization</span>
-                        <span class="practice-solution">Asset Tracking</span>
-                        <span class="practice-solution">Inventory Optimization</span>
-                        <span class="practice-solution">Maintenance</span>
-                    </div>
-                    <a href="/solutions/cargoiq" class="practice-cta practice-cta-branded"><img src="cargoiq-logo.png" alt="CargoIQ" class="cta-logo"><span>Learn More</span></a>
-                </div>
-
-                <div class="practice-card">
-                    <div class="practice-header">
-                        <div class="practice-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3>Healthcare</h3>
-                            <span class="practice-badge">CareSense</span>
-                        </div>
-                    </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution">Fee Schedule Normalization</span>
-                        <span class="practice-solution">Contract Comparisons</span>
-                        <span class="practice-solution">Variance Analysis</span>
-                        <span class="practice-solution">Underpayment Detection</span>
-                        <span class="practice-solution">Denial Analysis</span>
-                        <span class="practice-solution">Payer Scorecards</span>
-                    </div>
-                    <a href="https://caresense.northlabs.io" class="practice-cta practice-cta-branded" target="_blank"><img src="caresense-logo.png" alt="CareSense" class="cta-logo cta-logo-caresense"><span>Learn More</span></a>
-                </div>
-
+                <!-- Under Development & Testing -->
                 <div class="practice-card" style="background: var(--bg-tertiary); border-style: dashed;">
                     <div class="practice-header">
                         <div class="practice-icon" style="background: rgba(0,0,0,0.05);">
@@ -1798,15 +1891,29 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 style="color: var(--text-muted);">Coming Soon</h3>
+                            <h3 style="color: var(--text-muted);">Under Development & Testing</h3>
                         </div>
                     </div>
-                    <div class="practice-solutions">
-                        <span class="practice-solution" style="background: rgba(0,0,0,0.04);">Pharma & BioTech</span>
-                        <span class="practice-solution" style="background: rgba(0,0,0,0.04);">Internet Software</span>
-                        <span class="practice-solution" style="background: rgba(0,0,0,0.04);">FinServ</span>
+                    <p class="practice-description" style="color: var(--text-muted);">Use cases we are experienced in, on the way to being dedicated solutions.</p>
+                    
+                    <div class="dev-list">
+                        <div class="dev-item">
+                            <a href="/solutions/tradesmith-transportation" class="dev-link">TradeSmith for Transportation & Storage →</a>
+                            <span class="dev-usecases">Route Optimization, Asset Tracking, Inventory Optimization, Downtime Reduction, Maintenance</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="https://caresense.northlabs.io" class="dev-link" target="_blank">TradeSmith for Healthcare →</a>
+                            <span class="dev-usecases">Fee Schedule Normalization, Contract Comparisons, Underpayment Detection, Denial Analysis, Payer Scorecards</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="https://reggie.northlabs.io" class="dev-link" target="_blank">"Reggie" for Higher Education →</a>
+                            <span class="dev-usecases">Enrollment, Student Retention, Athletics Monetization, Grants, Deposits</span>
+                        </div>
+                        <div class="dev-item">
+                            <span class="dev-title">Pharma & BioTech Intelligence</span>
+                            <span class="dev-usecases">Clinical Trial Analytics, Drug Pipeline Tracking, Regulatory Compliance, R&D Operations</span>
+                        </div>
                     </div>
-                    <p class="coming-soon-note">Coming Soon — Solutions under development and testing.</p>
                 </div>
             </div>
         </div>
@@ -1842,8 +1949,8 @@
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <span class="timeline-year">2024 — Branded Solutions</span>
-                            <p>Launched TradeSmith, Reggie, CargoIQ, and CareSense as dedicated industry solutions.</p>
+                            <span class="timeline-year">2024 — TradeSmith Launch</span>
+                            <p>Launched TradeSmith as our flagship intelligence layer for trade-driven industries.</p>
                         </div>
                     </div>
                 </div>
@@ -1852,8 +1959,8 @@
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>Ready to see <span class="accent-text">real results?</span></h2>
-        <p>Let's discuss how our proven solutions can drive measurable ROI for your business.</p>
+        <h2>Ready to feel <span class="accent-text">real results?</span></h2>
+        <p>Let's discuss your data challenges and how we might help.</p>
         <div class="cta-buttons">
             <a href="mailto:hello@northlabs.io" class="btn-primary">Start a Conversation</a>
             <a href="#solutions" class="btn-secondary">View Case Studies</a>

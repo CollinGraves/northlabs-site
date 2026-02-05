@@ -237,7 +237,7 @@
 
         .case-studies-table th {
             text-align: left;
-            padding: 1rem 1.25rem;
+            padding: 0.625rem 1.25rem;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -247,11 +247,11 @@
         }
 
         .case-studies-table td {
-            padding: 1.25rem;
+            padding: 0.75rem 1.25rem;
             font-size: 0.9375rem;
             color: var(--text-primary);
             border-bottom: 1px solid var(--border-subtle);
-            vertical-align: top;
+            vertical-align: middle;
         }
 
         .case-studies-table tbody tr:last-child td {
@@ -264,12 +264,37 @@
 
         .solution-tag {
             display: inline-block;
-            background: var(--accent-blue-dim);
-            color: var(--accent-blue);
             padding: 0.25rem 0.625rem;
             border-radius: 4px;
             font-size: 0.8125rem;
-            font-weight: 500;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .solution-tag.tradesmith {
+            background: #e5e7eb;
+            color: #1a1a1a;
+            font-style: italic;
+        }
+
+        .solution-tag.industrial {
+            background: #f9fafb;
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .solution-tag.under-dev {
+            background: #d1d5db;
+            color: #374151;
+        }
+
+        .solution-tag.agnostic {
+            background: rgba(11, 115, 185, 0.15);
+            color: #2d3748;
+        }
+
+        .link-fix-needed {
+            color: #dc2626 !important;
         }
 
         .blurb-text {
@@ -297,6 +322,25 @@
         .download-link svg {
             width: 16px;
             height: 16px;
+        }
+
+        .case-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .coming-soon {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-style: italic;
         }
 
         /* Testimonials Section */
@@ -561,191 +605,102 @@
                         <th>Solution / LOB</th>
                         <th>Sub-Industry</th>
                         <th>Reference / Quote</th>
-                        <th>Download</th>
+                        <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Placeholder Case Studies -->
                     <tr>
-                        <td><strong>Bid Analysis Acceleration</strong></td>
-                        <td><span class="solution-tag">TradeSmith</span></td>
+                        <td><strong>74.5% Reduction in Bid Analysis Time</strong></td>
+                        <td><span class="solution-tag tradesmith">TradeSmith</span></td>
                         <td>Construction & Heavy Civil</td>
                         <td class="blurb-text">"Reduced our bid turnaround from days to hours."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><span class="coming-soon">Coming Soon</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Enrollment Prediction Model</strong></td>
-                        <td><span class="solution-tag">Reggie</span></td>
-                        <td>Higher Education</td>
-                        <td class="blurb-text">"We now forecast enrollment with 94% accuracy."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revenue Cycle Optimization</strong></td>
-                        <td><span class="solution-tag">CareSense</span></td>
-                        <td>Healthcare / Pharmacy</td>
-                        <td class="blurb-text">"Identified $2.3M in underpayments within 60 days."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Supply Chain Visibility Platform</strong></td>
-                        <td><span class="solution-tag">CargoIQ</span></td>
-                        <td>Logistics & Transportation</td>
-                        <td class="blurb-text">"Real-time tracking reduced our OTIF issues by 40%."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Production Planning Intelligence</strong></td>
-                        <td><span class="solution-tag">Industrials</span></td>
-                        <td>Manufacturing</td>
-                        <td class="blurb-text">"Scheduling efficiency improved by 35% in Q1."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Student Retention Analytics</strong></td>
-                        <td><span class="solution-tag">Reggie</span></td>
-                        <td>Higher Education</td>
-                        <td class="blurb-text">"Retention rates improved 12% year-over-year."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Contract Renewal Analytics</strong></td>
-                        <td><span class="solution-tag">CareSense</span></td>
-                        <td>Healthcare / Payer</td>
-                        <td class="blurb-text">"Negotiated 8% better rates using data insights."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>WIP Visibility Dashboard</strong></td>
-                        <td><span class="solution-tag">TradeSmith</span></td>
+                        <td><strong>Real-Time Project Visibility Across 40+ Sites</strong></td>
+                        <td><span class="solution-tag tradesmith">TradeSmith</span></td>
                         <td>Real Estate Development</td>
                         <td class="blurb-text">"Finally have real-time visibility into all projects."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><span class="coming-soon">Coming Soon</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Fleet Route Optimization</strong></td>
-                        <td><span class="solution-tag">CargoIQ</span></td>
-                        <td>Freight & Logistics</td>
-                        <td class="blurb-text">"Fuel costs down 18% with optimized routing."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><strong>35% Improvement in Production Scheduling</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Manufacturing</td>
+                        <td class="blurb-text">"Scheduling efficiency improved by 35% in Q1."</td>
+                        <td><span class="coming-soon">Coming Soon</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Scrap Reduction Initiative</strong></td>
-                        <td><span class="solution-tag">Industrials</span></td>
+                        <td><strong>22% Reduction in Material Waste</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
                         <td>Automotive Manufacturing</td>
                         <td class="blurb-text">"Reduced material waste by 22% in 6 months."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><span class="coming-soon">Coming Soon</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Athletics Revenue Insights</strong></td>
-                        <td><span class="solution-tag">Reggie</span></td>
-                        <td>Higher Education</td>
-                        <td class="blurb-text">"Ticket and merchandise revenue up 15%."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><strong>$2.3M in Underpayments Identified</strong></td>
+                        <td><span class="solution-tag under-dev">Under Development</span></td>
+                        <td>Healthcare</td>
+                        <td class="blurb-text">"Identified $2.3M in underpayments within 60 days."</td>
+                        <td><span class="coming-soon">Coming Soon</span></td>
+                    </tr>
+                    <!-- Published Case Studies -->
+                    <tr>
+                        <td><strong>Global Theatre Performance Visibility</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Entertainment</td>
+                        <td class="blurb-text">AWS Quicksight dashboard enabling data-driven decisions across global operations.</td>
+                        <td><a href="https://aws.amazon.com/partners/success/imax-north-labs/" target="_blank" class="case-link link-fix-needed">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Denial Management Automation</strong></td>
-                        <td><span class="solution-tag">CareSense</span></td>
-                        <td>Healthcare / Provider</td>
-                        <td class="blurb-text">"Denial rate dropped from 12% to 4%."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><strong>Unified Data Warehouse Enabling Real-Time Reporting</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Food Manufacturing</td>
+                        <td class="blurb-text">Snowflake data warehouse delivering actionable insights to operations.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/sunbutter/" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Estimation Accuracy Platform</strong></td>
-                        <td><span class="solution-tag">TradeSmith</span></td>
-                        <td>General Contracting</td>
-                        <td class="blurb-text">"Estimates now within 5% of actuals consistently."</td>
-                        <td>
-                            <a href="#" class="download-link">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                PDF
-                            </a>
-                        </td>
+                        <td><strong>10 Hours/Week Saved Through Workflow Automation</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Industrial Services</td>
+                        <td class="blurb-text">Automated data pipelines freeing project managers for high-value work.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/bluemark/" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enterprise-Wide Data Modernization</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Agriculture & Manufacturing</td>
+                        <td class="blurb-text">Comprehensive data architecture enabling advanced analytics at scale.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/john-deere/" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>50% Revenue Growth Through Data Transformation</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Technology</td>
+                        <td class="blurb-text">Data-driven process improvements directly contributing to revenue growth.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/4tellx/" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maximum Development Velocity for Portfolio Companies</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Venture Capital</td>
+                        <td class="blurb-text">Full-service data operations accelerating time-to-value for startups.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/1848-ventures/" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SOC 2 Compliance & Modernized Infrastructure</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Technology</td>
+                        <td class="blurb-text">Infrastructure-as-code transformation enabling security compliance.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/protos/" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data-Driven Precision Medicine Outcomes</strong></td>
+                        <td><span class="solution-tag under-dev">Under Development</span></td>
+                        <td>Pharma & BioTech</td>
+                        <td class="blurb-text">Harnessing data to influence precision medicine research and outcomes.</td>
+                        <td><a href="https://www.snowflake.com/en/resources/case-study/biotech-precision-medicine/" target="_blank" class="case-link">View →</a></td>
                     </tr>
                 </tbody>
             </table>
