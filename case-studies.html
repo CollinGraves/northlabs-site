@@ -96,19 +96,19 @@
         }
 
         .btn-primary {
-            background: var(--accent-blue);
-            color: white;
+            background: #333333;
+            color: #ffffff !important;
             padding: 0.625rem 1.25rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
+            font-weight: 700;
+            font-size: 1.15rem;
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
         }
 
         .btn-primary:hover {
-            background: #0a6ba6;
+            background: #222222;
         }
 
         /* Featured Section */
@@ -205,7 +205,7 @@
 
         /* Case Studies Table Section */
         .table-section {
-            padding: 4rem 3rem;
+            padding: 3.2rem 3rem;
             background: var(--bg-secondary);
         }
 
@@ -345,7 +345,7 @@
 
         /* Testimonials Section */
         .testimonials-section {
-            padding: 4rem 3rem;
+            padding: 3.2rem 3rem;
         }
 
         .testimonials-inner {
@@ -354,51 +354,84 @@
         }
 
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            align-items: flex-start;
         }
 
         .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 1.5rem;
+            display: inline-flex;
+            align-items: stretch;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .testimonial-quote-box {
+            background: #f0f5f8;
+            padding: 0.875rem 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-quote {
+            font-size: 0.8125rem;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+        }
+
+        .testimonial-quote::after {
+            content: '\201D';
+        }
+
+        .testimonial-author-box {
+            background: #e6edf2;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            min-width: 200px;
+        }
+
+        .testimonial-logo {
+            height: 24px;
+            width: auto;
+            flex-shrink: 0;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .testimonial-author-info {
             display: flex;
             flex-direction: column;
         }
 
-        .testimonial-quote {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            flex: 1;
-            margin-bottom: 1.25rem;
+        .author-name {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
         }
 
-        .testimonial-quote::before {
-            content: '"';
-            font-size: 1.5rem;
-            color: var(--accent-blue);
-            font-family: 'Instrument Serif', Georgia, serif;
-            line-height: 0;
-            margin-right: 0.25rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .author-logo {
-            height: 28px;
-            width: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
+        .author-title {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.3;
         }
 
         .author-info {
@@ -469,9 +502,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
@@ -482,11 +512,16 @@
             .featured-section,
             .table-section,
             .testimonials-section {
-                padding: 3rem 1.5rem;
+                padding: 2.4rem 1.5rem;
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .testimonial-card {
+                flex-direction: column;
+            }
+
+            .testimonial-author-box {
+                min-width: auto;
+                width: 100%;
             }
 
             .case-studies-table {
@@ -711,35 +746,99 @@
         <div class="testimonials-inner">
             <span class="section-label">What Our Clients Say</span>
             <h2 class="section-title">Testimonials</h2>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">North Labs transformed how we approach data. Their team delivered exactly what they promised, on time and with measurable results.</p>
-                    <div class="testimonial-author">
-                        <img src="logos/affirmedrx.png" alt="AffirmedRx" class="author-logo">
-                        <div class="author-info">
-                            <span class="author-name">VP of Operations</span>
-                            <span class="author-title">AffirmedRx</span>
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"Good team and quick to respond to needs. Has a number of different resources that can assist with various projects and complexities."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/imax.png" alt="IMAX" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Randy McIver</span>
+                            <span class="author-title">IMAX</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">The ROI was evident within weeks. We finally have visibility into our data that we've been trying to achieve for years.</p>
-                    <div class="testimonial-author">
-                        <img src="logos/jmh.png" alt="JMH" class="author-logo">
-                        <div class="author-info">
-                            <span class="author-name">Director of Analytics</span>
-                            <span class="author-title">JMH</span>
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"With the data migration, we saved money compared to our previous data center. Everything has been delivered to that ultimate level of expertise without fail."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/planningpod.png" alt="Planning Pod" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Steven Feingertz</span>
+                            <span class="author-title">Planning Pod</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">Their specialized approach meant we weren't paying for them to learn our industry. They hit the ground running from day one.</p>
-                    <div class="testimonial-author">
-                        <img src="logos/cmg.png" alt="CMG" class="author-logo">
-                        <div class="author-info">
-                            <span class="author-name">CFO</span>
-                            <span class="author-title">CMG</span>
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"Great people to work with and outstanding knowledge of the areas they cover. The entire team has been an amazing resource to coordinate all the work we have going with North Labs."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/rls.png" alt="RLS" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Todd Gray</span>
+                            <span class="author-title">RLS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"From the moment I met North Labs they have been nothing short of amazing. Their customer service is unparalleled and they have been incredibly helpful aiding in my company building our first data warehouse. I cannot recommend them enough."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/bluemark.png" alt="Bluemark" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Paul Riccio</span>
+                            <span class="author-title">Bluemark</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"North Labs has deep expertise across the data landscape and is incredibly easy to work with at a fraction of the cost."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">VP of Digital & Tech Solutions</span>
+                            <span class="author-title">Pharmaceutical Mfg. Company</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"We've iterated through levels of complexity in data visualization and data scale."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Head of Data SVP</span>
+                            <span class="author-title">BioTech Company</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"This partnership was terrific, and I would hire North Labs again."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/4tellx.png" alt="4TellX" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Roy Nieto, CEO</span>
+                            <span class="author-title">4TellX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-box">
+                        <p class="testimonial-quote">"The North Labs team are capable of producing valuable solutions for many different business needs."</p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <img src="logos/uponor.png" alt="Uponor" class="testimonial-logo">
+                        <div class="testimonial-author-info">
+                            <span class="author-name">Taylor Rasmussen</span>
+                            <span class="author-title">Uponor</span>
                         </div>
                     </div>
                 </div>

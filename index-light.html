@@ -96,11 +96,11 @@
 
         .nav-cta {
             padding: 0.75rem 1.5rem;
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            color: var(--text-primary);
-            font-size: 0.875rem;
-            font-weight: 500;
+            background: #333333;
+            border: none;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -108,8 +108,11 @@
         }
 
         .nav-cta:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--border-hover);
+            background: #222222;
+        }
+
+        .nav-cta, .nav-cta:visited, .nav-cta:active {
+            color: #fff !important;
         }
 
         /* Nav Dropdown */
@@ -321,7 +324,7 @@
 
         /* Section styling */
         section {
-            padding: 5rem 3rem;
+            padding: 3.2rem 3rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -625,7 +628,7 @@
             color: white;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 0.875rem;
+            font-size: 1.05rem;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
             transition: all 0.2s ease;
@@ -726,11 +729,11 @@
 
         .culture-text {
             max-width: 580px;
-            background: white;
-            padding: 1.25rem 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent-blue);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            border-left: none;
+            box-shadow: none;
             display: flex;
             align-items: center;
         }
@@ -1118,6 +1121,13 @@
         .practice-title-link:hover {
             background: #0a6ba6;
             box-shadow: 0 3px 8px rgba(11, 115, 185, 0.3);
+        }
+
+        .practice-title-logo {
+            height: 23px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            vertical-align: middle;
         }
 
         .practice-header-content-stacked {
@@ -1510,7 +1520,7 @@
             }
 
             section {
-                padding: 3.5rem 1.5rem;
+                padding: 2.4rem 1.5rem;
             }
 
             .culture-section,
@@ -1567,7 +1577,7 @@
                         </a>
                         <a href="#solutions" class="nav-dropdown-item">
                             <span>Under Development</span>
-                            <small>Healthcare, Transportation, Higher Ed</small>
+                            <small>Healthcare, CargoIQ, Higher Ed</small>
                         </a>
                     </div>
                 </div>
@@ -1580,7 +1590,7 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-label">Our Mission</div>
+        <div class="hero-label">Our Mission Statement</div>
         <h1>Being real with our customers—bringing solutions to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
         <p class="hero-sub">We don't chase every piece of work. Instead, we have select use cases that we've delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. We just deliver the right way: Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
         <div class="hero-ctas">
@@ -1835,11 +1845,11 @@
                             </svg>
                         </div>
                         <div class="practice-header-content-stacked">
-                            <a href="https://tradesmith.northlabs.io" class="practice-title-link" target="_blank">TradeSmith →</a>
+                            <a href="https://tradesmith.northlabs.io" class="practice-title-link" target="_blank"><img src="tradesmith-logo.png" alt="TradeSmith" class="practice-title-logo"> →</a>
                             <span class="practice-badge practice-badge-flagship">Flagship Solution</span>
                         </div>
                     </div>
-                    <p class="practice-description">An intelligence layer for construction and real estate—delivering bid analysis, estimation, WIP tracking, and more.</p>
+                    <p class="practice-description">An intelligence layer for construction and real estate.</p>
                     <div class="practice-solutions">
                         <span class="practice-solution">Bid Analysis</span>
                         <span class="practice-solution">Estimation</span>
@@ -1898,11 +1908,11 @@
                     
                     <div class="dev-list">
                         <div class="dev-item">
-                            <a href="/solutions/tradesmith-transportation" class="dev-link">TradeSmith for Transportation & Storage →</a>
+                            <a href="https://cargoiq.northlabs.io" class="dev-link" target="_blank">"CargoIQ" for Transportation & Supply Chain →</a>
                             <span class="dev-usecases">Route Optimization, Asset Tracking, Inventory Optimization, Downtime Reduction, Maintenance</span>
                         </div>
                         <div class="dev-item">
-                            <a href="https://caresense.northlabs.io" class="dev-link" target="_blank">TradeSmith for Healthcare →</a>
+                            <a href="https://caresense.northlabs.io" class="dev-link" target="_blank">"CareSense" for Healthcare →</a>
                             <span class="dev-usecases">Fee Schedule Normalization, Contract Comparisons, Underpayment Detection, Denial Analysis, Payer Scorecards</span>
                         </div>
                         <div class="dev-item">

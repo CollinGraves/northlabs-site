@@ -110,45 +110,35 @@
 
         .nav-cta {
             padding: 0.75rem 1.5rem;
-            background: var(--accent-blue);
-            color: #fff;
-            font-size: 0.875rem;
-            font-weight: 500;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .nav-cta:hover {
-            background: #0a6ba6;
+            background: #222222;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Hero */
         .hero {
-            min-height: 70vh;
+            min-height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 3rem 4rem;
+            padding: 8rem 3rem 2rem;
             position: relative;
         }
 
         .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 10%;
-            right: 5%;
-            width: 160px;
-            height: 160px;
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%232d8fca'/%3E%3C/svg%3E");
-            background-size: 20px 20px;
-            background-repeat: repeat;
-            pointer-events: none;
-            z-index: -1;
+            display: none;
         }
 
         .hero-label {
@@ -197,6 +187,19 @@
             gap: 1rem;
         }
 
+        .hero-image {
+            margin-top: 0.525rem;
+            margin-bottom: 0.525rem;
+            max-width: 336px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
         .btn-primary {
             padding: 1rem 2rem;
             background: var(--accent-blue);
@@ -237,7 +240,7 @@
 
         /* Sections */
         section {
-            padding: 4rem 3rem;
+            padding: 3.2rem 3rem;
             max-width: none;
         }
 
@@ -519,7 +522,7 @@
         .cta-section {
             background: var(--bg-secondary);
             text-align: center;
-            padding: 4rem 3rem;
+            padding: 3.2rem 3rem;
         }
 
         .cta-section h2 {
@@ -594,7 +597,7 @@
             }
 
             section {
-                padding: 3rem 1.5rem;
+                padding: 2.4rem 1.5rem;
             }
 
             .hero-ctas {
@@ -640,9 +643,8 @@
         <span class="hero-label">Healthcare Intelligence</span>
         <h1>Clinical Intelligence for <span class="accent-text">Operational Vitality</span></h1>
         <p class="hero-sub">Beyond reporting. Own the intelligence that drives your business, so you can focus on your mission.</p>
-        <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Book an Advisory Appointment</a>
-            <a href="#solution" class="btn-secondary">Learn More</a>
+        <div class="hero-image">
+            <img src="caresense-people.png" alt="Healthcare professionals">
         </div>
     </header>
 

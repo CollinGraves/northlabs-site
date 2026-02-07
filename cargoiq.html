@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradeSmith | Intelligence That Compounds</title>
+    <title>CargoIQ | Operational Resilience for the Modern Supply Chain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -314,59 +314,113 @@
 
         /* Intelligence Section */
         .intelligence-section {
-            background: #e0e0e0;
+            background: var(--bg-primary);
         }
 
-        .intelligence-grid {
+        .intelligence-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .intelligence-card {
+        .intelligence-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .intelligence-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hard-work-list {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .hard-work-list h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hard-work-item {
+            margin-bottom: 1rem;
+        }
+
+        .hard-work-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .hard-work-item strong {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .hard-work-item p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Ecosystem Section */
+        .ecosystem-section {
+            background: var(--bg-secondary);
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .ecosystem-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 1.5rem;
         }
 
-        .intelligence-card-number {
-            font-size: 0.75rem;
+        .ecosystem-card h3 {
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--accent-blue);
-            margin-bottom: 0.75rem;
-        }
-
-        .intelligence-card h3 {
-            font-size: 1.12rem;
-            font-weight: 600;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
         }
 
-        .intelligence-card p {
-            font-size: 0.875rem;
+        .ecosystem-card p {
+            font-size: 0.9375rem;
             color: var(--text-secondary);
             line-height: 1.6;
         }
 
         /* Modules Section */
         .modules-section {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-            margin-top: 1rem;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
         }
 
         .module-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            padding: 1rem;
+            border-radius: 12px;
+            padding: 1.5rem;
         }
 
         .module-card.featured {
@@ -376,9 +430,9 @@
         }
 
         .module-card h3 {
-            font-size: 0.875rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
@@ -387,9 +441,9 @@
         }
 
         .module-card p {
-            font-size: 0.8125rem;
+            font-size: 0.9375rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Case Study Section */
@@ -400,30 +454,26 @@
         .casestudy-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 3rem;
         }
 
         .casestudy-left h3,
         .casestudy-right h3 {
-            font-size: 0.9375rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
         .casestudy-left p {
-            font-size: 0.8125rem;
+            font-size: 0.9375rem;
             color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
         }
 
         .phase-item {
-            margin-bottom: 0.5rem;
-        }
-
-        .phase-item p {
-            font-size: 0.8125rem;
+            margin-bottom: 1rem;
         }
 
         .phase-item strong {
@@ -433,162 +483,77 @@
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .stat-card {
             background: white;
             border-radius: 8px;
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
         }
 
         .stat-card .stat-number {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-blue);
         }
 
         .stat-card .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             color: var(--text-secondary);
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .mic-drop {
             background: white;
             border-left: 4px solid var(--accent-blue);
             border-radius: 0 8px 8px 0;
-            padding: 0.75rem 1rem;
+            padding: 1rem 1.25rem;
         }
 
         .mic-drop h4 {
-            font-size: 0.75rem;
+            font-size: 0.8125rem;
             font-weight: 600;
             color: var(--accent-blue);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .mic-drop p {
-            font-size: 0.8125rem;
+            font-size: 0.9375rem;
             color: var(--text-primary);
-            line-height: 1.4;
+            line-height: 1.5;
             margin: 0;
         }
 
-        /* Founder Section */
-        .founder-section {
+        /* Urgency Section */
+        .urgency-section {
             background: var(--bg-primary);
         }
 
-        .founder-layout {
-            display: flex;
-            gap: 2.5rem;
-            align-items: flex-start;
+        .urgency-content {
+            max-width: 800px;
         }
 
-        .founder-sidebar {
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-            position: sticky;
-            top: 6rem;
+        .urgency-content p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        .founder-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .founder-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 15%;
-        }
-
-        .founder-name {
-            font-size: 1rem;
+        .urgency-tagline {
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
+            margin-top: 1.5rem;
         }
 
-        .founder-role {
-            font-size: 0.8125rem;
+        .urgency-tagline .accent-text {
             color: var(--accent-blue);
-            font-weight: 500;
-        }
-
-        .founder-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.375rem;
-            justify-content: center;
-        }
-
-        .founder-tag {
-            font-size: 0.6875rem;
-            padding: 0.25rem 0.5rem;
-            background: var(--bg-tertiary);
-            border-radius: 4px;
-            color: var(--text-secondary);
-        }
-
-        .founder-body {
-            flex: 1;
-            max-width: 720px;
-        }
-
-        .founder-body p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 0.75rem;
-        }
-
-        .founder-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .founder-body strong {
-            color: var(--text-primary);
-        }
-
-        .founder-body .founder-bold {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.9375rem;
-        }
-
-        .founder-divider {
-            width: 2.5rem;
-            height: 3px;
-            background: var(--accent-blue);
-            border: none;
-            margin: 1.25rem 0;
-        }
-
-        .founder-pullquote {
-            border-left: 3px solid var(--accent-blue);
-            padding-left: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-            color: var(--text-primary);
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
-
-        .founder-closing {
-            font-weight: 600;
-            color: var(--text-primary) !important;
-            margin-top: 0.5rem;
         }
 
         /* CTA Section */
@@ -646,6 +611,7 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .reality-grid,
+            .ecosystem-grid,
             .modules-grid {
                 grid-template-columns: 1fr;
             }
@@ -654,7 +620,7 @@
                 grid-column: span 1;
             }
 
-            .intelligence-grid,
+            .intelligence-content,
             .casestudy-content {
                 grid-template-columns: 1fr;
             }
@@ -685,17 +651,6 @@
                 flex-direction: column;
             }
 
-            .founder-layout {
-                flex-direction: column;
-            }
-
-            .founder-sidebar {
-                position: static;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.75rem;
-            }
-
             .hero::after {
                 display: none;
             }
@@ -711,7 +666,7 @@
 <body>
     <nav>
         <div class="logo-area">
-            <img src="tradesmith-logo.png" alt="TradeSmith" class="solution-logo">
+            <img src="cargoiq-logo.png" alt="CargoIQ" class="solution-logo">
             <div class="logo-divider"></div>
             <span class="brought-by">Brought to you by</span>
             <a href="https://northlabs.io" class="northlabs-link">
@@ -720,39 +675,40 @@
         </div>
         <div class="nav-links">
             <a href="#platform">Platform</a>
+            <a href="#ecosystem">Ecosystem</a>
             <a href="#modules">Modules</a>
             <a href="#casestudy">Case Study</a>
-            <a href="#contact" class="nav-cta">Schedule a Demo</a>
+            <a href="#contact" class="nav-cta">Schedule an Audit</a>
         </div>
     </nav>
 
     <header class="hero">
-        <span class="hero-label">Construction & Real Estate Intelligence</span>
-        <h1>Intelligence built by people who are <span class="accent-text">actually from the trades</span></h1>
-        <p class="hero-sub">North Labs builds intelligence infrastructure for construction—not from a whiteboard, but from years on job sites. We know what gets missed because we've missed it. We know what costs money because we've paid for it.</p>
+        <span class="hero-label">Transportation & Storage Intelligence</span>
+        <h1>Operational Resilience for the Modern <span class="accent-text">Supply Chain</span></h1>
+        <p class="hero-sub">From the warehouse floor to the flight line—stop managing by spreadsheet. Start leading with intelligence.</p>
         <div class="hero-image">
-            <img src="construction-person.png" alt="Construction professional">
+            <img src="cargoiq-people.png" alt="Supply chain professionals">
         </div>
     </header>
 
     <section class="reality-section">
         <div class="section-inner">
-            <span class="section-label">The Purpose of TradeSmith</span>
-            <h2 class="section-title">Your intelligence should be an <span class="accent-text">asset</span>, not a subscription</h2>
-            <p class="reality-intro">Every bid you analyze, every vendor you work with, every project you close—that's your data, your patterns, your hard-won knowledge. It should compound for you, not train someone else's intelligence.</p>
+            <span class="section-label">The Mid-Market Operational Gap</span>
+            <h2 class="section-title">The Same <span class="accent-text">"Black Box" Traps</span> Exist</h2>
+            <p class="reality-intro">Whether you are in Maritime, Airlines, or Warehousing, the mid-market is being squeezed. You are too complex for manual processes, yet the "Enterprise" solutions are too rigid and opaque.</p>
 
             <div class="reality-grid">
                 <div class="reality-card">
-                    <h3>The Current Model is Backwards</h3>
-                    <p>Construction companies generate enormous amounts of operational data, but it all flows into SaaS tools that give you dashboards and keep the intelligence. Your vendor history. Your bid patterns. Your margin outcomes. It's your data—but it's building someone else's moat.</p>
+                    <h3>The "Tribal Knowledge" Risk</h3>
+                    <p>Vital data on vessel performance, warehouse efficiency, or aviation maintenance lives in the heads of a few veteran managers. If they leave, your institutional memory goes with them.</p>
                 </div>
                 <div class="reality-card">
-                    <h3>Own Your Intelligence</h3>
-                    <p>We believe companies should own their intelligence infrastructure the same way they own their equipment. Not as a subscription that disappears when you stop paying. As an asset that appreciates with every project.</p>
+                    <h3>Fragmented Silos</h3>
+                    <p>Your Warehouse Management System doesn't talk to your Transportation/Trucking data, and your Packaging metrics are a total mystery. Decision-making is reactive, not predictive.</p>
                 </div>
                 <div class="reality-card">
-                    <h3>Intelligence That Compounds</h3>
-                    <p>That's what we're building. Intelligence that compounds for the people who generate it. Every project that runs through TradeSmith makes the system smarter—specifically for your firm.</p>
+                    <h3>The Compliance Clock</h3>
+                    <p>Regulatory waves like FSMA 204 are no longer just "food problems"—they are supply chain problems that require 24-hour record production across every node in the chain.</p>
                 </div>
             </div>
         </div>
@@ -761,28 +717,53 @@
     <section class="intelligence-section" id="platform">
         <div class="section-inner">
             <span class="section-label">The Solution</span>
-            <h2 class="section-title">An Intelligence Layer to <span class="accent-text">Own</span></h2>
+            <h2 class="section-title">Expertise Before <span class="accent-text">Automation</span></h2>
 
-            <div class="intelligence-grid">
-                <div class="intelligence-card">
-                    <div class="intelligence-card-number">01</div>
-                    <h3>Domain expertise beats generic intelligence</h3>
-                    <p>ChatGPT doesn't know that fire caulk is always excluded. It doesn't understand why that $612K plumbing bid might actually cost you $900K. We do—because we've lived it. Every model we build encodes construction knowledge, not just language patterns.</p>
+            <div class="intelligence-content">
+                <div class="intelligence-text">
+                    <p>Most tools promise a "plug-in" solution. We know that in Transportation and Storage, there is no magic bypass for the hard work of operational mapping.</p>
+                    <p><strong>CargoIQ is a service-led partnership.</strong> Before the platform is deployed, our experts perform the "Deep Audit" that others avoid. We sit on top of your existing systems, ingest data from any source, and deliver insights where your people already work.</p>
                 </div>
-                <div class="intelligence-card">
-                    <div class="intelligence-card-number">02</div>
-                    <h3>Embedded beats bolted-on</h3>
-                    <p>Dashboards don't change behavior. Tools people have to remember to check don't get checked. Real intelligence shows up where decisions happen—in email, in meetings, in the systems your team already uses. We don't ask you to change your workflow. We fit into it.</p>
+                <div class="hard-work-list">
+                    <h3>The "Deep Audit" We Perform</h3>
+                    <div class="hard-work-item">
+                        <strong>Asset & Flow Mapping</strong>
+                        <p>We map your specific business flows—whether it's the turnaround time of a vessel or the pick-path efficiency of a warehouse.</p>
+                    </div>
+                    <div class="hard-work-item">
+                        <strong>Source Transformation</strong>
+                        <p>We ingest data from any source (PDF rate sheets, legacy ERPs, IoT sensors) and normalize it into a single, trusted "Chain-of-Truth."</p>
+                    </div>
+                    <div class="hard-work-item">
+                        <strong>User-Centric Auditing</strong>
+                        <p>We identify exactly who needs which data to reduce downtime and improve ROI—then we build the natural language queries to give it to them.</p>
+                    </div>
                 </div>
-                <div class="intelligence-card">
-                    <div class="intelligence-card-number">03</div>
-                    <h3>Integration beats isolation</h3>
-                    <p>Your ERP has cost data. Your PM tool has schedules. Your email has vendor communications. Intelligence that only sees one silo is half-blind. We connect everything—not to replace your tools, but to make them smarter together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem-section" id="ecosystem">
+        <div class="section-inner">
+            <span class="section-label">Built for the Entire Ecosystem</span>
+            <h2 class="section-title">Intelligence Across <span class="accent-text">Every Node</span></h2>
+
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card">
+                    <h3>Logistics & Trucking</h3>
+                    <p>Route optimization and real-time asset tracking to reduce fuel costs, improve delivery windows, and eliminate blind spots in your fleet.</p>
                 </div>
-                <div class="intelligence-card">
-                    <div class="intelligence-card-number">04</div>
-                    <h3>Partnership beats transaction</h3>
-                    <p>Per-seat licensing is designed to extract value, not create it. We align our success with yours: investment tied to contract volume, not headcount. When you win projects, we win. When you protect margin, that's real money—not a line item we're trying to maximize.</p>
+                <div class="ecosystem-card">
+                    <h3>Warehousing</h3>
+                    <p>Inventory optimization and labor-flow intelligence. Maximize every square foot and ensure your capital isn't sitting idle.</p>
+                </div>
+                <div class="ecosystem-card">
+                    <h3>Aviation & Maritime</h3>
+                    <p>Downtime reduction through predictive maintenance and carrier vetting. Stop reacting to breakdowns—predict them.</p>
+                </div>
+                <div class="ecosystem-card">
+                    <h3>Packaging & Delivery</h3>
+                    <p>Cost-normalization and "all-in" spend visibility across your packaging and last-mile operations.</p>
                 </div>
             </div>
         </div>
@@ -790,29 +771,25 @@
 
     <section class="modules-section" id="modules">
         <div class="section-inner">
-            <span class="section-label">Capabilities</span>
-            <h2 class="section-title">The TradeSmith <span class="accent-text">Module Suite</span></h2>
-            
+            <span class="section-label">Core Modules</span>
+            <h2 class="section-title">The CargoIQ <span class="accent-text">Module Suite</span></h2>
+
             <div class="modules-grid">
                 <div class="module-card featured">
-                    <h3>Bid Intelligence</h3>
-                    <p>Upload any PDF, Excel, or email chain. TradeSmith reads it like a senior estimator—normalizing line items, catching scope gaps, and auto-leveling bids in minutes.</p>
+                    <h3>Operational Intelligence</h3>
+                    <p>Stop reacting to breakdowns. Whether it's a truck fleet or a maritime vessel, CargoIQ uses historical data and expert mapping to predict maintenance windows and reduce non-productive time.</p>
                 </div>
                 <div class="module-card">
-                    <h3>Page Turn Sentinel</h3>
-                    <p>Generates a risk-ranked prep package for negotiation meetings. It surfaces the exact questions to ask each finalist based on deep document analysis.</p>
+                    <h3>Procurement & Partner Intelligence</h3>
+                    <p>Intelligence-powered bid normalization for Freight, Maritime, and Aviation. We read the "hidden" costs in carrier bids and warehouse contracts, surfacing the true cost of doing business.</p>
                 </div>
                 <div class="module-card">
-                    <h3>WIP Intelligence</h3>
-                    <p>Connects bids to actuals in real-time. Track over/under billing and margin drift before it becomes a problem, not after.</p>
+                    <h3>Inventory & Asset Optimization</h3>
+                    <p>Maximize every square foot and every asset. We provide visibility into inventory aging, packaging costs, and asset utilization to ensure your capital isn't sitting idle.</p>
                 </div>
                 <div class="module-card">
-                    <h3>Compliance & Finance</h3>
-                    <p>Built-in modules for Davis-Bacon, prevailing wage, Section 3, and HUD compliance. We automate the "high-calorie" work of payroll and regulatory verification.</p>
-                </div>
-                <div class="module-card">
-                    <h3>Vendor Intelligence</h3>
-                    <p>Automatically builds institutional memory. "This electrical sub bid 15% under last time and missed schedule by 3 weeks." The knowledge stays; the risk goes away.</p>
+                    <h3>Global Compliance & Fraud Prevention</h3>
+                    <p>Prepare for the 2028 FSMA 204 mandate and beyond. CargoIQ automates the capture of Key Data Elements across the entire chain, providing 24-hour audit readiness while vetting partners to eliminate double-brokering and cargo theft.</p>
                 </div>
             </div>
         </div>
@@ -821,93 +798,62 @@
     <section class="casestudy-section" id="casestudy">
         <div class="section-inner">
             <span class="section-label">Case Study</span>
-            <h2 class="section-title">The 60-Day <span class="accent-text">Transformation</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.875rem;"><strong>The Partners:</strong> Two Arizona-based Regional GCs ($300M+ annual volume).</p>
-            
+            <h2 class="section-title">The Multi-Modal <span class="accent-text">Transformation</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;"><strong>The Partner:</strong> A mid-market Logistics and Warehousing firm serving the Packaging & Container industry.</p>
+
             <div class="casestudy-content">
                 <div class="casestudy-left">
                     <h3>The Challenge</h3>
-                    <p>High manual overhead in bid reviews and a recurring issue with "buried" exclusions leading to six-figure change orders during the WIP phase.</p>
-                    
-                    <h3 style="margin-top: 0.75rem;">The TradeSmith Intervention</h3>
+                    <p>They were "partially automated"—meaning they had a WMS and a basic Trucking tracker, but nothing connected. Decision-making was reactive, and "hidden fees" in their maritime and freight spend were eroding 8% of their margin annually.</p>
+
+                    <h3 style="margin-top: 1.5rem;">The CargoIQ Intervention</h3>
                     <div class="phase-item">
-                        <p><strong>Phase 1:</strong> North Labs integrated TradeSmith with their Procore and Sage instances, training the intelligence layer on five years of historical bid data.</p>
+                        <p><strong>Phase 1 — The Mapping:</strong> North Labs experts mapped the flow from the container arrival (Maritime) through the Warehouse to final Trucking delivery.</p>
                     </div>
                     <div class="phase-item">
-                        <p><strong>Phase 2:</strong> Deployed the Bid Intelligence module to auto-level trade packages and identify outliers.</p>
+                        <p><strong>Phase 2 — The Platform:</strong> Implemented CargoIQ as the intelligence layer connecting their disparate legacy systems.</p>
+                    </div>
+                    <div class="phase-item">
+                        <p><strong>Phase 3 — The Impact:</strong> Using Natural Language Querying, the executive team could finally ask, "Where is our highest margin leakage in the current packaging cycle?"</p>
                     </div>
                 </div>
                 <div class="casestudy-right">
                     <h3>The Results</h3>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">15%</div>
-                            <div class="stat-label">Average Savings on operating costs in 60 days</div>
+                            <div class="stat-number">12%</div>
+                            <div class="stat-label">Reduction in Downtime through synchronized maintenance & route planning</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">$127K</div>
-                            <div class="stat-label">Protected Margin per project on average</div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">FSMA 204 Readiness achieved across all storage facilities</div>
                         </div>
                     </div>
                     <div class="mic-drop">
-                        <h4>The "Mic Drop" Moment</h4>
-                        <p>TradeSmith flagged a $230,000 water heater exclusion buried on page 47 of a plumbing bid that three senior PMs had missed. It was caught in the first 5 minutes of analysis.</p>
+                        <h4>Proprietary Intelligence</h4>
+                        <p>The firm no longer relies on "tribal knowledge"—they own a data program that makes them faster and more profitable every day.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="founder-section">
+    <section class="urgency-section">
         <div class="section-inner">
-            <span class="section-label">Founder</span>
-            <h2 class="section-title">Built by someone who knows what <span class="accent-text">actually costs money</span></h2>
-
-            <div class="founder-layout">
-                <div class="founder-sidebar">
-                    <div class="founder-avatar"><img src="founder-photo.png" alt="Collin Graves"></div>
-                    <span class="founder-name">Collin Graves</span>
-                    <span class="founder-role">Managing Director, Founder</span>
-                    <div class="founder-tags">
-                        <span class="founder-tag">USAF Veteran</span>
-                        <span class="founder-tag">Electrician's Son</span>
-                        <span class="founder-tag">Builder</span>
-                    </div>
-                </div>
-                <div class="founder-body">
-                    <p><strong>I started pulling wire when I was fourteen.</strong></p>
-                    <p>My dad was an electrician. Summers and weekends, I was on job sites learning the simplest rule in construction: do it right or do it twice. No shortcuts. No hiding. If you cut corners, somebody pays for it later—usually the person who can least afford the mistake.</p>
-                    <p>I grew up in Minneapolis. The work ethic there is blunt. Show up. Do what you said you'd do. Earn trust one job at a time. Later, Phoenix, where the heat humbles you and the job site teaches you quickly whether your plan is real or just words.</p>
-                    <p class="founder-bold">That's where I learned what construction actually is.</p>
-                    <p>Not the sanitized version in software demos. The real thing. A missed spec that blows margin. A scope gap that turns into a fight. A schedule that slips because one detail got overlooked. The right sub who can save a job—and the wrong one who can sink it. Relationships that matter because you'll see the same people on the next project, and the one after that.</p>
-
-                    <hr class="founder-divider">
-
-                    <p><strong>Then I joined the military.</strong></p>
-                    <p>I was a hydraulics specialist, then a flying crew chief for USAF and NATO Special Operations. The military teaches you how to operate when things are messy. How to make decisions with incomplete information. How to build systems that work even when the environment doesn't cooperate.</p>
-                    <p>You learn that the people closest to the work usually know what's broken first. You learn to keep plans simple enough to survive reality. You learn that precision under pressure isn't optional—it's the job.</p>
-
-                    <p class="founder-pullquote">Those lessons transfer directly to construction.</p>
-
-                    <p class="founder-bold">Most construction software misses because it's built by people who've never lived a job site.</p>
-                    <p>They build dashboards. They move data around. They add steps. But they don't eliminate risk, and they don't capture the knowledge that actually makes money.</p>
-                    <p>I started North Labs because the people who build our physical world deserve better than another place for information to get lost. They deserve systems that reduce manual work, prevent mistakes, and protect margin. They deserve intelligence that fits construction as it is—not as a software company wishes it was.</p>
-
-                    <hr class="founder-divider">
-
-                    <p><strong>Here's what that means in practice:</strong></p>
-                    <p>Intelligence that's embedded in your operations, not sitting in a dashboard you forget to check. Systems that integrate with the tools you already use. Intelligence that learns from every project and turns hard-earned experience into permanent company knowledge—owned by the contractor, not rented from a vendor, not shared with competitors.</p>
-                    <p>This isn't a Silicon Valley bet on construction tech. This is a builder's answer to a builder's problem, from someone who grew up around the trade, served his country, and came back to build something that actually helps the people doing the work.</p>
-                    <p class="founder-closing">That's North Labs. That's TradeSmith. That's what we're building.</p>
-                </div>
+            <div class="urgency-content">
+                <span class="section-label">Own the Chain</span>
+                <h2 class="section-title">Don't Just <span class="accent-text">Manage It</span></h2>
+                <p>CargoIQ is about restoration—returning ownership, trust, and self-determination to the people who move and store the world's goods.</p>
+                <p>Every month you wait is another month of operational data that isn't training your intelligence layer, and another cycle's lessons that aren't being captured as company IP.</p>
+                <p class="urgency-tagline">CargoIQ: <span class="accent-text">Intelligence that Compounds.</span></p>
             </div>
         </div>
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>Let's talk <span class="accent-text">shop</span></h2>
-        <p>Whether you're a contractor looking to protect margin at scale, or just want to swap war stories about scope gaps—I'd like to hear from you.</p>
-        <a href="mailto:contact@northlabs.io?subject=TradeSmith%20Working%20Session" class="btn-primary">Schedule a Working Session →</a>
+        <h2>Schedule Your <span class="accent-text">Operational Audit</span></h2>
+        <p>Discover how CargoIQ can reduce downtime, optimize your supply chain, and build your proprietary intelligence.</p>
+        <a href="mailto:contact@northlabs.io?subject=CargoIQ%20Operational%20Audit" class="btn-primary">Schedule Your Operational Audit →</a>
     </section>
 
     <footer>
