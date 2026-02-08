@@ -59,7 +59,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.5rem 3rem;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -203,7 +203,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 6rem 3rem 4rem;
+            padding: 6rem 5rem 4rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -324,7 +324,7 @@
 
         /* Section styling */
         section {
-            padding: 3.2rem 3rem;
+            padding: 3.2rem 5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -370,7 +370,7 @@
 
         /* Customers Section */
         .customers-section {
-            padding: 1rem 3rem 1.5rem;
+            padding: 1rem 5rem 1.5rem;
             max-width: none;
             overflow: hidden;
         }
@@ -443,7 +443,7 @@
         .culture-section {
             background: var(--bg-secondary);
             max-width: none;
-            padding: 2rem 3rem;
+            padding: 2rem 5rem;
         }
 
         .culture-inner {
@@ -472,11 +472,25 @@
         /* Success Section */
         .success-section {
             background: #f0f5f8;
-            padding: 2rem 3rem;
+            padding: 2rem 5rem 2rem 4rem;
+            position: relative;
+        }
+
+        .success-section::before {
+            content: '';
+            position: absolute;
+            left: 2.64rem;
+            top: 2rem;
+            bottom: 2rem;
+            width: 4px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            max-width: none;
         }
 
         .success-inner {
             max-width: 1200px;
+            margin: 0 auto;
         }
 
         .success-section .section-title {
@@ -777,7 +791,7 @@
 
         /* Capabilities Section */
         .capabilities-section {
-            padding: 3rem 3rem;
+            padding: 3rem 5rem;
             max-width: none;
         }
 
@@ -858,9 +872,9 @@
 
         /* Approach Section */
         .approach-section {
-            background: #e8eaec;
+            background: #d9d9d9;
             max-width: none;
-            padding: 2.5rem 3rem;
+            padding: 2.5rem 5rem;
         }
 
         .approach-content-wrapper {
@@ -899,7 +913,7 @@
 
         .timeline-item {
             position: relative;
-            padding-bottom: 1.25rem;
+            padding-bottom: 1rem;
         }
 
         .timeline-item:last-child {
@@ -929,7 +943,7 @@
         .timeline-content p {
             font-size: 0.875rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.2;
             margin: 0;
         }
 
@@ -1001,7 +1015,7 @@
 
         /* Guarantees Section */
         .guarantees-section {
-            padding: 2.5rem 3rem;
+            padding: 2.5rem 5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -1048,7 +1062,7 @@
         .practice-section {
             background: var(--bg-secondary);
             max-width: none;
-            padding: 2.5rem 3rem;
+            padding: 2.5rem 5rem;
         }
 
         .practice-inner {
@@ -1177,14 +1191,14 @@
         .dev-list {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1rem;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
         }
 
         .dev-item {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.15rem;
         }
 
         .dev-link {
@@ -1209,7 +1223,7 @@
         .dev-usecases {
             font-size: 0.8125rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.12;
         }
 
         .practice-header {
@@ -1346,7 +1360,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 3rem 3rem;
+            padding: 3rem 5rem;
             text-align: center;
             position: relative;
             max-width: none;
@@ -1399,7 +1413,7 @@
 
         /* Footer */
         footer {
-            padding: 2rem 3rem;
+            padding: 2rem 5rem;
             border-top: 1px solid var(--border-subtle);
             display: flex;
             justify-content: space-between;

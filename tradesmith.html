@@ -47,7 +47,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 1.5rem 3rem;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -133,7 +133,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 3rem 2rem;
+            padding: 8rem 5rem 2rem 5rem;
             position: relative;
         }
 
@@ -188,7 +188,7 @@
         }
 
         .hero-image {
-            margin-top: 0.525rem;
+            margin-top: 0.43rem;
             margin-bottom: 0.525rem;
             max-width: 336px;
         }
@@ -240,7 +240,7 @@
 
         /* Sections */
         section {
-            padding: 3.2rem 3rem;
+            padding: 3.2rem 5rem;
             max-width: none;
         }
 
@@ -300,7 +300,7 @@
         }
 
         .reality-card h3 {
-            font-size: 1rem;
+            font-size: 1.12rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: var(--text-primary);
@@ -314,7 +314,7 @@
 
         /* Intelligence Section */
         .intelligence-section {
-            background: #e0e0e0;
+            background: #d9d9d9;
         }
 
         .intelligence-grid {
@@ -549,7 +549,7 @@
         .founder-body p {
             font-size: 0.9375rem;
             color: var(--text-secondary);
-            line-height: 1.65;
+            line-height: 1.155;
             margin-bottom: 0.75rem;
         }
 
@@ -559,6 +559,11 @@
 
         .founder-body strong {
             color: var(--text-primary);
+        }
+
+        .founder-body p:has(strong),
+        .founder-body .founder-bold {
+            margin-bottom: 0.5625rem;
         }
 
         .founder-body .founder-bold {
@@ -575,13 +580,14 @@
             margin: 1.25rem 0;
         }
 
-        .founder-pullquote {
-            border-left: 3px solid var(--accent-blue);
+        .founder-body .founder-pullquote {
+            border-left: 3px solid #0b73b9;
             padding-left: 1rem;
             margin: 1rem 0;
             font-style: italic;
-            color: var(--text-primary);
-            font-size: 0.9375rem;
+            font-weight: 700;
+            color: #0b73b9 !important;
+            font-size: 1.125rem;
             line-height: 1.6;
         }
 
@@ -595,7 +601,7 @@
         .cta-section {
             background: var(--bg-secondary);
             text-align: center;
-            padding: 3.2rem 3rem;
+            padding: 3.2rem 5rem;
         }
 
         .cta-section h2 {
@@ -615,7 +621,7 @@
 
         /* Footer */
         footer {
-            padding: 2rem 3rem;
+            padding: 2rem 5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -743,15 +749,15 @@
 
             <div class="reality-grid">
                 <div class="reality-card">
-                    <h3>The Current Model is Backwards</h3>
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Current Model is Backwards</h3>
                     <p>Construction companies generate enormous amounts of operational data, but it all flows into SaaS tools that give you dashboards and keep the intelligence. Your vendor history. Your bid patterns. Your margin outcomes. It's your data—but it's building someone else's moat.</p>
                 </div>
                 <div class="reality-card">
-                    <h3>Own Your Intelligence</h3>
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Own Your Intelligence</h3>
                     <p>We believe companies should own their intelligence infrastructure the same way they own their equipment. Not as a subscription that disappears when you stop paying. As an asset that appreciates with every project.</p>
                 </div>
                 <div class="reality-card">
-                    <h3>Intelligence That Compounds</h3>
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Intelligence That Compounds</h3>
                     <p>That's what we're building. Intelligence that compounds for the people who generate it. Every project that runs through TradeSmith makes the system smarter—specifically for your firm.</p>
                 </div>
             </div>
@@ -791,7 +797,7 @@
     <section class="modules-section" id="modules">
         <div class="section-inner">
             <span class="section-label">Capabilities</span>
-            <h2 class="section-title">The TradeSmith <span class="accent-text">Module Suite</span></h2>
+            <h2 class="section-title">TradeSmith <span class="accent-text">Modules</span></h2>
             
             <div class="modules-grid">
                 <div class="module-card featured">
@@ -905,7 +911,7 @@
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>Let's talk <span class="accent-text">shop</span></h2>
+        <h2>Let's talk <span style="color: var(--accent-blue); font-weight: 700;">shop</span></h2>
         <p>Whether you're a contractor looking to protect margin at scale, or just want to swap war stories about scope gaps—I'd like to hear from you.</p>
         <a href="mailto:contact@northlabs.io?subject=TradeSmith%20Working%20Session" class="btn-primary">Schedule a Working Session →</a>
     </section>

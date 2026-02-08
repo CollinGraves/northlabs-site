@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1848 Ventures | Case Study | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .northlabs-logo {
+            height: 28px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .page-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: #333333;
+            color: #ffffff !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #222222;
+        }
+
+        /* Hero */
+        .case-hero {
+            padding: 8rem 5rem 3rem;
+            max-width: 900px;
+        }
+
+        .case-hero .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-hero .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .case-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-industry {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .case-hero h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .case-hero h1 .accent-text {
+            color: var(--accent-blue);
+        }
+
+        .case-hero .subtitle {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 720px;
+        }
+
+        .case-hero-image {
+            width: 100%;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Section */
+        .case-content {
+            padding: 2rem 5rem 3rem;
+            max-width: 900px;
+        }
+
+        .case-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-content p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Callout */
+        .case-callout {
+            border-left: 3px solid var(--accent-blue);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--accent-blue-dim);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .case-callout p {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Impact Section */
+        .case-impact {
+            padding: 3rem 5rem;
+            background: var(--bg-secondary);
+        }
+
+        .case-impact-inner {
+            max-width: 900px;
+        }
+
+        .case-impact h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .impact-card .impact-icon {
+            margin-bottom: 0.75rem;
+            width: 32px;
+            height: 32px;
+        }
+
+        .impact-card .impact-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .impact-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Solution Detail */
+        .case-solution {
+            padding: 3rem 5rem;
+            max-width: 900px;
+        }
+
+        .case-solution h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-solution p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-solution ol {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-solution ol li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-solution ol li strong {
+            color: var(--text-primary);
+        }
+
+        /* Quote Section */
+        .case-quote {
+            padding: 2.5rem 5rem;
+            max-width: 900px;
+        }
+
+        .quote-box {
+            background: #f0f5f8;
+            border-radius: 10px;
+            padding: 2rem 2.5rem;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '\201C';
+            font-family: 'Instrument Serif', serif;
+            font-size: 4rem;
+            color: var(--accent-blue);
+            position: absolute;
+            top: 0.25rem;
+            left: 1.5rem;
+            line-height: 1;
+            opacity: 0.4;
+        }
+
+        .quote-box blockquote {
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+            font-style: italic;
+            padding-left: 1.5rem;
+        }
+
+        .quote-attribution {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Outcome */
+        .case-outcome {
+            padding: 2rem 5rem 3rem;
+            max-width: 900px;
+        }
+
+        .case-outcome h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-outcome p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* CTA */
+        .case-cta {
+            padding: 3rem 5rem;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .case-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-cta p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .case-cta .cta-btn {
+            display: inline-block;
+            background: #333333;
+            color: #ffffff !important;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .case-cta .cta-btn:hover {
+            background: #222222;
+        }
+
+        /* Divider */
+        .section-divider {
+            width: 3rem;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-brand a {
+            text-decoration: none;
+        }
+
+        .footer-logo-img {
+            height: 20px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-veteran {
+            height: 36px;
+            width: auto;
+            opacity: 0.6;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .case-hero {
+                padding: 6rem 1.5rem 2rem;
+            }
+
+            .case-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .case-content,
+            .case-solution,
+            .case-quote,
+            .case-outcome {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .case-impact {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-cta {
+                padding: 2.5rem 1.5rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+            <div class="logo-divider"></div>
+            <span class="page-title">Case Study</span>
+        </div>
+        <div class="nav-links">
+            <a href="case-studies.html">All Case Studies</a>
+            <a href="https://northlabs.io" class="btn-primary">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="case-hero">
+        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
+
+        <div class="case-meta">
+            <span class="case-industry">Venture Capital</span>
+        </div>
+
+        <h1>1848 Ventures achieves <span class="accent-text">maximum development velocity</span></h1>
+
+        <p class="subtitle">How North Labs revamped AWS infrastructure, automated data pipelines, and built the operational backbone that lets a venture studio focus on building — not troubleshooting.</p>
+
+    </section>
+
+    <!-- Challenge -->
+    <section class="case-content">
+        <hr class="section-divider" style="margin-bottom: 2rem;">
+        <h2>The Challenge</h2>
+        <p>With a startup ethos and an entrepreneurial spirit, the team at 1848 Ventures is passionate about identifying pain points that affect small and medium-sized businesses — and building SaaS solutions to address them. Their model demands rapid prototyping, continuous iteration, and a tight feedback loop between development, data, and infrastructure.</p>
+        <p>"We are a rapidly growing operation, and it's a challenge to quickly find people with the right technical skills when we need them," said Chris McPherson, Venture Builder and Data Science Leader at 1848 Ventures. "That left gaps in our talent pool and limited how fast we could develop concepts. Velocity — defined as development speed in the right direction — is very important. We'd rather spend months on a project rather than years."</p>
+        <p>The challenge wasn't just about writing code faster. It was about the full cycle: infrastructure provisioning, data flow, deployment pipelines, and the operational rigor required to push software reliably while keeping data moving through the system. Every concept the team prototyped needed its own AWS environment, its own data workflows, and its own deployment process — and doing that manually was killing velocity.</p>
+
+        <div class="case-callout">
+            <p>"We want to be doing what we do best: building concepts. We knew we could increase our focus on value creation when we have a partner supporting our infrastructure and data needs."</p>
+        </div>
+    </section>
+
+    <!-- Business Impact -->
+    <section class="case-impact">
+        <div class="case-impact-inner">
+            <h2>Business Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h3>Better Focus</h3>
+                    <p>"We've been able to shift a lot of value-enabling work to North Labs. That allows my team to focus on how we actually create value rather than trying to troubleshoot our infrastructure."</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div>
+                    <h3>Increased Efficiency</h3>
+                    <p>"We've been able to seamlessly launch new AWS accounts dedicated to new concepts with security best practices and network configurations already in place."</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Reduced Expenses</h3>
+                    <p>"With North Labs as our partner, we can tap into their expertise instead of increasing our overhead by recruiting, hiring, and training an internal team. That helps us stay lean and agile."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="case-solution">
+        <h2>The Solution</h2>
+        <p>North Labs quickly identified that 1848 Ventures needed more than ad-hoc infrastructure support — they needed a comprehensive operational backbone spanning cloud infrastructure, data orchestration, API layers, and deployment automation. The goal: let the team push code and move data without ever thinking about the plumbing underneath.</p>
+
+        <ol>
+            <li><strong>Organized and Optimized AWS Account Structure</strong> — A new structure that allows 1848 Ventures to create the required AWS accounts and resources as necessary, in a repeatable and scalable way. Each new venture concept gets its own isolated, properly configured environment.</li>
+            <li><strong>Custom Data Orchestration with Prefect on AWS & Kubernetes</strong> — North Labs built a custom solution for Prefect workflows running on Kubernetes, giving 1848 Ventures greater flexibility, velocity, and scalability for their data pipelines. Data flows from ingestion through transformation and into production — automated and observable.</li>
+            <li><strong>API Layer for Internal & Customer Applications</strong> — Some APIs serve 1848 Ventures' customer-facing applications as reusable building blocks. Others automate infrastructure provisioning and data pipeline setup internally, tying the full cycle together.</li>
+            <li><strong>Self-Service Catalog</strong> — A user-friendly interface that enables the 1848 Ventures team to trigger account creation, resource provisioning, and pipeline setup from a single clickable interface — no manual automation triggering required.</li>
+        </ol>
+
+        <p>Additionally, North Labs provided the team with a baseline understanding of the network architecture so they could rely on the various automations without spending time and effort managing infrastructure or tracing data lineage issues.</p>
+    </section>
+
+    <!-- Quote -->
+    <section class="case-quote">
+        <div class="quote-box">
+            <blockquote>"I enjoy working with the North Labs team because they're hyper-focused on creating value. That starts with them inquiring with the intent of understanding what our needs truly are at a deeper level."</blockquote>
+            <p class="quote-attribution">— Chris McPherson, Venture Builder & Data Science Leader, 1848 Ventures</p>
+        </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="case-outcome">
+        <h2>The Outcome</h2>
+        <p>With North Labs handling the comprehensive cycle — from infrastructure provisioning and network configuration, through data pipeline orchestration and API development, to deployment automation — 1848 Ventures reclaimed its focus on what matters: building and validating new SaaS concepts at speed.</p>
+        <p>The team now launches new ventures with production-ready infrastructure, automated data flows, and repeatable deployment processes from day one. What previously took weeks of manual setup and troubleshooting now happens through a self-service catalog in minutes.</p>
+        <p>"We are pleased that the North Labs team operates as an extension of us," said Chris. "Their professionalism and flexibility enable us to do what we do best."</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta">
+        <h2>Interested in working with us?</h2>
+        <p>Let's talk about how North Labs can accelerate your infrastructure, data, and development velocity.</p>
+        <a href="https://northlabs.io" class="cta-btn">Contact Us →</a>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://northlabs.io#solutions">Solutions</a>
+            <a href="https://northlabs.io#about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+    </footer>
+
+</body>
+</html>
