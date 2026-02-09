@@ -113,13 +113,12 @@
 
         /* Featured Section */
         .featured-section {
-            padding: 8rem 5rem 4rem;
+            padding: 8rem 3.5rem 4rem 5rem;
             max-width: none;
         }
 
         .featured-inner {
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .section-label {
@@ -143,7 +142,7 @@
 
         .featured-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.21fr 1fr;
             gap: 3rem;
             align-items: start;
         }
@@ -288,6 +287,24 @@
             color: #374151;
         }
 
+        .solution-tag.caresense {
+            background: #e3f4f8;
+            color: #1a7a8a;
+            font-style: italic;
+        }
+
+        .solution-tag.reggie {
+            background: #e8edf5;
+            color: #2c3e6b;
+            font-style: italic;
+        }
+
+        .solution-tag.cargoiq {
+            background: #dce4f6;
+            color: #2b4999;
+            font-style: italic;
+        }
+
         .solution-tag.agnostic {
             background: rgba(11, 115, 185, 0.15);
             color: #2d3748;
@@ -325,7 +342,15 @@
         }
 
         .case-link {
-            color: var(--accent-blue);
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 0.15rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            line-height: 1.4;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.875rem;
@@ -333,7 +358,7 @@
         }
 
         .case-link:hover {
-            opacity: 0.8;
+            opacity: 0.85;
             text-decoration: underline;
         }
 
@@ -344,8 +369,29 @@
         }
 
         /* Testimonials Section */
+        .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .testimonial-video-section {
+            padding: 3.2rem 5rem;
+            background: #f0f5f8;
+        }
+
+        .testimonial-video-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder-small {
+            max-width: 35%;
+            margin-top: 1.5rem;
+        }
+
         .testimonials-section {
             padding: 3.2rem 5rem;
+            background: #ffffff;
         }
 
         .testimonials-inner {
@@ -511,6 +557,14 @@
 
             .featured-section,
             .table-section,
+            .testimonial-video-section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .video-placeholder-small {
+                max-width: 100%;
+            }
+
             .testimonials-section {
                 padding: 2.4rem 1.5rem;
             }
@@ -620,7 +674,7 @@
                         <span class="stat-number">74.5%</span>
                         <span class="stat-label">reduction in bid analysis time</span>
                     </div>
-                    <h3>TradeSmith for Construction & Heavy Civil</h3>
+                    <h3>TradeSmith for Construction, Real Estate, and Heavy Civil</h3>
                     <p>When a leading construction company approached us about common data management challenges, we discovered the biggest ROI opportunity was in bid analysis. Through stakeholder interviews and world-class tooling, we built a lightweight application that transformed their operations.</p>
                     <a href="https://tradesmith.northlabs.io" target="_blank" class="btn-primary">Learn about TradeSmith →</a>
                 </div>
@@ -637,8 +691,8 @@
                 <thead>
                     <tr>
                         <th>Effort Title</th>
-                        <th>Solution / LOB</th>
-                        <th>Sub-Industry</th>
+                        <th>Offering</th>
+                        <th>Domain</th>
                         <th>Reference / Quote</th>
                         <th>Link</th>
                     </tr>
@@ -650,35 +704,49 @@
                         <td><span class="solution-tag tradesmith">TradeSmith</span></td>
                         <td>Construction & Heavy Civil</td>
                         <td class="blurb-text">"Reduced our bid turnaround from days to hours."</td>
-                        <td><span class="coming-soon">Coming Soon</span></td>
+                        <td><a href="case-study-tradesmith-construction.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Real-Time Visibility Across 40+ Sites</strong></td>
+                        <td><strong>Estimation Automation Across 40+ Sites</strong></td>
                         <td><span class="solution-tag tradesmith">TradeSmith</span></td>
                         <td>Real Estate Development</td>
-                        <td class="blurb-text">"Finally have real-time visibility into all projects."</td>
-                        <td><span class="coming-soon">Coming Soon</span></td>
+                        <td class="blurb-text">"Estimation is no longer a bottleneck across our portfolio."</td>
+                        <td><a href="case-study-realestate-estimation.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong>35% Production Scheduling Improvement</strong></td>
-                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
-                        <td>Manufacturing</td>
-                        <td class="blurb-text">"Scheduling efficiency improved by 35% in Q1."</td>
-                        <td><span class="coming-soon">Coming Soon</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>22% Material Waste Reduction in 6 Months</strong></td>
-                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
-                        <td>Automotive Manufacturing</td>
-                        <td class="blurb-text">"Reduced material waste by 22% in 6 months."</td>
-                        <td><span class="coming-soon">Coming Soon</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>$2.3M in Underpayments Found in 60 Days</strong></td>
-                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td><strong>30% Faster Clinical Reconciliation</strong></td>
+                        <td><span class="solution-tag caresense">CareSense</span></td>
                         <td>Healthcare</td>
-                        <td class="blurb-text">"Identified $2.3M in underpayments within 60 days."</td>
-                        <td><span class="coming-soon">Coming Soon</span></td>
+                        <td class="blurb-text">"Intelligence delivered to the right person at the right time."</td>
+                        <td><a href="case-study-caresense-healthcare.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Natural Language Querying Deployed in 90 Days</strong></td>
+                        <td><span class="solution-tag reggie">Reggie</span></td>
+                        <td>Higher Education</td>
+                        <td class="blurb-text">"Our enrollment team finally has predictive visibility."</td>
+                        <td><a href="case-study-highered-nlq.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>$1.8M in Process Savings Identified in Q1</strong></td>
+                        <td><span class="solution-tag cargoiq">CargoIQ</span></td>
+                        <td>Industrial Services</td>
+                        <td class="blurb-text">"North Labs found savings we didn't know existed."</td>
+                        <td><a href="case-study-industrial-savings.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Executive Insights Across Product Lines</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Food Manufacturing</td>
+                        <td class="blurb-text">"Drill-down capability and natural language querying changed how we operate."</td>
+                        <td><a href="case-study-acfoods.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Migration to Snowflake in 90 Days</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Healthcare & Pharmacy</td>
+                        <td class="blurb-text">"Released us from outsized compute costs overnight."</td>
+                        <td><a href="case-study-affirmedrx.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <!-- Published Case Studies -->
                     <tr>
@@ -742,10 +810,23 @@
         </div>
     </section>
 
+    <section class="testimonial-video-section">
+        <div class="testimonial-video-inner">
+            <span class="section-label">Testimonial</span>
+            <h2 class="section-title">Increasing development throughput by <span class="accent-text">40%</span></h2>
+            <div class="video-placeholder video-placeholder-small">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Video Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials-section">
         <div class="testimonials-inner">
-            <span class="section-label">What Our Clients Say</span>
-            <h2 class="section-title">Testimonials</h2>
+            <span class="section-label">More from our customers</span>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">

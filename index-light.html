@@ -913,7 +913,10 @@
 
         .timeline-item {
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0;
         }
 
         .timeline-item:last-child {
@@ -923,27 +926,30 @@
         .timeline-marker {
             position: absolute;
             left: -2rem;
-            top: 4px;
-            width: 14px;
-            height: 14px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
             background: var(--accent-blue);
             border-radius: 50%;
-            border: 3px solid white;
+            border: 2px solid white;
             box-shadow: 0 0 0 2px var(--accent-blue);
         }
 
         .timeline-year {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            white-space: nowrap;
+        }
+
+        .timeline-content {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.3;
         }
 
         .timeline-content p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.2;
+            display: inline;
             margin: 0;
         }
 
@@ -1668,13 +1674,11 @@
         <div class="success-inner">
             <span class="section-label">Our Customers' Success</span>
             <h2 class="section-title"><span class="accent-text">Evidence</span> of outcomes</h2>
-            <p class="success-intro">A construction company came to us with data challenges. Here's how we delivered ROI:</p>
-            
             <div class="success-flow">
                 <div class="flow-step">
                     <div class="flow-icon">1</div>
                     <div class="flow-content">
-                        <strong>Discovery</strong>
+                        <strong>Deep Discovery</strong>
                         <span>Stakeholder interviews identified bid analysis as highest-ROI opportunity</span>
                     </div>
                 </div>
@@ -1682,24 +1686,24 @@
                 <div class="flow-step">
                     <div class="flow-icon">2</div>
                     <div class="flow-content">
-                        <strong>Build</strong>
-                        <span>Lightweight app using best-in-class tools & data principles</span>
+                        <strong>Build Quickly</strong>
+                        <span>Lightweight application rolled out to two test users within 30 days after gaining access</span>
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
                     <div class="flow-icon">3</div>
                     <div class="flow-content">
-                        <strong>Result</strong>
-                        <span><em class="highlight">85% reduction</em> in bid analysis time</span>
+                        <strong>Rapid Reiteration</strong>
+                        <span>Prioritizing throughput and continual idea refinement, we were able to reach a 4th version to early test users within the first quarter of the engagement</span>
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
                     <div class="flow-icon">4</div>
                     <div class="flow-content">
-                        <strong>Expand</strong>
-                        <span>Estimation, WIP visibility, sales ops—continued investment</span>
+                        <strong>ROI Validated</strong>
+                        <span>By the end of the second quarter of the engagement, our customer achieved an <em class="highlight">85% reduction</em> in time required to analyze a bid, and the solution is in production</span>
                     </div>
                 </div>
             </div>
@@ -1844,7 +1848,8 @@
                         <span class="practice-solution">Asset Tracking</span>
                         <span class="practice-solution">OTIF/OTD</span>
                         <span class="practice-solution">Production Planning</span>
-                        <span class="practice-solution">Agriculture Operations</span>
+                        <span class="practice-solution">Agriculture & Livestock Operations</span>
+                        <span class="practice-solution">Hospitality Operations</span>
                         <span class="practice-solution">Bill of Materials</span>
                         <span class="practice-solution">Unified Data Modeling</span>
                     </div>
@@ -1905,6 +1910,7 @@
                         <span class="practice-solution">Sales vs. Target</span>
                         <span class="practice-solution">Budget vs. Actual</span>
                         <span class="practice-solution">Customer Lifetime Value</span>
+                        <span class="practice-solution">Social Media Analytics</span>
                         <span class="practice-solution">Human Resources</span>
                     </div>
                 </div>
@@ -1926,7 +1932,7 @@
                     
                     <div class="dev-list">
                         <div class="dev-item">
-                            <a href="https://cargoiq.northlabs.io" class="dev-link" target="_blank">"CargoIQ" for Transportation & Supply Chain →</a>
+                            <a href="https://cargoiq.northlabs.io" class="dev-link" target="_blank">"CargoIQ" for Transportation & Storage →</a>
                             <span class="dev-usecases">Route Optimization, Asset Tracking, Inventory Optimization, Downtime Reduction, Maintenance</span>
                         </div>
                         <div class="dev-item">
@@ -1955,31 +1961,31 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2016 — Founded</span>
-                            <p>Veteran-owned, launched after our founder Collin Graves' successful exit of a file-sharing system.</p>
-                        </div>
+                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by US Air Force Veteran and Entrepreneur Collin Graves</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2019 — First Major Clients</span>
-                            <p>Landed initial enterprise partnerships in manufacturing and healthcare sectors.</p>
-                        </div>
+                        <div class="timeline-content"><span class="timeline-year">2018</span> – Global Launch Partner of Amazon's BI Tool "QuickSight"</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2021 — Hyperscaler Partnerships</span>
-                            <p>Aligned with major hyperscalers and cutting-edge tool vendors to deliver world-class solutions.</p>
-                        </div>
+                        <div class="timeline-content"><span class="timeline-year">2020</span> – Recognized as a Premier Partner with Snowflake</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2024 — TradeSmith Launch</span>
-                            <p>Launched TradeSmith as our flagship intelligence layer for trade-driven industries.</p>
-                        </div>
+                        <div class="timeline-content"><span class="timeline-year">2021</span> – Named a "Top Veteran-owned IT Company" by Clutch</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2022</span> – Agreed to our first 4+ year engagement, maturing towards long-term partnerships</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2024</span> – TradeSmith launched as our flagship solution for trade-driven industries</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2025</span> – Doubled annual EBITDA through efficiencies gained with our own intelligence layer</div>
                     </div>
                 </div>
             </div>
@@ -2003,6 +2009,7 @@
             <a href="#solutions">Solutions</a>
             <a href="/about">About</a>
             <a href="#">Privacy</a>
+            <a href="https://www.linkedin.com/company/north-labs" target="_blank">LinkedIn</a>
         </div>
         <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
         <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">

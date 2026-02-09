@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Foods Executive Insights | Case Study | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 5rem 1.5rem 3.35rem; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%); }
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .northlabs-logo { height: 28px; width: auto; }
+        .logo-divider { width: 1px; height: 20px; background: var(--border-subtle); }
+        .page-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .btn-primary { background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2); }
+        .btn-primary:hover { background: #222222; }
+
+        .case-hero { padding: 8rem 5rem 3rem; max-width: 900px; }
+        .case-hero .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-blue); text-decoration: none; font-size: 0.875rem; font-weight: 500; margin-bottom: 2rem; transition: opacity 0.2s ease; }
+        .case-hero .back-link:hover { opacity: 0.7; }
+        .case-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .case-industry { font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
+        .case-hero h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .case-hero h1 .accent-text { color: var(--accent-blue); }
+        .case-hero .subtitle { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; max-width: 720px; }
+
+        .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
+        .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
+        .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
+
+        .case-impact { padding: 3rem 5rem; background: var(--bg-secondary); }
+        .case-impact-inner { max-width: 900px; }
+        .case-impact h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .impact-card { background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem; }
+        .impact-card .impact-icon { margin-bottom: 0.75rem; width: 32px; height: 32px; }
+        .impact-card .impact-icon svg { width: 32px; height: 32px; }
+        .impact-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .impact-card p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+
+        .case-solution { padding: 3rem 5rem; max-width: 900px; }
+        .case-solution h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-solution p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+
+        .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
+        .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
+        .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
+        .quote-box blockquote { font-size: 1.0625rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; font-style: italic; padding-left: 1.5rem; }
+        .quote-attribution { margin-top: 1rem; padding-left: 1.5rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
+
+        .case-outcome { padding: 2rem 5rem 3rem; max-width: 900px; }
+        .case-outcome h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-outcome p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+
+        .case-cta { padding: 3rem 5rem; text-align: center; background: var(--bg-secondary); }
+        .case-cta h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .case-cta p { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .case-cta .cta-btn { display: inline-block; background: #333333; color: #ffffff !important; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.2s ease; }
+        .case-cta .cta-btn:hover { background: #222222; }
+
+        .section-divider { width: 3rem; height: 3px; background: var(--accent-blue); border-radius: 2px; margin: 0; }
+
+        footer { padding: 2rem 5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); }
+        .footer-brand a { text-decoration: none; }
+        .footer-logo-img { height: 20px; width: auto; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-veteran { height: 36px; width: auto; opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .case-hero { padding: 6rem 1.5rem 2rem; }
+            .case-hero h1 { font-size: 1.75rem; }
+            .case-content, .case-solution, .case-quote, .case-outcome { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .case-impact { padding: 2.5rem 1.5rem; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .case-cta { padding: 2.5rem 1.5rem; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <a href="https://northlabs.io"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
+            <div class="logo-divider"></div>
+            <span class="page-title">Case Study</span>
+        </div>
+        <div class="nav-links">
+            <a href="case-studies.html">All Case Studies</a>
+            <a href="https://northlabs.io" class="btn-primary">Contact Us</a>
+        </div>
+    </nav>
+
+    <section class="case-hero">
+        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
+        <div class="case-meta">
+            <span class="case-industry">Food Manufacturing</span>
+        </div>
+        <h1>Executive Insights Across <span class="accent-text">Product Lines</span> for AC Foods</h1>
+        <p class="subtitle">How North Labs built AC Foods a unified executive intelligence platform with drill-down capability across separate product lines, natural language querying, and real-time performance visibility for leadership.</p>
+    </section>
+
+    <section class="case-content">
+        <hr class="section-divider" style="margin-bottom: 2rem;">
+        <h2>The Challenge</h2>
+        <p>AC Foods, a diversified food manufacturing company operating multiple distinct product lines, faced a common but critical challenge: leadership lacked a single view of performance across the business. Each product line operated with its own reporting cadence, data formats, and KPI definitions, making cross-line comparison and portfolio-level decision-making nearly impossible.</p>
+        <p>Executives were spending hours each week piecing together reports from different teams, often working with data that was days or weeks old. The absence of standardized metrics and drill-down capability meant that strategic decisions were based on incomplete pictures and gut feel rather than comprehensive intelligence.</p>
+        <div class="case-callout">
+            <p>AC Foods needed a single source of truth that could serve executives with portfolio-level visibility while enabling drill-down into any product line, region, or time period—accessible through natural language, not SQL.</p>
+        </div>
+    </section>
+
+    <section class="case-impact">
+        <div class="case-impact-inner">
+            <h2>Business Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                    <h3>Unified Cross-Product Visibility</h3>
+                    <p>All product lines consolidated into a single executive dashboard with standardized KPIs and real-time performance data.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                    <h3>Natural Language Querying</h3>
+                    <p>Executives can ask questions like "What was our margin on Product Line A in Q3?" and receive instant, accurate answers.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+                    <h3>Full Drill-Down Capability</h3>
+                    <p>From portfolio overview to individual SKU performance—leadership can explore data at any level of granularity without waiting for reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-solution">
+        <h2>The Solution</h2>
+        <p>North Labs built a unified data layer that ingested operational, financial, and sales data from each of AC Foods' product lines into a centralized warehouse. Standardized data models were created to enable apples-to-apples comparison across lines while preserving the nuance of each business unit's unique metrics.</p>
+        <p>On top of this foundation, an executive intelligence platform was deployed with three key capabilities: real-time dashboards with drill-down from portfolio level to individual product and SKU performance; natural language querying for ad-hoc questions; and automated alerting for KPI deviations and anomalies across any product line.</p>
+        <p>The platform was designed for self-service—enabling executives and product line leaders to explore data independently without submitting requests to a central analytics team.</p>
+    </section>
+
+    <section class="case-quote">
+        <div class="quote-box">
+            <blockquote>"Drill-down capability and natural language querying changed how we operate. We went from monthly report reviews to real-time decision-making across every product line."</blockquote>
+            <p class="quote-attribution">— CEO, AC Foods</p>
+        </div>
+    </section>
+
+    <section class="case-outcome">
+        <h2>The Outcome</h2>
+        <p>AC Foods now operates with a unified executive intelligence platform that gives leadership real-time, drill-down visibility across all product lines. Natural language querying has eliminated the bottleneck of formal report requests, empowering leaders to ask questions and get answers in seconds.</p>
+        <p>The platform has improved strategic decision-making speed, enabled faster identification of underperforming segments, and created a culture of data-driven leadership across the organization. The engagement continues to expand into supply chain optimization and predictive demand forecasting.</p>
+    </section>
+
+    <section class="case-cta">
+        <h2>Interested in working with us?</h2>
+        <p>Let's talk about how North Labs can help unlock the value in your data.</p>
+        <a href="https://northlabs.io" class="cta-btn">Contact Us →</a>
+    </section>
+
+    <footer>
+        <div class="footer-brand"><a href="https://northlabs.io"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
+        <div class="footer-links">
+            <a href="https://northlabs.io#solutions">Solutions</a>
+            <a href="https://northlabs.io#about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+    </footer>
+
+</body>
+</html>
