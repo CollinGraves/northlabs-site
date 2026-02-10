@@ -1364,6 +1364,84 @@
             text-align: center;
         }
 
+        /* Quote Section */
+        .quote-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 1.5rem 5rem;
+        }
+
+        .quote-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .quote-text {
+            flex: 1;
+        }
+
+        .quote-text blockquote {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: var(--text-primary);
+            margin: 0;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .quote-attribution {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .quote-portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .quote-portrait-wrapper {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .quote-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .quote-title {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .quote-inner {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .quote-text blockquote {
+                border-left: none;
+                padding-left: 0;
+                font-size: 1.25rem;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 3rem 5rem;
@@ -1760,7 +1838,7 @@
                     <div class="capability-item">Integration</div>
                     <div class="capability-item">Governance</div>
                     <div class="capability-item">Modeling</div>
-                    <div class="capability-item">Lifecycle Management</div>
+                    <div class="capability-item">Lifecycle</div>
                     <div class="capability-item">Storage</div>
                     <div class="capability-item">Pipelines (ETL/ELT)</div>
                     <div class="capability-item">Catalogs</div>
@@ -1806,7 +1884,6 @@
                     <div class="capability-item">Natural Language Querying (NLQ)</div>
                     <div class="capability-item">LLM Selection & Training</div>
                     <div class="capability-item">Agent Integration</div>
-                    <div class="capability-item">Application Development</div>
                     <div class="capability-item">Model Monitoring & Observability</div>
                     <div class="capability-item">Intelligence Literacy & Change Management</div>
                 </div>
@@ -1915,20 +1992,20 @@
                     </div>
                 </div>
 
-                <!-- Under Development & Testing -->
-                <div class="practice-card" style="background: var(--bg-tertiary); border-style: dashed;">
+                <!-- Other Industry-Dedicated Solutions -->
+                <div class="practice-card practice-card-highlight">
                     <div class="practice-header">
-                        <div class="practice-icon" style="background: rgba(0,0,0,0.05);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--text-muted);">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
+                        <div class="practice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
                             </svg>
                         </div>
                         <div>
-                            <h3 style="color: var(--text-muted);">Under Development & Testing</h3>
+                            <h3>Other Industry-Dedicated Solutions</h3>
                         </div>
                     </div>
-                    <p class="practice-description" style="color: var(--text-muted);">Use cases we are experienced in, on the way to being dedicated solutions.</p>
                     
                     <div class="dev-list">
                         <div class="dev-item">
@@ -1944,7 +2021,7 @@
                             <span class="dev-usecases">Route Optimization, Asset Tracking, Inventory Optimization, Downtime Reduction, Maintenance</span>
                         </div>
                         <div class="dev-item">
-                            <span class="dev-title">Pharma & BioTech Intelligence</span>
+                            <a href="https://biopharma17.northlabs.io" class="dev-link" target="_blank">"BioPharma 17" for Pharmaceuticals and BioTech →</a>
                             <span class="dev-usecases">Clinical Trial Analytics, Drug Pipeline Tracking, Regulatory Compliance, R&D Operations</span>
                         </div>
                     </div>
@@ -1977,7 +2054,7 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content"><span class="timeline-year">2022</span> – Agreed to our first 4+ year engagement, maturing towards long-term partnerships</div>
+                        <div class="timeline-content"><span class="timeline-year">2022</span> – Focused towards long-term engagement and partnerships versus being a consulting resource</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
@@ -1985,9 +2062,24 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content"><span class="timeline-year">2025</span> – Doubled annual EBITDA through efficiencies gained with our own intelligence layer</div>
+                        <div class="timeline-content"><span class="timeline-year">2026</span> – Driving excellence through continued customer EBITDA and success criteria</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="quote-inner reveal">
+            <div class="quote-text">
+                <blockquote>"The industries that build our world deserve useful data programs that work like they do. North Labs embeds invaluable data solutions, and along the way, we help companies <span class="accent-text">own</span> their data program—not rent it from software vendors."</blockquote>
+            </div>
+            <div class="quote-attribution">
+                <div class="quote-portrait-wrapper">
+                    <img src="kevin-czarzasty.png" alt="Kevin Czarzasty" class="quote-portrait">
+                </div>
+                <span class="quote-name">Kevin Czarzasty</span>
+                <span class="quote-title">Managing Director</span>
             </div>
         </div>
     </section>
@@ -1997,7 +2089,6 @@
         <p>Let's discuss your data challenges and how we might help.</p>
         <div class="cta-buttons">
             <a href="mailto:hello@northlabs.io" class="btn-primary">Have a Conversation</a>
-            <a href="#solutions" class="btn-secondary">View Case Studies</a>
         </div>
     </section>
 
