@@ -1442,6 +1442,39 @@
             }
         }
 
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 3rem 5rem;
@@ -2029,6 +2062,11 @@
             </div>
         </div>
     </section>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"This partnership was terrific, and I would hire North Labs again."</span>
+        <span class="testimonial-banner-author">— Roy Nieto, CEO, 4TellX</span>
+    </div>
 
     <section class="approach-section" id="about">
         <div class="approach-inner">
