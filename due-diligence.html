@@ -121,6 +121,98 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--bg-primary);
+            z-index: 105;
+            padding: 5rem 2rem 2rem;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-blue);
+        }
+
+        .mobile-menu .nav-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 104;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+        }
+
         /* Hero */
         .hero {
             min-height: auto;
@@ -156,12 +248,17 @@
             letter-spacing: -0.03em;
             line-height: 1.2;
             margin-bottom: 1.25rem;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero h1 .accent-text {
             color: var(--accent-blue);
             font-weight: 700;
+        }
+
+        .hero h1 .serif {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
         }
 
         .hero-sub {
@@ -240,6 +337,32 @@
             max-width: 160px;
         }
 
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 1rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.9375rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.5;
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
         /* Sections */
         section {
             padding: 3.2rem 5rem;
@@ -267,7 +390,7 @@
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-title .accent-text {
@@ -275,23 +398,24 @@
             color: var(--accent-blue);
         }
 
-        /* Problem Section */
-        .problem-section {
-            background: var(--bg-secondary);
-        }
-
-        .problem-intro {
-            font-size: 1.0625rem;
+        .section-intro {
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
             max-width: 800px;
             margin-bottom: 1.5rem;
         }
 
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-secondary);
+        }
+
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .problem-card {
@@ -299,6 +423,16 @@
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 1.5rem;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .problem-card-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
         }
 
         .problem-card h3 {
@@ -306,6 +440,7 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: var(--text-primary);
+            line-height: 1.4;
         }
 
         .problem-card p {
@@ -314,15 +449,99 @@
             line-height: 1.6;
         }
 
-        /* Services Section */
-        .services-section {
+        /* Two Paths Section */
+        .paths-section {
             background: var(--bg-primary);
         }
 
-        .services-intro {
-            font-size: 1rem;
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .path-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), #0a6ba6);
+        }
+
+        .path-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .path-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .path-card > p {
+            font-size: 0.9375rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .path-example {
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .path-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .path-bullets span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .path-bullets span::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--bg-secondary);
         }
 
         .services-grid {
@@ -383,7 +602,7 @@
 
         /* Why Section */
         .why-section {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .why-grid {
@@ -420,31 +639,225 @@
             line-height: 1.55;
         }
 
-        /* Stats Banner */
-        .stats-banner {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            padding: 2rem 5rem;
-            background: var(--bg-tertiary);
+        /* Case Studies Section */
+        .casestudies-section {
+            background: var(--bg-secondary);
         }
 
-        .stats-banner .stat-item {
+        .casestudies-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), #0a6ba6);
+        }
+
+        .case-card-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .case-card-left {
+            padding: 1.75rem;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .case-card-right {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .case-vertical-tag {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--accent-blue-dim);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .case-card-left h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-card-left > p {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .case-target-desc {
+            padding: 0.875rem 1rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .case-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-stat {
+            text-align: center;
+            padding: 1rem 0.5rem;
+            background: var(--bg-secondary);
+        }
+
+        .case-stat:nth-child(2) {
+            border-left: 1px solid var(--border-subtle);
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .case-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.15rem;
+        }
+
+        .case-stat-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .case-findings {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-finding {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+            gap: 0.6rem;
+            align-items: start;
+        }
+
+        .case-finding-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .case-finding p {
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        .case-finding p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .case-generalist-miss {
+            padding: 0.875rem 1rem;
+            background: var(--accent-blue-dim);
+            border: 1px solid rgba(11, 115, 185, 0.15);
+            border-radius: 8px;
+        }
+
+        .case-generalist-miss-label {
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.35rem;
+        }
+
+        .case-generalist-miss p {
+            font-size: 0.8125rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* Referral Banner */
+        .referral-banner {
+            background: var(--bg-tertiary);
+            padding: 3.5rem 5rem;
             text-align: center;
         }
 
-        .stats-banner .stat-number {
-            font-size: 1.75rem;
+        .referral-stat {
+            font-size: clamp(3rem, 7vw, 5rem);
             font-weight: 700;
-            color: var(--accent-blue);
-            line-height: 1.2;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        .stats-banner .stat-label {
-            font-size: 0.75rem;
+        .referral-stat span {
+            color: var(--accent-blue);
+        }
+
+        .referral-rule {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-blue);
+            margin: 1.25rem auto;
+        }
+
+        .referral-headline {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .referral-body {
+            font-size: 1rem;
+            line-height: 1.7;
             color: var(--text-secondary);
-            line-height: 1.3;
-            max-width: 180px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         /* Verticals Section */
@@ -452,16 +865,9 @@
             background: var(--bg-primary);
         }
 
-        .verticals-intro {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-        }
-
         .verticals-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
@@ -493,7 +899,7 @@
 
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
@@ -529,7 +935,7 @@
         .cta-section {
             background: var(--bg-primary);
             text-align: center;
-            padding: 3.2rem 5rem;
+            padding: 3.5rem 5rem;
         }
 
         .cta-section h2 {
@@ -596,25 +1002,27 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .problem-grid,
-            .services-grid,
-            .verticals-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .why-grid,
+            .verticals-grid,
             .process-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+            }
+
+            .paths-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
             }
 
             .hero-stats {
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-
-            .stats-banner {
                 flex-wrap: wrap;
                 gap: 1.5rem;
             }
@@ -629,6 +1037,15 @@
                 display: none;
             }
 
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu,
+            .mobile-overlay {
+                display: block;
+            }
+
             .hero {
                 padding: 6rem 1.5rem 3rem;
             }
@@ -641,14 +1058,31 @@
                 flex-direction: column;
             }
 
-            .process-grid {
+            .case-stats-row {
                 grid-template-columns: 1fr;
             }
 
-            .stats-banner {
+            .case-stat:nth-child(2) {
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid var(--border-subtle);
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .case-card-left,
+            .case-card-right {
+                padding: 1.5rem;
+            }
+
+            .testimonial-banner {
                 flex-direction: column;
-                align-items: center;
-                gap: 1.5rem;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+
+            .referral-banner {
+                padding: 2.5rem 1.5rem;
             }
 
             footer {
@@ -670,51 +1104,117 @@
             </a>
         </div>
         <div class="nav-links">
+            <a href="#how-we-help">How We Help</a>
             <a href="#services">Services</a>
             <a href="#approach">Approach</a>
-            <a href="#verticals">Verticals</a>
+            <a href="#case-studies">Results</a>
             <a href="#contact" class="nav-cta">Start a Conversation</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#how-we-help">How We Help</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#case-studies">Results</a>
+        <a href="#contact" class="nav-cta">Start a Conversation</a>
+    </div>
+
     <header class="hero">
         <span class="hero-label">Technology Due Diligence for Private Equity</span>
-        <h1>We don't just evaluate technology. We evaluate whether it <span class="accent-text">works in the field.</span></h1>
-        <p class="hero-sub">North Labs is the technology diligence practice built by operators who have shipped construction, trades, and industrial software in production. When PE firms need more than a code review — when they need to know if the technology actually solves the problem it claims to — they call us.</p>
+        <h1>Technology diligence where software has to survive contact with <span class="accent-text serif">the physical world.</span></h1>
+        <p class="hero-sub">North Labs evaluates the role of technology in businesses where work happens in the field - whether you're acquiring the software company that serves the industry, or the operating company that runs on it. We're the team that's built both.</p>
         <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Schedule a Briefing →</a>
-            <a href="#services" class="btn-secondary">See Our Services</a>
+            <a href="#contact" class="btn-primary">Start a Conversation</a>
+            <a href="#how-we-help" class="btn-secondary">How We Help</a>
         </div>
         <div class="hero-stats">
             <div class="hero-stat">
-                <div class="hero-stat-number">$7.7B</div>
-                <div class="hero-stat-label">PE Capital into Construction & Engineering (2024)</div>
+                <div class="hero-stat-number">$135B</div>
+                <div class="hero-stat-label">PE Capital into Industrial & Construction (2024)</div>
             </div>
             <div class="hero-stat">
-                <div class="hero-stat-number">33.8%</div>
+                <div class="hero-stat-number">1,800+</div>
+                <div class="hero-stat-label">Industrial PE Deals Closed in 2024</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">33%</div>
                 <div class="hero-stat-label">YoY Growth in Construction M&A</div>
             </div>
             <div class="hero-stat">
-                <div class="hero-stat-number">0</div>
-                <div class="hero-stat-label">Specialized Diligence Firms Serving This Space</div>
+                <div class="hero-stat-number">1</div>
+                <div class="hero-stat-label">Specialized Diligence Firm Serving This Space</div>
             </div>
         </div>
     </header>
 
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"Most diligence firms hand us a report on whether the code is clean. North Labs told us whether the technology thesis in our deal model was real - and then showed us how to capture it post-close."</span>
+        <span class="testimonial-banner-author">- Operating Partner, Middle-Market PE Firm</span>
+    </div>
+
     <section class="problem-section">
         <div class="section-inner">
             <span class="section-label">The Problem</span>
-            <h2 class="section-title">Your tech diligence provider has never set foot on a <span class="accent-text">job site.</span></h2>
-            <p class="problem-intro">Billions are flowing into construction technology, field service software, and industrial platforms. But the firms evaluating these acquisitions are running the same playbook they'd use on a fintech or an HR tool. That's a problem.</p>
+            <h2 class="section-title">Three gaps. <span class="accent-text">No one bridges all of them.</span></h2>
+            <p class="section-intro">Capital is pouring into physical-world industries. But the firms evaluating these deals aren't equipped for what technology looks like outside of a browser window.</p>
 
             <div class="problem-grid">
                 <div class="problem-card">
-                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Generalist Gap</h3>
-                    <p>Traditional tech DD firms can tell you if the code is clean. They can't tell you if the BIM integration handles IFC files correctly. Construction, trades, and industrial software operate in environments that generalist diligence providers don't understand — offline-first architectures for sites without connectivity, trade-specific workflow logic, embedded fintech with unique take-rate economics, and mobile UX designed for workers in steel-toed boots, not designers in ergonomic chairs.</p>
+                    <div class="problem-card-label">The Generalist Gap</div>
+                    <h3>Your tech diligence provider runs the same playbook on a construction platform that they'd run on a fintech app.</h3>
+                    <p>Generalist diligence providers can tell you if the code is well-written. They can't tell you if the product actually solves the problems contractors face in the field - whether the mobile app works without cell service on a job site, whether the estimating logic accounts for regional labor rates, or whether the payment flow makes sense for how trades businesses actually get paid.</p>
                 </div>
                 <div class="problem-card">
-                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Industry Gap</h3>
-                    <p>Construction consultancies can tell you about the market. They can't evaluate whether the AI is real or a demo. Industry-specialized firms bring deep commercial understanding of the built environment, but they don't perform code-level assessment, architecture evaluation, or AI capability analysis. When a target claims their AI predicts job site safety incidents, someone needs to evaluate the model, the training data, and the production deployment — not just take the pitch deck at face value.</p>
+                    <div class="problem-card-label">The Industry Gap</div>
+                    <h3>Industry consultancies know the market. They can't tell you if the technology behind the product is real.</h3>
+                    <p>Industry-focused advisors understand the commercial landscape - who the buyers are, how the market is structured, where the growth is. But when the target says their AI "predicts project delays" or their platform "automates compliance," these firms take the pitch deck at face value. Nobody on their team can open the hood and tell you what's actually under it.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-label">The Operating Company Gap</div>
+                    <h3>Your deal model assumes technology-driven margin improvement. Who validates that?</h3>
+                    <p>When you acquire a $300M mechanical contractor, the value creation plan says technology will drive efficiency gains. But who evaluates whether that company can actually adopt new systems? What their current technology looks like? What it will cost and how long it will take to get them where they need to be?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paths-section" id="how-we-help">
+        <div class="section-inner">
+            <span class="section-label">How We Help</span>
+            <h2 class="section-title">Two kinds of deals. <span class="accent-text">One team that understands both.</span></h2>
+            <p class="section-intro">Whether the target builds the technology or runs on it, we evaluate the role technology plays in the value creation thesis - and whether that thesis holds up.</p>
+
+            <div class="paths-grid">
+                <div class="path-card">
+                    <div class="path-label">Engagement Type 01</div>
+                    <h3>Software & Platform Targets</h3>
+                    <p>PE-grade technology assessment of vertical SaaS, AI, and platform companies serving construction, trades, and industrial end markets. Code, architecture, AI depth, data assets, product roadmap, team capability - evaluated by people who understand the end users these products serve.</p>
+                    <div class="path-example">"We're acquiring a field service management platform. Is the technology defensible? Is the AI real? What's the technical debt exposure?"</div>
+                    <div class="path-bullets">
+                        <span>Architecture & code quality deep-dive</span>
+                        <span>AI/ML capability validation</span>
+                        <span>Competitive moat & defensibility analysis</span>
+                        <span>EBITDA-quantified value creation roadmap</span>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-label">Engagement Type 02</div>
+                    <h3>Operating Company Targets</h3>
+                    <p>Technology posture assessment for PE firms acquiring contractors, manufacturers, and industrial services companies. We evaluate current state, quantify the technology transformation opportunity, and validate the thesis in your deal model.</p>
+                    <div class="path-example">"We're acquiring a $200M mechanical contractor. The deal model assumes $4M in technology-driven margin improvement. Can they actually get there?"</div>
+                    <div class="path-bullets">
+                        <span>Current technology stack & maturity assessment</span>
+                        <span>Technology transformation opportunity sizing</span>
+                        <span>Implementation roadmap & risk analysis</span>
+                        <span>100-day plan with projected EBITDA impact</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -722,44 +1222,44 @@
 
     <section class="services-section" id="services">
         <div class="section-inner">
-            <span class="section-label">What We Do</span>
-            <h2 class="section-title">Technology diligence built for the <span class="accent-text">deal timeline.</span></h2>
-            <p class="services-intro">Four engagement tiers, each designed for a different phase of the deal process. Fixed-fee pricing. No surprises.</p>
+            <span class="section-label">Service Tiers</span>
+            <h2 class="section-title">Structured for the deal timeline, <span class="accent-text">not the consulting calendar.</span></h2>
+            <p class="section-intro">Four engagement tiers scaled to deal size, timeline, and depth. Fixed-fee pricing. Defined scope. No surprises.</p>
 
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-tier">Tier 01</div>
                     <h3>Rapid Risk Assessment</h3>
-                    <p>Fast-turn technical risk evaluation for deal screening and competitive bid situations. Architecture overview, red-flag identification, AI capability snapshot, and an honest read on whether this technology is what the seller says it is.</p>
+                    <p>Fast-turn technical risk evaluation for deal screening, competitive bids, and add-on acquisitions. Architecture overview, red-flag identification, AI capability snapshot, and an honest read on the technology story.</p>
                     <div class="service-meta">
-                        <span>1–2 Weeks</span>
+                        <span>1-2 Weeks</span>
                         <span>Executive Summary + Risk Matrix</span>
                     </div>
                 </div>
                 <div class="service-card featured">
                     <div class="service-tier">Tier 02</div>
-                    <h3>Comprehensive Technology Diligence</h3>
-                    <p>The full assessment. Architecture deep-dive, code quality, infrastructure maturity, cybersecurity posture, AI/ML evaluation, data asset assessment, team capability, product roadmap viability, and quantified value creation opportunities with EBITDA impact estimates.</p>
+                    <h3>Comprehensive Technology Assessment</h3>
+                    <p>The full evaluation. Architecture, code quality, infrastructure, cybersecurity, AI/ML, data assets, team capability, and quantified value creation opportunities with EBITDA impact estimates.</p>
                     <div class="service-meta">
-                        <span>3–4 Weeks</span>
+                        <span>3-4 Weeks</span>
                         <span>Full Report + Benchmarking</span>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-tier">Tier 03</div>
                     <h3>Deep-Dive with Value Creation Roadmap</h3>
-                    <p>Everything in Tier 2 plus line-by-line code review of critical systems, technical debt quantification with remediation costs, AI model evaluation, and a prioritized 100-day value creation plan. For large platform acquisitions and complex multi-product targets.</p>
+                    <p>Everything in Tier 2 plus line-by-line code review, technical debt quantification with remediation costs, AI model evaluation, and a prioritized 100-day value creation plan with transformation business case.</p>
                     <div class="service-meta">
-                        <span>5–8 Weeks</span>
+                        <span>5-8 Weeks</span>
                         <span>Full Report + 100-Day Roadmap</span>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-tier">Add-On</div>
                     <h3>AI Readiness Assessment</h3>
-                    <p>Proprietary scoring framework evaluating data quality, ML infrastructure, use-case maturity, organizational capability, and regulatory readiness. Especially critical in construction and industrial tech, where AI claims often outpace AI reality by a wide margin.</p>
+                    <p>Proprietary scoring framework evaluating data quality, ML infrastructure, use-case maturity, organizational capability, and regulatory readiness. Especially critical where AI claims outpace AI reality.</p>
                     <div class="service-meta">
-                        <span>1–2 Weeks</span>
+                        <span>1-2 Weeks</span>
                         <span>AI Readiness Scorecard</span>
                     </div>
                 </div>
@@ -770,84 +1270,229 @@
     <section class="why-section" id="approach">
         <div class="section-inner">
             <span class="section-label">Why North Labs</span>
-            <h2 class="section-title">We <span class="accent-text">build</span> the software we evaluate.</h2>
+            <h2 class="section-title">We <span class="accent-text">build</span> the technology we evaluate.</h2>
+            <p class="section-intro">This isn't a team of consultants who read about these industries. We started in the trades. We build production software for them today.</p>
 
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-number">01</div>
-                    <h3>Operators, Not Observers</h3>
-                    <p>North Labs builds and deploys production construction intelligence software processing real data for general contractors. When we evaluate a target's technology, we've solved the same problems the target claims to solve.</p>
+                    <h3>Operators First</h3>
+                    <p>Our founder started pulling wire for his father's electrical business at 14 and served in the military before building technology companies. When we evaluate a target's technology posture, we understand the operational reality it has to survive.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">02</div>
-                    <h3>AI Depth That's Real</h3>
-                    <p>We don't just check if a company uses machine learning. We evaluate whether the model delivers measurable value in field conditions — with messy data, edge cases, and the operational reality of construction and trades workflows.</p>
+                    <h3>Builders, Not Observers</h3>
+                    <p>North Labs builds and operates a production construction intelligence platform serving mid-market general contractors today. When we tell a PE firm their portfolio company has a technology transformation opportunity, we're not handing over a report. We're the team that can build it.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">03</div>
-                    <h3>Beyond the Report</h3>
-                    <p>We don't stop at findings. The same team that identifies technical debt and value creation opportunities can build the 100-day roadmap, implement AI capabilities, and manage the technology transformation post-close.</p>
+                    <h3>AI Depth That's Earned</h3>
+                    <p>We don't check a box on whether a company "uses AI." We evaluate whether the model delivers measurable value in field conditions - with messy data, edge cases, and the operational reality of how these businesses actually work.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">04</div>
-                    <h3>Vertical Benchmarks</h3>
-                    <p>Our growing database of construction and industrial technology assessments provides benchmarking data no generalist firm can match. We know what "good" looks like in this specific space — because we've measured it.</p>
+                    <h3>Value Creation, Not Just Risk</h3>
+                    <p>Most diligence identifies problems. We quantify opportunities. Our reports include EBITDA-impact estimates for technology improvements, transformation roadmaps, and implementation plans - because we've done the implementation.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">05</div>
-                    <h3>Deal-Speed Delivery</h3>
-                    <p>We understand the deal timeline. Fixed-fee engagements, clear scope, and reporting designed for investment committee presentations — not academic exercises. We deliver insight, not binders.</p>
+                    <h3>Beyond the Report</h3>
+                    <p>The team that evaluates a target can build the 100-day roadmap, implement AI capabilities, restructure the engineering organization, and manage post-close technology transformation. One relationship from diligence through value creation.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">06</div>
-                    <h3>Practitioner-Led</h3>
-                    <p>Senior practitioners run every engagement — former CTOs, VP-Engineering, and technical leaders who have built, scaled, and exited technology companies. No juniors learning on your deal.</p>
+                    <h3>Deal-Speed Delivery</h3>
+                    <p>We understand the deal timeline. Fixed-fee engagements, clear scope, and reporting designed for investment committee presentations - not academic exercises. Senior practitioners run every engagement.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="stats-banner">
-        <div class="stat-item">
-            <div class="stat-number">2.8×</div>
-            <div class="stat-label">More Likely to Achieve Successful Deal Outcomes with Tech DD</div>
+    <section class="casestudies-section" id="case-studies">
+        <div class="section-inner">
+            <span class="section-label">Engagement Outcomes</span>
+            <h2 class="section-title">What this looks like <span class="accent-text">in practice.</span></h2>
+            <p class="section-intro">Three engagements. Three verticals. Each one uncovered deal-shaping findings that generalist diligence providers missed - because they didn't know where to look.</p>
+
+            <div class="casestudies-grid">
+                <!-- Case 1: Vertical SaaS -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Regulated Vertical SaaS</div>
+                            <h3>Validating the technology thesis behind a vertical SaaS platform in regulated financial services</h3>
+                            <p>A middle-market PE firm needed to know whether a platform serving 100,000+ financial professionals had built genuine technology moats - or just captured market share ahead of competitors who would eventually catch up.</p>
+                            <div class="case-target-desc">Target: Leading vertical SaaS platform serving regulated financial professionals. $16M+ enterprise ARR, 100,000+ users, 3 acquired products consolidated onto a unified architecture.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$87K</div>
+                                    <div class="case-stat-label">Avg. Eng Salary vs. $130K Industry</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">121%</div>
+                                    <div class="case-stat-label">Enterprise Net Revenue Retention</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">41.5%</div>
+                                    <div class="case-stat-label">Support Volume Reduction via AI</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Capital-efficient R&D engine</strong> producing 2x output at 60% of industry cost - with stable defect rates across three concurrent product migrations</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>AI strategy with measurable ROI:</strong> customer-facing AI shipped 4 months post-GPT-3.5, recognized as industry leader, 2x content output with headcount reduction</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Proven M&A integration capability:</strong> 94-101% ARR retention across 3 platform migrations, $1M+ recurring cost savings from consolidation</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Critical database dependency identified</strong> - unmaintained open-source database requiring 12-18 month migration, informing remediation commitments in deal structuring</p>
+                                </div>
+                            </div>
+                            <div class="case-generalist-miss">
+                                <div class="case-generalist-miss-label">What a generalist would have missed</div>
+                                <p>Whether the AI was generating measurable compliance-grade output versus demo-ware. Whether the R&D cost advantage was structural or just underpayment. How acquisition integrations preserved - or destroyed - the revenue that made each deal worth doing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Trades & Field Service -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Trades & Field Service</div>
+                            <h3>Rewriting the deal model for a field service platform by finding what generalist diligence confirmed but didn't understand</h3>
+                            <p>A PE firm's prior generalist tech DD provider had rated this platform favorably on standard metrics. North Labs found the five domain-specific issues that would determine whether the deal thesis actually worked.</p>
+                            <div class="case-target-desc">Target: Field service management platform serving residential and commercial HVAC, plumbing, and electrical contractors. ~$45M ARR, 6,800+ contractor customers, 185,000 field technicians on the mobile app monthly.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$8-14M</div>
+                                    <div class="case-stat-label">Incremental Annual Payment Revenue</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">5-6 pts</div>
+                                    <div class="case-stat-label">Churn Recharacterized as Seasonal</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">104-108%</div>
+                                    <div class="case-stat-label">Actual NRR (Stable Base)</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Flat-rate pricing engine was the real moat</strong> - 48,000+ line items with regional labor rates and supplier feeds. 18-22% average ticket increase. 3-4 year replication barrier.</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Offline sync architecture was fragile:</strong> last-write-wins conflict resolution works for single technicians, breaks for the multi-crew commercial expansion the deal model assumed</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Embedded fintech undermonetized by 40-60%</strong> - 1.1% blended take rate vs. 1.8-2.5% for comparable platforms. Processor renegotiation + financing products = largest value creation opportunity</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>AI scheduling was pre-production</strong> - 23% dispatcher adoption. Model optimized for drive time but ignored skill match, equipment requirements, and cascading delays</p>
+                                </div>
+                            </div>
+                            <div class="case-generalist-miss">
+                                <div class="case-generalist-miss-label">What a generalist would have missed</div>
+                                <p>The 14% gross churn headline was actually 8-9% competitive churn plus seasonal contractor patterns. The offline architecture couldn't survive the commercial expansion plan. And the AI scheduling model would fail in the field because it didn't know what a dispatcher actually manages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Industrial -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Industrial & Manufacturing</div>
+                            <h3>Reframing a $200M+ industrial AI acquisition from "buy the models" to "protect the data"</h3>
+                            <p>A prior diligence provider gave this platform a clean bill of health. North Labs found three deal-level risks they missed entirely - and a data monetization opportunity that wasn't in the deal model.</p>
+                            <div class="case-target-desc">Target: Predictive maintenance and asset intelligence platform for heavy manufacturing, energy, and industrial facilities. ~$38M ARR, 1.2M connected sensors, 14 billion data points ingested daily across 340+ facility deployments.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$6-12M</div>
+                                    <div class="case-stat-label">Data Monetization Opportunity Found</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">34%</div>
+                                    <div class="case-stat-label">ML False Positive Rate in Production</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">3</div>
+                                    <div class="case-stat-label">Deal-Level Risks Prior DD Missed</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Sensor data pipeline was the real asset</strong> - 17 industrial protocols, 18-24 months ahead of competitors. Reframed the acquisition from "AI company" to "data infrastructure company"</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>ML models overstated production accuracy:</strong> 92% on curated test data, 34% false positive rate in the field. Vibration-based models applied to equipment where vibration is irrelevant</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>OT security exposure invisible to prior IT-focused assessment</strong> - gateways with direct SCADA/DCS network adjacency in 38% of deployments. Zero IEC 62443 alignment</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>$6-12M data monetization opportunity</strong> the deal model hadn't sized - OEM benchmarking, insurance underwriting data licensing, energy optimization analytics</p>
+                                </div>
+                            </div>
+                            <div class="case-generalist-miss">
+                                <div class="case-generalist-miss-label">What a generalist would have missed</div>
+                                <p>Predictive models trained on vibration data produce noise on electrical switchgear. The OT network boundary was the real security risk - not the cloud. The most valuable thing in the company was the data pipeline, not the AI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-            <div class="stat-number">80%</div>
-            <div class="stat-label">of PE Firms Now Include Cybersecurity in Tech Assessments</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">~30%</div>
-            <div class="stat-label">Avg. Overstatement of AI Capabilities in Acquisition Targets</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">95%</div>
-            <div class="stat-label">of Generative AI Pilots Fail to Reach Production</div>
-        </div>
+    </section>
+
+    <div class="referral-banner">
+        <div class="referral-stat">100<span>%</span></div>
+        <div class="referral-rule"></div>
+        <h2 class="referral-headline">Every PE firm that's engaged us has either come back for a second engagement or referred us to another firm.</h2>
+        <p class="referral-body">We believe we're only as good as our last engagement. So far, that's been good enough.</p>
     </div>
 
     <section class="verticals-section" id="verticals">
         <div class="section-inner">
             <span class="section-label">Where We Go Deep</span>
-            <h2 class="section-title">Vertical expertise that generalists <span class="accent-text">can't replicate.</span></h2>
-            <p class="verticals-intro">We serve PE firms evaluating technology targets across the built environment and industrial economy. Our domain knowledge lets us assess not just whether the technology works — but whether it wins.</p>
+            <h2 class="section-title">Deep vertical expertise. <span class="accent-text">Not a horizontal playbook.</span></h2>
+            <p class="section-intro">We serve PE firms evaluating technology targets and operating companies in the industries where technology creates the largest value gaps - and where evaluating it requires knowing the work, not just the code.</p>
 
             <div class="verticals-grid">
                 <div class="vertical-card">
-                    <h3>Construction Technology</h3>
-                    <p>Project management, estimating, bid management, BIM/CAD, safety, compliance, and AI platforms serving GCs, owners, and architects. We evaluate offline-first architecture, construction data standards (IFC, COBie), and workflow logic that generalist firms miss.</p>
+                    <h3>Construction</h3>
+                    <p>Software targets: project management, estimating, BIM/CAD, safety, compliance platforms. Operating companies: general contractors, specialty contractors, civil and heavy highway. We evaluate offline-first architecture, construction data standards, and the technology transformation path for operators.</p>
                 </div>
                 <div class="vertical-card">
                     <h3>Trades & Field Service</h3>
-                    <p>HVAC, plumbing, electrical, roofing, and home services software — the ServiceTitan ecosystem. We assess embedded fintech, dispatching intelligence, flat-rate pricing engines, and the mobile-first architectures that drive technician adoption in the field.</p>
+                    <p>Software targets: the ServiceTitan ecosystem - HVAC, plumbing, electrical, roofing, home services platforms. Operating companies: mechanical contractors, fire protection, commercial service providers. We assess embedded fintech, dispatching intelligence, and technology readiness.</p>
                 </div>
                 <div class="vertical-card">
-                    <h3>Industrial Software</h3>
-                    <p>Manufacturing execution, equipment management, supply chain, and IoT platforms. We evaluate OT/IT convergence, sensor data pipelines, predictive maintenance models, and the unique scalability challenges of industrial environments.</p>
-                </div>
-                <div class="vertical-card">
-                    <h3>Vertical SaaS (Broader)</h3>
-                    <p>We bring the same rigor to any vertical SaaS target where deep industry workflow understanding determines whether technology creates a moat — or just creates overhead. Our software evaluation methodology adapts to the domain; our standards don't.</p>
+                    <h3>Industrial & Manufacturing</h3>
+                    <p>Software targets: MES, equipment management, supply chain, IoT platforms. Operating companies: contract manufacturers, industrial services, specialty fabricators. We evaluate OT/IT convergence, sensor data pipelines, predictive maintenance models, and industrial automation scalability.</p>
                 </div>
             </div>
         </div>
@@ -856,38 +1501,34 @@
     <section class="process-section">
         <div class="section-inner">
             <span class="section-label">How We Work</span>
-            <h2 class="section-title">Designed for the <span class="accent-text">deal process</span>, not the consulting calendar.</h2>
+            <h2 class="section-title">Built for <span class="accent-text">deal speed.</span></h2>
 
             <div class="process-grid">
                 <div class="process-card">
                     <div class="process-number">01</div>
-                    <h3>Scope & Engage</h3>
-                    <p>We scope the engagement in 24–48 hours. Fixed fee, defined deliverables, clear timeline. You know exactly what you're getting and when. Engagement letter signed, 50% retainer, and we're in motion.</p>
+                    <h3>Scoped in 48 Hours</h3>
+                    <p>Fixed fee, defined deliverables, clear timeline. No discovery phase. No meter running. You know what you're getting before we start.</p>
                 </div>
                 <div class="process-card">
                     <div class="process-number">02</div>
-                    <h3>Access & Assess</h3>
-                    <p>Management interviews, codebase access, infrastructure review, data pipeline analysis, and AI capability evaluation. We work from a standardized methodology customized to the target's domain — not a generic checklist.</p>
+                    <h3>IC-Ready Deliverables</h3>
+                    <p>Reports built for the investment committee, not the filing cabinet. Quantified risk, EBITDA-impact estimates on value creation opportunities, and clear recommendations.</p>
                 </div>
                 <div class="process-card">
                     <div class="process-number">03</div>
-                    <h3>Synthesize & Score</h3>
-                    <p>Findings are synthesized into a structured report with quantified risk ratings, benchmarking against comparable platforms, and actionable value creation opportunities. No filler, no boilerplate — just the signal your IC needs.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-number">04</div>
-                    <h3>Present & Support</h3>
-                    <p>We present findings directly to your deal team and investment committee. Post-report support included: clarification calls, negotiation leverage points, and integration planning guidance. We stay available through close.</p>
+                    <h3>We Stay Through Close</h3>
+                    <p>Post-report support through negotiation and close. And when the deal is done, the same team that identified the opportunities can build the 100-day roadmap and execute it.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>Evaluating a construction, trades, or industrial <span class="accent-text">technology target?</span></h2>
-        <p>We offer a complimentary 60-minute landscape briefing for PE operating partners and deal teams active in these verticals. No pitch, no pressure — just a candid conversation about what we're seeing in the market.</p>
-        <a href="mailto:diligence@northlabs.com?subject=Due%20Diligence%20Briefing" class="btn-primary">Schedule a Briefing →</a>
-        <span class="cta-email">Or reach us directly: <a href="mailto:diligence@northlabs.com">diligence@northlabs.com</a></span>
+        <span class="section-label" style="display: block; text-align: center;">Let's Talk</span>
+        <h2>Evaluating a deal where technology meets <span class="accent-text">the physical world?</span></h2>
+        <p>We offer a complimentary 30-minute conversation for PE operating partners and deal teams evaluating opportunities in these industries. No pitch - just a candid read on what we're seeing in the market.</p>
+        <a href="mailto:collin@northlabs.co" class="btn-primary">Start a Conversation</a>
+        <span class="cta-email">Or reach us directly: <a href="mailto:collin@northlabs.co">collin@northlabs.co</a></span>
     </section>
 
     <footer>
@@ -899,5 +1540,30 @@
             <a href="https://northlabs.io/#solutions">All Solutions</a>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
