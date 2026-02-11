@@ -130,11 +130,17 @@
         /* Hero */
         .hero {
             min-height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
             padding: 8rem 5rem 2rem 5rem;
             position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .hero::after {
@@ -167,6 +173,7 @@
             line-height: 1.2;
             margin-bottom: 1.25rem;
             max-width: 800px;
+            padding-left: 2rem;
         }
 
         .hero h1 .accent-text {
@@ -180,6 +187,7 @@
             max-width: 600px;
             margin-bottom: 2rem;
             line-height: 1.7;
+            padding-left: 2rem;
         }
 
         .hero-ctas {
@@ -188,13 +196,15 @@
         }
 
         .hero-image {
-            margin-top: 0.396rem;
-            margin-bottom: 0.525rem;
-            max-width: 269px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 7.5rem;
         }
 
         .hero-image img {
             width: 100%;
+            max-width: 326px;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -401,7 +411,7 @@
         .casestudy-content {
             display: grid;
             grid-template-columns: 2fr 3fr;
-            gap: 1.5rem;
+            gap: 6rem;
             align-items: start;
         }
 
@@ -710,6 +720,22 @@
             }
         }
 
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 1.5rem;
@@ -721,6 +747,18 @@
 
             .hero {
                 padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
             }
 
             section {
@@ -773,9 +811,11 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-label">Construction & Real Estate Intelligence</span>
-        <h1>Intelligence built by people who are <span class="accent-text">actually from the trades</span></h1>
-        <p class="hero-sub">North Labs builds intelligence infrastructure for construction—not from a whiteboard, but from years on job sites. We know what gets missed because we've missed it. We know what costs money because we've paid for it.</p>
+        <div class="hero-content">
+            <span class="hero-label">Construction & Real Estate Intelligence</span>
+            <h1>Intelligence built by people who are <span class="accent-text">from the trades</span></h1>
+            <p class="hero-sub">North Labs builds intelligence infrastructure for construction—not from a whiteboard, but from years on job sites.</p>
+        </div>
         <div class="hero-image">
             <img src="construction-person.png" alt="Construction professional">
         </div>
@@ -882,7 +922,7 @@
                     
                     <h3 style="margin-top: 0.75rem;">The TradeSmith Intervention</h3>
                     <div class="phase-item">
-                        <p><strong>Phase 1:</strong> North Labs integrated TradeSmith with their Procore and Sage instances, training the intelligence layer on five years of historical bid data.</p>
+                        <p><strong>Phase 1:</strong> North Labs integrated TradeSmith with their Procore and Sage instances, training the intelligence layer on five years of historical bids.</p>
                     </div>
                     <div class="phase-item">
                         <p><strong>Phase 2:</strong> Deployed the Bid Intelligence module to auto-level trade packages and identify outliers.</p>
@@ -892,8 +932,8 @@
                     <h3>The Results</h3>
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">6x</div>
-                            <div class="stat-label">Faster speed of bid leveling</div>
+                            <div class="stat-number">72%</div>
+                            <div class="stat-label">Reduction in average time to bid-level</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-number">15%</div>
@@ -920,7 +960,7 @@
 
             <div class="founder-layout">
                 <div class="founder-sidebar">
-                    <div class="founder-avatar"><img src="founder-photo.png" alt="Collin Graves"></div>
+                    <div class="founder-avatar"><img src="founder-photo-bw.png" alt="Collin Graves"></div>
                     <span class="founder-name">Collin Graves</span>
                     <span class="founder-role">Managing Director, Founder</span>
                     <div class="founder-tags">

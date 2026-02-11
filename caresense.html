@@ -130,11 +130,17 @@
         /* Hero */
         .hero {
             min-height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
             padding: 8rem 5rem 2rem 5rem;
             position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .hero::after {
@@ -167,6 +173,7 @@
             line-height: 1.2;
             margin-bottom: 1.25rem;
             max-width: 800px;
+            padding-left: 2rem;
         }
 
         .hero h1 .accent-text {
@@ -180,6 +187,7 @@
             max-width: 600px;
             margin-bottom: 2rem;
             line-height: 1.7;
+            padding-left: 2rem;
         }
 
         .hero-ctas {
@@ -188,13 +196,15 @@
         }
 
         .hero-image {
-            margin-top: 0.396rem;
-            margin-bottom: 0.525rem;
-            max-width: 269px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 12rem;
         }
 
         .hero-image img {
             width: 100%;
+            max-width: 326px;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -616,6 +626,22 @@
             }
         }
 
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 1.5rem;
@@ -627,6 +653,18 @@
 
             .hero {
                 padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
             }
 
             section {
@@ -673,9 +711,11 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-label">Healthcare Intelligence</span>
-        <h1>Clinical Intelligence for your Institution's <span class="accent-text">Health</span></h1>
-        <p class="hero-sub">Beyond reporting. Own the intelligence that drives your business, so you can focus on your mission.</p>
+        <div class="hero-content">
+            <span class="hero-label">Healthcare Intelligence</span>
+            <h1>Clinical Intelligence for your Institution's <span class="accent-text">Health</span></h1>
+            <p class="hero-sub">Beyond reporting. Own the intelligence that drives your business, so you can focus on your mission.</p>
+        </div>
         <div class="hero-image">
             <img src="caresense-people.png" alt="Healthcare professionals">
         </div>

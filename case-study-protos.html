@@ -86,6 +86,11 @@
         .case-solution h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
         .case-solution p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
 
+        .hero-quote { padding: 0 5rem 1rem; max-width: none; }
+        .hero-quote-box { background: var(--accent-blue); border-radius: 8px; padding: 1.25rem 2rem; max-width: 630px; }
+        .hero-quote-box blockquote { font-size: 1rem; color: #ffffff; font-weight: 500; line-height: 1.6; font-style: italic; }
+        .hero-quote-attribution { margin-top: 0.5rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
+
         .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
         .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
         .quote-box::before { content: '\201C'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
@@ -151,6 +156,13 @@
         <p class="subtitle">How North Labs helped a national security services company rebuild its entire technology and data infrastructure from the ground up — achieving SOC 2 compliance readiness while eliminating misconfigurations, reducing costs, and enabling scalable growth.</p>
     </section>
 
+    <div class="hero-quote">
+        <div class="hero-quote-box">
+            <blockquote>"I enjoy working with the North Labs team because they are extremely knowledgeable and professional, as well as open to learning. We achieved what we set out to do because we worked in partnership to develop the right solution."</blockquote>
+            <p class="hero-quote-attribution">— Robert Atherton, Senior Software Engineer, Protos Security</p>
+        </div>
+    </div>
+
     <!-- Challenge -->
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
@@ -197,14 +209,6 @@
         <p>After examining the existing environment, the North Labs team determined that patching individual misconfigurations wouldn't be enough. The best path forward was to rebuild the entire technology and data infrastructure from scratch using modern best practices — purpose-built for compliance from day one rather than retroactively patched.</p>
         <p>North Labs created infrastructure-as-code modules and CI/CD pipelines for Protos Security's services, along with the supporting infrastructure needed to securely and efficiently deploy and manage resources in a repeatable, scalable manner. Every component was designed with compliance controls baked in — covering security, availability, processing integrity, confidentiality, and privacy.</p>
         <p>Once the new environment was built, the team assisted Protos Security with migrating all services from the legacy infrastructure to the new compliance-ready environment — ensuring zero disruption to their security operations.</p>
-    </section>
-
-    <!-- Quote -->
-    <section class="case-quote">
-        <div class="quote-box">
-            <blockquote>"I enjoy working with the North Labs team because they are extremely knowledgeable and professional, as well as open to learning. We achieved what we set out to do because we worked in partnership to develop the right solution."</blockquote>
-            <p class="quote-attribution">— Robert Atherton, Senior Software Engineer, Protos Security</p>
-        </div>
     </section>
 
     <!-- Outcome -->

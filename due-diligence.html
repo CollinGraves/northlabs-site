@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Due Diligence for Private Equity | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .brought-by {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .northlabs-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .northlabs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+
+        .northlabs-link:hover .northlabs-logo {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            background: #222222;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 5rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 2.4rem;
+            height: 2px;
+            background: #0b73b9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+            max-width: 160px;
+        }
+
+        /* Sections */
+        section {
+            padding: 3.2rem 5rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-secondary);
+        }
+
+        .problem-intro {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .problem-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--bg-primary);
+        }
+
+        .services-intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .service-card.featured {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(11, 115, 185, 0.04) 0%, var(--bg-card) 100%);
+        }
+
+        .service-tier {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .service-meta span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Why Section */
+        .why-section {
+            background: var(--bg-secondary);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .why-number {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .why-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .why-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem 5rem;
+            background: var(--bg-tertiary);
+        }
+
+        .stats-banner .stat-item {
+            text-align: center;
+        }
+
+        .stats-banner .stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .stats-banner .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.3;
+            max-width: 180px;
+        }
+
+        /* Verticals Section */
+        .verticals-section {
+            background: var(--bg-primary);
+        }
+
+        .verticals-intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .vertical-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .vertical-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .vertical-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: var(--bg-secondary);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .process-number {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .process-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .process-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-primary);
+            text-align: center;
+            padding: 3.2rem 5rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .cta-email {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .cta-section .cta-email a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .cta-section .cta-email a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .problem-grid,
+            .services-grid,
+            .verticals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .stats-banner {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-banner {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <span class="solution-title">Due Diligence</span>
+            <div class="logo-divider"></div>
+            <span class="brought-by">Brought to you by</span>
+            <a href="https://northlabs.io" class="northlabs-link">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#approach">Approach</a>
+            <a href="#verticals">Verticals</a>
+            <a href="#contact" class="nav-cta">Start a Conversation</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="hero-label">Technology Due Diligence for Private Equity</span>
+        <h1>We don't just evaluate technology. We evaluate whether it <span class="accent-text">works in the field.</span></h1>
+        <p class="hero-sub">North Labs is the technology diligence practice built by operators who have shipped construction, trades, and industrial software in production. When PE firms need more than a code review — when they need to know if the technology actually solves the problem it claims to — they call us.</p>
+        <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Schedule a Briefing →</a>
+            <a href="#services" class="btn-secondary">See Our Services</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number">$7.7B</div>
+                <div class="hero-stat-label">PE Capital into Construction & Engineering (2024)</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">33.8%</div>
+                <div class="hero-stat-label">YoY Growth in Construction M&A</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">0</div>
+                <div class="hero-stat-label">Specialized Diligence Firms Serving This Space</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="problem-section">
+        <div class="section-inner">
+            <span class="section-label">The Problem</span>
+            <h2 class="section-title">Your tech diligence provider has never set foot on a <span class="accent-text">job site.</span></h2>
+            <p class="problem-intro">Billions are flowing into construction technology, field service software, and industrial platforms. But the firms evaluating these acquisitions are running the same playbook they'd use on a fintech or an HR tool. That's a problem.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Generalist Gap</h3>
+                    <p>Traditional tech DD firms can tell you if the code is clean. They can't tell you if the BIM integration handles IFC files correctly. Construction, trades, and industrial software operate in environments that generalist diligence providers don't understand — offline-first architectures for sites without connectivity, trade-specific workflow logic, embedded fintech with unique take-rate economics, and mobile UX designed for workers in steel-toed boots, not designers in ergonomic chairs.</p>
+                </div>
+                <div class="problem-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Industry Gap</h3>
+                    <p>Construction consultancies can tell you about the market. They can't evaluate whether the AI is real or a demo. Industry-specialized firms bring deep commercial understanding of the built environment, but they don't perform code-level assessment, architecture evaluation, or AI capability analysis. When a target claims their AI predicts job site safety incidents, someone needs to evaluate the model, the training data, and the production deployment — not just take the pitch deck at face value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-inner">
+            <span class="section-label">What We Do</span>
+            <h2 class="section-title">Technology diligence built for the <span class="accent-text">deal timeline.</span></h2>
+            <p class="services-intro">Four engagement tiers, each designed for a different phase of the deal process. Fixed-fee pricing. No surprises.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-tier">Tier 01</div>
+                    <h3>Rapid Risk Assessment</h3>
+                    <p>Fast-turn technical risk evaluation for deal screening and competitive bid situations. Architecture overview, red-flag identification, AI capability snapshot, and an honest read on whether this technology is what the seller says it is.</p>
+                    <div class="service-meta">
+                        <span>1–2 Weeks</span>
+                        <span>Executive Summary + Risk Matrix</span>
+                    </div>
+                </div>
+                <div class="service-card featured">
+                    <div class="service-tier">Tier 02</div>
+                    <h3>Comprehensive Technology Diligence</h3>
+                    <p>The full assessment. Architecture deep-dive, code quality, infrastructure maturity, cybersecurity posture, AI/ML evaluation, data asset assessment, team capability, product roadmap viability, and quantified value creation opportunities with EBITDA impact estimates.</p>
+                    <div class="service-meta">
+                        <span>3–4 Weeks</span>
+                        <span>Full Report + Benchmarking</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-tier">Tier 03</div>
+                    <h3>Deep-Dive with Value Creation Roadmap</h3>
+                    <p>Everything in Tier 2 plus line-by-line code review of critical systems, technical debt quantification with remediation costs, AI model evaluation, and a prioritized 100-day value creation plan. For large platform acquisitions and complex multi-product targets.</p>
+                    <div class="service-meta">
+                        <span>5–8 Weeks</span>
+                        <span>Full Report + 100-Day Roadmap</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-tier">Add-On</div>
+                    <h3>AI Readiness Assessment</h3>
+                    <p>Proprietary scoring framework evaluating data quality, ML infrastructure, use-case maturity, organizational capability, and regulatory readiness. Especially critical in construction and industrial tech, where AI claims often outpace AI reality by a wide margin.</p>
+                    <div class="service-meta">
+                        <span>1–2 Weeks</span>
+                        <span>AI Readiness Scorecard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section" id="approach">
+        <div class="section-inner">
+            <span class="section-label">Why North Labs</span>
+            <h2 class="section-title">We <span class="accent-text">build</span> the software we evaluate.</h2>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-number">01</div>
+                    <h3>Operators, Not Observers</h3>
+                    <p>North Labs builds and deploys production construction intelligence software processing real data for general contractors. When we evaluate a target's technology, we've solved the same problems the target claims to solve.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">02</div>
+                    <h3>AI Depth That's Real</h3>
+                    <p>We don't just check if a company uses machine learning. We evaluate whether the model delivers measurable value in field conditions — with messy data, edge cases, and the operational reality of construction and trades workflows.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">03</div>
+                    <h3>Beyond the Report</h3>
+                    <p>We don't stop at findings. The same team that identifies technical debt and value creation opportunities can build the 100-day roadmap, implement AI capabilities, and manage the technology transformation post-close.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">04</div>
+                    <h3>Vertical Benchmarks</h3>
+                    <p>Our growing database of construction and industrial technology assessments provides benchmarking data no generalist firm can match. We know what "good" looks like in this specific space — because we've measured it.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">05</div>
+                    <h3>Deal-Speed Delivery</h3>
+                    <p>We understand the deal timeline. Fixed-fee engagements, clear scope, and reporting designed for investment committee presentations — not academic exercises. We deliver insight, not binders.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">06</div>
+                    <h3>Practitioner-Led</h3>
+                    <p>Senior practitioners run every engagement — former CTOs, VP-Engineering, and technical leaders who have built, scaled, and exited technology companies. No juniors learning on your deal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-banner">
+        <div class="stat-item">
+            <div class="stat-number">2.8×</div>
+            <div class="stat-label">More Likely to Achieve Successful Deal Outcomes with Tech DD</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">of PE Firms Now Include Cybersecurity in Tech Assessments</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">~30%</div>
+            <div class="stat-label">Avg. Overstatement of AI Capabilities in Acquisition Targets</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">of Generative AI Pilots Fail to Reach Production</div>
+        </div>
+    </div>
+
+    <section class="verticals-section" id="verticals">
+        <div class="section-inner">
+            <span class="section-label">Where We Go Deep</span>
+            <h2 class="section-title">Vertical expertise that generalists <span class="accent-text">can't replicate.</span></h2>
+            <p class="verticals-intro">We serve PE firms evaluating technology targets across the built environment and industrial economy. Our domain knowledge lets us assess not just whether the technology works — but whether it wins.</p>
+
+            <div class="verticals-grid">
+                <div class="vertical-card">
+                    <h3>Construction Technology</h3>
+                    <p>Project management, estimating, bid management, BIM/CAD, safety, compliance, and AI platforms serving GCs, owners, and architects. We evaluate offline-first architecture, construction data standards (IFC, COBie), and workflow logic that generalist firms miss.</p>
+                </div>
+                <div class="vertical-card">
+                    <h3>Trades & Field Service</h3>
+                    <p>HVAC, plumbing, electrical, roofing, and home services software — the ServiceTitan ecosystem. We assess embedded fintech, dispatching intelligence, flat-rate pricing engines, and the mobile-first architectures that drive technician adoption in the field.</p>
+                </div>
+                <div class="vertical-card">
+                    <h3>Industrial Software</h3>
+                    <p>Manufacturing execution, equipment management, supply chain, and IoT platforms. We evaluate OT/IT convergence, sensor data pipelines, predictive maintenance models, and the unique scalability challenges of industrial environments.</p>
+                </div>
+                <div class="vertical-card">
+                    <h3>Vertical SaaS (Broader)</h3>
+                    <p>We bring the same rigor to any vertical SaaS target where deep industry workflow understanding determines whether technology creates a moat — or just creates overhead. Our software evaluation methodology adapts to the domain; our standards don't.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="section-inner">
+            <span class="section-label">How We Work</span>
+            <h2 class="section-title">Designed for the <span class="accent-text">deal process</span>, not the consulting calendar.</h2>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Scope & Engage</h3>
+                    <p>We scope the engagement in 24–48 hours. Fixed fee, defined deliverables, clear timeline. You know exactly what you're getting and when. Engagement letter signed, 50% retainer, and we're in motion.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Access & Assess</h3>
+                    <p>Management interviews, codebase access, infrastructure review, data pipeline analysis, and AI capability evaluation. We work from a standardized methodology customized to the target's domain — not a generic checklist.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Synthesize & Score</h3>
+                    <p>Findings are synthesized into a structured report with quantified risk ratings, benchmarking against comparable platforms, and actionable value creation opportunities. No filler, no boilerplate — just the signal your IC needs.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Present & Support</h3>
+                    <p>We present findings directly to your deal team and investment committee. Post-report support included: clarification calls, negotiation leverage points, and integration planning guidance. We stay available through close.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Evaluating a construction, trades, or industrial <span class="accent-text">technology target?</span></h2>
+        <p>We offer a complimentary 60-minute landscape briefing for PE operating partners and deal teams active in these verticals. No pitch, no pressure — just a candid conversation about what we're seeing in the market.</p>
+        <a href="mailto:diligence@northlabs.com?subject=Due%20Diligence%20Briefing" class="btn-primary">Schedule a Briefing →</a>
+        <span class="cta-email">Or reach us directly: <a href="mailto:diligence@northlabs.com">diligence@northlabs.com</a></span>
+    </section>
+
+    <footer>
+        <a href="https://northlabs.io">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="https://northlabs.io">← Back to North Labs</a>
+            <a href="https://northlabs.io/#solutions">All Solutions</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -62,6 +62,11 @@
         .case-solution h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
         .case-solution p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
 
+        .hero-quote { padding: 0 5rem 1rem; max-width: none; }
+        .hero-quote-box { background: var(--accent-blue); border-radius: 8px; padding: 1.25rem 2rem; max-width: 630px; }
+        .hero-quote-box blockquote { font-size: 1rem; color: #ffffff; font-weight: 500; line-height: 1.6; font-style: italic; }
+        .hero-quote-attribution { margin-top: 0.5rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
+
         .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
         .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
         .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
@@ -123,6 +128,13 @@
         <p class="subtitle">How North Labs helped AffirmedRx migrate their entire data infrastructure to Snowflake in 90 days—eliminating massively outsized compute costs and unlocking modern analytics capabilities.</p>
     </section>
 
+    <div class="hero-quote">
+        <div class="hero-quote-box">
+            <blockquote>"North Labs released us from outsized compute costs overnight. The migration to Snowflake was the single best infrastructure decision we've made."</blockquote>
+            <p class="hero-quote-attribution">— VP of Data Engineering, AffirmedRx</p>
+        </div>
+    </div>
+
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
         <h2>The Challenge</h2>
@@ -161,13 +173,6 @@
         <p>North Labs executed a comprehensive data migration strategy, beginning with a full audit of AffirmedRx's existing data assets, pipelines, and workloads. The team mapped every dependency, identified optimization opportunities, and designed a Snowflake architecture that would not only replicate existing capabilities but dramatically improve performance and cost efficiency.</p>
         <p>The migration was executed in phases to minimize operational risk—starting with non-critical workloads to validate the architecture, then progressively migrating production systems with zero-downtime cutover. Data validation frameworks ensured complete accuracy throughout the process.</p>
         <p>As a Snowflake Premier Partner, North Labs leveraged deep platform expertise to optimize warehouse sizing, implement cost controls, and configure data sharing capabilities that aligned with AffirmedRx's growth strategy.</p>
-    </section>
-
-    <section class="case-quote">
-        <div class="quote-box">
-            <blockquote>"North Labs released us from outsized compute costs overnight. The migration to Snowflake was the single best infrastructure decision we've made."</blockquote>
-            <p class="quote-attribution">— VP of Data Engineering, AffirmedRx</p>
-        </div>
     </section>
 
     <section class="case-outcome">

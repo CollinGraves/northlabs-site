@@ -305,6 +305,11 @@
             color: var(--text-primary);
         }
 
+        .hero-quote { padding: 0 5rem 1rem; max-width: none; }
+        .hero-quote-box { background: var(--accent-blue); border-radius: 8px; padding: 1.25rem 2rem; max-width: 630px; }
+        .hero-quote-box blockquote { font-size: 1rem; color: #ffffff; font-weight: 500; line-height: 1.6; font-style: italic; }
+        .hero-quote-attribution { margin-top: 0.5rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
+
         /* Quote Section */
         .case-quote {
             padding: 2.5rem 5rem;
@@ -526,6 +531,13 @@
 
     </section>
 
+    <div class="hero-quote">
+        <div class="hero-quote-box">
+            <blockquote>"I enjoy working with the North Labs team because they're hyper-focused on creating value. That starts with them inquiring with the intent of understanding what our needs truly are at a deeper level."</blockquote>
+            <p class="hero-quote-attribution">— Chris McPherson, Venture Builder & Data Science Leader, 1848 Ventures</p>
+        </div>
+    </div>
+
     <!-- Challenge -->
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
@@ -576,14 +588,6 @@
         </ol>
 
         <p>Additionally, North Labs provided the team with a baseline understanding of the network architecture so they could rely on the various automations without spending time and effort managing infrastructure or tracing data lineage issues.</p>
-    </section>
-
-    <!-- Quote -->
-    <section class="case-quote">
-        <div class="quote-box">
-            <blockquote>"I enjoy working with the North Labs team because they're hyper-focused on creating value. That starts with them inquiring with the intent of understanding what our needs truly are at a deeper level."</blockquote>
-            <p class="quote-attribution">— Chris McPherson, Venture Builder & Data Science Leader, 1848 Ventures</p>
-        </div>
     </section>
 
     <!-- Outcome -->

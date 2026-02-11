@@ -203,7 +203,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 6rem 5rem 4rem;
+            padding: 6rem 5rem 2.8rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -243,6 +243,7 @@
             font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            margin-left: -1.5rem;
             animation: fadeInUp 0.6s ease-out;
             position: relative;
             z-index: 1;
@@ -261,6 +262,7 @@
             letter-spacing: -0.03em;
             line-height: 1.2;
             margin-bottom: 1.25rem;
+            margin-left: -0.75rem;
             position: relative;
             z-index: 1;
             max-width: 900px;
@@ -472,24 +474,17 @@
         /* Success Section */
         .success-section {
             background: #f0f5f8;
-            padding: 2rem 5rem 2rem 4rem;
+            padding: 2rem 5rem;
             position: relative;
-        }
-
-        .success-section::before {
-            content: '';
-            position: absolute;
-            left: 2.64rem;
-            top: 2rem;
-            bottom: 2rem;
-            width: 4px;
-            background: var(--accent-blue);
-            border-radius: 2px;
             max-width: none;
         }
 
+        .success-section::before {
+            display: none;
+        }
+
         .success-inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -731,6 +726,7 @@
 
         .team-photo {
             flex-shrink: 0;
+            margin-top: -3rem;
         }
 
         .team-photo img {
@@ -1765,6 +1761,11 @@
         </div>
     </section>
 
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"North Labs helps us make the most of our data, so we can focus on what we do best."</span>
+        <span class="testimonial-banner-author">— VP of Projects, Mid-Market Construction</span>
+    </div>
+
     <section class="culture-section">
         <div class="culture-inner">
             <span class="section-label">Our Culture</span>
@@ -1977,10 +1978,9 @@
                         </div>
                         <div class="practice-header-content-stacked">
                             <a href="https://tradesmith.northlabs.io" class="practice-title-link" target="_blank"><img src="tradesmith-logo.png" alt="TradeSmith" class="practice-title-logo"> →</a>
-                            <span class="practice-badge practice-badge-flagship">Flagship Solution</span>
+                            <span class="practice-badge practice-badge-flagship">Flagship Solution for Construction, Real Estate, and Heavy Civil Engineering</span>
                         </div>
                     </div>
-                    <p class="practice-description">An intelligence layer for construction and real estate.</p>
                     <div class="practice-solutions">
                         <span class="practice-solution">Bid Analysis</span>
                         <span class="practice-solution">Estimation</span>
@@ -2041,6 +2041,10 @@
                     </div>
                     
                     <div class="dev-list">
+                        <div class="dev-item">
+                            <a href="due-diligence.html" class="dev-link">"Due Diligence" for Mergers & Acquisitions →</a>
+                            <span class="dev-usecases">Technology Diligence, Data Program Assessment, Integration Readiness, Risk Identification</span>
+                        </div>
                         <div class="dev-item">
                             <a href="https://caresense.northlabs.io" class="dev-link" target="_blank">"CareSense" for Healthcare →</a>
                             <span class="dev-usecases">Fee Schedule Normalization, Contract Comparisons, Underpayment Detection, Denial Analysis, Payer Scorecards</span>
