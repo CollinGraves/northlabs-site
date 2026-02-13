@@ -870,7 +870,7 @@
         .approach-section {
             background: #d9d9d9;
             max-width: none;
-            padding: 2.5rem 5rem;
+            padding: 2.5rem 5rem 2.5rem 12.4rem;
         }
 
         .approach-content-wrapper {
@@ -886,9 +886,10 @@
         /* Timeline */
         .timeline-wrapper {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             align-items: flex-start;
             margin-top: 1rem;
+            max-width: 1000px;
         }
 
         .timeline {
@@ -947,6 +948,18 @@
         .timeline-content p {
             display: inline;
             margin: 0;
+        }
+
+        .timeline-image {
+            flex-shrink: 0;
+            max-width: 214px;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
         .founder-photo {
@@ -1471,6 +1484,103 @@
             }
         }
 
+        /* Testimonial Video Section */
+        .testimonial-video-section {
+            padding: 3.2rem 5rem;
+            background: var(--accent-blue);
+            max-width: none;
+        }
+
+        .testimonial-video-section .section-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonial-video-section .section-label::before {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .testimonial-video-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote-layout {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin-top: 1rem;
+        }
+
+        .testimonial-quote-text p {
+            font-size: 1.0625rem;
+            color: #ffffff;
+            line-height: 1.7;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .testimonial-quote-author {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 500;
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            max-width: 30%;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .video-play-btn svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+
+        .video-thumbnail-wrapper:hover .video-play-btn {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-video-section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .video-thumbnail-wrapper {
+                max-width: 100%;
+            }
+
+            .testimonial-quote-layout {
+                flex-direction: column;
+            }
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 3rem 5rem;
@@ -1656,6 +1766,14 @@
                 padding: 3.5rem 1.5rem;
             }
 
+            .timeline-wrapper {
+                flex-direction: column;
+            }
+
+            .timeline-image {
+                max-width: 100%;
+            }
+
             .hero-ctas,
             .cta-buttons {
                 flex-direction: column;
@@ -1763,7 +1881,7 @@
 
     <div class="testimonial-banner">
         <span class="testimonial-banner-quote">"Everything has been delivered to that ultimate level of expertise without fail."</span>
-        <span class="testimonial-banner-author">— Steven Feingertz, Planning Pod</span>
+        <span class="testimonial-banner-author">— Steven Feingertz, CEO, Planning Pod</span>
     </div>
 
     <section class="culture-section">
@@ -2068,8 +2186,8 @@
     </section>
 
     <div class="testimonial-banner">
-        <span class="testimonial-banner-quote">"This partnership was terrific, and I would hire North Labs again."</span>
-        <span class="testimonial-banner-author">— Roy Nieto, CEO, 4TellX</span>
+        <span class="testimonial-banner-quote">"Placeholder quote sentence one. Placeholder quote sentence two. Placeholder quote sentence three. Placeholder quote sentence four."</span>
+        <span class="testimonial-banner-author">— Jeremiah Krahulik, Director</span>
     </div>
 
     <section class="approach-section" id="about">
@@ -2080,7 +2198,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by US Air Force Veteran and Data Entrepreneur Collin Graves</div>
+                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by <strong style="color: var(--text-primary);">US Air Force Veteran and Data Entrepreneur Collin Graves</strong></div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
@@ -2107,21 +2225,9 @@
                         <div class="timeline-content"><span class="timeline-year">2026</span> – Driving excellence through continued customer EBITDA and success criteria</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="quote-section">
-        <div class="quote-inner reveal">
-            <div class="quote-text">
-                <blockquote>"The industries that build our world deserve useful data programs that work like they do. North Labs embeds invaluable data solutions, and along the way, we <span class="accent-text">help people own their data program</span>—not rent it from software vendors."</blockquote>
-            </div>
-            <div class="quote-attribution">
-                <div class="quote-portrait-wrapper">
-                    <img src="kevin-czarzasty.png" alt="Kevin Czarzasty" class="quote-portrait">
+                <div class="timeline-image">
+                    <img src="b1-bomber.png" alt="B-1 Bomber">
                 </div>
-                <span class="quote-name">Kevin Czarzasty</span>
-                <span class="quote-title">Managing Director</span>
             </div>
         </div>
     </section>

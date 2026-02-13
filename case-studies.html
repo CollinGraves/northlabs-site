@@ -392,6 +392,87 @@
             font-style: italic;
         }
 
+        /* Managing Director Quote Section */
+        .cs-quote-section {
+            background: #ffffff;
+            max-width: none;
+            padding: 1.5rem 5rem;
+        }
+
+        .cs-quote-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cs-quote-text {
+            flex: 1;
+        }
+
+        .cs-quote-text blockquote {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.55;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-style: normal;
+            padding-left: 1.25rem;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .cs-quote-attribution {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cs-quote-portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .cs-quote-portrait-wrapper {
+            width: 77px;
+            height: 77px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .cs-quote-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cs-quote-title {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .cs-quote-section {
+                padding: 1.5rem;
+            }
+
+            .cs-quote-inner {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .cs-quote-text blockquote {
+                border-left: none;
+                padding-left: 0;
+                font-size: 1.1rem;
+            }
+        }
+
         /* Testimonials Section */
         .accent-text {
             color: var(--accent-blue);
@@ -803,7 +884,7 @@
     </section>
 
     <div class="cs-quote-banner">
-        <span class="cs-quote-banner-text">"Placeholder quote goes here." <span class="cs-quote-banner-author">— Zachary Stevens, Director</span></span>
+        <span class="cs-quote-banner-text">"This partnership was terrific, and I would hire North Labs again." <span class="cs-quote-banner-author">— Roy Nieto, CEO, 4TellX</span></span>
     </div>
 
     <section class="table-section">
@@ -831,7 +912,7 @@
                         <td><a href="case-study-acfoods.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong style="color: #c75a5a;">Migration and Advisory lead to [placeholder metric]</strong></td>
+                        <td><strong>The Power of Coupling Data Advisory with Elite Engineering</strong></td>
                         <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
                         <td>Healthcare & Pharmacy</td>
                         <td class="blurb-text">"Released us from outsized compute costs overnight."</td>
@@ -1012,6 +1093,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-quote-section">
+        <div class="cs-quote-inner">
+            <div class="cs-quote-text">
+                <blockquote>"The industries that build our world deserve useful data programs that work like they do. North Labs embeds invaluable data solutions, and along the way, we <span class="accent-text">help people own their data program</span>—not rent it from software vendors."</blockquote>
+            </div>
+            <div class="cs-quote-attribution">
+                <div class="cs-quote-portrait-wrapper">
+                    <img src="kevin-czarzasty.png" alt="Kevin Czarzasty" class="cs-quote-portrait">
+                </div>
+                <span class="cs-quote-name">Kevin Czarzasty</span>
+                <span class="cs-quote-title">Managing Director</span>
             </div>
         </div>
     </section>
