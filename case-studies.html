@@ -202,6 +202,30 @@
             color: var(--text-secondary);
         }
 
+        /* Quote Banner */
+        .cs-quote-banner {
+            background: var(--accent-blue);
+            padding: 0.6rem 5rem;
+            text-align: center;
+        }
+
+        .cs-quote-banner-text {
+            font-size: 0.8125rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .cs-quote-banner-author {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .cs-quote-banner {
+                padding: 0.6rem 1.5rem;
+            }
+        }
+
         /* Case Studies Table Section */
         .table-section {
             padding: 3.2rem 5rem;
@@ -376,7 +400,26 @@
 
         .testimonial-video-section {
             padding: 3.2rem 5rem;
-            background: #f0f5f8;
+            background: var(--accent-blue);
+        }
+
+        .testimonial-video-section .section-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonial-video-section .section-label::before {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .testimonial-video-section .section-title {
+            color: #ffffff;
+        }
+
+        .testimonial-video-section .section-title .accent-text {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
         }
 
         .testimonial-video-inner {
@@ -384,14 +427,82 @@
             margin: 0 auto;
         }
 
+        .testimonial-quote-layout {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin-top: 1rem;
+        }
+
+        .testimonial-quote-text {
+            flex: 1;
+        }
+
+        .testimonial-quote-text p {
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.65;
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .testimonial-quote-author {
+            font-size: 0.894rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: normal;
+        }
+
         .video-placeholder-small {
-            max-width: 35%;
+            max-width: 52%;
             margin-top: 1.5rem;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            max-width: 30%;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .video-play-btn svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+
+        .video-thumbnail-wrapper:hover .video-play-btn {
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .testimonials-section {
             padding: 3.2rem 5rem;
-            background: #ffffff;
+            background: #f0f5f8;
         }
 
         .testimonials-inner {
@@ -416,7 +527,7 @@
         }
 
         .testimonial-quote-box {
-            background: #f0f5f8;
+            background: #ffffff;
             padding: 0.875rem 1.25rem;
             display: flex;
             align-items: center;
@@ -437,7 +548,8 @@
         }
 
         .testimonial-author-box {
-            background: #e6edf2;
+            background: #ffffff;
+            border-left: 1px solid #e5e7eb;
             padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
@@ -565,6 +677,14 @@
                 max-width: 100%;
             }
 
+            .video-thumbnail-wrapper {
+                max-width: 100%;
+            }
+
+            .testimonial-quote-layout {
+                flex-direction: column;
+            }
+
             .testimonials-section {
                 padding: 2.4rem 1.5rem;
             }
@@ -682,6 +802,10 @@
         </div>
     </section>
 
+    <div class="cs-quote-banner">
+        <span class="cs-quote-banner-text">"Placeholder quote goes here." <span class="cs-quote-banner-author">— Zachary Stevens, Director</span></span>
+    </div>
+
     <section class="table-section">
         <div class="table-inner">
             <span class="section-label">Our Work</span>
@@ -699,6 +823,20 @@
                 </thead>
                 <tbody>
                     <!-- Placeholder Case Studies -->
+                    <tr>
+                        <td><strong>Executive Insights Across Product Lines</strong></td>
+                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
+                        <td>Food Manufacturing</td>
+                        <td class="blurb-text">"Drill-down capability and natural language querying changed how we operate."</td>
+                        <td><a href="case-study-acfoods.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: #c75a5a;">Migration and Advisory lead to [placeholder metric]</strong></td>
+                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
+                        <td>Healthcare & Pharmacy</td>
+                        <td class="blurb-text">"Released us from outsized compute costs overnight."</td>
+                        <td><a href="case-study-affirmedrx.html" target="_blank" class="case-link">View →</a></td>
+                    </tr>
                     <tr>
                         <td><strong>74.5% Faster Bid Turnaround</strong></td>
                         <td><span class="solution-tag tradesmith">TradeSmith</span></td>
@@ -733,20 +871,6 @@
                         <td>Industrial Services</td>
                         <td class="blurb-text">"North Labs found savings we didn't know existed."</td>
                         <td><a href="case-study-industrial-savings.html" target="_blank" class="case-link">View →</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Executive Insights Across Product Lines</strong></td>
-                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
-                        <td>Food Manufacturing</td>
-                        <td class="blurb-text">"Drill-down capability and natural language querying changed how we operate."</td>
-                        <td><a href="case-study-acfoods.html" target="_blank" class="case-link">View →</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Data Migration to Snowflake in 90 Days</strong></td>
-                        <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
-                        <td>Healthcare & Pharmacy</td>
-                        <td class="blurb-text">"Released us from outsized compute costs overnight."</td>
-                        <td><a href="case-study-affirmedrx.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <!-- Published Case Studies -->
                     <tr>
@@ -812,21 +936,25 @@
 
     <section class="testimonial-video-section">
         <div class="testimonial-video-inner">
-            <span class="section-label">Testimonial</span>
-            <h2 class="section-title">Increasing development throughput by <span class="accent-text">40%</span></h2>
-            <div class="video-placeholder video-placeholder-small">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Video Coming Soon</span>
+            <span class="section-label">Featured Testimonial</span>
+            <div class="testimonial-quote-layout">
+                <div class="video-thumbnail-wrapper">
+                    <img src="nate-alvar-thumbnail.png" alt="Nate Alvar - FMG Testimonial" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="testimonial-quote-text">
+                    <p>"North Labs will take care of you. They're going to listen to you and understand your need. When you find a partner you need to find people with a pulse...find people that are real, that will sit down and talk. And so for us, to find a partner with strong people, strong leaders from the top down...we just have had great results collaborating and working with them. They're not just going to slide paperwork back and forth. North Labs is just going to <strong style="text-decoration: underline;">engage like real people</strong> and they're going to listen, they're going to react, they're going to respond."</p>
+                    <span class="testimonial-quote-author">— Nate Alvar, VP of Engineering, FMG</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="testimonials-section">
         <div class="testimonials-inner">
-            <span class="section-label">More from our customers</span>
+            <span class="section-label">More Testimonials</span>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -837,17 +965,6 @@
                         <div class="testimonial-author-info">
                             <span class="author-name">Randy McIver</span>
                             <span class="author-title">IMAX</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-quote-box">
-                        <p class="testimonial-quote">"With the data migration, we saved money compared to our previous data center. Everything has been delivered to that ultimate level of expertise without fail."</p>
-                    </div>
-                    <div class="testimonial-author-box">
-                        <div class="testimonial-author-info">
-                            <span class="author-name">Steven Feingertz</span>
-                            <span class="author-title">Planning Pod</span>
                         </div>
                     </div>
                 </div>
@@ -864,7 +981,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-quote-box">
-                        <p class="testimonial-quote">"North Labs has deep expertise across the data landscape and is incredibly easy to work with at a fraction of the cost."</p>
+                        <p class="testimonial-quote">"North Labs has deep expertise across the data landscape and is incredibly easy to work with."</p>
                     </div>
                     <div class="testimonial-author-box">
                         <div class="testimonial-author-info">

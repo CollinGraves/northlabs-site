@@ -456,7 +456,7 @@
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 1.25rem;
-            border-left: 3px solid var(--accent-blue);
+            border-left: 3px solid #2d2d2d;
         }
 
         .problem-card-icon {
@@ -468,7 +468,12 @@
         .problem-card-icon svg {
             width: 28px;
             height: 28px;
-            color: var(--accent-blue);
+            color: #2d2d2d;
+        }
+
+        .accent-red {
+            color: #c75a5a;
+            font-weight: 700;
         }
 
         .problem-card-label {
@@ -476,8 +481,12 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--accent-blue);
+            color: #b05050;
             margin-bottom: 0.25rem;
+            background: #faf0f0;
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
         }
 
         .problem-card h3 {
@@ -584,71 +593,83 @@
             border-radius: 50%;
         }
 
-        /* Services Section */
+        /* Services Section - Flow Diagram */
         .services-section {
             background: #f3f4f6;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin-top: 1rem;
+        .flow-diagram {
+            margin-top: 1.25rem;
+            position: relative;
         }
 
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 1.25rem;
+        /* The continuous timeline line */
+        .flow-track {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
         }
 
-        .service-card.featured {
-            border-color: var(--border-subtle);
-            background: var(--bg-card);
+        .flow-track::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            background: var(--accent-blue);
+            opacity: 0.25;
+            z-index: 0;
         }
 
-        .service-card.addon {
-            border: 1px solid var(--accent-blue);
-            background: var(--bg-card);
+        /* Step nodes along the line */
+        .flow-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
         }
 
-        .service-card h3 {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--text-primary);
+        .flow-step {
+            flex: 1;
+            text-align: center;
         }
 
-        .service-card h3 .service-tier {
+        .flow-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.625rem;
             font-weight: 700;
-            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
 
-        .service-card p {
+        .flow-step .flow-dot {
+            margin: 0 auto 0.5rem;
+        }
+
+        .flow-step-title {
             font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.45;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
         }
 
-        .service-meta {
-            margin-top: 0.5rem;
+        .flow-step-desc {
             font-size: 0.6875rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             line-height: 1.4;
         }
 
-        .service-meta span {
-            display: block;
-        }
-
-        .service-meta .meta-label {
-            font-weight: 600;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.5625rem;
+        .flow-step-desc {
+            max-width: 220px;
+            margin: 0 auto;
         }
 
         /* Why Section */
@@ -664,7 +685,7 @@
         }
 
         .why-card {
-            background: var(--bg-card);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5f8 100%);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 0.75rem 1rem;
@@ -854,7 +875,7 @@
         }
 
         .case-generalist-miss-label {
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -946,65 +967,48 @@
             line-height: 1.44;
         }
 
-        /* Process Section - Timeline */
+        /* Process Section - Quote */
         .process-section {
             background: #f0f5f8;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
 
-        .process-timeline {
-            display: flex;
-            align-items: flex-start;
-            margin-top: 1rem;
-            position: relative;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            right: 14px;
-            height: 2px;
-            background: var(--accent-blue);
-            opacity: 0.3;
-        }
-
-        .process-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            padding: 0 0.75rem;
-        }
-
-        .process-dot {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--accent-blue);
-            color: #ffffff;
-            font-size: 0.6875rem;
-            font-weight: 700;
+        .dd-quote-block {
             display: flex;
             align-items: center;
+            gap: 1.5rem;
             justify-content: center;
-            margin: 0 auto 0.5rem;
-            position: relative;
-            z-index: 1;
         }
 
-        .process-step h3 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
+        .dd-quote-portrait {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .dd-quote-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .dd-quote-content blockquote {
+            font-size: 0.9375rem;
             color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
         }
 
-        .process-step p {
+        .dd-quote-author {
             font-size: 0.75rem;
-            color: var(--text-secondary);
-            line-height: 1.35;
-            max-width: 260px;
-            margin: 0 auto;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            display: block;
         }
 
         /* CTA Section */
@@ -1104,8 +1108,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .flow-track {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .flow-track::before {
+                display: none;
             }
 
             .case-card-inner {
@@ -1159,10 +1168,6 @@
 
             .hero {
                 padding: 6rem 1.5rem 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
             }
 
             section {
@@ -1275,24 +1280,24 @@
     </header>
 
     <div class="testimonial-banner">
-        <span class="testimonial-banner-quote">"Most diligence firms hand us a report on whether the code is clean. North Labs told us whether the technology thesis in our deal model was real - and then showed us how to capture it post-close." <span class="testimonial-banner-author">— Operating Partner, Middle-Market PE Firm</span></span>
+        <span class="testimonial-banner-quote">"Most diligence teams hand us a report on whether the code is clean. North Labs told us whether the technology thesis in our deal model was real - and then showed us how to capture it post-close." <span class="testimonial-banner-author">— Operating Partner, Middle-Market PE Firm</span></span>
     </div>
 
     <section class="problem-section">
         <div class="section-inner">
             <span class="section-label">The Problem</span>
-            <h2 class="section-title">Three gaps. <span class="accent-text">No one bridges all of them.</span></h2>
+            <h2 class="section-title">Three <span class="accent-red">gaps</span> we fill.</h2>
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div>
                     <div class="problem-card-label">The Generalist Gap</div>
-                    <h3>Same playbook for construction as fintech</h3>
+                    <h3>They have the same playbook for construction as they do FinTech</h3>
                     <p>Generalist providers can tell you if the code is well-written. They can't tell you if the product works in the field—if the app runs without cell service, if estimating handles regional labor rates, or if the payment flow matches how trades businesses get paid.</p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div>
                     <div class="problem-card-label">The Industry Gap</div>
-                    <h3>Know the market, can't evaluate the tech</h3>
+                    <h3>Know the market, but can't evaluate the technology</h3>
                     <p>Industry advisors understand buyers, structure, and growth. But when the target claims their AI "predicts project delays," these firms take the pitch deck at face value. Nobody on their team can open the hood.</p>
                 </div>
                 <div class="problem-card">
@@ -1342,49 +1347,28 @@
 
     <section class="services-section" id="services">
         <div class="section-inner">
-            <span class="section-label">Service Tiers</span>
-            <h2 class="section-title">Structured for the deal timeline, <span class="accent-text">not the consulting calendar.</span></h2>
-            <p class="section-intro">Four tiers scaled to deal size and timeline. Fixed-fee. Defined scope. No surprises.</p>
+            <span class="section-label">Service Structure</span>
+            <h2 class="section-title">Prioritizing the <span class="accent-text">customer's deal timeline.</span></h2>
+            <p class="section-intro">Fixed-fee. Defined scope. No surprises. Built for <strong>deal speed.</strong></p>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3><span class="service-tier">Tier 01</span> — Rapid Risk Assessment</h3>
-                    <p>Fast-turn risk evaluation for deal screening and add-on acquisitions. Architecture overview, red-flag identification, AI snapshot, and an honest read on the technology story.</p>
-                    <div class="service-meta">
-                        <span class="meta-label">Timeline</span>
-                        <span>1–2 Weeks</span>
-                        <span class="meta-label" style="margin-top: 0.25rem;">Deliverable</span>
-                        <span>Executive Summary + Risk Matrix</span>
+            <div class="flow-diagram">
+                <div class="flow-track">
+                    <div class="flow-step">
+                        <div class="flow-dot">01</div>
+                        <div class="flow-step-title">Scoped Within 48 Hours</div>
+                        <p class="flow-step-desc">Fixed fee, defined deliverables, clear timeline. No discovery phase. No meter running.</p>
                     </div>
-                </div>
-                <div class="service-card featured">
-                    <h3><span class="service-tier">Tier 02</span> — Comprehensive Technology Assessment</h3>
-                    <p>Full evaluation: architecture, code quality, infrastructure, security, AI/ML, data assets, team capability, and EBITDA-quantified value creation opportunities.</p>
-                    <div class="service-meta">
-                        <span class="meta-label">Timeline</span>
-                        <span>3–4 Weeks</span>
-                        <span class="meta-label" style="margin-top: 0.25rem;">Deliverable</span>
-                        <span>Full Report + Benchmarking</span>
+
+                    <div class="flow-step">
+                        <div class="flow-dot">02</div>
+                        <div class="flow-step-title">IC-Ready Deliverables</div>
+                        <p class="flow-step-desc">Reports built for the investment committee. Quantified risk, EBITDA-impact estimates, and clear recommendations.</p>
                     </div>
-                </div>
-                <div class="service-card">
-                    <h3><span class="service-tier">Tier 03</span> — Deep-Dive with Value Creation Roadmap</h3>
-                    <p>Everything in Tier 02 plus line-by-line code review, technical debt quantification, AI model evaluation, and a prioritized 100-day value creation plan.</p>
-                    <div class="service-meta">
-                        <span class="meta-label">Timeline</span>
-                        <span>5–8 Weeks</span>
-                        <span class="meta-label" style="margin-top: 0.25rem;">Deliverable</span>
-                        <span>Full Report + 100-Day Roadmap</span>
-                    </div>
-                </div>
-                <div class="service-card addon">
-                    <h3><span class="service-tier">Add-On</span> — AI Readiness Assessment</h3>
-                    <p>Scoring framework for data quality, ML infrastructure, use-case maturity, and regulatory readiness. Critical where AI claims outpace reality.</p>
-                    <div class="service-meta">
-                        <span class="meta-label">Timeline</span>
-                        <span>1–2 Weeks</span>
-                        <span class="meta-label" style="margin-top: 0.25rem;">Deliverable</span>
-                        <span>AI Readiness Scorecard</span>
+
+                    <div class="flow-step">
+                        <div class="flow-dot">03</div>
+                        <div class="flow-step-title">We Stay Through Close</div>
+                        <p class="flow-step-desc">Post-report support through negotiation and close. The same team builds the 100-day roadmap and executes it.</p>
                     </div>
                 </div>
             </div>
@@ -1394,7 +1378,7 @@
     <section class="why-section" id="approach">
         <div class="section-inner">
             <span class="section-label">Why North Labs</span>
-            <h2 class="section-title">Your diligence team <span class="accent-text">built</span> the technology they're evaluating.</h2>
+            <h2 class="section-title">We are <span class="accent-text">experts in building</span> the technology customer's are evaluating.</h2>
             <p class="section-intro">Practitioners from the trades who build production software today—not consultants who read about it.</p>
 
             <div class="why-grid">
@@ -1595,39 +1579,27 @@
     <div class="referral-banner">
         <div class="referral-stat">100<span>%</span></div>
         <div class="referral-rule"></div>
-        <h2 class="referral-headline">Every PE firm that's engaged us has come back or referred us to another firm.</h2>
+        <h2 class="referral-headline">Every PE firm that's engaged us has used us for more due diligence, expanded to engineering execution, or referred us to another firm.</h2>
     </div>
 
     <section class="process-section">
         <div class="section-inner">
-            <span class="section-label">How We Work</span>
-            <h2 class="section-title">Built for <span class="accent-text">deal speed.</span></h2>
-
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="process-dot">01</div>
-                    <h3>Scoped in 48 Hours</h3>
-                    <p>Fixed fee, defined deliverables, clear timeline. No discovery phase. No meter running.</p>
+            <div class="dd-quote-block">
+                <div class="dd-quote-portrait">
+                    <img src="marian-pailden.png" alt="Marian Pailden">
                 </div>
-                <div class="process-step">
-                    <div class="process-dot">02</div>
-                    <h3>IC-Ready Deliverables</h3>
-                    <p>Reports built for the investment committee. Quantified risk, EBITDA-impact estimates, and clear recommendations.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-dot">03</div>
-                    <h3>We Stay Through Close</h3>
-                    <p>Post-report support through negotiation and close. The same team builds the 100-day roadmap and executes it.</p>
+                <div class="dd-quote-content">
+                    <blockquote>"Our people have the scarce combination of deep technical experience, expert domain understanding, and proven advisory experience."</blockquote>
+                    <span class="dd-quote-author">— Marian Pailden, Manager - Operations</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section" id="contact">
-        <span class="section-label" style="display: block; text-align: center;">Let's Talk</span>
-        <h2>Evaluating a deal where technology meets <span class="accent-text">the physical world?</span></h2>
+        <h2>Evaluating a <span class="accent-text">deal?</span></h2>
         <a href="mailto:collin@northlabs.co" class="btn-primary">Start a Conversation</a>
-        <span class="cta-email">Or reach us directly: <a href="mailto:collin@northlabs.co">collin@northlabs.co</a></span>
+        <span class="cta-email">Or reach out directly to our Managing Partner: <a href="mailto:collin@northlabs.io">collin@northlabs.io</a></span>
     </section>
 
     <footer>

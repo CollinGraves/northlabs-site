@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioPharma 17 | Intelligence for Pharmaceuticals & BioTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .brought-by {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .northlabs-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .northlabs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+
+        .northlabs-link:hover .northlabs-logo {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            background: #222222;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 8rem 5rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 2.4rem;
+            height: 2px;
+            background: #0b73b9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
+            padding-left: 2rem;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding-left: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 12rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 326px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 3.2rem 5rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Reality Section */
+        .reality-section {
+            background: var(--bg-secondary);
+        }
+
+        .reality-intro {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .reality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .reality-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .reality-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .reality-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Ecosystem Section */
+        .ecosystem-section {
+            background: var(--bg-primary);
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .ecosystem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .ecosystem-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .ecosystem-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Modules Section */
+        .modules-section {
+            background: var(--bg-secondary);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .module-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .module-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* The Solution - Under Development */
+        .solution-dev-section {
+            background: #2d2d2d;
+            text-align: center;
+            padding: 4rem 5rem;
+        }
+
+        .solution-dev-section .section-label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .solution-dev-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .solution-dev-section h2 .accent-text {
+            color: var(--accent-blue);
+        }
+
+        .solution-dev-section p {
+            font-size: 1.0625rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .solution-dev-section .btn-primary {
+            display: inline-block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 3.2rem 5rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .reality-grid,
+            .ecosystem-grid,
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .solution-dev-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <span class="solution-title">BioPharma 17</span>
+            <div class="logo-divider"></div>
+            <span class="brought-by">Brought to you by</span>
+            <a href="index-light.html" class="northlabs-link">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#challenges">Challenges</a>
+            <a href="#domains">Domains</a>
+            <a href="#modules">Modules</a>
+            <a href="#solution">The Solution</a>
+            <a href="#contact" class="nav-cta">Schedule a Conversation</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Pharmaceuticals & BioTech Intelligence</span>
+            <h1>Data intelligence built for the <span class="accent-text">life sciences</span></h1>
+            <p class="hero-sub">From clinical trials to regulatory submission—stop managing by spreadsheet. Start leading with intelligence built by people who understand your science.</p>
+        </div>
+        <div class="hero-image">
+            <img src="diligence-person.png" alt="BioPharma professional">
+        </div>
+    </header>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"Placeholder quote"</span>
+        <span class="testimonial-banner-author">— Placeholder Name, Title, Company</span>
+    </div>
+
+    <section class="reality-section" id="challenges">
+        <div class="section-inner">
+            <span class="section-label">The Industry Challenge</span>
+            <h2 class="section-title">Data complexity at the <span class="accent-text">speed of science</span></h2>
+            <p class="reality-intro">Pharma and BioTech generate massive volumes of data across clinical, regulatory, and commercial operations. Most organizations can't connect the dots fast enough to make decisions that matter.</p>
+
+            <div class="reality-grid">
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Clinical Data Silos</h3>
+                    <p>Trial data, real-world evidence, and post-market surveillance live in separate systems. Connecting them for signal detection or submission readiness takes months, not days.</p>
+                </div>
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Regulatory Pressure</h3>
+                    <p>FDA, EMA, and global regulatory bodies demand faster, cleaner submissions. Manual data reconciliation creates risk at every step of the pipeline.</p>
+                </div>
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Commercial Blind Spots</h3>
+                    <p>Drug launch analytics, payer intelligence, and market access data are fragmented across vendors. Your commercial teams are flying blind when they should be leading with insight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem-section" id="domains">
+        <div class="section-inner">
+            <span class="section-label">Serving the Industry That Saves Lives</span>
+            <h2 class="section-title">Intelligence Across <span class="accent-text">Every Stage</span></h2>
+
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card">
+                    <h3>Clinical Trial Analytics</h3>
+                    <p>Site performance tracking, patient enrollment forecasting, and protocol deviation detection—giving clinical operations the visibility to act before timelines slip.</p>
+                </div>
+                <div class="ecosystem-card">
+                    <h3>Drug Pipeline Intelligence</h3>
+                    <p>End-to-end pipeline visibility from discovery through commercialization. Track milestones, resource allocation, and competitive landscape in real time.</p>
+                </div>
+                <div class="ecosystem-card">
+                    <h3>Regulatory Compliance</h3>
+                    <p>Automated submission readiness, audit trail management, and global regulatory alignment. Reduce the manual burden of compliance without sacrificing rigor.</p>
+                </div>
+                <div class="ecosystem-card">
+                    <h3>R&D Operations</h3>
+                    <p>Lab data integration, research spend optimization, and collaboration analytics. Turn R&D from a cost center into a data-driven competitive advantage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section" id="modules">
+        <div class="section-inner">
+            <span class="section-label">Core Modules</span>
+            <h2 class="section-title">BioPharma 17 <span class="accent-text">Modules</span></h2>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>Clinical Intelligence</h3>
+                    <p>Unified view of trial data across sites and phases. Predictive enrollment models, real-time safety signal monitoring, and automated CDISC-ready data preparation.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Regulatory Readiness</h3>
+                    <p>Continuous submission readiness scoring, gap analysis, and document lineage tracking. Prepare for inspections and submissions without the last-minute scramble.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Commercial Analytics</h3>
+                    <p>Market access intelligence, payer landscape mapping, and launch performance tracking. Understand formulary positioning and competitive dynamics before your competitors do.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Real-World Evidence</h3>
+                    <p>Integrate claims data, EHR feeds, and patient registries into a unified evidence platform. Support label expansion, HEOR studies, and post-market commitments with clean data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-dev-section" id="solution">
+        <div class="section-inner">
+            <span class="section-label">The Solution</span>
+            <h2>BioPharma 17 is currently under <span class="accent-text">development & testing.</span></h2>
+            <p>We're building BioPharma 17 with the same rigor we bring to every North Labs solution—embedded with domain experts, validated with real data, and designed to deliver measurable outcomes from day one. Coming soon.</p>
+            <a href="mailto:contact@northlabs.io?subject=BioPharma%2017%20Interest" class="btn-primary">Get Notified at Launch</a>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Interested in <span class="accent-text">BioPharma 17?</span></h2>
+        <a href="mailto:contact@northlabs.io?subject=BioPharma%2017%20Inquiry" class="btn-primary">Schedule a Conversation</a>
+    </section>
+
+    <footer>
+        <a href="index-light.html">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="index-light.html">← Back to North Labs</a>
+            <a href="index-light.html#solutions">All Solutions</a>
+        </div>
+    </footer>
+</body>
+</html>
