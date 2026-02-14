@@ -499,8 +499,9 @@
         }
 
         .success-flow {
-            display: flex;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+            align-items: start;
             gap: 0.5rem;
             margin-bottom: 1.25rem;
         }
@@ -509,7 +510,6 @@
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
-            flex: 1;
             min-width: 0;
         }
 
@@ -553,8 +553,9 @@
         .flow-arrow {
             color: var(--accent-blue);
             font-size: 1rem;
-            padding-top: 0.125rem;
+            padding-top: 0.2rem;
             flex-shrink: 0;
+            align-self: start;
         }
 
         .success-btn {
@@ -706,6 +707,7 @@
 
         @media (max-width: 768px) {
             .success-flow {
+                display: flex;
                 flex-direction: column;
                 gap: 0.75rem;
             }
@@ -832,7 +834,7 @@
         }
 
         .capability-category h3 {
-            font-size: 0.8125rem;
+            font-size: 0.93rem;
             font-weight: 600;
         }
 
@@ -1835,18 +1837,17 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-label">Our Mission Statement</div>
+        <div class="hero-label">Mission Statement</div>
         <h1>Being real with our customers—bringing solutions to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
-        <p class="hero-sub">We don't chase every piece of work. Instead, we have select use cases that we've delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. We just deliver the right way: Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
+        <p class="hero-sub">We don't chase every piece of work. We have select use cases delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
         <div class="hero-ctas">
             <a href="#solutions" class="btn-primary">View Solutions</a>
-            <a href="#contact" class="btn-secondary">Start a Conversation</a>
         </div>
     </header>
 
     <section class="customers-section">
         <div class="customers-inner">
-            <span class="section-label">Our Customers</span>
+            <span class="section-label">Customers</span>
             <div class="logo-ticker">
                 <div class="logo-ticker-track">
                     <img src="logos/affirmedrx.png" alt="AffirmedRx">
@@ -1886,7 +1887,7 @@
 
     <section class="culture-section">
         <div class="culture-inner">
-            <span class="section-label">Our Culture</span>
+            <span class="section-label">Culture</span>
             <h2 class="section-title">Data <span class="accent-text">concierge</span> professionals</h2>
             
             <div class="culture-content reveal">
@@ -1902,22 +1903,22 @@
 
     <section class="success-section" id="success">
         <div class="success-inner">
-            <span class="section-label">Our Customers' Success</span>
-            <h2 class="section-title"><span class="accent-text">Evidence</span> of outcomes</h2>
+            <span class="section-label">Customers' Success</span>
+            <h2 class="section-title">The Journey to <span class="accent-text">Outcomes</span></h2>
             <div class="success-flow">
                 <div class="flow-step">
                     <div class="flow-icon">1</div>
                     <div class="flow-content">
-                        <strong>Deep Discovery</strong>
-                        <span>Stakeholder interviews identified bid analysis as highest-ROI opportunity</span>
+                        <strong>Assess</strong>
+                        <span>When a civil engineering firm owner was frustrated by the weeks it took to renew and amend contracts, we refined our understanding of the problem and proposed an ROI Hypothesis: reducing renewal submission time by 50% would more than pay for the engagement.</span>
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
                     <div class="flow-icon">2</div>
                     <div class="flow-content">
-                        <strong>Build Quickly</strong>
-                        <span>Lightweight application rolled out to two test users within 30 days after gaining access</span>
+                        <strong>Advise</strong>
+                        <span>Supplemented by a minimally viable product, we got the bare minimum in the owner's hands for a quick feedback loop, and began recommending alterations to the contract process now that automation materially changing the value chain had been introduced.</span>
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
@@ -1925,15 +1926,15 @@
                     <div class="flow-icon">3</div>
                     <div class="flow-content">
                         <strong>Rapid Reiteration</strong>
-                        <span>Prioritizing throughput and continual idea refinement, we were able to reach a 4th version to early test users within the first quarter of the engagement</span>
+                        <span>Across the rest of the quarter, we achieved another two iterations of the solution to the owner and an additional test user, and the data engineering required for the critical source (Procore) to bring data through the architecture reliably and securely.</span>
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
                     <div class="flow-icon">4</div>
                     <div class="flow-content">
-                        <strong>ROI Validated</strong>
-                        <span>By the end of the second quarter of the engagement, our customer achieved an <em class="highlight">85% reduction</em> in time required to analyze a bid, and the solution is in production</span>
+                        <strong>ROI Validation</strong>
+                        <span>At our first Quarterly Business Review, initial users tested 35 contract renewals and achieved an average <em class="highlight">77.5% reduction</em> in renewal submission time. The following quarter, a materials estimating module delivered a <em class="highlight">24% reduction</em> in procurement time.</span>
                     </div>
                 </div>
             </div>
@@ -2045,7 +2046,7 @@
 
     <section class="practice-section" id="solutions">
         <div class="practice-inner">
-            <span class="section-label">Our Offering</span>
+            <span class="section-label">Offering</span>
             <h2 class="section-title"><span class="accent-text">Value</span> we deliver</h2>
 
             <div class="practice-grid practice-grid-4col reveal">
@@ -2186,18 +2187,18 @@
     </section>
 
     <div class="testimonial-banner" style="padding: 0.75rem 10rem 0.75rem 8rem;">
-        <span class="testimonial-banner-quote">"North Labs has empowered us to take control of our data program. From querying our data with natural language, to gaining efficiencies through automated renewals, they do work that improves our bottom line, which is why we partner with them so closely on key initiatives." — Jeremiah Krahulik, Director, Ascent Works</span>
+        <span class="testimonial-banner-quote">"North Labs has empowered us to take control of our data program. From querying our data with natural language, to gaining efficiencies through automated renewals, they do work that improves our bottom line, which is why we partner with them so closely on key initiatives." — Jeremiah Krahulik, Managing Director, Ascent Works</span>
     </div>
 
     <section class="approach-section" id="about">
         <div class="approach-inner">
-            <span class="section-label">Our History</span>
+            <span class="section-label">History</span>
             
             <div class="timeline-wrapper reveal">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by <strong style="color: var(--accent-blue);">US Air Force Veteran</strong> and Data Entrepreneur Collin Graves</div>
+                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by <strong style="color: var(--accent-blue);">US Air Force Veteran</strong> and <strong style="color: #555555;">Data Entrepreneur</strong> Collin Graves</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
@@ -2232,7 +2233,7 @@
     </section>
 
     <section class="cta-section" id="contact">
-        <h2>Ready to feel <span class="accent-text">real results?</span></h2>
+        <h2>Ready for <span class="accent-text">real results?</span></h2>
         <p>Let's discuss your data challenges and how we might help.</p>
         <div class="cta-buttons">
             <a href="mailto:hello@northlabs.io" class="btn-primary">Have a Conversation</a>

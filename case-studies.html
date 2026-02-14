@@ -142,7 +142,7 @@
 
         .featured-content {
             display: grid;
-            grid-template-columns: 1.21fr 1fr;
+            grid-template-columns: 0.68fr 1fr;
             gap: 3rem;
             align-items: start;
         }
@@ -226,10 +226,260 @@
             }
         }
 
+        /* Diving Deep Section */
+        .diving-deep-section {
+            padding: 2.5rem 5rem;
+            background: #f7f8f9;
+            max-width: none;
+        }
+
+        .diving-deep-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .deep-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 1rem;
+            box-shadow: 0 3px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        .deep-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), #0a6ba6);
+        }
+
+        .deep-card-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 0;
+        }
+
+        .deep-card-left {
+            padding: 1.5rem 1.75rem;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .deep-card-tag {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--accent-blue-dim);
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .deep-card-left h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 0.6rem;
+        }
+
+        .deep-card-left > p {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .deep-card-target {
+            padding: 0.4rem 0.6rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.75rem;
+            line-height: 1.3;
+            color: var(--text-secondary);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .deep-card-link {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .deep-card-link:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .deep-card-right {
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .deep-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-bottom: 0.678rem;
+        }
+
+        .deep-stat {
+            text-align: center;
+            padding: 0.6rem 0.3rem;
+            background: var(--bg-secondary);
+        }
+
+        .deep-stat:not(:last-child) {
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .deep-stat-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.1rem;
+        }
+
+        .deep-stat-label {
+            font-size: 0.5625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            line-height: 1.25;
+        }
+
+        .deep-findings {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .deep-finding {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+            gap: 0.6rem;
+            align-items: start;
+        }
+
+        .deep-finding-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .deep-finding p {
+            font-size: 0.8125rem;
+            line-height: 1.3;
+            color: var(--text-secondary);
+        }
+
+        .deep-finding p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .deep-card-thesis {
+            padding: 0.75rem 1.75rem;
+            background: rgba(11, 115, 185, 0.08);
+            border-top: 1px solid var(--border-subtle);
+            border-radius: 0 0 12px 12px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .deep-card-thesis-content {
+            flex: 1;
+        }
+
+        .deep-card-thesis-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .deep-card-thesis p {
+            font-size: 0.8125rem;
+            line-height: 1.45;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .deep-card-thesis-btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .deep-card-thesis-btn:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .deep-card-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .deep-card-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diving-deep-section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .deep-stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .deep-stat:nth-child(1),
+            .deep-stat:nth-child(2) {
+                border-bottom: 1px solid var(--border-subtle);
+            }
+        }
+
         /* Case Studies Table Section */
         .table-section {
             padding: 3.2rem 5rem;
-            background: var(--bg-secondary);
+            background: #d9d9d9;
         }
 
         .table-inner {
@@ -270,11 +520,12 @@
         }
 
         .case-studies-table td {
-            padding: 0.75rem 1.25rem;
+            padding: 0.675rem 1.25rem;
             font-size: 0.9375rem;
             color: var(--text-primary);
             border-bottom: 1px solid var(--border-subtle);
             vertical-align: middle;
+            line-height: 1.32;
         }
 
         .case-studies-table tbody tr:last-child td {
@@ -413,7 +664,7 @@
 
         .cs-quote-text blockquote {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.02rem;
             line-height: 1.55;
             color: var(--text-primary);
             font-weight: 500;
@@ -469,7 +720,7 @@
             .cs-quote-text blockquote {
                 border-left: none;
                 padding-left: 0;
-                font-size: 1.1rem;
+                font-size: 0.935rem;
             }
         }
 
@@ -582,8 +833,8 @@
         }
 
         .testimonials-section {
-            padding: 3.2rem 5rem;
-            background: #f0f5f8;
+            padding: 2rem 5rem;
+            background: #e8e9ec;
         }
 
         .testimonials-inner {
@@ -594,8 +845,8 @@
         .testimonials-grid {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
+            gap: 0.3rem;
+            margin-top: 0.75rem;
             align-items: flex-start;
         }
 
@@ -609,7 +860,7 @@
 
         .testimonial-quote-box {
             background: #ffffff;
-            padding: 0.875rem 1.25rem;
+            padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
         }
@@ -617,7 +868,7 @@
         .testimonial-quote {
             font-size: 0.8125rem;
             color: #1a1a1a;
-            line-height: 1.5;
+            line-height: 1.35;
         }
 
         .testimonial-quote::before {
@@ -631,7 +882,7 @@
         .testimonial-author-box {
             background: #ffffff;
             border-left: 1px solid #e5e7eb;
-            padding: 0.75rem 1rem;
+            padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -859,8 +1110,8 @@
 
     <section class="featured-section">
         <div class="featured-inner">
-            <span class="section-label">Featured Case Study</span>
-            <h1 class="featured-title">North Labs delivers a 74.5% reduction in time to analyze bids.</h1>
+            <span class="section-label">Impact of our Solutions</span>
+            <h1 class="featured-title">North Labs delivers a <span class="accent-text">24.5% reduction</span> in time to analyze bids.</h1>
             
             <div class="featured-content">
                 <div class="video-placeholder">
@@ -871,13 +1122,9 @@
                     <span>Video Coming Soon</span>
                 </div>
                 <div class="featured-details">
-                    <div class="featured-stat">
-                        <span class="stat-number">74.5%</span>
-                        <span class="stat-label">reduction in bid analysis time</span>
-                    </div>
-                    <h3>TradeSmith for Construction, Real Estate, and Heavy Civil</h3>
+                    <h3>TradeSmith for Construction, Real Estate, and Heavy Civil Engineering</h3>
                     <p>When a leading construction company approached us about common data management challenges, we discovered the biggest ROI opportunity was in bid analysis. Through stakeholder interviews and world-class tooling, we built a lightweight application that transformed their operations.</p>
-                    <a href="https://tradesmith.northlabs.io" target="_blank" class="btn-primary">Learn about TradeSmith →</a>
+                    <a href="https://tradesmith.northlabs.io" target="_blank" class="btn-primary" style="background: #6b7280; display: inline-flex; align-items: center; gap: 0.4rem;"><span style="font-size: 0.863rem;">Learn about</span> <img src="tradesmith-logo.png" alt="TradeSmith" style="height: 24.6px; width: auto; filter: brightness(0) invert(1);"> →</a>
                 </div>
             </div>
         </div>
@@ -886,6 +1133,68 @@
     <div class="cs-quote-banner">
         <span class="cs-quote-banner-text">"This partnership was terrific, and I would hire North Labs again." <span class="cs-quote-banner-author">— Roy Nieto, CEO, 4TellX</span></span>
     </div>
+
+    <section class="diving-deep-section">
+        <div class="diving-deep-inner">
+            <span class="section-label">Deep Dive into a Long-term Partnership</span>
+
+            <div class="deep-card">
+                <div class="deep-card-inner">
+                    <div class="deep-card-left">
+                        <div class="deep-card-tag">PE-Backed Agriculture & Produce</div>
+                        <h3>Advisory-Led Data Strategy Across a 29-Company Portfolio</h3>
+                        <p>A PE-backed produce company needed a partner who could operate across data strategy, application architecture, and infrastructure — with engineering depth and advisory perspective to make the work land across 29 portfolio companies. North Labs was brought in as that partner.</p>
+                        <div class="deep-card-target">29 portfolio companies, 3 divisions. Oracle Famous ERP, ArcGIS, Databricks, Power BI, and a portfolio of internally built applications.</div>
+                    </div>
+                    <div class="deep-card-right">
+                        <div class="deep-stats-row">
+                            <div class="deep-stat">
+                                <div class="deep-stat-value">29</div>
+                                <div class="deep-stat-label">Portfolio Companies</div>
+                            </div>
+                            <div class="deep-stat">
+                                <div class="deep-stat-value">91</div>
+                                <div class="deep-stat-label">Work Items / 8 Sprints</div>
+                            </div>
+                            <div class="deep-stat">
+                                <div class="deep-stat-value">10+</div>
+                                <div class="deep-stat-label">Dataset QA Cycles</div>
+                            </div>
+                            <div class="deep-stat">
+                                <div class="deep-stat-value">68</div>
+                                <div class="deep-stat-label">Tables / 126 Relationships</div>
+                            </div>
+                        </div>
+                        <div class="deep-findings">
+                            <div class="deep-finding">
+                                <div class="deep-finding-dot"></div>
+                                <p><strong>Advisory-led, not staff augmentation</strong> — every workstream started with discovery and assessment; a single QBR produced 10 strategic technology initiatives</p>
+                            </div>
+                            <div class="deep-finding">
+                                <div class="deep-finding-dot"></div>
+                                <p><strong>Capability transfer over dependency</strong> — QA cycle duration compressed from weeks to days as the client's team internalized the methodology</p>
+                            </div>
+                            <div class="deep-finding">
+                                <div class="deep-finding-dot"></div>
+                                <p><strong>AI-enabled engineering as force multiplier</strong> — isolated 7 entangled fact tables from a 68-table data model; transferred agentic tooling to the client's own team</p>
+                            </div>
+                            <div class="deep-finding">
+                                <div class="deep-finding-dot"></div>
+                                <p><strong>Single-partner cross-functional coverage</strong> — data, applications, cloud infrastructure, governance, and analytics delivered without vendor handoffs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-card-thesis">
+                    <div class="deep-card-thesis-content">
+                        <div class="deep-card-thesis-label">Summary</div>
+                        <p>The value of an embedded advisory partner is not found in any single deliverable. It compounds over time, across domains, and through the transfer of capability. AC Foods now operates with governance designed around its own structure, a data team that is more capable than when the engagement began, and a technology strategy shaped by evidence rather than vendor pitches.</p>
+                    </div>
+                    <a href="case-study-acfoods.html" target="_blank" class="deep-card-thesis-btn">Read Full Analysis →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="table-section">
         <div class="table-inner">
@@ -904,13 +1213,7 @@
                 </thead>
                 <tbody>
                     <!-- Placeholder Case Studies -->
-                    <tr>
-                        <td><strong>Executive Insights Across Product Lines</strong></td>
-                        <td><span class="solution-tag industrial">Industrial Data Consulting</span></td>
-                        <td>Food Manufacturing</td>
-                        <td class="blurb-text">"Drill-down capability and natural language querying changed how we operate."</td>
-                        <td><a href="case-study-acfoods.html" target="_blank" class="case-link">View →</a></td>
-                    </tr>
+
                     <tr>
                         <td><strong>The Power of Coupling Data Advisory with Elite Engineering</strong></td>
                         <td><span class="solution-tag agnostic">Industry-Agnostic</span></td>
@@ -919,7 +1222,7 @@
                         <td><a href="case-study-affirmedrx.html" target="_blank" class="case-link">View →</a></td>
                     </tr>
                     <tr>
-                        <td><strong>74.5% Faster Bid Turnaround</strong></td>
+                        <td><strong>24.5% Faster Bid Turnaround</strong></td>
                         <td><span class="solution-tag tradesmith">TradeSmith</span></td>
                         <td>Construction & Heavy Civil</td>
                         <td class="blurb-text">"Reduced our bid turnaround from days to hours."</td>
@@ -1112,8 +1415,8 @@
         </div>
     </section>
 
-    <section style="padding: 3rem 5rem; text-align: center; max-width: none; background: #f8f9fb;">
-        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1rem;">Ready to feel <span style="font-weight: 700; color: #0b73b9;">real results?</span></h2>
+    <section style="padding: 3rem 5rem; text-align: center; max-width: none; background: #f1f6fa;">
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1rem;">Ready for <span style="font-weight: 700; color: #0b73b9;">real results?</span></h2>
         <p style="font-size: 1.125rem; color: #5c6370; margin-bottom: 2rem;">Let's discuss your data challenges and how we might help.</p>
         <a href="mailto:hello@northlabs.io" style="display: inline-block; padding: 1rem 2rem; background: #0b73b9; color: #fff; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25); transition: all 0.2s ease;">Schedule a Conversation</a>
     </section>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AC Foods Executive Insights | Case Study | North Labs</title>
+    <title>Advisory-Led Data Strategy Across a 29-Company Portfolio | North Labs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -59,48 +59,66 @@
         .case-hero h1 .accent-text { color: var(--accent-blue); }
         .case-hero .subtitle { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; max-width: 720px; }
 
-        .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
-        .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-        .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
-        .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
-        .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
-
-        .case-impact { padding: 3rem 5rem; background: var(--bg-secondary); }
-        .case-impact-inner { max-width: 900px; }
-        .case-impact h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
-        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .impact-card { background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem; }
-        .impact-card .impact-icon { margin-bottom: 0.75rem; width: 32px; height: 32px; }
-        .impact-card .impact-icon svg { width: 32px; height: 32px; }
-        .impact-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
-        .impact-card p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
-
-        .case-solution { padding: 3rem 5rem; max-width: 900px; }
-        .case-solution h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-        .case-solution p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
-
         .hero-quote { padding: 0 5rem 1rem; max-width: none; }
         .hero-quote-box { background: var(--accent-blue); border-radius: 8px; padding: 1.25rem 2rem; max-width: 630px; }
         .hero-quote-box blockquote { font-size: 1rem; color: #ffffff; font-weight: 500; line-height: 1.6; font-style: italic; }
         .hero-quote-attribution { margin-top: 0.5rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
 
+        .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
+        .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); margin-top: 1.5rem; }
+        .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
+        .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
+
+        /* Academic-style thesis callout */
+        .thesis-block { background: #f0f5f8; border-radius: 10px; padding: 1.75rem 2rem; margin: 2rem 0; border-left: 4px solid var(--accent-blue); }
+        .thesis-block .thesis-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-blue); margin-bottom: 0.5rem; }
+        .thesis-block p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.65; margin-bottom: 0; }
+
+        .case-impact { padding: 3rem 5rem; background: var(--bg-secondary); }
+        .case-impact-inner { max-width: 900px; }
+        .case-impact h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .impact-card { background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.25rem; }
+        .impact-card .impact-value { font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.25rem; line-height: 1.2; }
+        .impact-card .impact-label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.3; }
+        .impact-card p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+
+        .case-analysis { padding: 2.5rem 5rem 2rem; max-width: 900px; }
+        .case-analysis h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .case-analysis .theme-number { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-blue); margin-bottom: 0.25rem; }
+        .case-analysis h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); margin-top: 1.5rem; }
+        .case-analysis p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem; }
+
+        .evidence-block { background: var(--bg-secondary); border-radius: 8px; padding: 1rem 1.5rem; margin: 1rem 0 1.5rem; }
+        .evidence-block .evidence-label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.35rem; }
+        .evidence-block p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0; }
+
         .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
         .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
-        .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
+        .quote-box::before { content: '\201C'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
         .quote-box blockquote { font-size: 1.0625rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; font-style: italic; padding-left: 1.5rem; }
         .quote-attribution { margin-top: 1rem; padding-left: 1.5rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
 
-        .case-outcome { padding: 2rem 5rem 3rem; max-width: 900px; }
-        .case-outcome h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-        .case-outcome p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        /* Scope grid */
+        .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .scope-item { background: var(--bg-secondary); border-radius: 8px; padding: 1rem 1.25rem; border-left: 3px solid var(--accent-blue); }
+        .scope-item h4 { font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; }
+        .scope-item p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0; }
+
+        .section-divider { width: 3rem; height: 3px; background: var(--accent-blue); border-radius: 2px; margin: 0; }
+
+        .phase-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+        .phase-list li { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem; padding-left: 1.25rem; position: relative; }
+        .phase-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--accent-blue); border-radius: 50%; }
+        .phase-list li strong { color: var(--text-primary); }
 
         .case-cta { padding: 3rem 5rem; text-align: center; background: var(--bg-secondary); }
         .case-cta h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
         .case-cta p { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
         .case-cta .cta-btn { display: inline-block; background: #333333; color: #ffffff !important; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.2s ease; }
         .case-cta .cta-btn:hover { background: #222222; }
-
-        .section-divider { width: 3rem; height: 3px; background: var(--accent-blue); border-radius: 2px; margin: 0; }
 
         footer { padding: 2rem 5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); }
         .footer-brand a { text-decoration: none; }
@@ -114,9 +132,10 @@
             nav { padding: 1rem 1.5rem; }
             .case-hero { padding: 6rem 1.5rem 2rem; }
             .case-hero h1 { font-size: 1.75rem; }
-            .case-content, .case-solution, .case-quote, .case-outcome { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .case-content, .case-analysis, .case-quote { padding-left: 1.5rem; padding-right: 1.5rem; }
             .case-impact { padding: 2.5rem 1.5rem; }
-            .impact-grid { grid-template-columns: 1fr; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .scope-grid { grid-template-columns: 1fr; }
             .case-cta { padding: 2.5rem 1.5rem; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
         }
@@ -126,89 +145,205 @@
 
     <nav>
         <div class="logo-area">
-            <a href="https://northlabs.io"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
+            <a href="index-light.html"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
             <div class="logo-divider"></div>
             <span class="page-title">Case Study</span>
         </div>
         <div class="nav-links">
             <a href="case-studies.html">All Case Studies</a>
-            <a href="https://northlabs.io" class="btn-primary">Contact Us</a>
+            <a href="mailto:contact@northlabs.io" class="btn-primary">Contact Us</a>
         </div>
     </nav>
 
     <section class="case-hero">
         <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
         <div class="case-meta">
-            <span class="case-industry">Food Manufacturing</span>
+            <span class="case-industry">PE-Backed Agriculture & Produce</span>
         </div>
-        <h1>Executive Insights Across <span class="accent-text">Product Lines</span> for AC Foods</h1>
-        <p class="subtitle">How North Labs built AC Foods a unified executive intelligence platform with drill-down capability across separate product lines, natural language querying, and real-time performance visibility for leadership.</p>
+        <h1>Advisory-Led Data Strategy Across a <span class="accent-text">29-Company Portfolio</span></h1>
+        <p class="subtitle">An analysis of how embedded advisory, cross-functional engineering, and AI-enabled delivery created compounding value across a PE-backed produce company's data, application, and infrastructure landscape.</p>
     </section>
 
     <div class="hero-quote">
         <div class="hero-quote-box">
-            <blockquote>"Drill-down capability and natural language querying changed how we operate. We went from monthly report reviews to real-time decision-making across every product line."</blockquote>
-            <p class="hero-quote-attribution">— CEO, AC Foods</p>
+            <blockquote>"I've been going through the budget lately and looking through a lot of our consulting teams we've used in the last couple years and really appreciate you guys and everything you're doing, really seeing a value out of this."</blockquote>
+            <p class="hero-quote-attribution">— Paul Woodward, Digital Project & Innovation Manager</p>
         </div>
     </div>
 
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
-        <h2>The Challenge</h2>
-        <p>AC Foods, a diversified food manufacturing company operating multiple distinct product lines, faced a common but critical challenge: leadership lacked a single view of performance across the business. Each product line operated with its own reporting cadence, data formats, and KPI definitions, making cross-line comparison and portfolio-level decision-making nearly impossible.</p>
-        <p>Executives were spending hours each week piecing together reports from different teams, often working with data that was days or weeks old. The absence of standardized metrics and drill-down capability meant that strategic decisions were based on incomplete pictures and gut feel rather than comprehensive intelligence.</p>
-        <div class="case-callout">
-            <p>AC Foods needed a single source of truth that could serve executives with portfolio-level visibility while enabling drill-down into any product line, region, or time period—accessible through natural language, not SQL.</p>
+        <h2>The Engagement Context</h2>
+        <p>AC Foods is a PE-backed produce company with 29 portfolio companies operating across three divisions. Their data and application infrastructure reflects that scale — Oracle Famous ERP, ArcGIS, Databricks, Power BI, and a portfolio of internally built applications. As the organization grew through acquisitions, leadership recognized the opportunity to strengthen the connection between their technical investments and business decision-making.</p>
+        <p>They needed a partner who could operate across data strategy, application architecture, and infrastructure — with engineering depth and the advisory perspective to make the work land across the organization. North Labs was brought in as that partner.</p>
+
+        <div class="thesis-block">
+            <div class="thesis-label">Central Thesis</div>
+            <p>The value of this engagement is not reducible to any single deliverable. It is found in the pattern: assess, advise, then deliver — and in the compounding effect of a single partner maintaining context across every domain the organization operates in.</p>
         </div>
     </section>
 
     <section class="case-impact">
         <div class="case-impact-inner">
-            <h2>Business Impact</h2>
+            <h2>Engagement at a Glance</h2>
             <div class="impact-grid">
                 <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-                    <h3>Unified Cross-Product Visibility</h3>
-                    <p>All product lines consolidated into a single executive dashboard with standardized KPIs and real-time performance data.</p>
+                    <div class="impact-value">29</div>
+                    <div class="impact-label">Portfolio Companies</div>
+                    <p>Across 3 divisions with heterogeneous data infrastructure</p>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                    <h3>Natural Language Querying</h3>
-                    <p>Executives can ask questions like "What was our margin on Product Line A in Q3?" and receive instant, accurate answers.</p>
+                    <div class="impact-value">91</div>
+                    <div class="impact-label">Work Items / 8 Sprints</div>
+                    <p>73.6% completion rate across structured delivery operations</p>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-                    <h3>Full Drill-Down Capability</h3>
-                    <p>From portfolio overview to individual SKU performance—leadership can explore data at any level of granularity without waiting for reports.</p>
+                    <div class="impact-value">10+</div>
+                    <div class="impact-label">Dataset QA Cycles</div>
+                    <p>ERP-to-Power BI reconciliation with stakeholder review</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-value">10</div>
+                    <div class="impact-label">Strategic Tech Initiatives</div>
+                    <p>Generated from a single Quarterly Business Review</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="case-solution">
-        <h2>The Solution</h2>
-        <p>North Labs built a unified data layer that ingested operational, financial, and sales data from each of AC Foods' product lines into a centralized warehouse. Standardized data models were created to enable apples-to-apples comparison across lines while preserving the nuance of each business unit's unique metrics.</p>
-        <p>On top of this foundation, an executive intelligence platform was deployed with three key capabilities: real-time dashboards with drill-down from portfolio level to individual product and SKU performance; natural language querying for ad-hoc questions; and automated alerting for KPI deviations and anomalies across any product line.</p>
-        <p>The platform was designed for self-service—enabling executives and product line leaders to explore data independently without submitting requests to a central analytics team.</p>
+    <section class="case-analysis">
+        <h2>Themes of Value Creation</h2>
+        <p>What follows is not a list of deliverables. It is an analysis of the recurring patterns that made this engagement produce compounding value — patterns that are transferable to any organization operating at scale with complex data infrastructure.</p>
+
+        <div class="theme-number">Theme 1</div>
+        <h3>Advisory-Led, Not Just Execution</h3>
+        <p>The throughline of the engagement is that North Labs operates as a strategic advisor, not a staff augmentation vendor. Every workstream started with discovery and assessment before delivery. We facilitated Data Governance Discovery sessions to understand how data ownership should map to the business. We assessed Fabric capacity workspace by workspace using actual utilization data before recommending changes. We ran application architecture advisory sessions to evaluate their modernization path. We led cloud FinOps discussions to connect infrastructure spend to business value.</p>
+        <p>We facilitated a Quarterly Business Review that generated 10 strategic technology initiatives across the organization — spanning SaaS management, enterprise asset tracking, health and safety analytics, adaptive forecasting, and more. These came out of structured planning sessions, not a deliverables list.</p>
+
+        <div class="evidence-block">
+            <div class="evidence-label">Observed Pattern</div>
+            <p>The pattern is consistent: assess, advise, then deliver. North Labs doesn't start building until the problem is understood, and doesn't stop advising once the build starts. This is the distinction between a consultancy that earns its advisory position and one that merely claims it.</p>
+        </div>
+
+        <div class="theme-number">Theme 2</div>
+        <h3>Bridging Technical Work and Business Understanding</h3>
+        <p>One of the most persistent themes across the engagement was strengthening the connection between what the data team was building and what business stakeholders could engage with. This is a challenge that shows up in nearly every enterprise with a growing data function — the technical work is strong, but as complexity scales, it takes intentional effort to keep business teams connected to what's being built and why it matters.</p>
+        <p>AC Foods' leadership understood this from the start. We partnered with their team to create a continuous documentation practice: data model documentation designed for non-technical stakeholders, DAX measure documentation that translates business logic into reviewable reference materials, migration documents and formula extractions that converted knowledge into transferable artifacts, and video guides that stakeholders can consume independently.</p>
+
+        <div class="case-callout">
+            <p>Zach Stevens described the documentation as "a tool for Jeannie on the front line" — equipping their data analyst to bring business teams into the conversation confidently. This isn't about producing documents. It's about recognizing that keeping technical and business stakeholders aligned is an ongoing investment, and building the materials that make that alignment sustainable.</p>
+        </div>
+
+        <div class="theme-number">Theme 3</div>
+        <h3>Building Client Independence, Not Dependency</h3>
+        <p>Everything we build is designed to be handed off. Monitoring dashboards come with video guides. QA methodologies are run collaboratively so the client's team internalizes the process. Documentation is written for the audience that will maintain it, not the team that created it. Governance frameworks map to the client's org structure, not a generic template.</p>
+        <p>Over the course of the engagement, we ran 10+ dataset QA cycles — Pool FOB, Packout, Harvest, Purchase Fruit, ArcGIS vs Famous, Grower Charge, BIN Return, Fruit Handling Fee, and others — each involving ERP-to-Power BI reconciliation with structured stakeholder review. The early cycles took weeks for review and signoff; the later ones resolved in days. That compression isn't because we got faster. It's because the client's team internalized the methodology.</p>
+
+        <div class="evidence-block">
+            <div class="evidence-label">Key Indicator</div>
+            <p>QA cycle duration compressed from weeks to days over the engagement — not because of process optimization, but because of genuine capability transfer. North Labs doesn't create long-term dependencies. We transfer capability.</p>
+        </div>
+
+        <div class="theme-number">Theme 4</div>
+        <h3>Governance Designed Around the Business</h3>
+        <p>We partnered with AC Foods' leadership to build governance that reflects how the business actually operates. That started with collecting the organizational chart across divisions, departments, and verticals — understanding the real structure before designing policy around it.</p>
+        <p>The collaborative work produced the Data Governance and RBAC Strategy Document, approved in September 2025, establishing clear data ownership across the portfolio and a scalable access model as the organization continues to grow. Zach Stevens declared data governance "the big objective this year" — a priority the organization defined and we helped bring to life. The value is that governance isn't something we imposed. It's something we helped them design around their own structure.</p>
     </section>
 
-    <section class="case-outcome">
-        <h2>The Outcome</h2>
-        <p>AC Foods now operates with a unified executive intelligence platform that gives leadership real-time, drill-down visibility across all product lines. Natural language querying has eliminated the bottleneck of formal report requests, empowering leaders to ask questions and get answers in seconds.</p>
-        <p>The platform has improved strategic decision-making speed, enabled faster identification of underperforming segments, and created a culture of data-driven leadership across the organization. The engagement continues to expand into supply chain optimization and predictive demand forecasting.</p>
+    <section class="case-quote">
+        <div class="quote-box">
+            <blockquote>"Out of all the analytical data people that I've worked with on the contractor side, he's actually been most thorough."</blockquote>
+            <p class="quote-attribution">— Jeannie Jones, Data Analyst & Power BI Admin</p>
+        </div>
+    </section>
+
+    <section class="case-analysis">
+        <div class="theme-number">Theme 5</div>
+        <h3>Cross-Functional Coverage from a Single Partner</h3>
+        <p>AC Foods didn't need four separate consultancies for data, applications, infrastructure, and governance. North Labs covered all of it — and the reduction in handoffs, context loss, and cross-vendor friction is itself a form of value creation that rarely appears on a deliverables list.</p>
+
+        <div class="scope-grid">
+            <div class="scope-item">
+                <h4>Data Strategy</h4>
+                <p>Fabric capacity assessment, Power BI migration, DAX migration, dataset QA methodology</p>
+            </div>
+            <div class="scope-item">
+                <h4>Application Architecture</h4>
+                <p>Advisory support for engineering team, architecture documentation, knowledge base development during major application modernization</p>
+            </div>
+            <div class="scope-item">
+                <h4>Cloud Infrastructure</h4>
+                <p>Azure developer environments, network configuration, Databricks advisory, legacy-to-current infrastructure transition planning</p>
+            </div>
+            <div class="scope-item">
+                <h4>Analytics & Reporting</h4>
+                <p>Power BI data model across 68 tables and 126 relationships, fact table isolation, dashboard development</p>
+            </div>
+            <div class="scope-item">
+                <h4>Governance & Process</h4>
+                <p>Data governance framework, RBAC strategy, organizational mapping, delivery operations across 8 sprints</p>
+            </div>
+            <div class="scope-item">
+                <h4>AI Enablement</h4>
+                <p>Agentic development environments for client team, capability transfer demonstrations, AI-accelerated data model analysis</p>
+            </div>
+        </div>
+
+        <div class="theme-number">Theme 6</div>
+        <h3>AI-Enabled Engineering as a Force Multiplier</h3>
+        <p>North Labs is an AI-enabled consultancy. Our engineers work with agentic development tools as a core part of how we deliver — it's what allows a focused team to operate with the depth and speed of a much larger engagement. This isn't a service we layer on top. It's embedded in how we work.</p>
+        <p>On the delivery side, agentic development enabled us to isolate and diagram 7 entangled fact tables from a master data model with 68 tables and 126 relationships — producing clean, individual views for each dataset. This is what allowed the DAX migration work to move at the pace it did. Work that would have taken significantly longer through traditional methods was completed at a fraction of the time, without sacrificing thoroughness.</p>
+        <p>But the real differentiator is that we transfer this capability to our clients. We set up agentic development environments for AC Foods' own team, enabling their data analyst to work with the complex data model more efficiently. Then we facilitated a demonstration for the broader team so the capability spread organically.</p>
+
+        <div class="case-callout">
+            <p>In Jeannie Jones' words: "That has helped me a lot. The analytical stuff that he's done has saved me hours and weeks of work." Working with North Labs means your own team gets more capable, not just your project gets delivered.</p>
+        </div>
+
+        <div class="theme-number">Theme 7</div>
+        <h3>Embedded Partnership, Not Project-Based Delivery</h3>
+        <p>We operate inside the client's operational rhythm. Weekly status meetings, sprint-based delivery, structured intake and delivery backlogs, recurring roadmap reviews. Over 6 months, we tracked 91 work items across 8 sprints with a 73.6% completion rate. But the numbers don't tell the full story.</p>
+        <p>The value of being embedded is that you catch things proactively. You're in the room when priorities shift. You understand the organizational context well enough to advise, not just execute. When AC Foods needed to think through how to formalize application engineering knowledge, we were already in the conversation because we were already part of the operational cadence. When dataset QA cycles surfaced discrepancies between source systems, we had the context to know which stakeholders needed to be in the review.</p>
+
+        <div class="evidence-block">
+            <div class="evidence-label">The Distinction</div>
+            <p>This is the difference between a partner and a vendor. A vendor delivers what's scoped. A partner pays attention.</p>
+        </div>
+
+        <div class="theme-number">Theme 8</div>
+        <h3>Incremental, Evidence-Based Approach</h3>
+        <p>We don't propose big-bang transformations. The Fabric capacity assessment was done workspace by workspace. Dataset QA was done dataset by dataset, with structured stakeholder review at each stage. Application architecture advisory started with documentation and discovery before any changes. The governance framework was built through multiple discovery sessions, not delivered as a finished product.</p>
+        <p>This approach reduces risk and builds trust. Each increment produces evidence that informs the next decision. It's a consultancy model that earns confidence through demonstrated results, not proposals.</p>
+    </section>
+
+    <section class="case-quote">
+        <div class="quote-box">
+            <blockquote>"He's documenting everything. He's asking us two or three times before he does everything."</blockquote>
+            <p class="quote-attribution">— Mark Bates, Cloud Administrator</p>
+        </div>
+    </section>
+
+    <section class="case-content" style="padding-top: 1.5rem;">
+        <h2>Conclusion</h2>
+        <p>The AC Foods engagement is a case study in what happens when advisory, engineering, and operational cadence converge under a single partner. The themes described here — advisory-led delivery, capability transfer, governance rooted in organizational reality, cross-functional coverage, AI as a force multiplier, embedded partnership, and incremental evidence — are not aspirational. They are observed patterns from six months of sustained, structured work.</p>
+        <p>The most telling evidence is not in the deliverables. It's in the fact that QA cycles compressed because the client's team got better. It's in the 10 strategic initiatives that emerged from a single QBR. It's in unprompted budget reviews where leadership independently confirmed the value of the partnership.</p>
+
+        <div class="thesis-block">
+            <div class="thesis-label">Summary</div>
+            <p>The value of an embedded advisory partner is not found in any single deliverable. It compounds over time, across domains, and through the transfer of capability. AC Foods now operates with governance designed around its own structure, a data team that is more capable than when the engagement began, and a technology strategy shaped by evidence rather than vendor pitches.</p>
+        </div>
     </section>
 
     <section class="case-cta">
         <h2>Interested in working with us?</h2>
         <p>Let's talk about how North Labs can help unlock the value in your data.</p>
-        <a href="https://northlabs.io" class="cta-btn">Contact Us →</a>
+        <a href="mailto:contact@northlabs.io" class="cta-btn">Contact Us →</a>
     </section>
 
     <footer>
-        <div class="footer-brand"><a href="https://northlabs.io"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
+        <div class="footer-brand"><a href="index-light.html"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
         <div class="footer-links">
-            <a href="https://northlabs.io#solutions">Solutions</a>
-            <a href="https://northlabs.io#about">About</a>
+            <a href="index-light.html#solutions">Solutions</a>
+            <a href="index-light.html#about">About</a>
             <a href="#">Privacy</a>
         </div>
         <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
