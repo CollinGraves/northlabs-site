@@ -9,19 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0c10;
-            --bg-secondary: #12151c;
-            --bg-tertiary: #1a1e28;
-            --bg-card: #141820;
-            --text-primary: #f0f2f5;
-            --text-secondary: #8b919e;
-            --text-muted: #5c6370;
-            --accent-emerald: #10b981;
-            --accent-emerald-dim: rgba(16, 185, 129, 0.15);
-            --accent-gold: #f59e0b;
-            --accent-gold-dim: rgba(245, 158, 11, 0.12);
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(255, 255, 255, 0.12);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -47,18 +45,11 @@
             font-family: 'Instrument Serif', Georgia, serif;
         }
 
-        /* Noise texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1000;
+        /* Brand dot grid pattern - matching uploaded texture blue #2d8fca */
+        .dot-grid-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 20px 20px;
+            background-repeat: repeat;
         }
 
         /* Navigation */
@@ -76,30 +67,14 @@
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .logo-mark {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-mark svg {
-            width: 16px;
-            height: 16px;
-            stroke: white;
+        .logo-img {
+            height: 36px;
+            width: auto;
         }
 
         .nav-links {
@@ -140,13 +115,95 @@
             color: #fff !important;
         }
 
+        /* Nav Dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-dropdown-trigger:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-dropdown-trigger svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-trigger svg {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 0.75rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 260px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .nav-dropdown-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .nav-dropdown-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .nav-dropdown-item span {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nav-dropdown-item small {
+            font-size: 0.75rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-top: 0.125rem;
+        }
+
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 5rem 6rem;
+            padding: 6rem 5rem 2.8rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -157,22 +214,39 @@
             position: absolute;
             top: 15%;
             right: -15%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-blue-dim) 0%, transparent 70%);
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.6;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 12%;
+            right: 5%;
+            width: 160px;
+            height: 160px;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 20px 20px;
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .hero-label {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            margin-left: -1.5rem;
             animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-label::before {
@@ -183,26 +257,26 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            max-width: 1000px;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            margin-left: -0.75rem;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
             animation: fadeInUp 0.6s ease-out 0.1s both;
         }
 
-        .hero h1 .serif {
-            font-weight: 400;
-            font-style: italic;
-        }
-
         .hero-sub {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 620px;
-            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
             line-height: 1.7;
+            position: relative;
+            z-index: 1;
             animation: fadeInUp 0.6s ease-out 0.2s both;
         }
 
@@ -214,8 +288,8 @@
 
         .btn-primary {
             padding: 1rem 2rem;
-            background: var(--accent-emerald);
-            color: #000;
+            background: var(--accent-blue);
+            color: #fff;
             font-size: 0.9375rem;
             font-weight: 600;
             border: none;
@@ -223,11 +297,13 @@
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
         }
 
         .btn-primary:hover {
-            background: #0ea472;
+            background: #0a6ba6;
             transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
         }
 
         .btn-secondary {
@@ -248,79 +324,6 @@
             border-color: var(--border-hover);
         }
 
-        /* Sectors bar */
-        .sectors-bar {
-            padding: 4rem 5rem;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .sectors-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .sectors-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .sectors-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .sector-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .sector-item:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .sector-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-emerald-dim);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .sector-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--accent-emerald);
-        }
-
-        .sector-item h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.125rem;
-        }
-
-        .sector-item p {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-        }
-
         /* Section styling */
         section {
             padding: 3.2rem 5rem;
@@ -328,372 +331,1337 @@
             margin: 0 auto;
         }
 
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+
         .section-label {
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--accent-emerald);
-            margin-bottom: 1rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             max-width: 700px;
         }
 
-        .section-title .serif {
-            font-weight: 400;
-            font-style: italic;
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-style: normal;
         }
 
         .section-desc {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             max-width: 600px;
             line-height: 1.7;
         }
 
-        /* Thesis section */
-        .thesis-section {
-            background: var(--bg-secondary);
+        /* Customers Section */
+        .customers-section {
+            padding: 1rem 5rem 1.5rem;
             max-width: none;
-            padding: 8rem 5rem;
+            overflow: hidden;
         }
 
-        .thesis-inner {
+        .customers-inner .section-label {
+            margin-bottom: 1rem;
+            display: block;
+            text-align: left;
+        }
+
+        .logo-ticker {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-ticker::before,
+        .logo-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-ticker::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-primary), transparent);
+        }
+
+        .logo-ticker::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-primary), transparent);
+        }
+
+        .logo-ticker-track {
+            display: flex;
+            align-items: center;
+            gap: 4.3rem;
+            animation: ticker 30s linear infinite;
+            width: max-content;
+        }
+
+        .logo-ticker-track img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .logo-ticker-track img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Culture Section */
+        .culture-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 2rem 5rem;
+        }
+
+        .culture-inner {
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .thesis-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
-            align-items: start;
+        .culture-section .section-title {
+            margin-bottom: 0;
         }
 
-        .thesis-statement {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 2rem;
-            font-style: italic;
-            line-height: 1.4;
-            color: var(--text-primary);
-            position: sticky;
-            top: 120px;
-        }
-
-        .thesis-points {
+        .culture-content {
             display: flex;
-            flex-direction: column;
+            align-items: stretch;
             gap: 2rem;
+            margin-top: 0.5rem;
         }
 
-        .thesis-point {
-            padding: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            transition: all 0.3s ease;
+        .culture-text p {
+            margin: 0;
+            font-size: 1.065rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
-        .thesis-point:hover {
-            border-color: var(--border-hover);
+        /* Success Section */
+        .success-section {
+            background: #f0f5f8;
+            padding: 2rem 5rem;
+            position: relative;
+            max-width: none;
         }
 
-        .thesis-point h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .success-section::before {
+            display: none;
         }
 
-        .thesis-point h3::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
+        .success-inner {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .thesis-point p {
+        .success-section .section-title {
+            margin-bottom: 0.25rem;
+        }
+
+        .success-intro {
             font-size: 0.9375rem;
             color: var(--text-secondary);
-            line-height: 1.7;
-            padding-left: 1.5rem;
-        }
-
-        /* Product section */
-        .product-section {
-            position: relative;
-        }
-
-        .product-card {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-            border: 1px solid var(--border-subtle);
-            border-radius: 24px;
-            padding: 4rem;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
-            opacity: 0.6;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .product-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.5rem 1rem;
-            background: var(--accent-emerald-dim);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            color: var(--accent-emerald);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-            width: fit-content;
-        }
-
-        .product-badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-emerald);
-            border-radius: 50%;
-        }
-
-        .product-content h3 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
             margin-bottom: 1rem;
         }
 
-        .product-content > p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 2rem;
+        .success-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .product-features {
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .flow-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .flow-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+        }
+
+        .flow-content strong {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        .flow-content span {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .flow-content .highlight {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .flow-arrow {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            padding-top: 0.2rem;
+            flex-shrink: 0;
+            align-self: start;
+        }
+
+        .success-btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .success-btn:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .success-btn-featured {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            width: 260px;
+            height: 48px;
+            background: #6b7280;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .success-btn-featured:hover {
+            background: #4b5563;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-btn-featured .btn-logo {
+            height: 24px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .success-btn-featured span {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .success-btn-featured span::after {
+            content: '→';
+            transition: transform 0.2s ease;
+        }
+
+        .success-btn-featured:hover span::after {
+            transform: translateX(3px);
+        }
+
+        .success-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .success-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .success-btn-casestudies {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            width: 260px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .success-btn-casestudies:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .catalog-subtitle {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .case-study-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1.5rem;
+        }
+
+        .case-study-list li {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 0.875rem;
+        }
+
+        .case-study-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        .case-study-list li:last-child::before {
+            display: none;
+        }
+
+        .case-study-list li:last-child {
+            padding-left: 0;
+        }
+
+        .catalog-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .catalog-link:hover {
+            text-decoration: underline;
+        }
+
+        .catalog-btn {
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .success-flow {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .flow-arrow {
+                display: none;
+            }
+
+            .flow-step {
+                flex: none;
+            }
+        }
+
+        .culture-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .team-photo {
+            flex-shrink: 0;
+            margin-top: -3rem;
+        }
+
+        .team-photo img {
+            display: block;
+            height: 180px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .culture-text {
+            max-width: 400px;
+            background: none;
+            padding: 0 1rem;
+            border-radius: 0;
+            border-left: none;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .culture-right {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .culture-guarantees {
+            flex: 1;
+        }
+
+        .guarantees-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .guarantees-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guarantees-list li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.375rem;
+            line-height: 1.4;
+        }
+
+        .guarantees-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* Capabilities Section */
+        .capabilities-section {
+            padding: 3rem 5rem;
+            max-width: none;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            align-items: start;
+        }
+
+        .capability-category {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5f8 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .capability-category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .capability-category-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-blue-dim);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capability-category-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--accent-blue);
+        }
+
+        .capability-category h3 {
+            font-size: 0.93rem;
+            font-weight: 600;
+        }
+
+        .capability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .capability-list-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.25rem 1rem;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .capability-item::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            background: #d9d9d9;
+            max-width: none;
+            padding: 2.5rem 20.84rem 2.5rem 12.4rem;
+        }
+
+        .approach-content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .approach-content {
+            flex: 1;
+        }
+
+        /* Timeline */
+        .timeline-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-top: 1rem;
+            max-width: 1000px;
+        }
+
+        .timeline {
+            flex: 1;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 0.44rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -1.35rem;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent-blue);
+        }
+
+        .timeline-year {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            white-space: nowrap;
+        }
+
+        .timeline-content {
+            font-size: 0.875rem;
+            color: #444444;
+            line-height: 1.144;
+        }
+
+        .timeline-content p {
+            display: inline;
+            margin: 0;
+        }
+
+        .timeline-image {
+            flex-shrink: 0;
+            max-width: 235px;
+            margin-left: 12px;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .founder-photo {
+            flex-shrink: 0;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .founder-photo img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Guarantees Thesis */
+        .guarantees-thesis {
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .guarantees-thesis p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .guarantees-thesis p:last-child {
+            margin-bottom: 0;
+        }
+
+        .guarantees-thesis strong {
+            color: var(--text-primary);
+        }
+
+        .guarantees-thesis em {
+            color: var(--accent-blue);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .approach-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .approach-content {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 900px;
+            margin-top: 1rem;
+        }
+
+        .approach-content strong {
+            color: var(--text-primary);
+        }
+
+        .approach-content p {
+            margin: 0;
+        }
+
+        .approach-content br {
+            display: none;
+        }
+
+        /* Guarantees Section */
+        .guarantees-section {
+            padding: 2.5rem 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .guarantee-card {
+            padding: 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+        }
+
+        .guarantee-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guarantee-card h3::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        .guarantee-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            padding-left: 0.875rem;
+        }
+
+        /* Practice Areas Section */
+        .practice-section {
+            background: var(--bg-secondary);
+            max-width: none;
+            padding: 2.5rem 5rem;
+        }
+
+        .practice-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .practice-section .section-title {
+            margin-bottom: 0;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .practice-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .practice-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .practice-card-highlight {
+            background: white;
+        }
+
+        .practice-grid-4col {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-card-flagship {
+            background: white;
+        }
+
+        .practice-icon-flagship {
+            background: var(--accent-blue);
+        }
+
+        .practice-icon-flagship svg {
+            stroke: white;
+        }
+
+        .practice-badge-flagship {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .practice-title-link {
+            display: inline-block;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: white;
+            background: var(--accent-blue);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(11, 115, 185, 0.2);
+        }
+
+        .practice-title-link:hover {
+            background: #0a6ba6;
+            box-shadow: 0 3px 8px rgba(11, 115, 185, 0.3);
+        }
+
+        .practice-title-logo {
+            height: 23px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            vertical-align: middle;
+        }
+
+        .practice-header-content-stacked {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .practice-description {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .tradesmith-subsections {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .product-feature {
+        .tradesmith-subsection {
+            padding: 0.75rem;
+            background: rgba(11, 115, 185, 0.04);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .tradesmith-subsection h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tradesmith-subsection .practice-solutions {
+            gap: 0.375rem;
+        }
+
+        .tradesmith-subsection .practice-solution {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .dev-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.43rem;
+            margin-top: 0.8rem;
+        }
+
+        .dev-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.114rem;
+        }
+
+        .dev-link {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .dev-link:hover {
+            color: #0a6ba6;
+            text-decoration: underline;
+        }
+
+        .dev-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .dev-usecases {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.12;
+        }
+
+        .practice-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
         }
 
-        .product-feature::before {
-            content: '';
-            width: 20px;
-            height: 20px;
-            background: var(--accent-emerald-dim);
-            border-radius: 50%;
+        .practice-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent-blue-dim);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
 
-        .product-feature::after {
-            content: '✓';
-            position: absolute;
-            margin-left: 6px;
-            font-size: 0.75rem;
-            color: var(--accent-emerald);
+        .practice-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent-blue);
         }
 
-        .product-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 2.5rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-        }
-
-        .product-stat {
-            text-align: center;
-        }
-
-        .product-stat-value {
-            font-size: 2.5rem;
+        .practice-header h3 {
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--accent-emerald);
-            line-height: 1;
-            margin-bottom: 0.5rem;
         }
 
-        .product-stat-label {
+        .practice-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: var(--accent-blue-dim);
+            color: var(--accent-blue);
+            border-radius: 4px;
+            margin-top: 0.25rem;
+        }
+
+        .practice-solutions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .practice-solution {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+        }
+
+        .practice-cta {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.8125rem;
+            color: #fff;
+            background: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .practice-cta:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .practice-cta-branded {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practice-cta-branded .cta-logo {
+            height: 24px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .practice-cta-branded span {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .practice-cta-branded span::after {
+            content: '→';
+            transition: transform 0.2s ease;
+        }
+
+        .practice-cta-branded:hover span::after {
+            transform: translateX(3px);
+        }
+
+        .cta-logo-caresense {
+            height: 32px;
+        }
+
+        .cta-logo-tradesmith {
+            height: 30px;
+        }
+
+        .coming-soon-note {
             font-size: 0.8125rem;
             color: var(--text-muted);
+            font-style: italic;
+            margin-top: 0.75rem;
         }
 
-        /* Approach section */
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .approach-card {
-            padding: 2.5rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .approach-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .approach-number {
-            font-size: 3rem;
+        .practice-cta strong {
             font-weight: 600;
-            color: var(--bg-tertiary);
-            line-height: 1;
-            margin-bottom: 1.5rem;
         }
 
-        .approach-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
+        .practice-note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-align: center;
         }
 
-        .approach-card p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
+        /* Quote Section */
+        .quote-section {
             background: var(--bg-secondary);
             max-width: none;
-            padding: 8rem 5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 1.5rem 5rem;
         }
 
-        .cta-section::before {
-            content: '';
+        .quote-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .quote-text {
+            flex: 1;
+        }
+
+        .quote-text blockquote {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.55;
+            color: var(--text-primary);
+            margin: 0;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .quote-attribution {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .quote-portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .quote-portrait-wrapper {
+            width: 77px;
+            height: 77px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .quote-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .quote-title {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .quote-inner {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .quote-text blockquote {
+                border-left: none;
+                padding-left: 0;
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* Testimonial Video Section */
+        .testimonial-video-section {
+            padding: 1.6rem 5rem;
+            background: var(--accent-blue);
+            max-width: none;
+        }
+
+        .testimonial-video-section .section-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonial-video-section .section-label::before {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .testimonial-video-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote-layout {
+            display: flex;
+            gap: 1.75rem;
+            align-items: flex-start;
+            margin-top: 0.6rem;
+        }
+
+        .testimonial-quote-text p {
+            font-size: 0.9375rem;
+            color: #ffffff;
+            line-height: 1.45;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .testimonial-quote-author {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 500;
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            max-width: 22%;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .video-play-btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--accent-emerald-dim) 0%, transparent 60%);
-            opacity: 0.4;
-            pointer-events: none;
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
         }
 
-        .cta-inner {
-            max-width: 700px;
-            margin: 0 auto;
+        .video-play-btn svg {
+            width: 28px;
+            height: 28px;
+            margin-left: 3px;
+        }
+
+        .video-thumbnail-wrapper:hover .video-play-btn {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-video-section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .video-thumbnail-wrapper {
+                max-width: 100%;
+            }
+
+            .testimonial-quote-layout {
+                flex-direction: column;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 3rem 5rem;
+            text-align: center;
             position: relative;
-            z-index: 1;
+            max-width: none;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 3%;
+            width: 140px;
+            height: 140px;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='8' height='8' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 20px 20px;
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .cta-section h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 2.75rem);
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .cta-section h2 .serif {
-            font-weight: 400;
-            font-style: italic;
+        .cta-section h2 .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
         }
 
         .cta-section p {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* Footer */
         footer {
-            padding: 3rem 5rem;
+            padding: 2rem 5rem;
             border-top: 1px solid var(--border-subtle);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: none;
         }
 
         .footer-brand {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
         }
 
-        .footer-brand .logo-mark {
-            width: 24px;
-            height: 24px;
-        }
-
-        .footer-brand .logo-mark svg {
-            width: 14px;
-            height: 14px;
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
         }
 
         .footer-links {
@@ -713,8 +1681,13 @@
         }
 
         .footer-copyright {
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             color: var(--text-muted);
+        }
+
+        .footer-veteran {
+            height: 50px;
+            width: auto;
         }
 
         /* Animations */
@@ -731,8 +1704,8 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.visible {
@@ -741,26 +1714,60 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .sectors-grid {
+        @media (max-width: 1200px) {
+            .capabilities-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .thesis-grid,
-            .product-grid {
+            .practice-grid-4col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .culture-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .capabilities-grid {
                 grid-template-columns: 1fr;
             }
 
-            .thesis-statement {
-                position: static;
+            .capability-list-2col {
+                grid-template-columns: 1fr;
             }
 
-            .approach-grid {
+            .guarantees-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .practice-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 960px) {
+            .timeline-wrapper {
+                flex-direction: column;
+            }
+
+            .timeline-image {
+                max-width: 100%;
+            }
+
+            .approach-section {
+                padding: 3.5rem 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
+            .hero::after,
+            .cta-section::after {
+                display: none;
+            }
+
             nav {
                 padding: 1rem 1.5rem;
             }
@@ -770,30 +1777,25 @@
             }
 
             .hero {
-                padding: 7rem 1.5rem 4rem;
+                padding: 6rem 1.5rem 3rem;
             }
 
             section {
                 padding: 2.4rem 1.5rem;
             }
 
-            .sectors-bar,
-            .thesis-section,
-            .cta-section {
-                padding: 4rem 1.5rem;
+            .culture-section,
+            .approach-section,
+            .practice-section {
+                padding: 3.5rem 1.5rem;
             }
 
-            .sectors-grid {
-                grid-template-columns: 1fr;
+            .timeline-wrapper {
+                flex-direction: column;
             }
 
-            .product-card {
-                padding: 2rem;
-            }
-
-            .product-stats {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .timeline-image {
+                max-width: 100%;
             }
 
             .hero-ctas,
@@ -809,7 +1811,7 @@
 
             footer {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1.5rem;
                 text-align: center;
             }
         }
@@ -818,219 +1820,492 @@
 <body>
     <nav>
         <a href="/" class="logo">
-            <div class="logo-mark">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
-                </svg>
-            </div>
-            North Labs
+            <img src="logo-full.png" alt="North Labs" class="logo-img">
         </a>
         <div class="nav-links">
-            <a href="/tradesmith">Tradesmith</a>
-            <a href="/about">About</a>
+            <div class="nav-dropdown">
+                <a href="#solutions" class="nav-dropdown-trigger">
+                    Solutions
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-content">
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Industrial Data Consulting</span>
+                            <small>Advisor-Led</small>
+                        </a>
+                        <a href="https://tradesmith.northlabs.io" class="nav-dropdown-item" target="_blank">
+                            <span>TradeSmith</span>
+                            <small>Flagship Solution</small>
+                        </a>
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Industry-Agnostic Use Cases</span>
+                            <small>Revenue & Profit Ops</small>
+                        </a>
+                        <a href="#solutions" class="nav-dropdown-item">
+                            <span>Under Development</span>
+                            <small>Healthcare, CargoIQ, Higher Ed</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#success">Case Studies</a>
+            <a href="#capabilities">Technical Expertise</a>
+            <a href="#about">About</a>
             <a href="#contact" class="nav-cta">Get in Touch</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-label">Intelligence Infrastructure for Industrials</div>
-        <h1>The industries that build our world deserve <span class="serif">intelligence that works like they do.</span></h1>
-        <p class="hero-sub">North Labs creates embedded intelligence systems for construction, manufacturing, and industrial operations. We help companies own their intelligence—not rent it from software vendors.</p>
+        <div class="hero-label">Mission Statement</div>
+        <h1>Being real with our customers—bringing solutions to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
+        <p class="hero-sub">We don't chase every piece of work. We have select use cases delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
         <div class="hero-ctas">
-            <a href="/tradesmith" class="btn-primary">Explore Tradesmith</a>
-            <a href="/about" class="btn-secondary">Our Story</a>
+            <a href="#solutions" class="btn-primary">View Offering</a>
         </div>
     </header>
 
-    <div class="sectors-bar">
-        <div class="sectors-inner">
-            <div class="sectors-label">Built for the industries that build everything else</div>
-            <div class="sectors-grid">
-                <div class="sector-item">
-                    <div class="sector-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 20h20"/>
-                            <path d="M5 20V8l7-5 7 5v12"/>
-                            <path d="M9 20v-6h6v6"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3>Construction</h3>
-                        <p>GCs & Subcontractors</p>
-                    </div>
-                </div>
-                <div class="sector-item">
-                    <div class="sector-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 20h20"/>
-                            <path d="M6 20V4"/>
-                            <path d="M6 12h12"/>
-                            <path d="M6 4h12v8"/>
-                            <path d="M18 20v-8"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3>Heavy Civil</h3>
-                        <p>Infrastructure & Public Works</p>
-                    </div>
-                </div>
-                <div class="sector-item">
-                    <div class="sector-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="7" width="20" height="14" rx="2"/>
-                            <path d="M12 7V4"/>
-                            <path d="M8 7V5"/>
-                            <path d="M16 7V5"/>
-                            <path d="M6 12h4"/>
-                            <path d="M14 12h4"/>
-                            <path d="M6 16h4"/>
-                            <path d="M14 16h4"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3>Manufacturing</h3>
-                        <p>Industrial Operations</p>
-                    </div>
-                </div>
-                <div class="sector-item">
-                    <div class="sector-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v4"/>
-                            <path d="M12 19v4"/>
-                            <path d="M4.22 4.22l2.83 2.83"/>
-                            <path d="M16.95 16.95l2.83 2.83"/>
-                            <path d="M1 12h4"/>
-                            <path d="M19 12h4"/>
-                            <path d="M4.22 19.78l2.83-2.83"/>
-                            <path d="M16.95 7.05l2.83-2.83"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3>Other Industrials</h3>
-                        <p>Energy, Logistics & More</p>
-                    </div>
+    <section class="customers-section">
+        <div class="customers-inner">
+            <span class="section-label">Customers</span>
+            <div class="logo-ticker">
+                <div class="logo-ticker-track">
+                    <img src="logos/affirmedrx.png" alt="AffirmedRx">
+                    <img src="logos/uponor.png" alt="Uponor">
+                    <img src="logos/cretex.png" alt="Cretex Companies">
+                    <img src="logos/imax.png" alt="IMAX">
+                    <img src="logos/1848ventures.png" alt="1848 Ventures">
+                    <img src="logos/acu.png" alt="Abilene Christian University">
+                    <img src="logos/huntington.png" alt="Huntington">
+                    <img src="logos/bluemark.png" alt="Bluemark">
+                    <img src="logos/andelyn.png" alt="Andelyn Biosciences">
+                    <img src="logos/veranahealth.png" alt="Verana Health">
+                    <img src="logos/rls.png" alt="RLS">
+                    <img src="logos/iconnational.png" alt="Icon National">
+                    <img src="logos/acfoods.png" alt="AC Foods" style="height: 32px;">
+                    <img src="logos/carlsonglass.png" alt="Carlson Glass Inc">
+                    <img src="logos/usairforce.png" alt="U.S. Air Force">
+                    <img src="logos/ascentworks.png" alt="Ascent Works" style="opacity: 0.45;">
+                    <img src="logos/fmg.png" alt="FMG" style="opacity: 0.45;">
+                    <img src="logos/protos.png" alt="Protos Security">
+                    <img src="logos/barkavenue.png" alt="Bark Avenue" style="height: 18px;">
+                    <img src="logos/trackablemed.png" alt="TrackableMed">
+                    <img src="logos/planningpod.png" alt="Planning Pod" style="opacity: 0.45;">
+                    <!-- Duplicate for seamless loop -->
+                    <img src="logos/affirmedrx.png" alt="AffirmedRx">
+                    <img src="logos/uponor.png" alt="Uponor">
+                    <img src="logos/cretex.png" alt="Cretex Companies">
+                    <img src="logos/imax.png" alt="IMAX">
+                    <img src="logos/1848ventures.png" alt="1848 Ventures">
+                    <img src="logos/acu.png" alt="Abilene Christian University">
+                    <img src="logos/huntington.png" alt="Huntington">
+                    <img src="logos/bluemark.png" alt="Bluemark">
+                    <img src="logos/andelyn.png" alt="Andelyn Biosciences">
+                    <img src="logos/veranahealth.png" alt="Verana Health">
+                    <img src="logos/rls.png" alt="RLS">
+                    <img src="logos/iconnational.png" alt="Icon National">
+                    <img src="logos/acfoods.png" alt="AC Foods" style="height: 32px;">
+                    <img src="logos/carlsonglass.png" alt="Carlson Glass Inc">
+                    <img src="logos/usairforce.png" alt="U.S. Air Force">
+                    <img src="logos/ascentworks.png" alt="Ascent Works" style="opacity: 0.45;">
+                    <img src="logos/fmg.png" alt="FMG" style="opacity: 0.45;">
+                    <img src="logos/protos.png" alt="Protos Security">
+                    <img src="logos/barkavenue.png" alt="Bark Avenue" style="height: 18px;">
+                    <img src="logos/trackablemed.png" alt="TrackableMed">
+                    <img src="logos/planningpod.png" alt="Planning Pod" style="opacity: 0.45;">
                 </div>
             </div>
         </div>
+    </section>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"North Labs has empowered us to take control of our data program. From querying our data with natural language, to gaining efficiencies through automated renewals, they improve our bottom line, which is why we partner with them so closely on key initiatives." <span class="testimonial-banner-author">— Jeremiah Krahulik, Managing Director, Ascent Works</span></span>
     </div>
 
-    <section class="thesis-section">
-        <div class="thesis-inner">
-            <span class="section-label">Our Thesis</span>
-            <h2 class="section-title">Industrial companies should <span class="serif">own</span> their intelligence</h2>
+    <section class="culture-section">
+        <div class="culture-inner">
+            <span class="section-label">Culture</span>
+            <h2 class="section-title">Data <span class="accent-text">concierge</span> professionals</h2>
             
-            <div class="thesis-grid reveal">
-                <div class="thesis-statement">
-                    The current model is broken. Your operational data, supplier performance, production history—it all flows into software that gives you dashboards but keeps the intelligence.
+            <div class="culture-content reveal">
+                <div class="culture-text">
+                    <p class="culture-statement">We hire <strong>"data concierge" professionals</strong> who take pride in mastering the full journey from data sources to users. Our customers offload the complexity of data solutions, hassle-free.</p>
                 </div>
-                <div class="thesis-points">
-                    <div class="thesis-point">
-                        <h3>Your data is your most valuable asset</h3>
-                        <p>Every job you run, every supplier you evaluate, every outcome you track generates operational intelligence. But today's tools capture that value for themselves—your insights train their models, improve their products, and get sold back to your competitors.</p>
+                <div class="team-photo">
+                    <img src="team-photo.png" alt="North Labs Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-section" id="success">
+        <div class="success-inner">
+            <span class="section-label">Customers' Success</span>
+            <h2 class="section-title">The Journey to <span class="accent-text">Outcomes</span></h2>
+            <div class="success-flow">
+                <div class="flow-step">
+                    <div class="flow-icon">1</div>
+                    <div class="flow-content">
+                        <strong>Assess</strong>
+                        <span>When a civil engineering firm owner was frustrated by the weeks it took to renew and amend contracts, we refined our understanding of the problem and proposed an ROI Hypothesis: reducing renewal submission time by 50% would more than pay for the engagement.</span>
                     </div>
-                    <div class="thesis-point">
-                        <h3>Intelligence should be infrastructure, not subscription</h3>
-                        <p>You own your equipment. You own your trucks. You should own your intelligence. We build intelligence systems that become assets on your balance sheet—compounding value over time, not monthly fees that disappear when you stop paying.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">2</div>
+                    <div class="flow-content">
+                        <strong>Advise</strong>
+                        <span>Supplemented by a minimally viable product, we got the bare minimum in the owner's hands for a quick feedback loop, and began recommending alterations to the contract process now that automation materially changing the value chain had been introduced.</span>
                     </div>
-                    <div class="thesis-point">
-                        <h3>Embedded beats bolted-on</h3>
-                        <p>Dashboards don't change behavior. Tools people have to remember to check don't get checked. Real intelligence shows up where decisions happen—in your email, your meetings, your existing workflows.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">3</div>
+                    <div class="flow-content">
+                        <strong>Rapid Reiteration</strong>
+                        <span>Across the rest of the quarter, we achieved another two iterations of the solution to the owner and an additional test user, and the data engineering required for the critical source (Procore) to bring data through the architecture reliably and securely.</span>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="flow-icon">4</div>
+                    <div class="flow-content">
+                        <strong>ROI Validation</strong>
+                        <span>At our first Quarterly Business Review, initial users tested 35 contract renewals and achieved an average <em class="highlight">77.5% reduction</em> in renewal submission time. The following quarter, a materials estimating module delivered a <em class="highlight">24% reduction</em> in procurement time.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-buttons">
+                <a href="https://case-studies.northlabs.io" class="success-btn-casestudies" target="_blank">
+                    View all Case Studies →
+                </a>
+                <a href="https://tradesmith.northlabs.io" class="success-btn success-btn-featured" target="_blank">
+                    <img src="tradesmith-logo.png" alt="TradeSmith" class="btn-logo">
+                    <span>Learn More</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="capabilities-section" id="capabilities">
+        <span class="section-label">Core Capabilities</span>
+        <h2 class="section-title">Technical expertise across your <span class="accent-text">data program.</span></h2>
+
+        <div class="capabilities-grid reveal">
+            <div class="capability-category">
+                <div class="capability-category-header">
+                    <div class="capability-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3>Strategy</h3>
+                </div>
+                <div class="capability-list">
+                    <div class="capability-item">Advisory & Roadmapping</div>
+                    <div class="capability-item">People, Process & Tool Analysis</div>
+                    <div class="capability-item">Business Logic Mapping</div>
+                    <div class="capability-item">Stakeholder Interviewing</div>
+                    <div class="capability-item">Assessment & Recommendation</div>
+                </div>
+            </div>
+
+            <div class="capability-category">
+                <div class="capability-category-header">
+                    <div class="capability-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        </svg>
+                    </div>
+                    <h3>Data Management</h3>
+                </div>
+                <div class="capability-list capability-list-2col">
+                    <div class="capability-item">Integration</div>
+                    <div class="capability-item">Governance</div>
+                    <div class="capability-item">Modeling</div>
+                    <div class="capability-item">Lifecycle</div>
+                    <div class="capability-item">Storage</div>
+                    <div class="capability-item">Pipelines (ETL/ELT)</div>
+                    <div class="capability-item">Catalogs</div>
+                    <div class="capability-item">Security</div>
+                    <div class="capability-item">Processing</div>
+                    <div class="capability-item">Architecture</div>
+                </div>
+            </div>
+
+            <div class="capability-category">
+                <div class="capability-category-header">
+                    <div class="capability-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                        </svg>
+                    </div>
+                    <h3>Business Intelligence</h3>
+                </div>
+                <div class="capability-list">
+                    <div class="capability-item">Dashboards</div>
+                    <div class="capability-item">Reporting</div>
+                    <div class="capability-item">Performance Indicators</div>
+                    <div class="capability-item">Forecasting</div>
+                    <div class="capability-item">Automation</div>
+                </div>
+            </div>
+
+            <div class="capability-category">
+                <div class="capability-category-header">
+                    <div class="capability-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Intelligence Layer</h3>
+                </div>
+                <div class="capability-list">
+                    <div class="capability-item">Natural Language Querying (NLQ)</div>
+                    <div class="capability-item">LLM Selection & Training</div>
+                    <div class="capability-item">Agent Integration</div>
+                    <div class="capability-item">Model Monitoring & Observability</div>
+                    <div class="capability-item">Intelligence Literacy & Change Management</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="practice-section" id="solutions">
+        <div class="practice-inner">
+            <span class="section-label">Offering</span>
+            <h2 class="section-title"><span class="accent-text">Value</span> we deliver</h2>
+
+            <div class="practice-grid practice-grid-4col reveal">
+                <!-- Industrial Data Consulting -->
+                <div class="practice-card practice-card-highlight">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M12 7V4"/>
+                                <path d="M8 7V5"/>
+                                <path d="M16 7V5"/>
+                                <path d="M6 12h4"/>
+                                <path d="M14 12h4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Industrial Data Consulting</h3>
+                            <span class="practice-badge">Advisory-Led</span>
+                        </div>
+                    </div>
+                    <div class="practice-solutions">
+                        <span class="practice-solution">Customer Analysis</span>
+                        <span class="practice-solution">Plant Intelligence</span>
+                        <span class="practice-solution">Scrap Reduction</span>
+                        <span class="practice-solution">Tool Life Analysis</span>
+                        <span class="practice-solution">Demand / Inventory Forecasting</span>
+                        <span class="practice-solution">Predictive Maintenance</span>
+                        <span class="practice-solution">Asset Tracking</span>
+                        <span class="practice-solution">OTIF/OTD</span>
+                        <span class="practice-solution">Production Planning</span>
+                        <span class="practice-solution">Agriculture & Livestock Operations</span>
+                        <span class="practice-solution">Hospitality Operations</span>
+                        <span class="practice-solution">Bill of Materials</span>
+                        <span class="practice-solution">Unified Data Modeling</span>
+                    </div>
+                </div>
+
+                <!-- TradeSmith - Flagship Solution -->
+                <div class="practice-card practice-card-flagship">
+                    <div class="practice-header">
+                        <div class="practice-icon practice-icon-flagship">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 20h20"/>
+                                <path d="M5 20V8l7-5 7 5v12"/>
+                                <path d="M9 20v-6h6v6"/>
+                            </svg>
+                        </div>
+                        <div class="practice-header-content-stacked">
+                            <a href="https://tradesmith.northlabs.io" class="practice-title-link" target="_blank"><img src="tradesmith-logo.png" alt="TradeSmith" class="practice-title-logo"> →</a>
+                            <span class="practice-badge practice-badge-flagship">Flagship Solution for Construction, Real Estate, and Heavy Civil Engineering</span>
+                        </div>
+                    </div>
+                    <div class="practice-solutions">
+                        <span class="practice-solution">Bid Analysis</span>
+                        <span class="practice-solution">Estimation</span>
+                        <span class="practice-solution">Work-in-Progress (WIP)</span>
+                        <span class="practice-solution">Project Scheduling</span>
+                        <span class="practice-solution">Contract Automation</span>
+                        <span class="practice-solution">Automated Credit Risk Assessment</span>
+                        <span class="practice-solution">Predictive Loan Performance Modeling</span>
+                        <span class="practice-solution">Financial Compliance Monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Industry-Agnostic Solutions -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Industry-Agnostic Use Cases</h3>
+                            <span class="practice-badge">Revenue & Profit Ops</span>
+                        </div>
+                    </div>
+                    <div class="practice-solutions">
+                        <span class="practice-solution">Chargeback Traceability</span>
+                        <span class="practice-solution">Sales Forecasting</span>
+                        <span class="practice-solution">Demand Forecasting</span>
+                        <span class="practice-solution">Profitability</span>
+                        <span class="practice-solution">Retention / Churn</span>
+                        <span class="practice-solution">Customer Sentiment</span>
+                        <span class="practice-solution">Sales Revenue</span>
+                        <span class="practice-solution">Lead Conversion Rate</span>
+                        <span class="practice-solution">Sales vs. Target</span>
+                        <span class="practice-solution">Budget vs. Actual</span>
+                        <span class="practice-solution">Customer Lifetime Value</span>
+                        <span class="practice-solution">Social Media Analytics</span>
+                        <span class="practice-solution">Human Resources</span>
+                    </div>
+                </div>
+
+                <!-- Other Industry-Dedicated Solutions -->
+                <div class="practice-card practice-card-highlight">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Other Industry-Dedicated Solutions</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="dev-list">
+                        <div class="dev-item">
+                            <a href="due-diligence.html" class="dev-link">"Due Diligence" for Mergers & Acquisitions →</a>
+                            <span class="dev-usecases">Technology Diligence, Data Program Assessment, Integration Readiness, Risk Identification</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="https://caresense.northlabs.io" class="dev-link" target="_blank">"CareSense" for Healthcare →</a>
+                            <span class="dev-usecases">Fee Schedule Normalization, Contract Comparisons, Underpayment Detection, Denial Analysis, Payer Scorecards</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="https://reggie.northlabs.io" class="dev-link" target="_blank">"Reggie" for Higher Education →</a>
+                            <span class="dev-usecases">Enrollment, Student Retention, Athletics Monetization, Grants, Deposits</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="https://cargoiq.northlabs.io" class="dev-link" target="_blank">"CargoIQ" for Transportation & Storage →</a>
+                            <span class="dev-usecases">Route Optimization, Asset Tracking, Inventory Optimization, Downtime Reduction, Maintenance</span>
+                        </div>
+                        <div class="dev-item">
+                            <a href="biopharma17.html" class="dev-link" target="_blank">"BioPharma 17" for Pharmaceuticals and BioTech →</a>
+                            <span class="dev-usecases">Clinical Trial Analytics, Drug Pipeline Tracking, Regulatory Compliance, R&D Operations</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="product-section">
-        <span class="section-label">Flagship Product</span>
-        <h2 class="section-title">Intelligence infrastructure, <span class="serif">live in production</span></h2>
-        
-        <div class="product-card reveal">
-            <div class="product-grid">
-                <div class="product-content">
-                    <div class="product-badge">Now Onboarding Partners</div>
-                    <h3>Tradesmith</h3>
-                    <p>Construction operations intelligence for general contractors and subcontractors. Embedded bid analysis, vendor scoring, and financial intelligence that becomes smarter with every project.</p>
-                    <div class="product-features">
-                        <div class="product-feature">Intelligence-powered bid parsing and scope analysis</div>
-                        <div class="product-feature">Vendor performance tracking across projects</div>
-                        <div class="product-feature">WIP financial intelligence and forecasting</div>
-                        <div class="product-feature">Private intelligence that stays yours</div>
+    <section class="testimonial-video-section">
+        <div class="testimonial-video-inner">
+            <span class="section-label">Featured Testimonial</span>
+            <div class="testimonial-quote-layout">
+                <div class="video-thumbnail-wrapper">
+                    <img src="nate-alvar-thumbnail.png" alt="Nate Alvar - FMG Testimonial" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
-                    <a href="/tradesmith" class="btn-primary">Learn More About Tradesmith</a>
                 </div>
-                <div class="product-stats">
-                    <div class="product-stat">
-                        <div class="product-stat-value">15%</div>
-                        <div class="product-stat-label">Subcontractor cost savings</div>
-                    </div>
-                    <div class="product-stat">
-                        <div class="product-stat-value">60</div>
-                        <div class="product-stat-label">Days to measurable ROI</div>
-                    </div>
-                    <div class="product-stat">
-                        <div class="product-stat-value">30×</div>
-                        <div class="product-stat-label">Return on investment</div>
-                    </div>
+                <div class="testimonial-quote-text">
+                    <p>"North Labs will take care of you. They're going to listen to you and understand your need. When you find a partner you need to find people with a pulse...find people that are real, that will sit down and talk. And so for us, to find a partner with strong people, strong leaders from the top down...we just have had great results collaborating and working with them. They're not just going to slide paperwork back and forth. North Labs is just going to <strong style="text-decoration: underline;">engage like real people</strong> and they're going to listen, they're going to react, they're going to respond."</p>
+                    <span class="testimonial-quote-author">— Nate Alvar, VP of Engineering, FMG</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <span class="section-label">Our Approach</span>
-        <h2 class="section-title">How we build <span class="serif">differently</span></h2>
-        
-        <div class="approach-grid reveal">
-            <div class="approach-card">
-                <div class="approach-number">01</div>
-                <h3>Partner, don't sell</h3>
-                <p>We don't do demos and disappear. We embed with your team, learn your operations, and build intelligence that actually fits how you work. Our success is tied to yours.</p>
-            </div>
-            <div class="approach-card">
-                <div class="approach-number">02</div>
-                <h3>Domain expertise first</h3>
-                <p>We build for industries we understand from the inside. Our founder grew up pulling wire on job sites. We know the workflows, the relationships, and the economics.</p>
-            </div>
-            <div class="approach-card">
-                <div class="approach-number">03</div>
-                <h3>Your intelligence, forever</h3>
-                <p>The intelligence we build for you stays with you. Private models that learn from your data, improve with your projects, and never get shared with competitors or used to train public systems.</p>
+    <section class="approach-section" id="about">
+        <div class="approach-inner">
+            <span class="section-label">History</span>
+            
+            <div class="timeline-wrapper reveal">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2017</span> – Founded by <strong style="color: var(--accent-blue);">US Air Force Veteran</strong> and <strong style="color: #555555;">Data Entrepreneur</strong> Collin Graves</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2018</span> – Global Launch Partner of Amazon's BI Tool "QuickSight"</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2020</span> – Recognized as a Premier Partner with Snowflake</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2021</span> – Named a "Top Veteran-owned IT Company" by Clutch</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2022</span> – Focused on long-term partnerships versus being a consulting resource</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2024</span> – TradeSmith launched as our flagship solution for trade-driven industries</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content"><span class="timeline-year">2026</span> – Driving excellence through continued customer EBITDA and success criteria</div>
+                    </div>
+                </div>
+                <div class="timeline-image">
+                    <img src="b1-bomber.png" alt="B-1 Bomber">
+                    <p style="font-size: 0.55rem; color: rgba(0,0,0,0.12); margin-top: 0.4rem; text-align: center; letter-spacing: 0.01em; line-height: 1.26;">New Customers get 12% off the first quarter of their engagement when naming this plane before signing.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section" id="contact">
-        <div class="cta-inner">
-            <h2>Ready to own your <span class="serif">intelligence?</span></h2>
-            <p>Whether you're a contractor ready to transform your operations or an industrial operator exploring what intelligence can do—we'd like to hear from you.</p>
-            <div class="cta-buttons">
-                <a href="/tradesmith" class="btn-primary">Explore Tradesmith</a>
-                <a href="mailto:hello@northlabs.io" class="btn-secondary">Start a Conversation</a>
-            </div>
+        <h2>Ready for <span class="accent-text">real results?</span></h2>
+        <p>Let's discuss your data challenges and how we might help.</p>
+        <div class="cta-buttons">
+            <a href="mailto:hello@northlabs.io" class="btn-primary">Have a Conversation</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-brand">
-            <div class="logo-mark">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
-                </svg>
-            </div>
-            North Labs
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
         </div>
         <div class="footer-links">
-            <a href="/tradesmith">Tradesmith</a>
+            <a href="#solutions">Solutions</a>
             <a href="/about">About</a>
             <a href="#">Privacy</a>
+            <a href="https://www.linkedin.com/company/north-labs" target="_blank">LinkedIn</a>
         </div>
         <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
     </footer>
 
     <script>
@@ -1042,7 +2317,7 @@
                 const elementTop = el.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
-                if (elementTop < windowHeight - 100) {
+                if (elementTop < windowHeight - 80) {
                     el.classList.add('visible');
                 }
             });
