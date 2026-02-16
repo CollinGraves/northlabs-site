@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4TellX | Case Study | North Labs</title>
+    <title>30% Faster Clinical Reconciliation | Case Study | North Labs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -11,35 +11,18 @@
         :root {
             --bg-primary: #ffffff;
             --bg-secondary: #f8f9fb;
-            --bg-tertiary: #f0f2f5;
-            --bg-card: #ffffff;
             --text-primary: #0a0c10;
             --text-secondary: #5c6370;
             --text-muted: #8b919e;
             --accent-blue: #0b73b9;
             --accent-blue-dim: rgba(11, 115, 185, 0.12);
             --border-subtle: rgba(0, 0, 0, 0.08);
-            --border-hover: rgba(0, 0, 0, 0.15);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 1.5rem 5rem 1.5rem 3.35rem;
-            display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
-        }
-
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 5rem 1.5rem 3.35rem; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%); }
         .logo-area { display: flex; align-items: center; gap: 0.75rem; }
         .northlabs-logo { height: 28px; width: auto; }
         .logo-divider { width: 1px; height: 20px; background: var(--border-subtle); }
@@ -47,12 +30,7 @@
         .nav-links { display: flex; align-items: center; gap: 2rem; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: var(--text-primary); }
-
-        .btn-primary {
-            background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem;
-            border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem;
-            transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
-        }
+        .btn-primary { background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2); }
         .btn-primary:hover { background: #222222; }
 
         .case-hero { padding: 8rem 5rem 3rem; max-width: 900px; position: relative; }
@@ -84,8 +62,6 @@
         .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
         .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
         .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
-        .case-content p:last-child { margin-bottom: 0; }
-
         .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
         .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
 
@@ -110,7 +86,7 @@
 
         .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
         .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
-        .quote-box::before { content: '\201C'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
+        .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
         .quote-box blockquote { font-size: 1.0625rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; font-style: italic; padding-left: 1.5rem; }
         .quote-attribution { margin-top: 1rem; padding-left: 1.5rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
 
@@ -150,107 +126,93 @@
 
     <nav>
         <div class="logo-area">
-            <a href="index.html"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
+            <a href="/"><img src="../logo-full.png" alt="North Labs" class="northlabs-logo"></a>
             <div class="logo-divider"></div>
             <span class="page-title">Case Study</span>
         </div>
         <div class="nav-links">
-            <a href="case-studies.html">All Case Studies</a>
-            <a href="index.html" class="btn-primary">Contact Us</a>
+            <a href="/case-studies/">All Case Studies</a>
+            <a href="/" class="btn-primary">Contact Us</a>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="case-hero">
-        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
-
+        <a href="/case-studies/" class="back-link">← Back to Case Studies</a>
         <div class="case-meta">
-            <span class="case-industry">Education Technology (K–12)</span>
+            <span class="case-industry">Healthcare</span>
         </div>
-
-        <h1>How North Labs contributed to <span class="accent-text">48% revenue growth</span> for an EdTech company</h1>
-
-        <p class="subtitle">4TellX, a K–12 predictive analytics company, needed to transform how it managed and presented data for school districts. North Labs rebuilt their data infrastructure, redesigned their analytics platform, and helped drive measurable business growth.</p>
+        <h1>30% Faster Clinical Reconciliation with <span class="accent-text">CareSense</span></h1>
+        <p class="subtitle">How North Labs deployed CareSense to transform healthcare operations—delivering clinical intelligence to the right person, at the right time, enabling the right decisions for both patient care and business performance.</p>
     </section>
 
     <div class="hero-quote">
         <div class="hero-quote-box">
-            <blockquote>"It feels like the North Labs team takes our work seriously and cares about what we're doing. They give us suggestions just like any invested partner would do. They think about what we're trying to accomplish and what our clients need before offering a tailored solution."</blockquote>
-            <p class="hero-quote-attribution">— Roy Nieto, CEO, 4TellX</p>
+            <blockquote>"Intelligence delivered to the right person at the right time—that's what CareSense means for our organization. We finally have operational resilience."</blockquote>
+            <p class="hero-quote-attribution">— VP of Operations, Regional Healthcare Provider</p>
         </div>
     </div>
 
-    <!-- Challenge -->
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
         <h2>The Challenge</h2>
-        <p>4TellX is a predictive analytics company built for education. Their platform continually collects and organizes student data across multiple district database systems, using algorithms explicitly designed for K–12 clients. The richer the data source they can build for a district, the more they can help administrators avoid poor performance, reduce teacher turnover, and make better decisions about resource allocation.</p>
-        <p>But as a growing EdTech startup, 4TellX lacked the technical resources to keep up with client demand. Complex data requests were piling up, and the team didn't have the engineering depth to respond at the speed the market required.</p>
-        <p>"It was a challenge to deal with all of the complex client requests," said CEO Roy Nieto. "We simply did not have the technological expertise on our team to be able to respond as quickly as we wanted."</p>
-
+        <p>A regional healthcare provider was grappling with the triple threat facing mid-market health systems: staffing turnover draining institutional knowledge, siloed data across clinical and revenue cycle departments, and manual reconciliation processes consuming hundreds of staff hours each month.</p>
+        <p>With administrative turnover reaching nearly 40% annually, critical operational knowledge was walking out the door. Revenue cycle teams relied on tribal knowledge and fragmented spreadsheets, making clinical reconciliation slow, error-prone, and impossible to scale.</p>
         <div class="case-callout">
-            <p>Rather than hiring a single developer to build an in-house reporting tool, Roy sought a technology partner who could solve the full spectrum of data challenges — from infrastructure to client-facing analytics.</p>
+            <p>The institution needed a system of intelligence—not just reporting—that could capture institutional knowledge, automate reconciliation workflows, and deliver actionable insights regardless of staff turnover.</p>
         </div>
     </section>
 
-    <!-- Business Impact -->
     <section class="case-impact">
         <div class="case-impact-inner">
             <h2>Business Impact</h2>
             <div class="impact-grid">
                 <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                    <h3>48% Revenue Growth</h3>
-                    <p>Thanks to the enthusiastic reception of the new dashboards and platform, 4TellX projected doubling revenue within twelve months. "Clients love our dashboards, and that helps us grow," said Roy.</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                    <h3>80% Faster Load Times</h3>
-                    <p>Data loading time dropped from as much as fifteen seconds to as low as three seconds — a transformation that kept district administrators engaged and coming back.</p>
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h3>30% Faster Reconciliation</h3>
+                    <p>Clinical reconciliation cycle times reduced by 30% through automated workflows and intelligent data matching across systems.</p>
                 </div>
                 <div class="impact-card">
                     <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h3>Deeper Client Engagement</h3>
-                    <p>School districts became more enthusiastic and engaged as they saw the platform's evolution — accessing data from multiple sources in seconds rather than waiting on manual reports.</p>
+                    <h3>Turnover-Resilient Operations</h3>
+                    <p>Institutional knowledge captured in the intelligence layer, ensuring operational continuity regardless of staff changes.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <h3>Intelligence at the Point of Decision</h3>
+                    <p>Right information delivered to the right person at the right time—transforming reactive reporting into proactive decision-making.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution -->
     <section class="case-solution">
         <h2>The Solution</h2>
-        <p>North Labs spent time understanding the why behind 4TellX's efforts — what the EdTech company ultimately needed to accomplish with its data and how school district administrators would consume insights day to day.</p>
-        <p>The team recommended that 4TellX abandon its existing reporting path and instead adopt a cloud-native, serverless analytics platform. North Labs connected and combined data from many different sources — district databases, third-party data, spreadsheets, and SaaS platforms — into a single interactive dashboard environment with usage-based pricing that fit 4TellX's budget.</p>
-        <p>In just six weeks, North Labs rebuilt the entire analytics interface, improving the look, feel, and performance of the platform. After speaking directly with 4TellX's school district customers, the team added intuitive color coordination and built custom reports that the client hadn't even requested — proactively delivering value based on what administrators actually needed.</p>
-        <p>Beyond the front end, North Labs also reconstructed 4TellX's extract, transform, and load (ETL) process, making the entire data pipeline run smoother while lowering costs. The result: a dramatically faster, more reliable system that school districts could depend on.</p>
+        <p>North Labs deployed CareSense as a comprehensive system of intelligence for the healthcare provider. Rather than layering another reporting tool on top of existing silos, CareSense was built to serve as the operational backbone—ingesting data from clinical, financial, and administrative systems into a unified intelligence layer.</p>
+        <p>The engagement followed a fractionalized Chief Data Officer (CDO) approach: North Labs handled the heavy lifting of data transformation, business logic mapping, and stakeholder alignment, while ensuring the institution maintained full ownership of their data and intellectual property through tenant-isolated, HIPAA-compliant deployment.</p>
+        <p>Automated reconciliation workflows replaced manual cross-referencing, while intelligent alerting ensured that exceptions and anomalies surfaced to the right team members in real time.</p>
     </section>
 
-    <!-- Outcome -->
     <section class="case-outcome">
         <h2>The Outcome</h2>
-        <p>With North Labs as a partner, 4TellX transformed from a resource-constrained EdTech startup into a platform that school districts enthusiastically adopt. The data infrastructure now scales with the business, the analytics are fast and intuitive, and the company's revenue trajectory reflects the quality of what they deliver.</p>
-        <p>"We were excited about what the North Labs team had done for us in such a short period," said Roy. "All of that effort proved that we made the right decision. Clients love our dashboards, and that plays a massive part in our ability to scale our business."</p>
+        <p>The healthcare provider now operates with a clinical intelligence platform that has reduced reconciliation time by 30%, captured institutional knowledge in a durable system, and empowered staff to focus on high-value patient care rather than manual data wrangling.</p>
+        <p>CareSense continues to expand across the organization, with new use cases in denials management, staffing optimization, and predictive analytics for patient volume forecasting—each module building on the foundational intelligence layer.</p>
     </section>
 
-    <!-- CTA -->
     <section class="case-cta">
         <h2>Interested in working with us?</h2>
-        <p>Let's talk about how North Labs can help transform your data into a growth engine.</p>
-        <a href="index.html" class="cta-btn">Contact Us →</a>
+        <p>Let's talk about how North Labs can help unlock the value in your data.</p>
+        <a href="/" class="cta-btn">Contact Us →</a>
     </section>
 
     <footer>
-        <div class="footer-brand">
-            <a href="index.html"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a>
-        </div>
+        <div class="footer-brand"><a href="/"><img src="../logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
         <div class="footer-links">
-            <a href="index.html#solutions">Solutions</a>
-            <a href="index.html#about">About</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#about">About</a>
             <a href="#">Privacy</a>
         </div>
         <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
-        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+        <img src="../veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
     </footer>
 
 </body>
