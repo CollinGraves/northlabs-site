@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estimation Automation Across 40+ Sites | Case Study | North Labs</title>
+    <title>Protos Security | Case Study | North Labs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -11,18 +11,35 @@
         :root {
             --bg-primary: #ffffff;
             --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
             --text-primary: #0a0c10;
             --text-secondary: #5c6370;
             --text-muted: #8b919e;
             --accent-blue: #0b73b9;
             --accent-blue-dim: rgba(11, 115, 185, 0.12);
             --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 5rem 1.5rem 3.35rem; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%); }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
         .logo-area { display: flex; align-items: center; gap: 0.75rem; }
         .northlabs-logo { height: 28px; width: auto; }
         .logo-divider { width: 1px; height: 20px; background: var(--border-subtle); }
@@ -30,7 +47,12 @@
         .nav-links { display: flex; align-items: center; gap: 2rem; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease; }
         .nav-links a:hover { color: var(--text-primary); }
-        .btn-primary { background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2); }
+
+        .btn-primary {
+            background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem;
+            border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem;
+            transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
+        }
         .btn-primary:hover { background: #222222; }
 
         .case-hero { padding: 8rem 5rem 3rem; max-width: 900px; position: relative; }
@@ -62,6 +84,8 @@
         .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
         .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
         .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        .case-content p:last-child { margin-bottom: 0; }
+
         .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
         .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
 
@@ -86,7 +110,7 @@
 
         .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
         .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
-        .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
+        .quote-box::before { content: '\201C'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
         .quote-box blockquote { font-size: 1.0625rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; font-style: italic; padding-left: 1.5rem; }
         .quote-attribution { margin-top: 1rem; padding-left: 1.5rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
 
@@ -126,92 +150,110 @@
 
     <nav>
         <div class="logo-area">
-            <a href="index.html"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
+            <a href="/"><img src="../logo-full.png" alt="North Labs" class="northlabs-logo"></a>
             <div class="logo-divider"></div>
             <span class="page-title">Case Study</span>
         </div>
         <div class="nav-links">
-            <a href="case-studies.html">All Case Studies</a>
-            <a href="index.html" class="btn-primary">Contact Us</a>
+            <a href="/case-studies/">All Case Studies</a>
+            <a href="/" class="btn-primary">Contact Us</a>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="case-hero">
-        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
+        <a href="/case-studies/" class="back-link">← Back to Case Studies</a>
+
         <div class="case-meta">
-            <span class="case-industry">Real Estate Development</span>
+            <span class="case-industry">Security Services</span>
         </div>
-        <h1>Estimation Automation Across <span class="accent-text">40+ Sites</span></h1>
-        <p class="subtitle">How North Labs deployed TradeSmith to automate estimation workflows across a national real estate development portfolio, eliminating bottlenecks and enabling data-driven project planning at scale.</p>
+
+        <h1>Protos Security revamps its technology and data infrastructure to achieve <span class="accent-text">compliance readiness</span></h1>
+
+        <p class="subtitle">How North Labs helped a national security services company rebuild its entire technology and data infrastructure from the ground up — achieving SOC 2 compliance readiness while eliminating misconfigurations, reducing costs, and enabling scalable growth.</p>
     </section>
 
     <div class="hero-quote">
         <div class="hero-quote-box">
-            <blockquote>"Estimation is no longer a bottleneck across our portfolio. We can now move at the speed the market demands."</blockquote>
-            <p class="hero-quote-attribution">— Director of Project Management, Real Estate Development Company</p>
+            <blockquote>"I enjoy working with the North Labs team because they are extremely knowledgeable and professional, as well as open to learning. We achieved what we set out to do because we worked in partnership to develop the right solution."</blockquote>
+            <p class="hero-quote-attribution">— Robert Atherton, Senior Software Engineer, Protos Security</p>
         </div>
     </div>
 
+    <!-- Challenge -->
     <section class="case-content">
         <hr class="section-divider" style="margin-bottom: 2rem;">
         <h2>The Challenge</h2>
-        <p>A major real estate development company managing over 40 active sites nationwide was struggling with estimation accuracy and speed. Each site operated with its own processes, spreadsheets, and tribal knowledge, making it impossible to standardize cost projections or identify patterns across the portfolio.</p>
-        <p>Project managers spent hours manually compiling estimates from fragmented data sources—historical costs, vendor quotes, labor schedules, and material pricing—leading to inconsistencies and delayed project timelines.</p>
+        <p>Protos Security has built a unique model in the security industry — matching clients with security officers and off-duty police officers from a network of more than four thousand vetted security services providers. Part software company, part security guard management company, Protos Security handles sensitive customer data at scale every day.</p>
+        <p>To continue growing and expand its customer base, the company needed to meet the compliance standards that enterprise clients require — starting with SOC 2. The Trust Services Principles governing security, availability, processing integrity, confidentiality, and privacy all needed to be demonstrably met.</p>
+        <p>"Since we collect customer data, it was critical that we achieve SOC 2 compliance," said Senior Software Engineer Robert Atherton. "To do that, we needed to make our data environment more secure than it was."</p>
+        <p>But the problem ran deeper than a compliance checklist. Protos Security's existing cloud environment had accumulated misconfigurations and abandoned resources over time — unnecessarily costing money each month and creating security gaps. As the company grew, manual processes that were once manageable became liabilities.</p>
+
         <div class="case-callout">
-            <p>With 40+ concurrent sites, the lack of a unified estimation platform meant every project was essentially starting from scratch—wasting institutional knowledge and compounding inefficiencies across the portfolio.</p>
+            <p>"The way our platform was originally built, it took time and effort to work within our infrastructure. On top of that, we didn't have the level of data security that we needed. Now that we've grown, we need a technology and data infrastructure that can scale with us."</p>
         </div>
     </section>
 
+    <!-- Business Impact -->
     <section class="case-impact">
         <div class="case-impact-inner">
             <h2>Business Impact</h2>
             <div class="impact-grid">
                 <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Compliance-Ready Infrastructure</h3>
+                    <p>"We have a good sense of where our infrastructure relates to compliance. We won't have any surprises when we have our audit. We will have already found and mitigated all of the security issues."</p>
+                </div>
+                <div class="impact-card">
                     <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-                    <h3>40+ Sites Unified</h3>
-                    <p>All active development sites brought onto a single estimation platform with standardized workflows and shared intelligence.</p>
+                    <h3>Massive Operational Efficiency</h3>
+                    <p>"The way we had things set up, what we needed was all over the place. Now we have a one-stop shop. We're able to make a change in just one place that affects multiple resources."</p>
                 </div>
                 <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                    <h3>Estimation No Longer a Bottleneck</h3>
-                    <p>Automated data aggregation and historical pattern matching reduced estimation cycle times from days to hours.</p>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                    <h3>Portfolio-Wide Visibility</h3>
-                    <p>Leadership gained real-time insight into estimation accuracy, cost trends, and project health across the entire portfolio.</p>
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Reduced Costs & Time Saved</h3>
+                    <p>"We expect to save time and money thanks to the work North Labs has done for us. Not only do we have the proper infrastructure, but we also have the tools we need to manage it."</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Solution -->
     <section class="case-solution">
         <h2>The Solution</h2>
-        <p>North Labs deployed TradeSmith as the estimation intelligence layer across the client's entire portfolio. The platform ingested historical project data, vendor pricing databases, and labor models to create a unified estimation engine that could serve all 40+ sites simultaneously.</p>
-        <p>The rollout was phased—starting with the highest-volume sites to validate the model, then expanding rapidly as estimation accuracy and speed improvements were confirmed. Custom workflows were built for each project type while maintaining standardized outputs for executive reporting.</p>
+        <p>North Labs had previously partnered with Protos Security on a database migration project. When compliance became the priority, the security company returned to North Labs for help.</p>
+        <p>"We knew we needed to have the right security controls when it came to the data we collect," said Robert. "The problem was that we didn't know what we didn't know when it came to data infrastructure security. Thankfully, North Labs was there to help."</p>
+        <p>After examining the existing environment, the North Labs team determined that patching individual misconfigurations wouldn't be enough. The best path forward was to rebuild the entire technology and data infrastructure from scratch using modern best practices — purpose-built for compliance from day one rather than retroactively patched.</p>
+        <p>North Labs created infrastructure-as-code modules and CI/CD pipelines for Protos Security's services, along with the supporting infrastructure needed to securely and efficiently deploy and manage resources in a repeatable, scalable manner. Every component was designed with compliance controls baked in — covering security, availability, processing integrity, confidentiality, and privacy.</p>
+        <p>Once the new environment was built, the team assisted Protos Security with migrating all services from the legacy infrastructure to the new compliance-ready environment — ensuring zero disruption to their security operations.</p>
     </section>
 
+    <!-- Outcome -->
     <section class="case-outcome">
         <h2>The Outcome</h2>
-        <p>The client now operates with a standardized, automated estimation workflow across their entire national portfolio. Site-level teams spend less time compiling data and more time on value-added analysis and decision-making.</p>
-        <p>The platform continues to learn from each completed project, improving estimation accuracy over time and giving leadership unprecedented visibility into portfolio performance and cost trends.</p>
+        <p>Protos Security now operates on a modern, compliance-ready technology and data infrastructure — built from the ground up with security controls embedded at every layer. The company is fully prepared for its SOC 2 audit with confidence that no surprises will surface.</p>
+        <p>Beyond compliance, the rebuilt infrastructure eliminated abandoned resources that were costing money, consolidated management into a single streamlined interface, and gave the engineering team the tools they need to scale securely as Protos Security continues to grow its national footprint in the security services industry.</p>
+        <p>"The North Labs team demonstrated their professional skills and collaborative culture throughout the entire process," said Robert. "They were pivotal in helping us reach our goals."</p>
     </section>
 
+    <!-- CTA -->
     <section class="case-cta">
         <h2>Interested in working with us?</h2>
-        <p>Let's talk about how North Labs can help unlock the value in your data.</p>
-        <a href="index.html" class="cta-btn">Contact Us →</a>
+        <p>Let's talk about how North Labs can help modernize your technology and data infrastructure for compliance and growth.</p>
+        <a href="/" class="cta-btn">Contact Us →</a>
     </section>
 
     <footer>
-        <div class="footer-brand"><a href="index.html"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
+        <div class="footer-brand">
+            <a href="/"><img src="../logo-full.png" alt="North Labs" class="footer-logo-img"></a>
+        </div>
         <div class="footer-links">
             <a href="index.html#solutions">Solutions</a>
             <a href="index.html#about">About</a>
             <a href="#">Privacy</a>
         </div>
         <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
-        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+        <img src="../veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
     </footer>
 
 </body>
