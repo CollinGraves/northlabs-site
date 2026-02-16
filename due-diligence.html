@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Due Diligence for Private Equity | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .brought-by {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .northlabs-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .northlabs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+
+        .northlabs-link:hover .northlabs-logo {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            background: #222222;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            z-index: 110;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--bg-primary);
+            z-index: 105;
+            padding: 5rem 2rem 2rem;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-blue);
+        }
+
+        .mobile-menu .nav-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 104;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 8rem 5rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 7.5rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 326px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 2.4rem;
+            height: 2px;
+            background: #0b73b9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 900px;
+            padding-left: 2rem;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .hero h1 .serif {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding-left: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 0;
+            grid-column: 1 / -1;
+            justify-content: center;
+            column-gap: 4rem;
+            margin-left: -2rem;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+            max-width: 170px;
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 1rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.8125rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 780px;
+            text-align: center;
+            font-style: normal;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+        }
+
+        /* Sections */
+        section {
+            padding: 2.4rem 5rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .section-intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-secondary);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+            max-width: 80%;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 3px solid #2d2d2d;
+        }
+
+        .problem-card-icon {
+            width: 28px;
+            height: 28px;
+            margin-bottom: 0.6rem;
+        }
+
+        .problem-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #2d2d2d;
+        }
+
+        .accent-red {
+            color: #c75a5a;
+            font-weight: 700;
+        }
+
+        .problem-card-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #b05050;
+            margin-bottom: 0.25rem;
+            background: #faf0f0;
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .problem-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .problem-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Two Paths Section */
+        .paths-section {
+            background: var(--bg-primary);
+        }
+
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .path-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), #0a6ba6);
+        }
+
+        .path-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .path-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .path-card > p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            margin-bottom: 0.6rem;
+        }
+
+        .path-example {
+            padding: 0.6rem 1rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.8125rem;
+            line-height: 1.45;
+            color: var(--text-secondary);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 0.6rem;
+        }
+
+        .path-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 0.11rem;
+        }
+
+        .path-bullets span {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .path-bullets span::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        /* Services Section - Flow Diagram */
+        .services-section {
+            background: #f3f4f6;
+        }
+
+        .flow-diagram {
+            margin-top: 1.25rem;
+            position: relative;
+        }
+
+        /* The continuous timeline line */
+        .flow-track {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .flow-track::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            background: var(--accent-blue);
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        /* Step nodes along the line */
+        .flow-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .flow-step {
+            flex: 1;
+            text-align: center;
+        }
+
+        .flow-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step .flow-dot {
+            margin: 0 auto 0.5rem;
+        }
+
+        .flow-step-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .flow-step-desc {
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .flow-step-desc {
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        /* Why Section */
+        .why-section {
+            background: var(--bg-primary);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5f8 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+        }
+
+        .why-number {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.125rem;
+        }
+
+        .why-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .why-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.24;
+        }
+
+        /* Case Studies Section */
+        .casestudies-section {
+            background: #d9d9d9;
+        }
+
+        .casestudies-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), #0a6ba6);
+        }
+
+        .case-card-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 0;
+        }
+
+        .case-card-left {
+            padding: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .case-card-right {
+            padding: 1.5rem;
+            padding-bottom: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .case-vertical-tag {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--accent-blue-dim);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .case-card-left h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 0.6rem;
+        }
+
+        .case-card-left > p {
+            font-size: 0.9375rem;
+            line-height: 1.4;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .case-target-desc {
+            padding: 0.4rem 0.6rem;
+            background: var(--bg-secondary);
+            border-left: 2px solid var(--accent-blue);
+            font-size: 0.75rem;
+            line-height: 1.3;
+            color: var(--text-secondary);
+            font-style: normal;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .case-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-bottom: 1rem;
+        }
+
+        .case-stat {
+            text-align: center;
+            padding: 0.75rem 0.4rem;
+            background: var(--bg-secondary);
+        }
+
+        .case-stat:nth-child(2) {
+            border-left: 1px solid var(--border-subtle);
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .case-stat-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 0.1rem;
+        }
+
+        .case-stat-label {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            line-height: 1.25;
+        }
+
+        .case-findings {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-finding {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+            gap: 0.6rem;
+            align-items: start;
+        }
+
+        .case-finding-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            margin-top: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .case-finding p {
+            font-size: 0.8125rem;
+            line-height: 1.2;
+            color: var(--text-secondary);
+        }
+
+        .case-finding p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .case-generalist-miss {
+            padding: 0.625rem 1.5rem;
+            background: #fffdf5;
+            border-top: 1px solid var(--border-subtle);
+            border-radius: 0 0 12px 12px;
+        }
+
+        .case-generalist-miss-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #b8960c;
+            margin-bottom: 0.35rem;
+        }
+
+        .case-generalist-miss p {
+            font-size: 0.8125rem;
+            line-height: 1.35;
+            color: var(--text-secondary);
+        }
+
+        /* Referral Banner */
+        .referral-banner {
+            background: var(--accent-blue);
+            padding: 1.06rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .referral-stat {
+            font-size: clamp(1.25rem, 2.85vw, 2.06rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .referral-stat span {
+            color: #ffffff;
+        }
+
+        .referral-rule {
+            width: 2px;
+            height: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .referral-headline {
+            font-size: clamp(0.83rem, 1.47vw, 1.01rem);
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.3;
+            margin: 0;
+            max-width: 700px;
+        }
+
+        .referral-body {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Verticals Section */
+        .verticals-section {
+            background: var(--bg-primary);
+        }
+
+        .verticals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .vertical-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .vertical-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: var(--text-primary);
+        }
+
+        .vertical-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.44;
+        }
+
+        /* Process Section - Quote */
+        .process-section {
+            background: #f0f5f8;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .dd-quote-block {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .dd-quote-portrait {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .dd-quote-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .dd-quote-content blockquote {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .dd-quote-author {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-primary);
+            text-align: center;
+            padding: 2.5rem 5rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .cta-email {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .cta-section .cta-email a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .cta-section .cta-email a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .problem-grid,
+            .why-grid,
+            .verticals-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .paths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-track {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .flow-track::before {
+                display: none;
+            }
+
+            .case-card-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu,
+            .mobile-overlay {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .case-stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .case-stat:nth-child(2) {
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid var(--border-subtle);
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .case-card-left,
+            .case-card-right {
+                padding: 1.5rem;
+            }
+
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+
+            .referral-banner {
+                padding: 1rem 1.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <span class="solution-title">Due Diligence</span>
+            <div class="logo-divider"></div>
+            <span class="brought-by">Brought to you by</span>
+            <a href="https://northlabs.io" class="northlabs-link">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#how-we-help">How We Help</a>
+            <a href="#how-we-help">Services</a>
+            <a href="#approach">Approach</a>
+            <a href="#case-studies">Results</a>
+            <a href="#contact" class="nav-cta">Start a Conversation</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#how-we-help">How We Help</a>
+        <a href="#how-we-help">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#case-studies">Results</a>
+        <a href="#contact" class="nav-cta">Start a Conversation</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Technology Due Diligence for Private Equity</span>
+            <h1>Technology diligence that shapes better deals and drives <span class="accent-text">real value creation.</span></h1>
+            <p class="hero-sub">We evaluate technology in businesses where work happens in the field—whether you're acquiring the software company or the operating company that runs on it. We've built both.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn-primary">Start a Conversation</a>
+                <a href="#how-we-help" class="btn-secondary">How We Help</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="diligence-person.png" alt="Due diligence professional">
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number">$135B</div>
+                <div class="hero-stat-label">PE Capital into Industrial & Construction (2024)</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">1,800+</div>
+                <div class="hero-stat-label">Industrial PE Deals Closed in 2024</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">33%</div>
+                <div class="hero-stat-label">YoY Growth in Construction M&A</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">1</div>
+                <div class="hero-stat-label">Dedicated Diligence Offering from Industry-Native Practitioners</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"North Labs was an invaluable partner during our side-sell diligence. Their team didn't just provide reports; they collaborated deeply with our staff, bringing a level of expertise that gave us total confidence in the process." <span class="testimonial-banner-author">— Nate Alvar, VP of Engineering, FMG</span></span>
+    </div>
+
+    <section class="problem-section">
+        <div class="section-inner">
+            <span class="section-label">The Problem</span>
+            <h2 class="section-title">Three <span class="accent-red">gaps</span> we fill.</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg></div>
+                    <div class="problem-card-label">The Generalist Gap</div>
+                    <h3>They have the same playbook for construction as they do FinTech</h3>
+                    <p>Generalist providers can tell you if the code is well-written. They can't tell you if the product works in the field—if the app runs without cell service, if estimating handles regional labor rates, or if the payment flow matches how trades businesses get paid.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg></div>
+                    <div class="problem-card-label">The Industry Gap</div>
+                    <h3>Know the market, but can't evaluate the technology</h3>
+                    <p>Industry advisors understand buyers, structure, and growth. But when the target claims their AI "predicts project delays," these firms take the pitch deck at face value. Nobody on their team can open the hood.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg></div>
+                    <div class="problem-card-label">The Operating Company Gap</div>
+                    <h3>Who validates the technology thesis?</h3>
+                    <p>When you acquire a $300M mechanical contractor, the value creation plan says technology will drive efficiency. But who evaluates whether they can actually adopt new systems—what it will cost and how long it will take?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paths-section" id="how-we-help">
+        <div class="section-inner">
+            <span class="section-label">How We Help</span>
+            <h2 class="section-title">Two kinds of deals. <span class="accent-text">One team that understands both.</span></h2>
+            <p class="section-intro">Whether the target builds the technology or runs on it, we validate if the technology thesis holds up.</p>
+
+            <div class="paths-grid">
+                <div class="path-card">
+                    <div class="path-label">Engagement Type 01</div>
+                    <h3>Software & Platform Targets</h3>
+                    <p>Technology assessment of vertical SaaS, AI, and platform companies serving construction, trades, and industrial markets—evaluated by people who understand the end users.</p>
+                    <div class="path-example">"We're acquiring a field service management platform. Is the technology defensible? Is the AI real? What's the technical debt exposure?"</div>
+                    <div class="path-bullets">
+                        <span>Architecture & code quality deep-dive</span>
+                        <span>AI/ML capability validation</span>
+                        <span>Competitive moat & defensibility analysis</span>
+                        <span>EBITDA-quantified value creation roadmap</span>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-label">Engagement Type 02</div>
+                    <h3>Operating Company Targets</h3>
+                    <p>Technology posture assessment for PE firms acquiring contractors, manufacturers, and industrial services companies. We evaluate current state, size the transformation opportunity, and validate the thesis in your deal model.</p>
+                    <div class="path-example">"We're acquiring a $200M mechanical contractor. The deal model assumes $4M in technology-driven margin improvement. Can they actually get there?"</div>
+                    <div class="path-bullets">
+                        <span>Current technology stack & maturity assessment</span>
+                        <span>Technology transformation opportunity sizing</span>
+                        <span>Implementation roadmap & risk analysis</span>
+                        <span>100-day plan with projected EBITDA impact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-inner">
+            <span class="section-label">Service Structure</span>
+            <h2 class="section-title">Prioritizing the <span class="accent-text">customer's deal timeline.</span></h2>
+            <p class="section-intro">Fixed-fee. Defined scope. No surprises. Built for <strong>deal speed.</strong></p>
+
+            <div class="flow-diagram">
+                <div class="flow-track">
+                    <div class="flow-step">
+                        <div class="flow-dot">01</div>
+                        <div class="flow-step-title">Scoped Within 48 Hours</div>
+                        <p class="flow-step-desc">Fixed fee, defined deliverables, clear timeline. No discovery phase. No meter running.</p>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="flow-dot">02</div>
+                        <div class="flow-step-title">IC-Ready Deliverables</div>
+                        <p class="flow-step-desc">Reports built for the investment committee. Quantified risk, EBITDA-impact estimates, and clear recommendations.</p>
+                    </div>
+
+                    <div class="flow-step">
+                        <div class="flow-dot">03</div>
+                        <div class="flow-step-title">We Stay Through Close</div>
+                        <p class="flow-step-desc">Post-report support through negotiation and close. The same team builds the 100-day roadmap and executes it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section" id="approach">
+        <div class="section-inner">
+            <span class="section-label">Why North Labs</span>
+            <h2 class="section-title">We are <span class="accent-text">experts in building</span> the technology customers are evaluating.</h2>
+            <p class="section-intro">Practitioners from the trades who build production software today—not consultants who read about it.</p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-number">01</div>
+                    <h3>Operators First</h3>
+                    <p>Founded by a veteran who started in the trades. We know the operational reality technology has to survive.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">02</div>
+                    <h3>Builders, Not Observers</h3>
+                    <p>We operate production intelligence platforms for contractors today. When we identify an opportunity, we're the team that can build it.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">03</div>
+                    <h3>AI Depth That's Earned</h3>
+                    <p>Not a checkbox on "uses AI." We validate whether models deliver measurable value in field conditions—messy data, edge cases, and all.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">04</div>
+                    <h3>Value Creation, Not Just Risk</h3>
+                    <p>Beyond identifying problems—you get EBITDA-quantified opportunities, transformation roadmaps, and actionable implementation plans.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">05</div>
+                    <h3>Beyond the Report</h3>
+                    <p>The same team builds your 100-day roadmap and manages post-close transformation. One relationship from diligence through value creation.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">06</div>
+                    <h3>Deal-Speed Delivery</h3>
+                    <p>Fixed-fee, clear scope, IC-ready deliverables—not academic exercises. Senior practitioners on every engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="casestudies-section" id="case-studies">
+        <div class="section-inner">
+            <span class="section-label">Engagement Outcomes</span>
+            <h2 class="section-title">What this looks like <span class="accent-text">in practice.</span></h2>
+            <p class="section-intro">Three engagements across three verticals—each uncovering findings that generalist providers missed.</p>
+
+            <div class="casestudies-grid">
+                <!-- Case 1: Vertical SaaS -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Regulated Vertical SaaS</div>
+                            <h3>Validating the technology thesis behind a vertical SaaS platform in regulated financial services</h3>
+                            <p>A PE firm needed to know whether a platform serving 100,000+ financial professionals had genuine technology moats—or just captured share ahead of competitors.</p>
+                            <div class="case-target-desc">Leading vertical SaaS platform. $16M+ ARR, 100K+ users, 3 acquisitions consolidated onto unified architecture.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$87K</div>
+                                    <div class="case-stat-label">Avg. Eng Salary vs. $130K Industry</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">121%</div>
+                                    <div class="case-stat-label">Enterprise Net Revenue Retention</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">41.5%</div>
+                                    <div class="case-stat-label">Support Volume Reduction via AI</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Capital-efficient R&D engine</strong> — 2x output at 60% of industry cost with stable defect rates across three concurrent migrations</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Measurable AI ROI:</strong> shipped 4 months post-GPT-3.5, industry leader recognition, 2x content output with headcount reduction</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Proven M&A integration:</strong> 94-101% ARR retention across 3 migrations, $1M+ recurring savings from consolidation</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Critical database dependency</strong> — unmaintained open-source DB requiring 12-18 month migration, informing deal structuring</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-generalist-miss">
+                        <div class="case-generalist-miss-label">What a generalist may have missed</div>
+                        <p>Whether the AI generated compliance-grade output versus demo-ware. Whether R&D cost advantage was structural or just underpayment. How integrations preserved—or destroyed—the revenue that made each deal worth doing.</p>
+                    </div>
+                </div>
+
+                <!-- Case 2: Trades & Field Service -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Trades & Field Service</div>
+                            <h3>Rewriting the deal model for a field service platform by finding what generalist diligence missed</h3>
+                            <p>A prior generalist DD provider rated this platform favorably on standard metrics. We found five domain-specific issues that determined whether the deal thesis held.</p>
+                            <div class="case-target-desc">Field service platform for HVAC, plumbing, and electrical contractors. ~$45M ARR, 6,800+ customers, 185K monthly field technicians.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$8-14M</div>
+                                    <div class="case-stat-label">Incremental Annual Payment Revenue</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">5-6 pts</div>
+                                    <div class="case-stat-label">Churn Recharacterized as Seasonal</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">104-108%</div>
+                                    <div class="case-stat-label">Actual NRR (Stable Base)</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Flat-rate pricing engine was the real moat</strong> — 48K+ line items, regional labor rates, 18-22% ticket increase, 3-4 year replication barrier</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Offline sync was fragile:</strong> last-write-wins works for single techs, breaks for multi-crew commercial expansion the deal model assumed</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Embedded fintech undermonetized 40-60%</strong> — 1.1% take rate vs. 1.8-2.5% for peers. Processor renegotiation = largest value creation opportunity</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>AI scheduling was pre-production</strong> — 23% adoption. Optimized for drive time but ignored skill match, equipment, and cascading delays</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-generalist-miss">
+                        <div class="case-generalist-miss-label">What a generalist may have missed</div>
+                        <p>14% gross churn was actually 8-9% competitive plus seasonal patterns. Offline architecture couldn't survive commercial expansion. AI scheduling would fail because it didn't understand what dispatchers actually manage.</p>
+                    </div>
+                </div>
+
+                <!-- Case 3: Industrial -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-left">
+                            <div class="case-vertical-tag">Industrial & Manufacturing</div>
+                            <h3>Reframing a $200M+ industrial AI acquisition from "buy the models" to "protect the data"</h3>
+                            <p>A prior provider gave this a clean bill of health. We found three deal-level risks they missed—and a data monetization opportunity not in the deal model.</p>
+                            <div class="case-target-desc">Predictive maintenance platform for heavy manufacturing and industrial facilities. ~$38M ARR, 1.2M sensors, 14B daily data points across 340+ deployments.</div>
+                        </div>
+                        <div class="case-card-right">
+                            <div class="case-stats-row">
+                                <div class="case-stat">
+                                    <div class="case-stat-value">$6-12M</div>
+                                    <div class="case-stat-label">Data Monetization Opportunity Found</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">34%</div>
+                                    <div class="case-stat-label">ML False Positive Rate in Production</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="case-stat-value">3</div>
+                                    <div class="case-stat-label">Deal-Level Risks Prior DD Missed</div>
+                                </div>
+                            </div>
+                            <div class="case-findings">
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>Sensor data pipeline was the real asset</strong> — 17 industrial protocols, 18-24 months ahead. Reframed acquisition from "AI company" to "data infrastructure company"</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>ML accuracy overstated:</strong> 92% on curated data, 34% false positive rate in the field. Vibration models applied to equipment where vibration is irrelevant</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>OT security exposure missed by prior IT-focused assessment</strong> — SCADA/DCS adjacency in 38% of deployments, zero IEC 62443 alignment</p>
+                                </div>
+                                <div class="case-finding">
+                                    <div class="case-finding-dot"></div>
+                                    <p><strong>$6-12M data monetization opportunity</strong> unsized in the deal model — OEM benchmarking, insurance data licensing, energy analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-generalist-miss">
+                        <div class="case-generalist-miss-label">What a generalist may have missed</div>
+                        <p>Vibration-trained models produce noise on electrical switchgear. The OT boundary was the real security risk—not the cloud. The data pipeline was the real asset, not the AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="referral-banner">
+        <div class="referral-stat">100<span>%</span></div>
+        <div class="referral-rule"></div>
+        <h2 class="referral-headline">Every PE firm that's engaged us has used us for more due diligence, expanded to engineering execution, or referred us to another firm.</h2>
+    </div>
+
+    <section class="process-section">
+        <div class="section-inner">
+            <div class="dd-quote-block">
+                <div class="dd-quote-portrait">
+                    <img src="marian-pailden.png" alt="Marian Pailden">
+                </div>
+                <div class="dd-quote-content">
+                    <blockquote>"Our people have the scarce combination of deep technical experience, expert domain understanding, and proven advisory experience."</blockquote>
+                    <span class="dd-quote-author">— Marian Pailden, Manager - Operations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Evaluating a <span class="accent-text">deal?</span></h2>
+        <a href="mailto:collin@northlabs.co" class="btn-primary">Start a Conversation</a>
+        <span class="cta-email">Or reach out directly to our Managing Partner: <a href="mailto:collin@northlabs.io">collin@northlabs.io</a></span>
+    </section>
+
+    <footer>
+        <a href="https://northlabs.io">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="https://northlabs.io">← Back to North Labs</a>
+            <a href="https://northlabs.io/#solutions">All Solutions</a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

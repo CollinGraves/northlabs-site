@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunButter | Case Study | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .northlabs-logo {
+            height: 28px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .page-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: #333333;
+            color: #ffffff !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #222222;
+        }
+
+        /* Hero */
+        .case-hero {
+            padding: 8rem 5rem 3rem;
+            max-width: 900px;
+            position: relative;
+        }
+        .case-hero::after {
+            content: '';
+            position: absolute;
+            top: 58%;
+            right: -35%;
+            width: 104px;
+            height: 104px;
+            background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='5' height='5' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 13px 13px;
+            background-repeat: repeat;
+            pointer-events: none;
+            opacity: 1;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .case-hero::after { display: none; }
+        }
+
+        .case-hero .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-hero .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .case-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-industry {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .case-hero h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .case-hero h1 .accent-text {
+            color: var(--accent-blue);
+        }
+
+        .case-hero .subtitle {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 720px;
+        }
+
+        /* Content Section */
+        .case-content {
+            padding: 2rem 5rem 3rem;
+            max-width: 900px;
+        }
+
+        .case-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-content p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-content ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-content ul li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-content ul li strong {
+            color: var(--text-primary);
+        }
+
+        /* Callout */
+        .case-callout {
+            border-left: 3px solid var(--accent-blue);
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--accent-blue-dim);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .case-callout p {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Impact Section */
+        .case-impact {
+            padding: 3rem 5rem;
+            background: var(--bg-secondary);
+        }
+
+        .case-impact-inner {
+            max-width: 900px;
+        }
+
+        .case-impact h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .impact-card .impact-icon {
+            margin-bottom: 0.75rem;
+            width: 32px;
+            height: 32px;
+        }
+
+        .impact-card .impact-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .impact-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Solution Detail */
+        .case-solution {
+            padding: 3rem 5rem;
+            max-width: 900px;
+        }
+
+        .case-solution h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-solution p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-solution ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-solution ul li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-solution ul li strong {
+            color: var(--text-primary);
+        }
+
+        /* Outcome */
+        .case-outcome {
+            padding: 2rem 5rem 3rem;
+            max-width: 900px;
+        }
+
+        .case-outcome h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .case-outcome p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-outcome ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .case-outcome ul li {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        /* CTA */
+        .case-cta {
+            padding: 3rem 5rem;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .case-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-cta p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .case-cta .cta-btn {
+            display: inline-block;
+            background: #333333;
+            color: #ffffff !important;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .case-cta .cta-btn:hover {
+            background: #222222;
+        }
+
+        /* Divider */
+        .section-divider {
+            width: 3rem;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-brand a {
+            text-decoration: none;
+        }
+
+        .footer-logo-img {
+            height: 20px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-veteran {
+            height: 36px;
+            width: auto;
+            opacity: 0.6;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .case-hero {
+                padding: 6rem 1.5rem 2rem;
+            }
+
+            .case-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .case-content,
+            .case-solution,
+            .case-outcome {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .case-impact {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-cta {
+                padding: 2.5rem 1.5rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+            <div class="logo-divider"></div>
+            <span class="page-title">Case Study</span>
+        </div>
+        <div class="nav-links">
+            <a href="case-studies.html">All Case Studies</a>
+            <a href="https://northlabs.io" class="btn-primary">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="case-hero">
+        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
+
+        <div class="case-meta">
+            <span class="case-industry">Food Manufacturing</span>
+        </div>
+
+        <h1>SunButter builds a <span class="accent-text">unified data warehouse</span> to forecast business performance</h1>
+
+        <p class="subtitle">How North Labs helped a growing food manufacturer replace 21+ hours of monthly manual reporting with a centralized data warehouse, automated pipelines, and predictive analytics.</p>
+    </section>
+
+    <!-- Challenge -->
+    <section class="case-content">
+        <hr class="section-divider" style="margin-bottom: 2rem;">
+        <h2>The Challenge</h2>
+        <p>SunButter is a leading brand of sunflower seed butter, serving consumers with nut allergies across the country. As the business grew, their existing data program couldn't keep pace. Reporting was fragmented, slow, and entirely manual.</p>
+
+        <ul>
+            <li><strong>Sales leadership spent 21+ hours a month</strong> combining sales reports, industry trends, retail data, and wholesale inventory spreadsheets — relying on pivot tables and manual extraction for analysis.</li>
+            <li><strong>Inventory monitoring</strong> at the store and wholesale levels was based on "gut feeling" and trailing monthly reports, leaving the team reactive rather than predictive.</li>
+        </ul>
+
+        <div class="case-callout">
+            <p>SunButter needed to evolve from spreadsheets and intuition to a single source of truth — one that could centralize internal and external data, automate reporting, and power forward-looking decisions.</p>
+        </div>
+    </section>
+
+    <!-- Business Impact -->
+    <section class="case-impact">
+        <div class="case-impact-inner">
+            <h2>Business Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h3>21+ Hours Reclaimed Monthly</h3>
+                    <p>Eliminated days of manual data preparation, spreadsheet combining, and pivot table analysis — freeing sales leadership to focus on strategy.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                    <h3>Single Source of Truth</h3>
+                    <p>All internal and external data centralized in one place — enabling informed decisions on order fulfillment and region-specific sales performance.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <h3>Predictive Forecasting</h3>
+                    <p>Machine learning insights replaced "gut feeling" with data-driven predictions for inventory levels and sales trends — both horizontally over time and vertically across product lines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="case-solution">
+        <h2>The Solution</h2>
+        <p>North Labs evolved SunButter's data culture by designing and implementing a modern data warehouse backed by advanced cloud and data infrastructure. The solution addressed every layer of the data lifecycle — from automated ingestion through transformation, reporting, and predictive analytics.</p>
+
+        <h2>Goals</h2>
+        <ul>
+            <li>Eliminate manual intervention and data preparation entirely</li>
+            <li>Create a centralized source of truth combining internal and external data for reporting and ad-hoc analysis</li>
+            <li>Leverage data sharing for industry trends, retail data, wholesale inventory, and sales performance</li>
+            <li>Deploy machine learning for future inventory and sales predictions — replacing intuition with evidence</li>
+        </ul>
+
+        <h2>What We Built</h2>
+        <p>North Labs designed a comprehensive data platform using Snowflake as the central warehouse, with automated ingestion pipelines, serverless compute for data processing, and modern ETL tooling to transform raw data into queryable, reportable assets. The reporting layer was migrated from spreadsheets to Power BI, giving stakeholders interactive dashboards for the first time.</p>
+        <p>Predictive models were layered on top of the warehouse, providing ML-powered trend analysis and forecasting across both time-series and dimensional data — enabling the team to anticipate demand rather than react to it.</p>
+    </section>
+
+    <!-- Outcome -->
+    <section class="case-outcome">
+        <h2>The Outcome</h2>
+        <ul>
+            <li>Files are automatically uploaded and processed on a weekly basis, transformed into a usable form for querying, and mirrored in Snowflake to be leveraged in the BI tool of preference — completely hands-off.</li>
+            <li>With all data in one place, business stakeholders are able to make informed decisions regarding future order fulfillment and region- or store-specific sales, while eliminating days of work formatting and combining spreadsheets.</li>
+            <li>ML-powered insights and forecasting provide trend analysis and predictions across horizontal analytics (changes over a period of time) and vertical analytics (changes to a particular column or set of data) — turning raw data into forward-looking intelligence.</li>
+        </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta">
+        <h2>Interested in working with us?</h2>
+        <p>Let's talk about how North Labs can help you build a unified data foundation for your business.</p>
+        <a href="https://northlabs.io" class="cta-btn">Contact Us →</a>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <a href="https://northlabs.io">
+                <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://northlabs.io#solutions">Solutions</a>
+            <a href="https://northlabs.io#about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+    </footer>
+
+</body>
+</html>

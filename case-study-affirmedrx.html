@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AffirmedRx: Building an AI-Ready Foundation | Case Study | North Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 5rem 1.5rem 3.35rem; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%); }
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .northlabs-logo { height: 28px; width: auto; }
+        .logo-divider { width: 1px; height: 20px; background: var(--border-subtle); }
+        .page-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .btn-primary { background: #333333; color: #ffffff !important; padding: 0.625rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1.15rem; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.2); }
+        .btn-primary:hover { background: #222222; }
+
+        .case-hero { padding: 8rem 5rem 3rem; max-width: 900px; position: relative; }
+        .case-hero::after {
+            content: '';
+            position: absolute;
+            top: 58%;
+            right: -35%;
+            width: 104px;
+            height: 104px;
+            background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='5' height='5' fill='%232d8fca'/%3E%3C/svg%3E");
+            background-size: 13px 13px;
+            background-repeat: repeat;
+            pointer-events: none;
+            opacity: 1;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .case-hero::after { display: none; }
+        }
+        .case-hero .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent-blue); text-decoration: none; font-size: 0.875rem; font-weight: 500; margin-bottom: 2rem; transition: opacity 0.2s ease; }
+        .case-hero .back-link:hover { opacity: 0.7; }
+        .case-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .case-industry { font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
+        .case-hero h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .case-hero h1 .accent-text { color: var(--accent-blue); }
+        .case-hero .subtitle { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; max-width: 720px; }
+
+        .case-content { padding: 2rem 5rem 3rem; max-width: 900px; }
+        .case-content h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); margin-top: 1.5rem; }
+        .case-content p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+        .case-callout { border-left: 3px solid var(--accent-blue); padding: 1.25rem 1.5rem; margin: 2rem 0; background: var(--accent-blue-dim); border-radius: 0 8px 8px 0; }
+        .case-callout p { font-size: 0.9375rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 0; }
+
+        .case-impact { padding: 3rem 5rem; background: var(--bg-secondary); }
+        .case-impact-inner { max-width: 900px; }
+        .case-impact h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .impact-card { background: var(--bg-primary); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1.5rem; }
+        .impact-card .impact-icon { margin-bottom: 0.75rem; width: 32px; height: 32px; }
+        .impact-card .impact-icon svg { width: 32px; height: 32px; }
+        .impact-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .impact-card p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+
+        .hero-quote { padding: 0 5rem 1rem; max-width: none; }
+        .hero-quote-box { background: var(--accent-blue); border-radius: 8px; padding: 1.25rem 2rem; max-width: 630px; }
+        .hero-quote-box blockquote { font-size: 1rem; color: #ffffff; font-weight: 500; line-height: 1.6; font-style: italic; }
+        .hero-quote-attribution { margin-top: 0.5rem; font-size: 0.8125rem; color: rgba(255, 255, 255, 0.75); font-weight: 500; }
+
+        .case-solution { padding: 3rem 5rem; max-width: 900px; }
+        .case-solution h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-solution h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); margin-top: 1.5rem; }
+        .case-solution p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+
+        .case-quote { padding: 2.5rem 5rem; max-width: 900px; }
+        .quote-box { background: #f0f5f8; border-radius: 10px; padding: 2rem 2.5rem; position: relative; }
+        .quote-box::before { content: '"'; font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent-blue); position: absolute; top: 0.25rem; left: 1.5rem; line-height: 1; opacity: 0.4; }
+        .quote-box blockquote { font-size: 1.0625rem; color: var(--text-primary); font-weight: 500; line-height: 1.6; font-style: italic; padding-left: 1.5rem; }
+        .quote-attribution { margin-top: 1rem; padding-left: 1.5rem; font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
+
+        .case-outcome { padding: 2rem 5rem 3rem; max-width: 900px; }
+        .case-outcome h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .case-outcome h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); margin-top: 1.5rem; }
+        .case-outcome p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+
+        /* Comparison Table */
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; }
+        .comparison-table th { font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.75rem 1rem; text-align: left; border-bottom: 2px solid var(--border-subtle); color: var(--text-primary); }
+        .comparison-table th:first-child { color: var(--text-muted); }
+        .comparison-table th:last-child { color: var(--accent-blue); }
+        .comparison-table td { font-size: 0.875rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); color: var(--text-secondary); line-height: 1.5; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+
+        .phase-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+        .phase-list li { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem; padding-left: 1.25rem; position: relative; }
+        .phase-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--accent-blue); border-radius: 50%; }
+        .phase-list li strong { color: var(--text-primary); }
+
+        .case-cta { padding: 3rem 5rem; text-align: center; background: var(--bg-secondary); }
+        .case-cta h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .case-cta p { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .case-cta .cta-btn { display: inline-block; background: #333333; color: #ffffff !important; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.2s ease; }
+        .case-cta .cta-btn:hover { background: #222222; }
+
+        .section-divider { width: 3rem; height: 3px; background: var(--accent-blue); border-radius: 2px; margin: 0; }
+
+        footer { padding: 2rem 5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); }
+        .footer-brand a { text-decoration: none; }
+        .footer-logo-img { height: 20px; width: auto; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-veteran { height: 36px; width: auto; opacity: 0.6; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .case-hero { padding: 6rem 1.5rem 2rem; }
+            .case-hero h1 { font-size: 1.75rem; }
+            .case-content, .case-solution, .case-quote, .case-outcome { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .case-impact { padding: 2.5rem 1.5rem; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .case-cta { padding: 2.5rem 1.5rem; }
+            .comparison-table { font-size: 0.8125rem; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <a href="index-light.html"><img src="logo-full.png" alt="North Labs" class="northlabs-logo"></a>
+            <div class="logo-divider"></div>
+            <span class="page-title">Case Study</span>
+        </div>
+        <div class="nav-links">
+            <a href="case-studies.html">All Case Studies</a>
+            <a href="mailto:contact@northlabs.io" class="btn-primary">Contact Us</a>
+        </div>
+    </nav>
+
+    <section class="case-hero">
+        <a href="case-studies.html" class="back-link">← Back to Case Studies</a>
+        <div class="case-meta">
+            <span class="case-industry">Healthcare & Pharmacy</span>
+        </div>
+        <h1>Building an <span class="accent-text">AI-Ready Foundation</span> for Patient-Centric Healthcare</h1>
+        <p class="subtitle">How AffirmedRx and North Labs replaced technical debt with strategic innovation—combining a high-precision Snowflake migration with executive-level data advisory to establish a foundation built for patient-centric care.</p>
+    </section>
+
+    <div class="hero-quote">
+        <div class="hero-quote-box">
+            <blockquote>"North Labs delivered more than a technical migration; they delivered the clarity and strategic foresight required for AffirmedRx to lead as a Public Benefit Corporation."</blockquote>
+            <p class="hero-quote-attribution">— AffirmedRx Leadership</p>
+        </div>
+    </div>
+
+    <section class="case-content">
+        <hr class="section-divider" style="margin-bottom: 2rem;">
+        <h2>The Challenge</h2>
+        <p>AffirmedRx, a mission-driven Pharmacy Benefit Manager (PBM), required a data environment that reflected its commitment to clarity and integrity. Their existing infrastructure was burdened by legacy technical debt—outsized compute costs, rigid pipelines, and key-person dependencies that made the organization reactive instead of strategic.</p>
+        <p>Leadership needed more than a migration. They needed a partner who could modernize the stack while providing the executive-level advisory to ensure they wouldn't repeat past mistakes.</p>
+        <div class="case-callout">
+            <p>AffirmedRx needed to move beyond infrastructure "firefighting" and establish a strategic data foundation that allows them to prioritize their mission—patient-centric care and healthcare outcome transparency.</p>
+        </div>
+    </section>
+
+    <section class="case-impact">
+        <div class="case-impact-inner">
+            <h2>Business Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h3>Client Onboarding: Weeks → Days</h3>
+                    <p>Metadata-driven pipelines replaced manual coding, compressing client onboarding timelines from weeks to days.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Outsized Compute Costs Eliminated</h3>
+                    <p>Automatic scaling of compute and storage removed manual capacity planning—every dollar now supports patient-centric initiatives.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0b73b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <h3>AI-Ready Foundation Established</h3>
+                    <p>Semantic layers and data quality standards position AffirmedRx to leverage AI for competitive differentiation in the PBM market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-content">
+        <h2>Part 1: Operational Excellence—The Complex Migration</h2>
+        <p>North Labs executed a "think-first" migration to Snowflake, utilizing a three-phase approach to ensure business continuity while maximizing immediate ROI.</p>
+
+        <h3>A Proven Three-Phase Execution Model</h3>
+        <p>To mitigate migration risk, North Labs decoupled the process into logical stages, ensuring the business remained operational throughout the transition:</p>
+        <ul class="phase-list">
+            <li><strong>Phase 1 — Transition Consumption:</strong> Immediate wins were achieved by repointing Power BI reports to query Snowflake directly, improving query performance without disrupting existing pipelines.</li>
+            <li><strong>Phase 2 — Transition Transformation:</strong> Compute-intensive workloads were centralized by moving all ETL/ELT logic and data modeling from Fabric to Snowflake.</li>
+            <li><strong>Phase 3 — Transition Ingestion:</strong> The final phase unified the platform by migrating all ingestion pipelines into Snowflake-supported mechanisms, delivering end-to-end control.</li>
+        </ul>
+
+        <h3>Tangible Business ROI</h3>
+        <ul class="phase-list">
+            <li><strong>Lower Operational Overhead:</strong> Automatic scaling of compute and storage removed the need for manual capacity planning and routine maintenance.</li>
+            <li><strong>Speed to Insight:</strong> Implementation of Snowflake Cortex Analyst enabled non-technical business users to access insights via natural language, reducing engineering bottlenecks.</li>
+            <li><strong>Financial Governance (FinOps):</strong> By establishing budget enforcement and real-time dashboards, AffirmedRx avoided common cloud waste, ensuring every dollar spent supports patient-centric initiatives.</li>
+        </ul>
+    </section>
+
+    <section class="case-quote">
+        <div class="quote-box">
+            <blockquote>"This partnership didn't just modernize a tech stack; it established a strategic foundation that allows AffirmedRx to prioritize its mission—patient-centric care and healthcare outcome transparency—over constant infrastructure firefighting."</blockquote>
+        </div>
+    </section>
+
+    <section class="case-solution">
+        <h2>Part 2: The Value of Advisor-Led Strategy</h2>
+        <p>Beyond the technical "lift-and-shift," North Labs provided a Strategic Data Advisory layer—executive-level guidance to navigate the hard conversations necessary to avoid repeating past mistakes.</p>
+
+        <h3>Strategic Depth &amp; Independent Advocacy</h3>
+        <p>Advisory services provided AffirmedRx with a technical counterweight during vendor negotiations. By benchmarking pricing and evaluating "build vs. buy" scenarios, North Labs ensured the technology roadmap was driven by AffirmedRx's strategic goals, not vendor sales targets.</p>
+
+        <h3>Solving the Hard Questions</h3>
+        <ul class="phase-list">
+            <li><strong>Strategic Growth:</strong> "How should we structure our team as we grow?" Advisory helps define organizational design and team structures that scale with the business.</li>
+            <li><strong>Predictive Fiscal Control:</strong> "Where is our cloud money actually going?" By establishing chargeback models, teams are held accountable for their resource consumption.</li>
+            <li><strong>Customer Experience:</strong> "How do we provide clients faster access to their data?" Guiding the transition from daily file drops to live, secure data sharing.</li>
+            <li><strong>Operational Resilience:</strong> "What happens if our key engineer is unavailable?" By creating runbooks and documenting architectural decisions, North Labs reduces key-person risk.</li>
+        </ul>
+    </section>
+
+    <section class="case-outcome">
+        <h2>Part 3: Innovation Beyond Technical Debt</h2>
+        <p>The ultimate impact of this partnership is the shift from reactive maintenance to proactive innovation.</p>
+
+        <h3>Accelerating Business Capabilities</h3>
+        <ul class="phase-list">
+            <li><strong>Metadata-Driven Pipelines:</strong> Instead of manual coding, North Labs implemented configuration-based architectures, reducing client onboarding from weeks to days.</li>
+            <li><strong>AI-Ready Foundation:</strong> By building semantic layers and establishing data quality standards today, AffirmedRx is positioned to leverage AI for competitive differentiation in the PBM market.</li>
+            <li><strong>Healthcare Compliance (CI/CD):</strong> Advisory established automated, non-human deployment patterns that provide the immutable audit trails required for healthcare regulatory audits.</li>
+        </ul>
+
+        <h3>Summary of Strategic Value</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Without North Labs Advisory</th>
+                    <th>With North Labs Advisory</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Learning through trial and error</td>
+                    <td>Learning from others' experience</td>
+                </tr>
+                <tr>
+                    <td>Vendor-driven (biased) decisions</td>
+                    <td>Independent, objective evaluation</td>
+                </tr>
+                <tr>
+                    <td>Key-person dependencies</td>
+                    <td>Documented, transferable knowledge</td>
+                </tr>
+                <tr>
+                    <td>Reactive problem-solving</td>
+                    <td>Proactive risk &amp; cost mitigation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="case-callout">
+            <p>AffirmedRx now operates with a data foundation that is as mission-driven as the company itself—positioned to lead as a Public Benefit Corporation with the clarity and strategic foresight to back it up.</p>
+        </div>
+    </section>
+
+    <section class="case-cta">
+        <h2>Interested in working with us?</h2>
+        <p>Let's talk about how North Labs can help unlock the value in your data.</p>
+        <a href="mailto:contact@northlabs.io" class="cta-btn">Contact Us →</a>
+    </section>
+
+    <footer>
+        <div class="footer-brand"><a href="index-light.html"><img src="logo-full.png" alt="North Labs" class="footer-logo-img"></a></div>
+        <div class="footer-links">
+            <a href="index-light.html#solutions">Solutions</a>
+            <a href="index-light.html#about">About</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-copyright">© 2026 North Labs. All rights reserved.</div>
+        <img src="veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
+    </footer>
+
+</body>
+</html>

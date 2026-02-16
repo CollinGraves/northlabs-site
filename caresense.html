@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareSense | Clinical Intelligence for your Institution's Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-logo {
+            height: 28px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .brought-by {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .northlabs-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .northlabs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+
+        .northlabs-link:hover .northlabs-logo {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            background: #222222;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 8rem 5rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero::after {
+            display: none;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 2.4rem;
+            height: 2px;
+            background: #0b73b9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
+            padding-left: 2rem;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding-left: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 12rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 326px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 3.2rem 5rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Crisis Section */
+        .crisis-section {
+            background: var(--bg-secondary);
+        }
+
+        .crisis-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .crisis-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .crisis-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .crisis-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            background: var(--bg-primary);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .solution-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .solution-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(135deg, rgba(11, 115, 185, 0.08) 0%, rgba(11, 115, 185, 0.02) 100%);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .solution-highlight p {
+            font-size: 1.0625rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Difference Section */
+        .difference-section {
+            background: var(--bg-secondary);
+        }
+
+        .difference-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .difference-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .difference-step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .difference-step p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Use Cases Section */
+        .usecases-section {
+            background: var(--bg-primary);
+        }
+
+        .usecases-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .usecases-table th {
+            text-align: left;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .usecases-table td {
+            padding: 1rem;
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+
+        .usecases-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+            width: 20%;
+        }
+
+        .usecases-table td:last-child {
+            color: var(--accent-blue);
+            font-weight: 500;
+            width: 30%;
+        }
+
+        .usecases-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Case Study Section */
+        .casestudy-section {
+            background: #d9d9d9;
+        }
+
+        .casestudy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .casestudy-challenge h3,
+        .casestudy-results h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .casestudy-challenge p,
+        .casestudy-results p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .result-icon svg {
+            width: 12px;
+            height: 12px;
+            stroke: white;
+        }
+
+        .result-item p {
+            margin: 0;
+        }
+
+        /* Ownership Section */
+        .ownership-section {
+            background: var(--bg-primary);
+        }
+
+        .ownership-content {
+            max-width: 800px;
+        }
+
+        .ownership-content p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .ownership-tagline {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+        }
+
+        .ownership-tagline .accent-text {
+            color: var(--accent-blue);
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 3.2rem 5rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .crisis-grid,
+            .difference-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-content,
+            .casestudy-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .hero::after {
+                display: none;
+            }
+
+            .usecases-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <img src="caresense-logo.png" alt="CareSense" class="solution-logo">
+            <div class="logo-divider"></div>
+            <span class="brought-by">Brought to you by</span>
+            <a href="https://northlabs.io" class="northlabs-link">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#solution">Solution</a>
+            <a href="#usecases">Use Cases</a>
+            <a href="#casestudy">Case Study</a>
+            <a href="#contact" class="nav-cta">Book a Consultation</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Healthcare Intelligence</span>
+            <h1>Clinical Intelligence for your Institution's <span class="accent-text">Health</span></h1>
+            <p class="hero-sub">Beyond reporting. Own the intelligence that drives your business, so you can focus on your mission.</p>
+        </div>
+        <div class="hero-image">
+            <img src="caresense-people.png" alt="Healthcare professionals">
+        </div>
+    </header>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"From the moment I met North Labs they have been nothing short of amazing. I cannot recommend them enough."</span>
+        <span class="testimonial-banner-author">— Paul Riccio, Director of Operations, Bluemark</span>
+    </div>
+
+    <section class="crisis-section">
+        <div class="section-inner">
+            <span class="section-label">The Challenge</span>
+            <h2 class="section-title">Data Silos & <span class="accent-text">Tribal Knowledge</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 800px;">Mid-market health systems and provider groups are being squeezed by three converging pressures:</p>
+            
+            <div class="crisis-grid">
+                <div class="crisis-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Fragmentation Trap</h3>
+                    <p>The history of your data program has left you with disparate sources, leading to manual, unrepeatable reporting.</p>
+                </div>
+                <div class="crisis-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Staffing Crisis</h3>
+                    <p>With annual turnover in revenue cycle and administrative roles reaching up to 40%, your institutional memory—the "how" and "why" of your operations—is walking out the door.</p>
+                </div>
+                <div class="crisis-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Operational Ceiling</h3>
+                    <p>Legacy systems tell you what happened last month, but they can't tell you how to coordinate care in real-time or where your next margin leak will occur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section" id="solution">
+        <div class="section-inner">
+            <span class="section-label">The Solution</span>
+            <h2 class="section-title">Your System of <span class="accent-text">Intelligence</span></h2>
+            
+            <div class="solution-content">
+                <div class="solution-text">
+                    <p>CareSense is not a new EHR or a static tool you "install." It is an <strong>intelligence layer</strong> that sits on top of your existing ecosystem (EHR, CMR, Excel, etc.), trained on your specific data and business logic.</p>
+                    <p>CareSense surfaces key insights at the right time to the right team member so that your practice can make the right decisions about your patients and your business.</p>
+                </div>
+                <div class="solution-highlight">
+                    <p>The most key value: Intelligence delivered to the right person, at the right time, enabling the right decision—for both patient care and business operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="difference-section">
+        <div class="section-inner">
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title">The <span class="accent-text">Service-Led</span> Difference</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 800px;">Unlike "black box" vendors, we recognize that advanced data efforts are the most risky and expensive work in the industry. We provide a fractionalized Chief Data Officer (CDO) approach to handle the heavy lifting:</p>
+            
+            <div class="difference-steps">
+                <div class="difference-step">
+                    <div class="step-number">1</div>
+                    <h3>Personalized Deep Mapping</h3>
+                    <p>We map your holistic patient journey and business flows, identifying exactly where leakage or friction occurs.</p>
+                </div>
+                <div class="difference-step">
+                    <div class="step-number">2</div>
+                    <h3>Transformation Logic</h3>
+                    <p>We leverage our healthcare expertise to transform operational data into meaningful, actionable information.</p>
+                </div>
+                <div class="difference-step">
+                    <div class="step-number">3</div>
+                    <h3>Institutional Memory</h3>
+                    <p>We encode the knowledge of your best team members into intelligence models that stay with your organization permanently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="usecases-section" id="usecases">
+        <div class="section-inner">
+            <span class="section-label">Capabilities</span>
+            <h2 class="section-title">Broad-Spectrum <span class="accent-text">Use Cases</span></h2>
+            
+            <table class="usecases-table">
+                <thead>
+                    <tr>
+                        <th>Focus Area</th>
+                        <th>Capability</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revenue Intelligence</td>
+                        <td>Underpayment detection, denial root-cause analysis, and contract normalization.</td>
+                        <td>Recovery of 10–20% of commercial collections typically left on the table.</td>
+                    </tr>
+                    <tr>
+                        <td>Care Logistics</td>
+                        <td>Real-time coordination of physician visits, equipment deliveries, and supply management.</td>
+                        <td>Reduced delays, better throughput, and modernized care coordination.</td>
+                    </tr>
+                    <tr>
+                        <td>Patient Cohort Analysis</td>
+                        <td>Accurate risk profiles and enhanced predictive analytics for personalized treatment plans.</td>
+                        <td>Improved health outcomes and resource allocation for high-risk patients.</td>
+                    </tr>
+                    <tr>
+                        <td>Referral Onboarding</td>
+                        <td>Automation of manual bottlenecks in the referral process.</td>
+                        <td>Accelerated response times and minimized administrative burden.</td>
+                    </tr>
+                    <tr>
+                        <td>& More</td>
+                        <td>We are constantly innovating with our partners and would love to hear your specific challenges.</td>
+                        <td>Custom solutions tailored to your needs.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="casestudy-section" id="casestudy">
+        <div class="section-inner">
+            <span class="section-label">Case Study</span>
+            <h2 class="section-title">Operational Resilience <span class="accent-text">in Action</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;"><strong>The Partner:</strong> A regional healthcare provider struggling with staff burnout and high manual reconciliation costs.</p>
+            
+            <div class="casestudy-content">
+                <div class="casestudy-challenge">
+                    <h3>The Challenge</h3>
+                    <p>Referral response times were lagging, and manual documentation was leading to high burnout rates among clinical staff.</p>
+                    <p>At the same time, undetected underpayments from payers were eroding margins.</p>
+                    
+                    <h3 style="margin-top: 1.5rem;">The CareSense Intervention</h3>
+                    <p><strong>Staff Enablement:</strong> Automated workflows that reduced "undifferentiated heavy lifting," allowing staff to focus on patient care.</p>
+                    <p><strong>Predictive Insights:</strong> Machine Learning models to identify at-risk patients for proactive intervention.</p>
+                    <p><strong>Revenue Protection:</strong> Normalized payer contracts to automatically flag variances in remittance.</p>
+                </div>
+                <div class="casestudy-results">
+                    <h3>The Results</h3>
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Accelerated Onboarding:</strong> Referrals processed significantly faster while maintaining process integrity.</p>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Staff Vitality:</strong> Lower burnout rates through smarter scheduling and reduced documentation time.</p>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Executive Visibility:</strong> Leadership gained robust, real-time visibility into every business operation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ownership-section">
+        <div class="section-inner">
+            <div class="ownership-content">
+                <span class="section-label">Ownership</span>
+                <h2 class="section-title">Ownership vs. <span class="accent-text">Dependency</span></h2>
+                <p>You should own the engine that drives your decisions. CareSense provides tenant-isolated, HIPAA-compliant deployments that ensure your intellectual property remains under your control, not rented from a vendor.</p>
+                <p class="ownership-tagline">CareSense: Intelligence that <span class="accent-text">heals the bottom line</span> and unlocks your team's full potential.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Impact your <span class="accent-text">Operations</span>?</h2>
+        <p>Book an Operational Intelligence Advisory Appointment to discover how CareSense can work for your organization.</p>
+        <a href="mailto:contact@northlabs.io?subject=CareSense%20Consultation" class="btn-primary">Schedule a Conversation</a>
+    </section>
+
+    <footer>
+        <a href="https://northlabs.io">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="https://northlabs.io">← Back to North Labs</a>
+            <a href="https://northlabs.io/#solutions">All Solutions</a>
+        </div>
+    </footer>
+</body>
+</html>

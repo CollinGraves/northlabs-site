@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reggie | Institutional Vitality, Restored</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-logo {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
+        }
+
+        .brought-by {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .northlabs-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .northlabs-logo {
+            height: 24px;
+            width: auto;
+            transition: opacity 0.2s ease;
+        }
+
+        .northlabs-link:hover .northlabs-logo {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: #333333;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            background: #222222;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 8rem 5rem 2rem 5rem;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero::after {
+            display: none;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 2.4rem;
+            height: 2px;
+            background: #0b73b9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
+            padding-left: 2rem;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding-left: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 12rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 326px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent-blue);
+            color: #fff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0a6ba6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 3.2rem 5rem;
+            max-width: none;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .inline-logo {
+            height: 1.1em;
+            width: auto;
+            vertical-align: baseline;
+            position: relative;
+            top: 0;
+        }
+
+        .section-title .accent-text {
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Myth Section */
+        .myth-section {
+            background: var(--bg-secondary);
+        }
+
+        .myth-content {
+            max-width: 800px;
+        }
+
+        .myth-content p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .myth-highlight {
+            background: white;
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .myth-highlight p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: var(--bg-primary);
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-col {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .comparison-col.highlight {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(11, 115, 185, 0.04) 0%, var(--bg-card) 100%);
+        }
+
+        .comparison-col h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .comparison-col.highlight h3 {
+            color: var(--accent-blue);
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .comparison-icon.negative {
+            background: #fee2e2;
+        }
+
+        .comparison-icon.positive {
+            background: var(--accent-blue);
+        }
+
+        .comparison-icon svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .comparison-icon.negative svg {
+            stroke: #dc2626;
+        }
+
+        .comparison-icon.positive svg {
+            stroke: white;
+        }
+
+        .comparison-item p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .comparison-item strong {
+            color: var(--text-primary);
+        }
+
+        /* Services Section */
+        .services-section {
+            background: #d9d9d9;
+        }
+
+        .services-intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Platform Section */
+        .platform-section {
+            background: var(--bg-primary);
+        }
+
+        .platform-intro {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .platform-feature {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .feature-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .platform-feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-feature p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .nlq-example {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        /* Case Study Section */
+        .casestudy-section {
+            background: #e8eaec;
+        }
+
+        .casestudy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .casestudy-left h3,
+        .casestudy-right h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .casestudy-left p,
+        .casestudy-right p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .phase-item {
+            margin-bottom: 1rem;
+        }
+
+        .phase-item strong {
+            color: var(--accent-blue);
+        }
+
+        .result-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .result-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .result-icon svg {
+            width: 12px;
+            height: 12px;
+            stroke: white;
+        }
+
+        .result-item p {
+            margin: 0;
+        }
+
+        .stat-highlight {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .stat-highlight .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-highlight .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Ownership Section */
+        .ownership-section {
+            background: var(--bg-primary);
+        }
+
+        .ownership-content {
+            max-width: 800px;
+        }
+
+        .ownership-content p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .ownership-tagline {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+        }
+
+        .ownership-tagline .accent-text {
+            color: var(--accent-blue);
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 3.2rem 5rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .comparison-table,
+            .services-grid,
+            .platform-features {
+                grid-template-columns: 1fr;
+            }
+
+            .casestudy-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                justify-content: center;
+                margin-top: -0.5rem;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .hero::after {
+                display: none;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <img src="reggie-logo.png" alt="Reggie" class="solution-logo">
+            <div class="logo-divider"></div>
+            <span class="brought-by">Brought to you by</span>
+            <a href="https://northlabs.io" class="northlabs-link">
+                <img src="logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#approach">Our Approach</a>
+            <a href="#platform">Platform</a>
+            <a href="#casestudy">Case Study</a>
+            <a href="#contact" class="nav-cta">Talk to an Expert</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Higher Education Intelligence</span>
+            <h1>Institutional Vitality, <span class="accent-text">Restored</span></h1>
+            <p class="hero-sub">Success through Higher Education data requires a solution that understands your institution's <em>business context.</em></p>
+        </div>
+        <div class="hero-image">
+            <img src="reggie-person.png" alt="Higher education professional">
+        </div>
+    </header>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"blah blah blah blah"</span>
+        <span class="testimonial-banner-author">— Placeholder Name, Title, Company</span>
+    </div>
+
+    <section class="myth-section">
+        <div class="section-inner">
+            <span class="section-label">The Reality</span>
+            <h2 class="section-title">The Myth of the <span class="accent-text">"Magic Tool"</span></h2>
+            <div class="myth-content">
+                <p>The Higher Ed market is flooded with "Black Box" products promising to solve enrollment and retention with a simple API key. You've likely seen the result: long-term contracts, zero visibility, and a tool that sits on top of your problems without actually solving them.</p>
+                <div class="myth-highlight">
+                    <p>The hard truth: There is no "magic" way to bypass the work of mapping data, understanding source transformations, and auditing business flows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section" id="approach">
+        <div class="section-inner">
+            <span class="section-label">The Difference</span>
+            <h2 class="section-title">Black Box vs. <span class="accent-text">The Reggie Solution</span></h2>
+            
+            <div class="comparison-table">
+                <div class="comparison-col">
+                    <h3>The Black Box Product</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-icon negative">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </div>
+                        <p><strong>Abstracted:</strong> You don't know how the numbers are calculated.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon negative">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </div>
+                        <p><strong>Plug-and-Play:</strong> Ignores the unique nuances of your institution.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon negative">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </div>
+                        <p><strong>High Friction:</strong> Forces you to change your process to fit the tool.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon negative">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </div>
+                        <p><strong>Static:</strong> Gives you a report of what happened.</p>
+                    </div>
+                </div>
+                <div class="comparison-col highlight">
+                    <h3>The Reggie Solution</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-icon positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Transparent:</strong> Full visibility into every pipeline and transformation.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Expert-Led:</strong> We map your specific business flows and user needs.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Native & Smooth:</strong> We build into your ecosystem for "low-calorie" ROI.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Proactive:</strong> Gives you the ownership to ask what's next.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="section-inner">
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title">The <span class="accent-text">"Hard Work"</span> Advantage</h2>
+            <p class="services-intro">Reggie isn't just software; it's the output of deep architectural expertise. Unlike companies that hand you a login and wish you luck, we do the heavy lifting that there's no getting around:</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Deep Source Mapping</h3>
+                    <p>We go into the guts of your legacy systems to understand exactly where your data comes from and why it exists.</p>
+                </div>
+                <div class="service-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Transformation Logic</h3>
+                    <p>We don't just move data; we audit it. Who is using this data? How are they using it? Why are they using it?</p>
+                </div>
+                <div class="service-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>User-Centric Auditing</h3>
+                    <p>We identify which metrics are actually being used to make decisions and which are just "noise" cluttering your reporting.</p>
+                </div>
+                <div class="service-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Business Flow Alignment</h3>
+                    <p>We align your data program with the actual operational reality of your institution—from Athletics to Library Management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platform-section" id="platform">
+        <div class="section-inner">
+            <span class="section-label">The Platform</span>
+            <h2 class="section-title">Meet <span class="accent-text">Reggie</span>: The instant access to insights you need and trust</h2>
+            <p class="platform-intro">Once the foundation is built by our experts, Reggie gives you the keys. It is a comprehensive data program that restores institutional agency.</p>
+            
+            <div class="platform-features">
+                <div class="platform-feature">
+                    <div class="feature-number">1</div>
+                    <h3>Total Visibility & Ownership</h3>
+                    <p>Reggie is a native platform. You own the transformations and the pipelines. No more "hostage data."</p>
+                </div>
+                <div class="platform-feature">
+                    <div class="feature-number">2</div>
+                    <h3>Natural Language Querying (NLQ)</h3>
+                    <p>We empower everyone—from the Provost to the Registrar—to ask questions in plain English. No more waiting weeks for a manual report that no one trusts.</p>
+                    <div class="nlq-example">"Reggie, identify the gap between student grant applications and actual deposits for the Fall 2026 cohort."</div>
+                </div>
+                <div class="platform-feature">
+                    <div class="feature-number">3</div>
+                    <h3>Student-First Proactivity</h3>
+                    <p>Reggie helps advisors and students proactively identify the right courses at the right time, balancing personal schedules with graduation requirements to stop "registration fatigue" before it starts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="casestudy-section" id="casestudy">
+        <div class="section-inner">
+            <span class="section-label">Case Study</span>
+            <h2 class="section-title">The Human-Led <span class="accent-text">Transformation</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;"><strong>The Partner:</strong> A university struggling with declining retention and a total lack of trust in their existing "Black Box" analytics tool.</p>
+            
+            <div class="casestudy-content">
+                <div class="casestudy-left">
+                    <h3>The Challenge</h3>
+                    <p>The previous tool over-promised. It provided reports, but the data was "dirty," transformations were hidden, and the staff didn't know why the numbers were what they were.</p>
+                    
+                    <h3 style="margin-top: 1.5rem;">The Reggie Intervention</h3>
+                    <div class="phase-item">
+                        <p><strong>Phase 1 (The Mapping):</strong> Our experts spent the first weeks mapping the actual business flow of the Registrar's office, identifying exactly where students were getting stuck in the enrollment funnel.</p>
+                    </div>
+                    <div class="phase-item">
+                        <p><strong>Phase 2 (The Platform):</strong> We implemented Reggie as a native solution, providing full visibility into the previously "hidden" data transformations.</p>
+                    </div>
+                    <div class="phase-item">
+                        <p><strong>Phase 3 (The Impact):</strong> With clean data and NLQ, the institution moved from reactive reporting to proactive intervention.</p>
+                    </div>
+                </div>
+                <div class="casestudy-right">
+                    <h3>The Results</h3>
+                    <div class="stat-highlight">
+                        <div class="stat-number">15%</div>
+                        <div class="stat-label">Increase in early registration</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Full Data Autonomy:</strong> The institution terminated their "Black Box" contract, saving six figures in annual licensing while gaining more control.</p>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Restored Trust:</strong> Decisions are now made based on data the team actually understands and owns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ownership-section">
+        <div class="section-inner">
+            <div class="ownership-content">
+                <span class="section-label">Ownership</span>
+                <h2 class="section-title">Own Your Future. <span class="accent-text">Don't Outsource</span> Your Intelligence.</h2>
+                <p>Reggie is about ownership, trust, and self-determination. We provide the expertise to build the foundation, and the platform to let you lead.</p>
+                <p class="ownership-tagline">Reggie: <span class="accent-text">Expertise Included.</span> Ownership Restored.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to restore <span class="accent-text">institutional vitality</span>?</h2>
+        <p>Talk to a Higher Ed Data Expert to discover how Reggie can transform your institution.</p>
+        <a href="mailto:contact@northlabs.io?subject=Reggie%20Consultation" class="btn-primary">Schedule a Conversation</a>
+    </section>
+
+    <footer>
+        <a href="https://northlabs.io">
+            <img src="logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="https://northlabs.io">← Back to North Labs</a>
+            <a href="https://northlabs.io/#solutions">All Solutions</a>
+        </div>
+    </footer>
+</body>
+</html>
