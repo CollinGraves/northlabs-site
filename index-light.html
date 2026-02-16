@@ -872,7 +872,7 @@
         .approach-section {
             background: #d9d9d9;
             max-width: none;
-            padding: 2.5rem 5rem 2.5rem 12.4rem;
+            padding: 2.5rem 20.84rem 2.5rem 12.4rem;
         }
 
         .approach-content-wrapper {
@@ -888,7 +888,7 @@
         /* Timeline */
         .timeline-wrapper {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: flex-start;
             margin-top: 1rem;
             max-width: 1000px;
@@ -897,13 +897,13 @@
         .timeline {
             flex: 1;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 3rem;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 6px;
+            left: 28px;
             top: 8px;
             bottom: 8px;
             width: 2px;
@@ -924,7 +924,7 @@
 
         .timeline-marker {
             position: absolute;
-            left: -2rem;
+            left: -1.35rem;
             top: 6px;
             width: 10px;
             height: 10px;
@@ -954,7 +954,8 @@
 
         .timeline-image {
             flex-shrink: 0;
-            max-width: 214px;
+            max-width: 235px;
+            margin-left: 12px;
         }
 
         .timeline-image img {
@@ -1740,6 +1741,20 @@
 
         }
 
+        @media (max-width: 960px) {
+            .timeline-wrapper {
+                flex-direction: column;
+            }
+
+            .timeline-image {
+                max-width: 100%;
+            }
+
+            .approach-section {
+                padding: 3.5rem 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero::after,
             .cta-section::after {
@@ -2214,7 +2229,7 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
-                        <div class="timeline-content"><span class="timeline-year">2022</span> – Focused on long-term engagement and partnerships versus being a consulting resource</div>
+                        <div class="timeline-content"><span class="timeline-year">2022</span> – Focused on long-term partnerships versus being a consulting resource</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
