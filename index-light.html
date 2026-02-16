@@ -413,7 +413,7 @@
         .logo-ticker-track {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 4.3rem;
             animation: ticker 30s linear infinite;
             width: max-content;
         }
@@ -621,10 +621,17 @@
 
         .success-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            flex-direction: row;
+            gap: 0.75rem;
             margin-top: 1rem;
-            align-items: flex-start;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .success-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         .success-btn-casestudies {
@@ -802,7 +809,7 @@
         }
 
         .capability-category {
-            background: var(--bg-secondary);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f5f8 100%);
             border: 1px solid var(--border-subtle);
             border-radius: 10px;
             padding: 1rem;
@@ -943,7 +950,7 @@
 
         .timeline-content {
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: #444444;
             line-height: 1.144;
         }
 
@@ -1489,7 +1496,7 @@
 
         /* Testimonial Video Section */
         .testimonial-video-section {
-            padding: 3.2rem 5rem;
+            padding: 1.6rem 5rem;
             background: var(--accent-blue);
             max-width: none;
         }
@@ -1509,15 +1516,15 @@
 
         .testimonial-quote-layout {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.75rem;
             align-items: flex-start;
-            margin-top: 1rem;
+            margin-top: 0.6rem;
         }
 
         .testimonial-quote-text p {
-            font-size: 1.0625rem;
+            font-size: 0.9375rem;
             color: #ffffff;
-            line-height: 1.7;
+            line-height: 1.45;
             font-weight: 500;
             font-style: normal;
         }
@@ -1532,7 +1539,7 @@
 
         .video-thumbnail-wrapper {
             position: relative;
-            max-width: 30%;
+            max-width: 22%;
             border-radius: 10px;
             overflow: hidden;
             flex-shrink: 0;
@@ -1856,7 +1863,7 @@
         <h1>Being real with our customers—bringing solutions to production with extreme intent to drive <span class="accent-text">business outcomes.</span></h1>
         <p class="hero-sub">We don't chase every piece of work. We have select use cases delivered time and time again. <em>No magic potions.</em> No plug-in tools claiming to revolutionize everything overnight. Outstanding project management. Expert teams with the best tooling. Work tied to business outcomes.</p>
         <div class="hero-ctas">
-            <a href="#solutions" class="btn-primary">View Solutions</a>
+            <a href="#solutions" class="btn-primary">View Offering</a>
         </div>
     </header>
 
@@ -1877,6 +1884,15 @@
                     <img src="logos/veranahealth.png" alt="Verana Health">
                     <img src="logos/rls.png" alt="RLS">
                     <img src="logos/iconnational.png" alt="Icon National">
+                    <img src="logos/acfoods.png" alt="AC Foods" style="height: 32px;">
+                    <img src="logos/carlsonglass.png" alt="Carlson Glass Inc">
+                    <img src="logos/usairforce.png" alt="U.S. Air Force">
+                    <img src="logos/ascentworks.png" alt="Ascent Works" style="opacity: 0.45;">
+                    <img src="logos/fmg.png" alt="FMG" style="opacity: 0.45;">
+                    <img src="logos/protos.png" alt="Protos Security">
+                    <img src="logos/barkavenue.png" alt="Bark Avenue" style="height: 18px;">
+                    <img src="logos/trackablemed.png" alt="TrackableMed">
+                    <img src="logos/planningpod.png" alt="Planning Pod" style="opacity: 0.45;">
                     <!-- Duplicate for seamless loop -->
                     <img src="logos/affirmedrx.png" alt="AffirmedRx">
                     <img src="logos/uponor.png" alt="Uponor">
@@ -1890,14 +1906,22 @@
                     <img src="logos/veranahealth.png" alt="Verana Health">
                     <img src="logos/rls.png" alt="RLS">
                     <img src="logos/iconnational.png" alt="Icon National">
+                    <img src="logos/acfoods.png" alt="AC Foods" style="height: 32px;">
+                    <img src="logos/carlsonglass.png" alt="Carlson Glass Inc">
+                    <img src="logos/usairforce.png" alt="U.S. Air Force">
+                    <img src="logos/ascentworks.png" alt="Ascent Works" style="opacity: 0.45;">
+                    <img src="logos/fmg.png" alt="FMG" style="opacity: 0.45;">
+                    <img src="logos/protos.png" alt="Protos Security">
+                    <img src="logos/barkavenue.png" alt="Bark Avenue" style="height: 18px;">
+                    <img src="logos/trackablemed.png" alt="TrackableMed">
+                    <img src="logos/planningpod.png" alt="Planning Pod" style="opacity: 0.45;">
                 </div>
             </div>
         </div>
     </section>
 
     <div class="testimonial-banner">
-        <span class="testimonial-banner-quote">"Everything has been delivered to that ultimate level of expertise without fail."</span>
-        <span class="testimonial-banner-author">— Steven Feingertz, CEO, Planning Pod</span>
+        <span class="testimonial-banner-quote">"North Labs has empowered us to take control of our data program. From querying our data with natural language, to gaining efficiencies through automated renewals, they improve our bottom line, which is why we partner with them so closely on key initiatives." <span class="testimonial-banner-author">— Jeremiah Krahulik, Managing Director, Ascent Works</span></span>
     </div>
 
     <section class="culture-section">
@@ -1955,12 +1979,12 @@
             </div>
 
             <div class="success-buttons">
+                <a href="https://case-studies.northlabs.io" class="success-btn-casestudies" target="_blank">
+                    View all Case Studies →
+                </a>
                 <a href="https://tradesmith.northlabs.io" class="success-btn success-btn-featured" target="_blank">
                     <img src="tradesmith-logo.png" alt="TradeSmith" class="btn-logo">
                     <span>Learn More</span>
-                </a>
-                <a href="https://case-studies.northlabs.io" class="success-btn-casestudies" target="_blank">
-                    View all Case Studies →
                 </a>
             </div>
 
@@ -2201,9 +2225,23 @@
         </div>
     </section>
 
-    <div class="testimonial-banner" style="padding: 0.75rem 10rem 0.75rem 8rem;">
-        <span class="testimonial-banner-quote">"North Labs has empowered us to take control of our data program. From querying our data with natural language, to gaining efficiencies through automated renewals, they do work that improves our bottom line, which is why we partner with them so closely on key initiatives." — Jeremiah Krahulik, Managing Director, Ascent Works</span>
-    </div>
+    <section class="testimonial-video-section">
+        <div class="testimonial-video-inner">
+            <span class="section-label">Featured Testimonial</span>
+            <div class="testimonial-quote-layout">
+                <div class="video-thumbnail-wrapper">
+                    <img src="nate-alvar-thumbnail.png" alt="Nate Alvar - FMG Testimonial" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="testimonial-quote-text">
+                    <p>"North Labs will take care of you. They're going to listen to you and understand your need. When you find a partner you need to find people with a pulse...find people that are real, that will sit down and talk. And so for us, to find a partner with strong people, strong leaders from the top down...we just have had great results collaborating and working with them. They're not just going to slide paperwork back and forth. North Labs is just going to <strong style="text-decoration: underline;">engage like real people</strong> and they're going to listen, they're going to react, they're going to respond."</p>
+                    <span class="testimonial-quote-author">— Nate Alvar, VP of Engineering, FMG</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="approach-section" id="about">
         <div class="approach-inner">
@@ -2242,6 +2280,7 @@
                 </div>
                 <div class="timeline-image">
                     <img src="b1-bomber.png" alt="B-1 Bomber">
+                    <p style="font-size: 0.55rem; color: rgba(0,0,0,0.12); margin-top: 0.4rem; text-align: center; letter-spacing: 0.01em; line-height: 1.26;">New Customers get 12% off the first quarter of their engagement when naming this plane before signing.</p>
                 </div>
             </div>
         </div>

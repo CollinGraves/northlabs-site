@@ -1090,6 +1090,38 @@
                 padding: 1.5rem;
             }
         }
+
+        .testimonial-banner {
+            background: var(--accent-blue);
+            max-width: none;
+            padding: 0.75rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .testimonial-banner-quote {
+            font-size: 0.875rem;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .testimonial-banner-author {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-banner {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.75rem 1.5rem;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1314,23 +1346,9 @@
         </div>
     </section>
 
-    <section class="testimonial-video-section">
-        <div class="testimonial-video-inner">
-            <span class="section-label">Featured Testimonial</span>
-            <div class="testimonial-quote-layout">
-                <div class="video-thumbnail-wrapper">
-                    <img src="nate-alvar-thumbnail.png" alt="Nate Alvar - FMG Testimonial" class="video-thumbnail">
-                    <div class="video-play-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                </div>
-                <div class="testimonial-quote-text">
-                    <p>"North Labs will take care of you. They're going to listen to you and understand your need. When you find a partner you need to find people with a pulse...find people that are real, that will sit down and talk. And so for us, to find a partner with strong people, strong leaders from the top down...we just have had great results collaborating and working with them. They're not just going to slide paperwork back and forth. North Labs is just going to <strong style="text-decoration: underline;">engage like real people</strong> and they're going to listen, they're going to react, they're going to respond."</p>
-                    <span class="testimonial-quote-author">— Nate Alvar, VP of Engineering, FMG</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"Everything has been delivered to that ultimate level of expertise without fail." <span class="testimonial-banner-author">— Steven Feingertz, CEO, Planning Pod</span></span>
+    </div>
 
     <section class="testimonials-section">
         <div class="testimonials-inner">
