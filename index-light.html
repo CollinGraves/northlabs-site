@@ -1737,7 +1737,13 @@
         }
 
         @media (max-width: 768px) {
-            .hero::after,
+            .hero::after {
+                width: 80px;
+                height: 80px;
+                bottom: auto;
+                top: 1rem;
+                right: 1rem;
+            }
             .cta-section::after {
                 display: none;
             }
