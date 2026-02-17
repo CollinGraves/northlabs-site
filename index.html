@@ -1757,11 +1757,29 @@
             }
 
             .hero {
-                padding: 6rem 1.5rem 3rem;
+                padding: 6rem 1.5rem 2rem;
             }
 
             section {
                 padding: 1.6rem 1.5rem;
+            }
+
+            /* Customers section - pull label left, reduce fade, slow ticker */
+            .customers-section {
+                padding: 0.5rem 1rem 1rem;
+            }
+
+            .customers-inner .section-label {
+                margin-bottom: 0.5rem;
+            }
+
+            .logo-ticker::before,
+            .logo-ticker::after {
+                width: 20px;
+            }
+
+            .logo-ticker-track {
+                animation-duration: 36s;
             }
 
             .culture-section,
