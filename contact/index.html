@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | North Labs</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            padding: 1.25rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-logo {
+            height: 28px;
+            width: auto;
+        }
+
+        .nav-back {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--accent-blue);
+        }
+
+        .form-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .form-container {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem 3rem;
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .form-header {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+        }
+
+        .form-header p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.15rem;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .form-group label .optional {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.65rem 0.85rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: 1px solid var(--border-hover);
+            border-radius: 6px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(11, 115, 185, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-submit {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            font-family: inherit;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25);
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: #095f9a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            padding: 1.5rem 5rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .form-wrapper {
+                padding: 2rem 1rem;
+            }
+
+            .form-container {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            footer {
+                padding: 1.25rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <img src="../logo-full.png" alt="North Labs" class="nav-logo">
+        </a>
+        <a href="/" class="nav-back">← Back to North Labs</a>
+    </nav>
+
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Start a Conversation</h1>
+                <p>Tell us a bit about yourself and we'll be in touch.</p>
+            </div>
+
+            <form action="https://formsubmit.co/conversations@northlabs.io" method="POST">
+                <input type="hidden" name="_subject" value="New Contact from northlabs.io">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://northlabs.io/contact/thanks.html">
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="Name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="Title" required placeholder="Your role">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="Company" required placeholder="Company name">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" required placeholder="you@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone <span class="optional">(optional)</span></label>
+                        <input type="tel" id="phone" name="Phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes <span class="optional">(optional)</span></label>
+                    <textarea id="notes" name="Notes" placeholder="Any context you'd like to add"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 North Labs. All rights reserved.
+    </footer>
+</body>
+</html>
