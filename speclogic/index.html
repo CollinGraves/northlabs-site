@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpecLogic | Intelligence That Compounds</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 5rem 1.5rem 3.35rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .solution-logo { height: 28px; width: auto; }
+        .logo-divider { width: 1px; height: 20px; background: var(--border-subtle); }
+        .brought-by { font-size: 0.8125rem; color: var(--text-muted); }
+        .northlabs-link { display: flex; align-items: center; }
+        .northlabs-logo { height: 24px; width: auto; transition: opacity 0.2s ease; }
+        .northlabs-link:hover .northlabs-logo { opacity: 0.8; }
+
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9375rem; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta { padding: 0.75rem 1.5rem; background: #333333; color: #ffffff !important; font-size: 1.15rem; font-weight: 700; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+        .nav-cta:hover { background: #222222; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+
+        .hero {
+            min-height: auto; display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem; align-items: center; padding: 8rem 5rem 2rem 5rem; position: relative;
+        }
+        .hero-content { display: flex; flex-direction: column; }
+        .hero-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .hero-label::before { content: ''; width: 2.4rem; height: 2px; background: #0b73b9; }
+        .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.25rem; max-width: 800px; padding-left: 2rem; }
+        .hero h1 .accent-text { color: var(--accent-blue); font-weight: 700; }
+        .hero-sub { font-size: 1.125rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 2rem; line-height: 1.7; padding-left: 2rem; }
+        .hero-ctas { display: flex; gap: 1rem; }
+        .hero-image { display: flex; align-items: center; justify-content: center; padding-right: 7.5rem; }
+        .hero-image img { width: 100%; max-width: 326px; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); }
+
+        .btn-primary { padding: 1rem 2rem; background: var(--accent-blue); color: #fff; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; box-shadow: 0 2px 8px rgba(11, 115, 185, 0.25); }
+        .btn-primary:hover { background: #0a6ba6; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(11, 115, 185, 0.3); }
+        .btn-secondary { padding: 1rem 2rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-primary); font-size: 0.9375rem; font-weight: 500; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+        .btn-secondary:hover { background: var(--bg-tertiary); border-color: var(--border-hover); }
+
+        section { padding: 3.2rem 5rem; max-width: none; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 0.5rem; }
+        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        .section-title .accent-text { font-weight: 700; color: var(--accent-blue); }
+
+        .reality-section { background: var(--bg-secondary); }
+        .reality-intro { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.7; max-width: 800px; margin-bottom: 1.5rem; }
+        .reality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .reality-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; }
+        .reality-card h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary); }
+        .reality-card p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .intelligence-section { background: #d9d9d9; }
+        .intelligence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .intelligence-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; }
+        .intelligence-card-number { font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.75rem; }
+        .intelligence-card h3 { font-size: 1.12rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .intelligence-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .modules-section { background: var(--bg-secondary); }
+        .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem; }
+        .module-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1rem; }
+        .module-card.featured { grid-column: span 2; border-color: var(--accent-blue); background: linear-gradient(135deg, rgba(11, 115, 185, 0.04) 0%, var(--bg-card) 100%); }
+        .module-card h3 { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--text-primary); }
+        .module-card.featured h3 { color: var(--accent-blue); }
+        .module-card p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+
+        .casestudy-section { background: #e8eaec; padding-bottom: 2rem; }
+        .casestudy-content { display: grid; grid-template-columns: 2fr 3fr; gap: 6rem; align-items: start; }
+        .casestudy-right { margin-top: -2.5rem; }
+        .casestudy-left h3, .casestudy-right h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .casestudy-left p { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.5rem; }
+        .phase-item { margin-bottom: 0.5rem; }
+        .phase-item p { font-size: 0.8125rem; }
+        .phase-item strong { color: var(--accent-blue); }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; max-width: 464px; }
+        .stat-card { background: white; border-radius: 8px; padding: 0.75rem; text-align: center; }
+        .stat-card .stat-number { font-size: 1.25rem; font-weight: 700; color: var(--accent-blue); }
+        .stat-card .stat-label { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3; }
+        .mic-drop { background: #f5f9fd; border-left: 4px solid var(--accent-blue); border-radius: 0 8px 8px 0; padding: 0.75rem 1rem; max-width: 75%; }
+        .mic-drop h4 { font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+        .mic-drop p { font-size: 0.8125rem; color: var(--text-primary); line-height: 1.4; margin: 0; }
+
+        .founder-section { background: var(--bg-primary); }
+        .founder-layout { display: flex; gap: 2.5rem; align-items: flex-start; }
+        .founder-sidebar { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: sticky; top: 6rem; }
+        .founder-avatar { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; }
+        .founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+        .founder-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+        .founder-role { font-size: 0.8125rem; color: var(--accent-blue); font-weight: 500; }
+        .founder-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; justify-content: center; }
+        .founder-tag { font-size: 0.6875rem; padding: 0.25rem 0.5rem; background: var(--bg-tertiary); border-radius: 4px; color: var(--text-secondary); }
+        .founder-body { flex: 1; max-width: 720px; }
+        .founder-body p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.155; margin-bottom: 0.75rem; }
+        .founder-body p:last-child { margin-bottom: 0; }
+        .founder-body strong { color: var(--text-primary); }
+        .founder-body p:has(strong), .founder-body .founder-bold { margin-bottom: 0.5625rem; }
+        .founder-body .founder-bold { font-weight: 600; color: var(--text-primary); font-size: 0.9375rem; }
+        .founder-divider { width: 2.5rem; height: 3px; background: var(--accent-blue); border: none; margin: 1.25rem 0; }
+        .founder-body .founder-pullquote { border-left: 3px solid #0b73b9; padding-left: 1rem; margin: 1rem 0; font-style: italic; font-weight: 700; color: #0b73b9 !important; font-size: 1.125rem; line-height: 1.6; }
+        .founder-closing { font-weight: 600; color: var(--text-primary) !important; margin-top: 0.5rem; }
+
+        .testimonial-banner { background: var(--accent-blue); max-width: none; padding: 0.75rem 10rem 0.75rem 8rem; display: flex; align-items: center; justify-content: flex-start; text-align: left; }
+        .testimonial-banner-quote { font-size: 0.875rem; color: #ffffff; font-weight: 500; line-height: 1.4; }
+        .testimonial-banner-author { font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); }
+
+        @media (max-width: 768px) {
+            .testimonial-banner { flex-direction: column; gap: 0.25rem; padding: 0.75rem 1.5rem; text-align: center; }
+        }
+
+        .cta-section { background: var(--bg-secondary); text-align: center; padding: 3.2rem 5rem; }
+        .cta-section h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 600; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.0625rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        footer { padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); }
+        .footer-logo-img { height: 28px; width: auto; }
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--text-primary); }
+
+        @media (max-width: 1024px) {
+            .reality-grid, .modules-grid { grid-template-columns: 1fr; }
+            .module-card.featured { grid-column: span 1; }
+            .intelligence-grid, .casestudy-content { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 960px) {
+            .hero { grid-template-columns: 1fr; gap: 1.25rem; }
+            .hero-image { justify-content: center; padding-right: 0; }
+            .hero-image img { max-width: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero { padding: 6rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 1rem; }
+            .hero h1, .hero-sub { padding-left: 0; }
+            .hero-image { justify-content: center; margin-top: -0.5rem; padding-right: 0; }
+            .hero-image img { max-width: 280px; }
+            section { padding: 2.4rem 1.5rem; }
+            .hero-ctas { flex-direction: column; }
+            .founder-layout { flex-direction: column; }
+            .founder-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+            .cta-section { padding: 3.2rem 1.5rem; }
+            .cta-section .btn-primary { white-space: nowrap; padding: 1rem 1.25rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-area">
+            <img src="../speclogic-logo.png" alt="SpecLogic" class="solution-logo">
+            <div class="logo-divider"></div>
+            <span class="brought-by">By</span>
+            <a href="/" class="northlabs-link">
+                <img src="../logo-full.png" alt="North Labs" class="northlabs-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#platform">Platform</a>
+            <a href="#modules">Modules</a>
+            <a href="#casestudy">Case Study</a>
+            <a href="/contact/" class="nav-cta">Schedule a Demo</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Manufacturing & Industrial Intelligence</span>
+            <h1>Intelligence built for the people who <span class="accent-text">source, spec, and ship</span></h1>
+            <p class="hero-sub">North Labs builds intelligence infrastructure for manufacturers — turning the flow from customer quote requests through supplier sourcing to production delivery into a compounding asset you own.</p>
+        </div>
+        <div class="hero-image">
+            <img src="../speclogic-person.png" alt="Manufacturing professional">
+        </div>
+    </header>
+
+    <div class="testimonial-banner">
+        <span class="testimonial-banner-quote">"SpecLogic cut our quote-to-order cycle in half and gave us visibility into supplier performance we'd never had before." <span class="testimonial-banner-author">— VP of Operations, Mid-Market Manufacturer</span></span>
+    </div>
+
+    <section class="reality-section">
+        <div class="section-inner">
+            <span class="section-label">The Purpose of SpecLogic</span>
+            <h2 class="section-title">Your operational intelligence is an <span class="accent-text">asset</span> that should deliver ROI</h2>
+            <p class="reality-intro">Every customer quote you produce, every supplier you evaluate, every order you fulfill — that's your data, your patterns, your hard-won knowledge. It should compound for you, not train someone else's platform.</p>
+
+            <div class="reality-grid">
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>The Current Model is Backwards</h3>
+                    <p>Manufacturers generate enormous amounts of data across the sales-to-delivery cycle, but it all flows into generic ERP systems and spreadsheets. Your quoting history, supplier performance, production timelines, and material costs — it's your data, but it's not working for you.</p>
+                </div>
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Own Your Intelligence</h3>
+                    <p>We believe manufacturers should own their intelligence the same way they own their equipment. Not as a subscription that disappears when you stop paying. As an asset that appreciates with every quote, every order, every delivery.</p>
+                </div>
+                <div class="reality-card">
+                    <h3><span style="color: var(--accent-blue); margin-right: 0.4rem; font-size: 0.7em;">■</span>Intelligence That Compounds</h3>
+                    <p>That's what we're building. Intelligence that compounds for the people who generate it. Every RFQ that runs through SpecLogic makes the system smarter — specifically for your operation, your suppliers, your standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="intelligence-section" id="platform">
+        <div class="section-inner">
+            <span class="section-label">The Solution</span>
+            <h2 class="section-title">An Intelligence Layer to <span class="accent-text">Own</span></h2>
+
+            <div class="intelligence-grid">
+                <div class="intelligence-card">
+                    <div class="intelligence-card-number">01</div>
+                    <h3>Domain expertise beats generic intelligence</h3>
+                    <p>Generic AI doesn't know your tolerance standards or that a particular alloy supplier consistently ships 3 days late when orders exceed 10 tons. SpecLogic encodes manufacturing knowledge — material specifications, supplier behavior, quoting patterns, production realities — not just language patterns.</p>
+                </div>
+                <div class="intelligence-card">
+                    <div class="intelligence-card-number">02</div>
+                    <h3>Embedded beats bolted-on</h3>
+                    <p>Dashboards don't change behavior. Tools people have to remember to check don't get checked. SpecLogic shows up where decisions happen — in quoting workflows, in supplier communications, in production handoffs. We fit into your workflow, not the other way around.</p>
+                </div>
+                <div class="intelligence-card">
+                    <div class="intelligence-card-number">03</div>
+                    <h3>Integration beats isolation</h3>
+                    <p>Your ERP has cost data. Your MRP has production schedules. Your inbox has supplier communications. Intelligence that only sees one silo is half-blind. SpecLogic connects everything — not to replace your tools, but to make them smarter together.</p>
+                </div>
+                <div class="intelligence-card">
+                    <div class="intelligence-card-number">04</div>
+                    <h3>Partnership beats transaction</h3>
+                    <p>Our model is designed to deliver value. We align our success with yours: investment tied to throughput, not headcount. When you reduce material costs, we win. When you accelerate your quote-to-order cycle, that's real money for both sides.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section" id="modules">
+        <div class="section-inner">
+            <span class="section-label">Capabilities</span>
+            <h2 class="section-title">SpecLogic <span class="accent-text">Modules</span></h2>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>RFQ Intelligence</h3>
+                    <p>When a customer requests a quote, SpecLogic pulls from your historical pricing, material costs, and production capacity to generate accurate quotes fast — cutting your quote-to-order cycle and helping you win more business.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Supplier Scoring</h3>
+                    <p>Builds a living scorecard for every supplier based on pricing accuracy, delivery performance, quality history, and responsiveness. Institutional knowledge that stays when people leave.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Spec Compliance</h3>
+                    <p>Automatically validates supplier quotes against your material specifications, tolerance requirements, and certification standards. Catches substitutions and non-conformances before they reach the floor.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Cost Intelligence</h3>
+                    <p>Tracks material pricing trends across suppliers and commodity indices. Flags anomalies, identifies negotiation opportunities, and benchmarks every quote against your historical data.</p>
+                </div>
+                <div class="module-card">
+                    <h3>Sales-to-Delivery Tracking</h3>
+                    <p>Connects the customer quote through supplier sourcing to production delivery in real-time. Track margin drift, lead-time slippage, and fulfillment risk before they become problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="casestudy-section" id="casestudy">
+        <div class="section-inner">
+            <span class="section-label">Case Study</span>
+            <h2 class="section-title">The 90-Day <span class="accent-text">Transformation</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.875rem;"><strong>The Partner:</strong> A Midwest precision parts manufacturer ($150M+ annual revenue, 200+ active suppliers).</p>
+
+            <div class="casestudy-content">
+                <div class="casestudy-left">
+                    <h3>The Challenge</h3>
+                    <p>Slow quote turnaround costing them deals, high manual overhead in supplier evaluation, and no visibility connecting customer orders back through sourcing to delivery.</p>
+
+                    <h3 style="margin-top: 0.75rem;">The SpecLogic Intervention</h3>
+                    <div class="phase-item">
+                        <p><strong>Phase 1:</strong> North Labs integrated SpecLogic with their ERP and supplier communication channels, training the intelligence layer on three years of historical quoting, sourcing, and fulfillment data.</p>
+                    </div>
+                    <div class="phase-item">
+                        <p><strong>Phase 2:</strong> Deployed the RFQ and Supplier Intelligence modules to accelerate customer quoting, auto-level supplier quotes, and identify pricing outliers and spec non-conformances.</p>
+                    </div>
+                </div>
+                <div class="casestudy-right">
+                    <h3>The Results</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">65%</div>
+                            <div class="stat-label">Reduction in average quote-to-order cycle time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12%</div>
+                            <div class="stat-label">Average material cost reduction in 90 days</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$340K</div>
+                            <div class="stat-label">Annualized savings from better supplier selection</div>
+                        </div>
+                    </div>
+                    <div class="mic-drop">
+                        <h4>The Standout Moment</h4>
+                        <p>SpecLogic flagged a material substitution buried in a 40-page supplier quote that would have failed tolerance requirements during machining — caught in the first 3 minutes of analysis, saving a $180K production run.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Let's talk <span style="color: var(--accent-blue); font-weight: 700;">manufacturing intelligence</span></h2>
+        <p>Whether you're looking to accelerate your quote-to-order cycle, get smarter about suppliers, or stop losing margin between the sale and the shipment — we'd like to hear from you.</p>
+        <a href="/contact/" class="btn-primary">Schedule a Conversation</a>
+    </section>
+
+    <footer>
+        <a href="/">
+            <img src="../logo-full.png" alt="North Labs" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="/">← Back to North Labs</a>
+            <a href="/#solutions">All Solutions</a>
+        </div>
+    </footer>
+    <script src="/contact-modal.js"></script>
+</body>
+</html>
