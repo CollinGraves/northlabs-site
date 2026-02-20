@@ -138,6 +138,17 @@
             .testimonial-banner { flex-direction: column; gap: 0.25rem; padding: 0.75rem 1.5rem; text-align: center; }
         }
 
+        .cs-quote-section { background: #ffffff; max-width: none; padding: 1.5rem 5rem; }
+        .cs-quote-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; }
+        .cs-quote-text { flex: 1; }
+        .cs-quote-text blockquote { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 1.02rem; line-height: 1.55; color: var(--text-primary); font-weight: 500; font-style: normal; padding-left: 1.25rem; border-left: 3px solid var(--accent-blue); }
+        .cs-quote-text blockquote .accent-text { color: var(--accent-blue); font-weight: 700; }
+        .cs-quote-attribution { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+        .cs-quote-portrait { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+        .cs-quote-portrait-wrapper { width: 77px; height: 77px; border-radius: 50%; overflow: hidden; margin-bottom: 0.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18); }
+        .cs-quote-name { font-size: 0.9375rem; font-weight: 600; color: var(--text-primary); }
+        .cs-quote-title { font-size: 0.8125rem; color: var(--text-secondary); }
+
         .cta-section { background: var(--bg-secondary); text-align: center; padding: 3.2rem 5rem; }
         .cta-section h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 600; margin-bottom: 1rem; }
         .cta-section p { font-size: 1.0625rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
@@ -173,6 +184,9 @@
             .founder-layout { flex-direction: column; }
             .founder-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
             .cta-section { padding: 3.2rem 1.5rem; }
+            .cs-quote-section { padding: 1.5rem; }
+            .cs-quote-inner { flex-direction: column-reverse; text-align: center; }
+            .cs-quote-text blockquote { border-left: none; padding-left: 0; font-size: 0.935rem; }
             .cta-section .btn-primary { white-space: nowrap; padding: 1rem 1.25rem; }
             footer { flex-direction: column; gap: 1rem; text-align: center; }
         }
@@ -334,6 +348,21 @@
                         <p>SpecLogic flagged a material substitution buried in a 40-page supplier quote that would have failed tolerance requirements during machining — caught in the first 3 minutes of analysis, saving a $180K production run.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-quote-section">
+        <div class="cs-quote-inner">
+            <div class="cs-quote-text">
+                <blockquote>"The industries that build our world deserve useful data programs that work like they do. North Labs embeds invaluable data solutions, and along the way, we <span class="accent-text">help people own their data program</span>—not rent it from software vendors."</blockquote>
+            </div>
+            <div class="cs-quote-attribution">
+                <div class="cs-quote-portrait-wrapper">
+                    <img src="../kevin-czarzasty.png" alt="Kevin Czarzasty" class="cs-quote-portrait">
+                </div>
+                <span class="cs-quote-name">Kevin Czarzasty</span>
+                <span class="cs-quote-title">Managing Director</span>
             </div>
         </div>
     </section>
