@@ -148,27 +148,63 @@
             align-items: start;
         }
 
-        .video-placeholder {
-            background: var(--bg-tertiary);
+        .cs-video-container {
             border-radius: 12px;
-            aspect-ratio: 16/9;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .cs-video-poster {
+            position: relative;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .cs-video-poster img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .cs-video-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to top, rgba(180, 185, 195, 0.35) 0%, transparent 100%);
+            border-radius: 0 0 12px 12px;
+            pointer-events: none;
+        }
+
+        .cs-video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(11, 115, 185, 0.85);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 2px dashed var(--border-subtle);
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .video-placeholder svg {
-            width: 64px;
-            height: 64px;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
+        .cs-video-play-btn svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 3px;
         }
 
-        .video-placeholder span {
-            color: var(--text-muted);
-            font-size: 0.875rem;
+        .cs-video-poster:hover .cs-video-play-btn {
+            background: rgba(11, 115, 185, 1);
+            transform: translate(-50%, -50%) scale(1.08);
         }
 
         .featured-details h3 {
@@ -1191,8 +1227,15 @@
             <h1 class="featured-title">North Labs delivers a <span class="accent-text">24.5% reduction</span> in time to analyze bids.</h1>
             
             <div class="featured-content">
-                <div class="video-thumbnail-wrapper" style="max-width: 100%;">
-                    <video controls poster="../icon-case-study-thumbnail.png" style="width: 100%; border-radius: 12px;">
+                <div class="cs-video-container">
+                    <div class="cs-video-poster" id="csVideoPoster">
+                        <img src="../icon-case-study-thumbnail.png" alt="ICON Case Study Video">
+                        <div class="cs-video-gradient"></div>
+                        <button class="cs-video-play-btn" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+                        </button>
+                    </div>
+                    <video id="csVideo" controls style="display:none; width:100%; border-radius:12px;">
                         <source src="../icon-case-study-video.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1493,5 +1536,18 @@
         <img src="../veteran-owned.png" alt="U.S. Veteran Owned Business" class="footer-veteran">
     </footer>
     <script src="/contact-modal.js"></script>
+    <script>
+    (function() {
+        var poster = document.getElementById('csVideoPoster');
+        var video = document.getElementById('csVideo');
+        if (poster && video) {
+            poster.addEventListener('click', function() {
+                poster.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
