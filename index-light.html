@@ -811,9 +811,13 @@
 
         .capability-category {
             background: linear-gradient(135deg, #ffffff 0%, #f0f5f8 100%);
-            border: 1px solid var(--border-subtle);
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+            border-left: 1px solid rgba(0, 0, 0, 0.14);
+            border-right: 1px solid rgba(0, 0, 0, 0.14);
+            border-bottom: 1.5px solid rgba(0, 0, 0, 0.35);
             border-radius: 10px;
             padding: 1rem;
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
         }
 
         .capability-category-header {
@@ -1058,8 +1062,12 @@
         .guarantee-card {
             padding: 1.25rem;
             background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
             border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .guarantee-card h3 {
@@ -1111,14 +1119,21 @@
 
         .practice-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.24);
+            border-left: 1px solid rgba(0, 0, 0, 0.22);
+            border-right: 1px solid rgba(0, 0, 0, 0.22);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.59);
             border-radius: 12px;
             padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
         }
 
         .practice-card:hover {
-            border-color: var(--border-hover);
+            border-top-color: rgba(0, 0, 0, 0.28);
+            border-left-color: rgba(0, 0, 0, 0.26);
+            border-right-color: rgba(0, 0, 0, 0.26);
+            border-bottom-color: rgba(0, 0, 0, 0.63);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
@@ -1547,6 +1562,8 @@
             border-radius: 10px;
             overflow: hidden;
             flex-shrink: 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .video-thumbnail {
