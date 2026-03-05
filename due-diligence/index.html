@@ -252,7 +252,8 @@
             max-width: 326px;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .hero-label {
@@ -466,7 +467,7 @@
             border-top: 0.5px solid rgba(0, 0, 0, 0.08);
             border-left: 3px solid #2d2d2d;
             border-right: 1px solid rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
             border-radius: 12px;
             padding: 1.25rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -533,7 +534,7 @@
             border-top: 0.5px solid rgba(0, 0, 0, 0.08);
             border-left: 1px solid rgba(0, 0, 0, 0.12);
             border-right: 1px solid rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
             border-radius: 12px;
             padding: 1.25rem;
             position: relative;
@@ -706,7 +707,7 @@
             border-top: 0.5px solid rgba(0, 0, 0, 0.08);
             border-left: 1px solid rgba(0, 0, 0, 0.12);
             border-right: 1px solid rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
             border-radius: 12px;
             padding: 0.75rem 1rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -749,7 +750,7 @@
             border-top: 0.5px solid rgba(0, 0, 0, 0.08);
             border-left: 1px solid rgba(0, 0, 0, 0.12);
             border-right: 1px solid rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
             border-radius: 12px;
             overflow: hidden;
             position: relative;
@@ -828,20 +829,22 @@
         .case-stats-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            gap: 0.75rem;
             margin-bottom: 1rem;
         }
 
         .case-stat {
             text-align: center;
             padding: 0.75rem 0.4rem;
-            background: var(--bg-secondary);
+            background: var(--bg-card);
+            border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+            border-left: 1px solid rgba(0, 0, 0, 0.12);
+            border-right: 1px solid rgba(0, 0, 0, 0.12);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .case-stat:nth-child(2) {
-            border-left: 1px solid var(--border-subtle);
-            border-right: 1px solid var(--border-subtle);
-        }
 
         .case-stat-value {
             font-size: 0.85rem;
@@ -977,7 +980,7 @@
             border-top: 0.5px solid rgba(0, 0, 0, 0.08);
             border-left: 1px solid rgba(0, 0, 0, 0.12);
             border-right: 1px solid rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.19);
             border-radius: 12px;
             padding: 1.25rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -1023,6 +1026,8 @@
             height: 100%;
             object-fit: cover;
             object-position: center top;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .dd-quote-content blockquote {
@@ -1238,13 +1243,6 @@
 
             .case-stats-row {
                 grid-template-columns: 1fr;
-            }
-
-            .case-stat:nth-child(2) {
-                border-left: none;
-                border-right: none;
-                border-top: 1px solid var(--border-subtle);
-                border-bottom: 1px solid var(--border-subtle);
             }
 
             .case-card-left,
