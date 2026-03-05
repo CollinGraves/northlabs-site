@@ -498,8 +498,9 @@
             width: 100%;
             display: block;
             border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .deep-card-landscape .landscape-mobile {
+        .deep-card-landscape-mobile {
             display: none;
         }
 
@@ -570,18 +571,18 @@
                 padding: 2.4rem 1.5rem;
             }
 
-            .deep-card-landscape {
-                margin-top: 0;
-                border-radius: 0;
-            }
-            .deep-card-landscape img {
-                border-radius: 0;
-            }
-            .deep-card-landscape .landscape-desktop {
+            .deep-card-left .deep-card-landscape {
                 display: none;
             }
-            .deep-card-landscape .landscape-mobile {
+            .deep-card-landscape-mobile {
                 display: block;
+                margin-top: 0;
+                border-radius: 0;
+                border-top: 1px solid var(--border-subtle);
+            }
+            .deep-card-landscape-mobile img {
+                border-radius: 0;
+                border: none;
             }
 
             /* B) Deep Dive summary - stack paragraph and button */
@@ -1346,8 +1347,6 @@
                         <h3>Advisory-Led Data Strategy Across a 29-Company Portfolio</h3>
                         <p>A PE-backed produce company needed a partner who could operate across data strategy, application architecture, and infrastructure — with engineering depth and advisory perspective to make the work land across 29 portfolio companies. North Labs was brought in as that partner.</p>
                         <div class="deep-card-target">29 portfolio companies, 3 divisions. Oracle Famous ERP, ArcGIS, Databricks, Power BI, and a portfolio of internally built applications.</div>
-                    </div>
-                    <div class="deep-card-right">
                         <div class="deep-stats-row">
                             <div class="deep-stat">
                                 <div class="deep-stat-value">29</div>
@@ -1366,6 +1365,11 @@
                                 <div class="deep-stat-label">Tables / 126 Relationships</div>
                             </div>
                         </div>
+                        <div class="deep-card-landscape">
+                            <img src="ac-foods-landscape-desktop.jpg" alt="AC Foods agricultural operations" class="landscape-desktop">
+                        </div>
+                    </div>
+                    <div class="deep-card-right">
                         <div class="deep-findings">
                             <div class="deep-finding">
                                 <div class="deep-finding-dot"></div>
@@ -1384,11 +1388,10 @@
                                 <p><strong>Single-partner <span style="color: var(--accent-blue);">cross-functional coverage</span></strong> — data, applications, cloud infrastructure, governance, and analytics delivered without vendor handoffs</p>
                             </div>
                         </div>
-                        <div class="deep-card-landscape">
-                            <img src="ac-foods-landscape-desktop.jpg" alt="AC Foods agricultural operations" class="landscape-desktop">
-                            <img src="ac-foods-landscape-mobile.jpg" alt="AC Foods agricultural operations" class="landscape-mobile">
-                        </div>
                     </div>
+                </div>
+                <div class="deep-card-landscape deep-card-landscape-mobile">
+                    <img src="ac-foods-landscape-mobile.jpg" alt="AC Foods agricultural operations">
                 </div>
                 <div class="deep-card-thesis">
                     <div class="deep-card-thesis-content">
