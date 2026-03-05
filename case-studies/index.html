@@ -489,6 +489,19 @@
             font-weight: 600;
         }
 
+        .deep-card-landscape {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .deep-card-landscape img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            object-position: center 40%;
+            display: block;
+        }
+
         .deep-card-thesis {
             padding: 0.75rem 1.75rem;
             background: rgba(11, 115, 185, 0.08);
@@ -554,6 +567,11 @@
         @media (max-width: 768px) {
             .diving-deep-section {
                 padding: 2.4rem 1.5rem;
+            }
+
+            .deep-card-landscape img {
+                height: 100px;
+                object-position: center 35%;
             }
 
             /* B) Deep Dive summary - stack paragraph and button */
@@ -1358,12 +1376,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="deep-card-landscape">
+                    <img src="ac-foods-landscape.jpg" alt="AC Foods agricultural operations">
+                </div>
                 <div class="deep-card-thesis">
                     <div class="deep-card-thesis-content">
                         <div class="deep-card-thesis-label">Summary</div>
                         <p>The value of an embedded advisory partner is not found in any single deliverable. It compounds over time, across domains, and through the transfer of capability. This customer now operates with governance designed around its own structure, a data team that is more capable than when the engagement began, and a technology strategy shaped by evidence rather than vendor pitches.</p>
                     </div>
-                    <a href="/case-study-affirmedrx/" class="deep-card-thesis-btn">View Full Case Study →</a>
+                    <a href="/case-study-acfoods/" class="deep-card-thesis-btn">View Full Case Study →</a>
                 </div>
             </div>
         </div>
