@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradesmith vs Procore | Construction Intelligence vs Project Management | North Labs</title>
+    <meta name="description" content="Tradesmith and Procore solve different problems. Procore manages construction workflows and documents. Tradesmith analyzes bid data and builds customer-owned intelligence. They integrate — here's how they compare.">
+    <meta property="og:title" content="Tradesmith vs Procore | Construction Intelligence vs Project Management | North Labs">
+    <meta property="og:description" content="Tradesmith and Procore solve different problems. Procore manages workflows. Tradesmith builds customer-owned bid intelligence. Here's how they compare.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.northlabs.io/tradesmith-vs-procore/">
+    <meta property="og:image" content="https://www.northlabs.io/logo-full.png">
+    <meta property="og:site_name" content="North Labs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tradesmith vs Procore | Construction Intelligence vs Project Management | North Labs">
+    <meta name="twitter:description" content="Procore manages construction workflows. Tradesmith builds customer-owned bid intelligence. They integrate — here's how they compare.">
+    <meta name="twitter:image" content="https://www.northlabs.io/logo-full.png">
+    <link rel="canonical" href="https://www.northlabs.io/tradesmith-vs-procore/">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fb;
+            --bg-tertiary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #0a0c10;
+            --text-secondary: #5c6370;
+            --text-muted: #8b919e;
+            --accent-blue: #0b73b9;
+            --accent-blue-dim: rgba(11, 115, 185, 0.12);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--accent-blue);
+            color: #ffffff !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), inset 0 -1px 0 rgba(0,0,0,0.15), 0 2px 8px rgba(11,115,185,0.25);
+        }
+
+        .hero {
+            padding: 8rem 5rem 3rem;
+            max-width: 820px;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .accent-text {
+            color: var(--accent-blue);
+        }
+
+        .hero-sub {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 720px;
+        }
+
+        section {
+            padding: 3.5rem 5rem;
+            max-width: 820px;
+        }
+
+        .section-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-block h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-block p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.875rem;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid var(--border-subtle);
+        }
+
+        .comparison-table th:first-child {
+            color: var(--text-muted);
+            width: 35%;
+        }
+
+        .comparison-table th:nth-child(2) {
+            color: var(--accent-blue);
+        }
+
+        .comparison-table th:nth-child(3) {
+            color: var(--text-primary);
+        }
+
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .callout {
+            background: #f5f9fd;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout p {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .callout strong {
+            color: var(--accent-blue);
+        }
+
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 3.2rem 5rem;
+            max-width: none;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: var(--accent-blue);
+            color: #ffffff;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), inset 0 -1px 0 rgba(0,0,0,0.15), 0 2px 8px rgba(11,115,185,0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), inset 0 -1px 0 rgba(0,0,0,0.15), 0 4px 16px rgba(11,115,185,0.35);
+        }
+
+        footer {
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 2rem;
+            }
+
+            section {
+                padding: 2.4rem 1.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem 0.625rem;
+            }
+
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Tradesmith vs Procore: Construction Intelligence vs Project Management",
+      "description": "A factual comparison of Tradesmith and Procore for general contractors. Procore manages construction workflows and documents. Tradesmith analyzes bid data and builds customer-owned intelligence. They integrate and serve complementary purposes.",
+      "datePublished": "2026-03-24",
+      "dateModified": "2026-03-24",
+      "mainEntityOfPage": "https://www.northlabs.io/tradesmith-vs-procore/",
+      "author": {
+        "@type": "Organization",
+        "name": "North Labs",
+        "url": "https://www.northlabs.io"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "North Labs",
+        "url": "https://www.northlabs.io",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.northlabs.io/logo-full.png"
+        }
+      },
+      "about": [
+        {
+          "@type": "Service",
+          "name": "Tradesmith",
+          "url": "https://www.northlabs.io/tradesmith/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Procore",
+          "url": "https://www.procore.com"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.northlabs.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tradesmith vs Procore",
+          "item": "https://www.northlabs.io/tradesmith-vs-procore/"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Tradesmith a competitor to Procore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tradesmith and Procore serve different functions and are designed to work together. Procore is a construction project management platform that manages documents, workflows, RFIs, submittals, and schedules. Tradesmith is a construction data analytics and bid intelligence platform that analyzes the data Procore and other tools generate to find patterns, flag risks, and build compounding intelligence. Tradesmith integrates with Procore as a data source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Tradesmith and Procore be used together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tradesmith is designed to integrate with Procore. Procore serves as one of Tradesmith's data sources — project data, bid documents, and vendor information from Procore flow into Tradesmith's intelligence layer where they are analyzed alongside data from Sage, Viewpoint, email, spreadsheets, and other sources. The contractor gets document management from Procore and bid intelligence from Tradesmith without changing their existing workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who owns the data in Procore vs Tradesmith?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Procore is a SaaS platform — the software runs on Procore's infrastructure and data is stored on Procore's servers. Customers can export their data, but the platform and any intelligence derived from the data belongs to Procore. Tradesmith is built on customer-owned infrastructure — the data warehouse, data models, AI layers, and all intelligence belong to the contractor permanently. If the engagement with North Labs ends, the customer retains full ownership of everything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Procore do bid analytics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Procore offers bid management through its Preconstruction module — contractors can send bid invitations, receive bids, and manage the bid process. However, Procore does not perform bid analytics: it does not auto-level bids, analyze historical pricing patterns, flag scope gaps, score subcontractors on past performance, or build compounding intelligence from bid data. Those capabilities are what Tradesmith provides as a dedicated bid intelligence platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Tradesmith do that Procore doesn't?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tradesmith provides capabilities Procore was not designed for: automated bid leveling with AI-powered scope gap detection, historical bid analysis across years of project data, subcontractor performance scoring based on bid accuracy and reliability, real-time WIP intelligence connecting bids to actuals, compliance automation for Davis-Bacon and prevailing wage, and conversational AI access via MCP server integration so teams can query their construction intelligence through Slack or Teams. All of this runs on infrastructure the contractor owns permanently."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <img src="../logo-full.png" alt="North Labs logo" class="nav-logo">
+        </a>
+        <div class="nav-links">
+            <a href="/tradesmith/">Tradesmith</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/contact/" class="nav-cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="hero-label">Comparison</span>
+        <h1>Tradesmith vs Procore: <span class="accent-text">different tools, different jobs</span></h1>
+        <p class="hero-sub">Tradesmith and Procore are not competitors — they solve different problems and are designed to work together. Procore is a construction project management platform that manages documents, workflows, and the bid process. Tradesmith is a construction data analytics and bid intelligence platform built by North Labs that analyzes bid data, tracks vendor performance, and builds a compounding intelligence layer the contractor owns permanently. Tradesmith integrates with Procore as a data source.</p>
+    </header>
+
+    <section>
+        <span class="section-label">The Core Difference</span>
+        <h2>What does Procore do vs <span class="accent-text">what does Tradesmith do?</span></h2>
+
+        <div class="content-block">
+            <h3>Procore: Construction project management</h3>
+            <p>Procore is the industry-standard project management platform for construction. It handles documents, drawings, RFIs, submittals, daily logs, schedules, budgets, and the bid invitation process. Procore's Preconstruction module lets contractors send bid invitations to subcontractors and receive bids in a structured workflow. It is a SaaS platform — hosted on Procore's servers, accessed via subscription.</p>
+            <p>Procore is excellent at what it does: organizing the operational workflow of a construction project. Most general contractors in the $100M+ range use Procore or a similar PM tool.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Tradesmith: Construction bid intelligence</h3>
+            <p>Tradesmith starts where Procore stops. Once bids come in — from Procore, from email, from spreadsheets — Tradesmith analyzes them. It auto-levels bids, identifies pricing outliers, catches buried exclusions and scope gaps, scores subcontractors based on historical performance, and builds a compounding intelligence layer that gets smarter with every bid cycle.</p>
+            <p>Tradesmith is not a SaaS product. It runs on customer-owned infrastructure — the data warehouse, the AI models, the intelligence layer, and all the institutional knowledge built over time belongs to the contractor permanently.</p>
+        </div>
+
+        <div class="callout">
+            <p><strong>The simplest way to think about it:</strong> Procore manages the process of getting bids. Tradesmith analyzes what those bids actually mean. Procore tells you which bids you received. Tradesmith tells you which bids to trust, which ones have hidden risk, and how they compare to everything you've seen before.</p>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">Side by Side</span>
+        <h2>How do Tradesmith and Procore <span class="accent-text">compare?</span></h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Capability</th>
+                    <th>Tradesmith</th>
+                    <th>Procore</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Primary function</strong></td>
+                    <td>Bid intelligence &amp; data analytics</td>
+                    <td>Project management &amp; workflow</td>
+                </tr>
+                <tr>
+                    <td><strong>Bid management</strong></td>
+                    <td>Analyzes bids (leveling, outlier detection, scope gaps)</td>
+                    <td>Manages bid process (invitations, submissions, tracking)</td>
+                </tr>
+                <tr>
+                    <td><strong>Historical analysis</strong></td>
+                    <td>Reasons over years of bid data to find patterns</td>
+                    <td>Stores documents; limited historical analytics</td>
+                </tr>
+                <tr>
+                    <td><strong>Subcontractor scoring</strong></td>
+                    <td>AI-powered performance scoring across projects</td>
+                    <td>Vendor directory and prequalification</td>
+                </tr>
+                <tr>
+                    <td><strong>WIP intelligence</strong></td>
+                    <td>Real-time bid-to-actual tracking, margin drift alerts</td>
+                    <td>Budget tracking and financial management</td>
+                </tr>
+                <tr>
+                    <td><strong>AI capabilities</strong></td>
+                    <td>Reads PDFs/Excel like a senior estimator; conversational querying via Slack/Teams</td>
+                    <td>Copilot features for document search and project insights</td>
+                </tr>
+                <tr>
+                    <td><strong>Data ownership</strong></td>
+                    <td>Customer owns all infrastructure, data, and intelligence permanently</td>
+                    <td>SaaS model — data hosted on Procore's servers</td>
+                </tr>
+                <tr>
+                    <td><strong>Deployment model</strong></td>
+                    <td>Customer-owned infrastructure, managed by North Labs</td>
+                    <td>Cloud SaaS subscription</td>
+                </tr>
+                <tr>
+                    <td><strong>Integration</strong></td>
+                    <td>Integrates with Procore, Sage, Viewpoint, email, flat files</td>
+                    <td>App Marketplace with 500+ integrations</td>
+                </tr>
+                <tr>
+                    <td><strong>Best for</strong></td>
+                    <td>GCs who want to build a compounding intelligence asset from their project data</td>
+                    <td>GCs who need structured project management and document control</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <span class="section-label">Integration</span>
+        <h2>How do Tradesmith and Procore <span class="accent-text">work together?</span></h2>
+
+        <div class="content-block">
+            <p>Tradesmith is designed to integrate with Procore — not replace it. In a typical deployment, Procore serves as one of Tradesmith's primary data sources. Here's how it works:</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Data flows from Procore into Tradesmith</h3>
+            <p>Project data, bid documents, vendor information, and financial data from Procore are ingested into the Tradesmith intelligence layer alongside data from Sage (or Viewpoint), email, and historical spreadsheets. Tradesmith normalizes and structures all of this into a unified data model.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>Intelligence surfaces where decisions happen</h3>
+            <p>Tradesmith's analysis — bid leveling results, scope gap alerts, vendor performance scores, WIP drift warnings — can surface through dashboards, email alerts, or conversational AI via Slack and Microsoft Teams. Teams don't need to leave their existing workflow to access the intelligence.</p>
+        </div>
+
+        <div class="content-block">
+            <h3>No workflow disruption</h3>
+            <p>Contractors keep using Procore for what Procore does well: managing the project. Tradesmith adds the intelligence layer that Procore wasn't designed to provide. The result is a contractor who manages projects with Procore and makes better decisions with Tradesmith.</p>
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">The Ownership Question</span>
+        <h2>Why does <span class="accent-text">data ownership</span> matter in this comparison?</h2>
+
+        <div class="content-block">
+            <p>This is the distinction that matters most for contractors evaluating their technology stack long-term.</p>
+            <p>Procore is a SaaS platform. The software, the infrastructure, and the platform intelligence belong to Procore. Customers can export their data, but the intelligence layer — the algorithms, the models, the derived insights — stays with Procore. If a contractor stops paying the subscription, they lose access to the platform and its capabilities.</p>
+            <p>Tradesmith is built on infrastructure the contractor owns. The data warehouse, the data models, the AI layers, and all the compounding intelligence built over years of bid cycles belong to the customer. If the engagement with North Labs ends, the customer keeps everything. The intelligence doesn't disappear — it's an asset the contractor owns like their equipment or their real estate.</p>
+            <p>For contractors whose competitive advantage depends on institutional knowledge — knowing which subs deliver, which bid patterns signal risk, how costs actually track against estimates — the question of who owns that intelligence is a strategic decision, not just a procurement one.</p>
+        </div>
+    </section>
+
+    <section class="cta-section" style="max-width: none;">
+        <h2>Want to see how Tradesmith adds intelligence to <span class="accent-text">your existing stack?</span></h2>
+        <p>We'll show you how Tradesmith integrates with Procore and your other tools to build a compounding intelligence layer you own.</p>
+        <a href="/contact/" class="btn-primary">Schedule a Demo</a>
+    </section>
+
+    <footer>
+        <a href="/">
+            <img src="../logo-full.png" alt="North Labs logo" class="footer-logo-img">
+        </a>
+        <div class="footer-links">
+            <a href="/">← Back to North Labs</a>
+            <a href="/tradesmith/">Tradesmith</a>
+            <a href="/construction-data-analytics/">Construction Data Analytics</a>
+        </div>
+    </footer>
+    <script src="/contact-modal.js"></script>
+</body>
+</html>
