@@ -121,6 +121,78 @@
             color: var(--text-primary);
         }
 
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            cursor: pointer;
+        }
+
+        .nav-dropdown-trigger svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-trigger svg {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 0.5rem;
+            min-width: 260px;
+        }
+
+        .nav-dropdown-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.625rem 0.875rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.15s ease;
+        }
+
+        .nav-dropdown-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .nav-dropdown-item span {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .nav-dropdown-item small {
+            font-size: 0.6875rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
         .nav-cta {
             padding: 0.75rem 1.5rem;
             background: #6b7280;
@@ -149,9 +221,9 @@
             min-height: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
-            padding: 8rem 5rem 2rem 5rem;
+            padding: 7rem 5rem 1.25rem 5rem;
             position: relative;
         }
 
@@ -171,7 +243,7 @@
             font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
@@ -184,11 +256,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            margin-bottom: 0.875rem;
             max-width: 800px;
             padding-left: 2rem;
         }
@@ -199,11 +271,11 @@
         }
 
         .hero-sub {
-            font-size: 1.125rem;
+            font-size: 0.9375rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            line-height: 1.55;
             padding-left: 2rem;
         }
 
@@ -1023,6 +1095,30 @@
             <a href="#platform">Platform</a>
             <a href="#modules">Modules</a>
             <a href="#casestudy">Case Study</a>
+            <div class="nav-dropdown">
+                <a class="nav-dropdown-trigger">
+                    Resources
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-content">
+                        <a href="/construction-data-analytics/" class="nav-dropdown-item">
+                            <span>What is Construction Data Analytics?</span>
+                            <small>Topic Guide</small>
+                        </a>
+                        <a href="/construction-data-ownership/" class="nav-dropdown-item">
+                            <span>Own Your Intelligence</span>
+                            <small>Own vs Rent</small>
+                        </a>
+                        <a href="/tradesmith-vs-procore/" class="nav-dropdown-item">
+                            <span>Tradesmith vs Procore</span>
+                            <small>Comparison</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <a href="/contact/" class="nav-cta">Schedule a Demo</a>
         </div>
     </nav>
